@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import StructuredSectionHeader from '../sections/StructuredSectionHeader';
 import StructuredSectionFooter from '../sections/StructuredSectionFooter';
 import ProductCardGridPtTile from '../portableText/insertable/SmartGrid/ProductCardGridPtTile';
@@ -96,7 +96,7 @@ function SmartGridBlock({
           };
 
           return (
-            <Grid item key={_key} {...col}>
+            <Grid key={_key} {...col}>
               {tileSelector(_type)}
             </Grid>
           );

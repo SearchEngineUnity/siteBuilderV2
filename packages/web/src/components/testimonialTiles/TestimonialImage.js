@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Grid, CardContent, Typography, Avatar } from '@mui/material';
+import { Card, CardContent, Typography, Avatar } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { styled } from '@mui/material/styles';
@@ -33,7 +34,7 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
     <StyledCard elevation={0} square>
       <StyledCardContent>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm>
+          <Grid xs={12} sm>
             <Typography variant="body1" sx={{ fontStyle: 'italic', marginBottom: '16px' }}>
               {text}
             </Typography>
@@ -44,7 +45,7 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
               {printedCompany}
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid>
             {image ? (
               <GatsbyImage
                 image={imageData}

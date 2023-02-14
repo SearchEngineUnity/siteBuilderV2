@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Grid, Box } from '@mui/material';
+import { Container, Box } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import { makeStyles } from 'tss-react/mui';
 import ImgBlock from '../blocks/FluidImgBlock';
 import VideoBlock from '../blocks/VideoBlock';
@@ -330,7 +331,6 @@ function StructuredLrFlex({
             };
             return (
               <Grid
-                item
                 {...col}
                 key={block._key}
                 className={`${index === 0 && reverseOrder ? classes.blockOneReverse : null} ${

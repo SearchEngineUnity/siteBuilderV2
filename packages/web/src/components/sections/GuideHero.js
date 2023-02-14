@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Typography, Grid, Box } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import { makeStyles } from 'tss-react/mui';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Subtitle from '../portableText/serializer/HeroSubtitleSerializer';
@@ -66,7 +67,7 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
             component="header"
             className={classes.mobileGrid}
           >
-            <Grid item md={6} xs={12}>
+            <Grid md={6} xs={12}>
               <Typography variant="h1" gutterBottom>
                 {h1}
               </Typography>
@@ -79,7 +80,7 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
               <br />
               {includeDisclaimer && disclaimerText && <Subtitle blocks={disclaimerText} />}
             </Grid>
-            <Grid item md={6} xs={12}>
+            <Grid md={6} xs={12}>
               <Box display="flex" justifyContent={heroAlignment.heroImgAlignment}>
                 <ImgBlock
                   {...mapFluidImgBlockToProps(image)}

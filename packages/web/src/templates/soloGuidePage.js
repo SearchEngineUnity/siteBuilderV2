@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container, Grid, Box, Hidden } from '@mui/material';
+import { Container, Box, Hidden } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import Layout from '../containers/layout';
 import GuideHero from '../components/sections/GuideHero';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
@@ -76,15 +77,13 @@ function SoloGuidePage({ data, location }) {
           <Container maxWidth="lg">
             <Grid container spacing={3}>
               <Hidden mdDown>
-                {/* The usage of this style prop may be removeable with Grid V2 */}
-                <Grid item md={3} style={{ order: 2 }}>
+                <Grid md={3} sx={{ order: 2 }}>
                   {data.guide.toc.length > 0 && (
                     <ToC toc={data.guide.toc} content={data.guide._rawGuideBody} />
                   )}
                 </Grid>
               </Hidden>
-              {/* The usage of this style prop may be removeable with Grid V2 */}
-              <Grid item md={9} xs={12} component="article" style={{ order: 1 }}>
+              <Grid md={9} xs={12} component="article" sx={{ order: 1 }}>
                 <GuideBody blocks={data.guide._rawGuideBody} />
               </Grid>
             </Grid>

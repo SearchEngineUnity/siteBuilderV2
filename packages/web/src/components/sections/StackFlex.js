@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Grid, Box } from '@mui/material';
+import { Container, Box } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import { makeStyles } from 'tss-react/mui';
 import ImgBlock from '../blocks/FluidImgBlock';
 import VideoBlock from '../blocks/VideoBlock';
@@ -49,18 +50,6 @@ const useStyles = makeStyles()(
       borderRadius,
     },
   ) => ({
-    blockOneReverse: {
-      order: 1,
-      [theme.breakpoints.down('sm')]: {
-        order: 2,
-      },
-    },
-    blockTwoReverse: {
-      order: 2,
-      [theme.breakpoints.down('sm')]: {
-        order: 1,
-      },
-    },
     mobileGrid: {
       [theme.breakpoints.down('sm')]: {
         margin: -8,
@@ -332,9 +321,7 @@ function StackFlex({
               className={classes.mobileGrid}
               key={_key}
             >
-              <Grid item {...col}>
-                {blockSelector(_type)}
-              </Grid>
+              <Grid {...col}>{blockSelector(_type)}</Grid>
             </Grid>
           );
         })}

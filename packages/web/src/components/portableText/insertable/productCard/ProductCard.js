@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import { Card, Paper, Box, Typography, Grid } from '@mui/material';
+import { Card, Paper, Box, Typography } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import ButtonBase from '@mui/material/ButtonBase';
 import { makeStyles } from 'tss-react/mui';
 import Modal from '@mui/material/Modal';
@@ -131,7 +132,7 @@ function ProductCard({
           )}
           <Box margin={3}>
             <Grid container spacing={2} alignItems="center">
-              <Grid item xs={12} sm={4}>
+              <Grid xs={12} sm={4}>
                 <ButtonBase
                   type="button"
                   onClick={handleOpen}
@@ -169,7 +170,7 @@ function ProductCard({
                 <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
                 <br />
               </Grid>
-              <Grid item xs={12} sm={8}>
+              <Grid xs={12} sm={8}>
                 <Typography component={headingLevel} variant="h4">
                   {name}
                 </Typography>

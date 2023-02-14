@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Container, Divider, Grid, Toolbar, Hidden } from '@mui/material';
+import { Box, Container, Divider, Toolbar, Hidden } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import { Link } from 'gatsby-theme-material-ui';
 import NavBrand from '../headerElements/NavBrand';
 import ContactInfo from '../../ContactInfo';
@@ -20,12 +21,12 @@ export default function MainFooter() {
         <Container maxWidth="lg" component="nav" role="menubar">
           <Grid container spacing={3}>
             {menuArray.map((group) => (
-              <Grid container item xs={12} md={3} key={group._key} direction="column">
+              <Grid container xs={12} md={3} key={group._key} direction="column">
                 {group.menuGroup.map((item) => {
                   switch (item._type) {
                     case 'navBrand':
                       return (
-                        <Grid item key={item._key}>
+                        <Grid key={item._key}>
                           <Box my={2}>
                             <NavBrand {...mapNavBrandToProps(item)} url={contactInfo.homePage} />
                             <ContactInfo />
@@ -38,7 +39,7 @@ export default function MainFooter() {
                     case 'navItem':
                       return (
                         <Hidden mdDown key={item._key}>
-                          <Grid item>
+                          <Grid>
                             <FooterItem {...mapNavItemToProps(item)} />
                           </Grid>
                         </Hidden>
@@ -46,7 +47,7 @@ export default function MainFooter() {
                     case 'navGroup':
                       return (
                         <Hidden mdDown key={item._key}>
-                          <Grid item>
+                          <Grid>
                             <FooterGroup {...mapNavGroupToProps(item)} />
                           </Grid>
                         </Hidden>
@@ -54,7 +55,7 @@ export default function MainFooter() {
                     case 'navPhone':
                       return (
                         <Hidden mdDown key={item._key}>
-                          <Grid item>
+                          <Grid>
                             <NavPhone text={item.text} number={item.phoneNUmber} />
                           </Grid>
                         </Hidden>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import ProductCardGridPtTile from './ProductCardGridPtTile';
 import PtTile from '../../serializer/SmartGridSerializer';
 import Illustration from '../Illustration';
@@ -68,7 +68,7 @@ function SmartGrid({ layout, tiles }) {
           };
 
           return (
-            <Grid item key={_key} {...col}>
+            <Grid key={_key} {...col}>
               {tileSelector(_type)}
             </Grid>
           );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import Tile1 from '../tiles/TileImageRecSqr';
 import Tile2 from '../tiles/TileImageCircle';
 import Tile3 from '../tiles/TileImageTitleBorder';
@@ -97,7 +97,7 @@ function GridFlex({
           };
 
           return (
-            <Grid item key={tile._key} {...col}>
+            <Grid key={tile._key} {...col}>
               {tileSelector(tileOption)}
             </Grid>
           );
