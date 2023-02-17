@@ -3,7 +3,7 @@ import { RiGatsbyLine } from 'react-icons/ri';
 
 const contentSyncUrl = process.env.SANITY_STUDIO_CONTENT_SYNC_URL;
 
-export const GatsbyPreviewAction = ({ published, draft }) => {
+export function GatsbyPreviewAction({ published, draft }) {
   const doc = draft || published;
 
   if (!doc) return null;
@@ -28,4 +28,4 @@ export const GatsbyPreviewAction = ({ published, draft }) => {
       );
     },
   };
-};
+}
