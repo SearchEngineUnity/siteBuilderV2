@@ -142,7 +142,11 @@ const serializers = {
         <ClickableImage {...value} />
       </VerticalSpacingWrapper>
     ),
-    smartGrid: ({ value }) => <SmartGrid {...value} />,
+    smartGrid: ({ value }) => (
+      <VerticalSpacingWrapper>
+        <SmartGrid {...value} />
+      </VerticalSpacingWrapper>
+    ),
   },
   marks: {
     hashId: ({ children }) => children,

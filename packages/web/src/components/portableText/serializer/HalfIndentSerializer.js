@@ -153,7 +153,11 @@ const serializers = {
         </IndentHalfWrapper>
       </VerticalSpacingWrapper>
     ),
-    smartGrid: ({ value }) => <SmartGrid {...value} />,
+    smartGrid: ({ value }) => (
+      <VerticalSpacingWrapper>
+        <SmartGrid {...value} />
+      </VerticalSpacingWrapper>
+    ),
   },
   marks: {
     hashId: ({ children }) => children,

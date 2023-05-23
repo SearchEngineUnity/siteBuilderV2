@@ -2,6 +2,7 @@ import { FaPalette } from 'react-icons/fa';
 import { MdSettings, MdBusiness } from 'react-icons/md';
 import { BsType, BsViewList } from 'react-icons/bs';
 import { HiOutlineOfficeBuilding, HiOutlineColorSwatch } from 'react-icons/hi';
+import ButtonDesignPreview from './preview/ButtonDesignPreview';
 
 export default (S) =>
   S.list()
@@ -39,7 +40,13 @@ export default (S) =>
                   S.documentTypeList('btnDesignMui')
                     .title('Button Design Sets')
                     .child((documentId) =>
-                      S.document().documentId(documentId).schemaType('btnDesignMui'),
+                      S.document()
+                        .documentId(documentId)
+                        .schemaType('btnDesignMui')
+                        .views([
+                          S.view.form(),
+                          S.view.component(ButtonDesignPreview).title('Preview'),
+                        ]),
                     ),
                 ),
               S.listItem()

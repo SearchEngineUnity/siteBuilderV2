@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby-theme-material-ui';
 
 function ConditionalLink({ link, children, className }) {
-  console.log(link);
   let linkType = link._type;
   let { href } = link;
   const { hashId = '', newTab = false, noreferrer = false } = link;

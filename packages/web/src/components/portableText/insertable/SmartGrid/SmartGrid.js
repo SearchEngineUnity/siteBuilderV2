@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import React from 'react';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2';
 import ProductCardGridPtTile from './ProductCardGridPtTile';
 import PtTile from '../../serializer/HalfIndentSerializer';
 import Illustration from '../Illustration';
@@ -27,38 +27,43 @@ function SmartGrid({ layout, tiles }) {
 
   const col = colCalculate(layout);
 
+  const componentMapping = {
+    productCardGridPtTile: ProductCardGridPtTile,
+    smartGridPtTile: PtTile,
+    illustration: Illustration,
+    video: Video,
+    clickableImage: ClickableImage,
+    btnBlockMui: ConditionalButton,
+    smartOrderedList: SmartOrderedList,
+    smartUnorderedList: SmartUnorderedList,
+  };
+
+  const propsMapping = (type, props) => {
+    switch (type) {
+      case 'illustration':
+        return { illustration: props };
+      case 'btnBlockMui':
+        return { ...mapMuiBtnToProps(props) };
+      case 'smartGridPtTile':
+        return { blocks: props.content };
+      default:
+        return props;
+    }
+  };
+
+  const errorMsg = 'Tile still under development.';
+
   return (
     <Grid container spacing={3}>
       {tiles &&
         tiles.map((tile) => {
           const { _key, _type } = tile;
-
-          const tileSelector = (key) => {
-            switch (true) {
-              case key === 'productCardGridPtTile':
-                return <ProductCardGridPtTile {...tile} />;
-              case key === 'smartGridPtTile':
-                return <PtTile blocks={tile.content} />;
-              case key === 'illustration':
-                return <Illustration illustration={tile} />;
-              case key === 'smartOrderedList':
-                return <SmartOrderedList {...tile} />;
-              case key === 'smartUnorderedList':
-                return <SmartUnorderedList {...tile} />;
-              case key === 'clickableImage':
-                return <ClickableImage {...tile} />;
-              case key === 'video':
-                return <Video {...tile} />;
-              case key === 'btnBlockMui':
-                return <ConditionalButton {...mapMuiBtnToProps(tile)} />;
-              default:
-                return <div> Tile still under development</div>;
-            }
-          };
+          const Component = componentMapping[_type];
+          const values = propsMapping(_type, tile);
 
           return (
-            <Grid item key={_key} {...col}>
-              {tileSelector(_type)}
+            <Grid key={_key} {...col}>
+              {Component ? <Component {...values} /> : errorMsg}
             </Grid>
           );
         })}

@@ -10,7 +10,6 @@ import ConditionalLink from '../../link/ConditionalLink';
 import ConditionalButton from '../../buttons/ConditionalButton';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
-import ProductCard from '../insertable/productCard/ProductCard';
 import ClickableImage from '../insertable/ClickableImage';
 import SmartGrid from '../insertable/SmartGrid/SmartGrid';
 import VerticalSpacingWrapper from '../insertable/VerticalSpacingWrapper';
@@ -137,17 +136,16 @@ const serializers = {
     ),
     smartOrderedList: ({ value }) => <SmartOrderedList {...value} />,
     smartUnorderedList: ({ value }) => <SmartUnorderedList {...value} />,
-    productCard: ({ value }) => (
-      <VerticalSpacingWrapper>
-        <ProductCard {...value} />
-      </VerticalSpacingWrapper>
-    ),
     clickableImage: ({ value }) => (
       <VerticalSpacingWrapper>
         <ClickableImage {...value} />
       </VerticalSpacingWrapper>
     ),
-    smartGrid: ({ value }) => <SmartGrid {...value} />,
+    smartGrid: ({ value }) => (
+      <VerticalSpacingWrapper>
+        <SmartGrid {...value} />
+      </VerticalSpacingWrapper>
+    ),
   },
   marks: {
     hashId: ({ children }) => children,

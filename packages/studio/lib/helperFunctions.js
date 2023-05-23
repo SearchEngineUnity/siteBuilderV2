@@ -1,8 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-export const determineColor = (color) => {
-  const {
-    rgb: { r, g, b, a },
-  } = color;
+export const determineColor = (color = {}) => {
+  const { rgb: { r, g, b, a } = {} } = color;
 
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
+  return color?.rgb ? `rgba(${r}, ${g}, ${b}, ${a})` : null;
 };

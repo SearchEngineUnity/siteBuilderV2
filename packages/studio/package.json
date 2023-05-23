@@ -16,9 +16,13 @@
     "sanity"
   ],
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.2",
+    "@mui/styled-engine-sc": "^5.12.0",
     "@sanity/color-input": "^3.1.0",
     "@sanity/dashboard": "^3.1.4",
-    "@sanity/vision": "^3.10.3",
+    "@sanity/vision": "^3.11.1",
     "get-video-id": "^3.6.5",
     "latest": "^0.2.0",
     "prop-types": "^15.8.1",
@@ -26,10 +30,11 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.10.3",
+    "rxjs": "^7.8.1",
+    "sanity": "^3.11.1",
     "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
     "sanity-plugin-media": "^2.0.5",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.3.10"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
