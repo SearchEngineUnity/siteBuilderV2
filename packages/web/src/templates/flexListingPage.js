@@ -1610,6 +1610,7 @@ function FlexListingPage({ data, location, pageContext }) {
   let allListItems;
   const spGuides = useSpGuides();
 
+  // same switch as in gatsby-node.js
   switch (pageContext.listItemType) {
     case 'Solo Guide Page':
       allListItems = spGuides;
@@ -1621,6 +1622,7 @@ function FlexListingPage({ data, location, pageContext }) {
 
   const { currentpage, limit } = pageContext;
 
+  // what happens if allListItems still has no value at this point?
   const listingItems = allListItems.slice((currentpage - 1) * limit, currentpage * limit);
 
   return (
@@ -1630,9 +1632,16 @@ function FlexListingPage({ data, location, pageContext }) {
           const { _type } = section;
           switch (_type) {
             case 'lrHero':
+              // you are using mapping functions for your props, why?
+              // what is keeping you from renaming the props in the components to match the data
+              // it looks like LrFlexHero appears only on two pages, and in both cases you call
+              // the same mapping function
               return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
 
             case 'lrFlex':
+              // there are two components called StructuredLrFlex???
+              // also same thing as the case above, why the mapping
+              // the component is only used in two places and both do the same mapping
               return <LrFlex key={section._key} {...mapLrFlexToProps(section)} />;
 
             case 'stackFlex':
@@ -1641,6 +1650,9 @@ function FlexListingPage({ data, location, pageContext }) {
             case 'stackHero':
               return <StackHero key={section._key} {...mapStackSectionToProps(section)} />;
 
+            // this case is the only diff between FlexListingPage and StructuredPage
+            // could FlexListingPage be reduced to two cases, this one and otherwise
+            // render Structured page?
             case 'paginatedListingSection':
               return (
                 <PaginatedListingSection

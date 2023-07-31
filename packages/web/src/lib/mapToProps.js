@@ -1,3 +1,21 @@
+// when there is enough repetition among the map functions
+// you could extract repeating fields into their own functions
+// and reuse those
+// e.g.
+
+// const mapHeadings = ({header}) => ({
+//     heading: header?.heading,
+//     subheading: header?.subheading,
+//     subtitle: header?._rawSubtitle,
+// })
+
+// const mapToOtherComp = (data) => ({
+//   ...mapHeadings(data),
+//   x,
+//   y
+//   ...
+// })
+
 export function mapSeoToProps(
   {
     pageTitle,

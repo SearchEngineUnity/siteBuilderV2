@@ -77,13 +77,17 @@ async function createFlexListingPages(actions, graphql) {
 
   const pages = data.allSanityFlexListingPage.edges;
   pages.forEach((page) => {
+    // why filter all of them if you only need the first one with given section type?
     const { listItemType } = page.node.sections.filter(
       (section) => section._type === 'paginatedListingSection',
     )[0];
+    // then we repeat the same filtering?
     const numPerPage = page.node.sections.filter(
       (section) => section._type === 'paginatedListingSection',
     )[0].count;
     let totalCount;
+    // replace switch with
+    // if (listItemType === 'Solo Guide Page') totalCount = data.allSanitySoloGuidePage.totalCount;
     switch (listItemType) {
       case 'Solo Guide Page':
         totalCount = data.allSanitySoloGuidePage.totalCount;
@@ -92,10 +96,13 @@ async function createFlexListingPages(actions, graphql) {
       default:
         break;
     }
+    // at this point, totalCount is only set in case where listItemType === 'Solo Guide Page'
+    // is this ever not the case?
     const numPages = Math.ceil(totalCount / numPerPage);
     Array.from({ length: numPages }).forEach((_, i) => {
       if (page?.node?.slug?.current) {
         actions.createPage({
+          // so you never end up with a path `${page.node.slug.current/1}`?
           path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
           component: path.resolve(`./src/templates/flexListingPage.js`),
           ownerNodeId: page.node.id,
@@ -134,7 +141,7 @@ async function createSoloGuidePages(actions, graphql) {
   guides.forEach((guide) => {
     if (guide?.node?.slug?.current) {
       actions.createPage({
-        path: `/${guide.node.slug.current}`,
+        path: `/${guide.node.slug.current}`, // no root paths?
         ownerNodeId: guide.node.id,
         component: path.resolve(`./src/templates/soloGuidePage.js`),
         context: {

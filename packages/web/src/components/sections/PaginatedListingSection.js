@@ -54,6 +54,8 @@ function PaginatedListingSection({
           subheadingColor={subheadingColor}
           subtitleColor={subtitleColor}
           align={headerAlignment}
+
+          // {...{heading, subheading, subtitle, headingColor, subheadingColor}, align={headerAlignment}}
         />
         <Grid container spacing={6}>
           {listingItems.map((item) => (
