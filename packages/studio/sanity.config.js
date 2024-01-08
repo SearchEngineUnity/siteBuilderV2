@@ -28,8 +28,8 @@ export default defineConfig({
           sites: [
             {
               title: 'Site Builder V2',
-              apiId: 'e978dfee-c169-45df-9cea-aa427232a7f8',
-              buildHookId: '63e28e14258d2d0fddde9ef4',
+              apiId: 'b653e5f5-d0d8-4b54-a438-16d414f073b5',
+              buildHookId: '659c4a18a051c212a65d20c2',
               name: 'sitebuilderv2',
             },
           ],
