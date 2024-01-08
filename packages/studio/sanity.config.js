@@ -5,7 +5,6 @@ import { media, mediaAssetSource } from 'sanity-plugin-media';
 import { dashboardTool, projectUsersWidget, projectInfoWidget } from '@sanity/dashboard';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { colorInput } from '@sanity/color-input';
-import { gatsbyWidget } from './schemas/components/widgets/gatsbyPreviewWidget';
 import { sanityLimitWidget } from './schemas/components/widgets/sanityLimitWidget';
 import { schemaTypes } from './schemas';
 import deskStructure from './deskStructure';
@@ -35,18 +34,6 @@ export default defineConfig({
             },
           ],
           layout: { width: 'small', height: 'small' },
-        }),
-        gatsbyWidget({
-          site: {
-            title: 'siteBuilderV2 Preview',
-            name: 'sitebuilderv2-preview',
-            id: 'sitebuilderv2-preview',
-            organizationId: 'd7d268c0-3157-4cab-a651-e456e34643bb',
-            url: 'https://preview-sitebuilderv2.gatsbyjs.io',
-            adminUrl:
-              'https://www.gatsbyjs.com/dashboard/d7d268c0-3157-4cab-a651-e456e34643bb/sites/b3aea1e1-5265-4f8e-a477-52211e5bdb3c/cmsPreview',
-            buildHookId: 'b3aea1e1-5265-4f8e-a477-52211e5bdb3c',
-          },
         }),
         sanityLimitWidget({ projectId: 'ki8bqxrw' }),
         projectUsersWidget(),

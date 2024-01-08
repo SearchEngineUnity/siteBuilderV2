@@ -41,6 +41,8 @@ export default {
           return { title: 'LinkedIn' };
         case 'youtube':
           return { title: 'Youtube' };
+        case 'homestars':
+          return { title: 'HomeStars' };
         default:
           return { title: 'Error' };
       }

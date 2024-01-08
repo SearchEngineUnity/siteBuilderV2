@@ -14,6 +14,7 @@ export default (S) =>
       S.documentTypeListItem('navMenu').title('Navigation Menus'),
       S.divider(),
       S.documentTypeListItem('testimonial').title('Testimonials'),
+      S.documentTypeListItem('videoAsset').title('Video Assets'),
       S.documentTypeListItem('formNetlify').title('Forms'),
       S.documentTypeListItem('colorOption').title('Color Options'),
       S.listItem()

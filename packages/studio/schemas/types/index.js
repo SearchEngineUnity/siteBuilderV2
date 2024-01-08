@@ -1,3 +1,4 @@
+export { default as accordionItem } from './accordionItem';
 export { default as brandItem } from './brandItem';
 export { default as btnSettingsMui } from './btnSettingsMui';
 export { default as clickableImageImage } from './clickableImageImage';
@@ -25,6 +26,7 @@ export { default as navSet } from './navSet';
 export { default as paddingSet } from './paddingSet';
 export { default as smartOrderedListItem } from './smartOrderedListItem';
 export { default as smartUnorderedListItem } from './smartUnorderedListItem';
+export { default as stepItem } from './stepItem';
 export { default as tileImage } from './tileImage';
 export { default as tileInfo } from './tileInfo';
 export { default as tocLink } from './tocLink';

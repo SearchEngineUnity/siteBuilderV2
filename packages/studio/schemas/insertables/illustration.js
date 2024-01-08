@@ -16,6 +16,12 @@ export default {
       title: 'Alt',
     },
     {
+      name: 'hasFrame',
+      type: 'boolean',
+      title: 'Framed',
+      initialValue: true,
+    },
+    {
       name: 'caption',
       type: 'minPT',
       title: 'Caption Text',

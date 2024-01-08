@@ -60,6 +60,24 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
+      name: 'border',
+      title: 'Border Style',
+      type: 'string',
+      description: (
+        <>
+          Accept string as per border CSS variable. If no color is specified then it will be the
+          same as button text color.{' '}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/border"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resource link
+          </a>
+        </>
+      ),
+    },
+    {
       name: 'disableElevation',
       title: 'Disable elevation',
       type: 'boolean',
