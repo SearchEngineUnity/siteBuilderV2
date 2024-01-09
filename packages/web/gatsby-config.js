@@ -81,7 +81,7 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: 'ki8bqxrw',
-        dataset: 'development',
+        dataset: 'production',
         token: process.env.SANITY_TOKEN,
         watchMode: !isProd, // watchMode only in dev mode
         overlayDrafts: !isProd || previewEnabled, // drafts in dev & Gatsby Cloud Preview
