@@ -16,7 +16,8 @@ export const useFooter = () => {
                 alt
                 brandGroup {
                   _key
-                  height
+                  maxHeight
+                  maxWidth
                   type
                   brand {
                     _id

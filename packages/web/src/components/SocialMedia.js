@@ -6,6 +6,7 @@ import LinkedIn from '@mui/icons-material/LinkedIn';
 import Pinterest from '@mui/icons-material/Pinterest';
 import Twitter from '@mui/icons-material/Twitter';
 import YouTube from '@mui/icons-material/YouTube';
+import HomeIcon from '@mui/icons-material/Home';
 import { useSocialInfo } from '../hooks/useSocialInfo';
 
 const socialNetworks = {
@@ -15,6 +16,7 @@ const socialNetworks = {
   pinterest: Pinterest,
   linkedin: LinkedIn,
   youtube: YouTube,
+  homestars: HomeIcon,
 };
 
 export default function SocialMedia() {
