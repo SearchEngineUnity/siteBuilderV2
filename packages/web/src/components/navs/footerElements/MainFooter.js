@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'gatsby-theme-material-ui';
 import NavBrand from '../headerElements/NavBrand';
@@ -27,7 +27,7 @@ export default function MainFooter() {
         <Container maxWidth="lg" component="nav" role="menubar">
           <Grid container spacing={3}>
             {menuArray.map((group) => (
-              <Grid container item xs={12} md={3} key={group._key} direction="column">
+              <Grid container xs={12} md={3} key={group._key} direction="column">
                 {group.menuGroup.map((item) => {
                   switch (item._type) {
                     case 'navBrand':
