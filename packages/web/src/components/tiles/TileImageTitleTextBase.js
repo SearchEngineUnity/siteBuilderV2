@@ -1,3 +1,4 @@
+// Tile #4
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,7 +8,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../lib/sanityConfig';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 
-function TileImageRecSqr({ image, alt, link, title, text }) {
+function TileImageTitleTextBase({ image, alt, link, title, text }) {
   const imageData = getGatsbyImageData(
     image,
     {
@@ -33,4 +34,4 @@ function TileImageRecSqr({ image, alt, link, title, text }) {
   );
 }
 
-export default TileImageRecSqr;
+export default TileImageTitleTextBase;
