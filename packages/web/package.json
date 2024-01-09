@@ -51,6 +51,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-instantsearch-hooks-web": "^6.47.3",
+    "react-material-ui-carousel": "^3.4.2",
     "react-player": "^2.11.0",
     "styled-components": "^6.0.7",
     "tss-react": "^4.6.0"
