@@ -52,19 +52,13 @@ export const useMainNav = () => {
                 alt
                 brandGroup {
                   _key
-                  height
+                  maxHeight
+                  maxWidth
                   type
                   brand {
                     _id
                     logo {
-                      asset {
-                        url
-                        metadata {
-                          dimensions {
-                            aspectRatio
-                          }
-                        }
-                      }
+                      _rawAsset(resolveReferences: { maxDepth: 1 })
                     }
                   }
                 }
