@@ -1,21 +1,23 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Video from '../portableText/insertable/Video';
 import SectionBlock from '../blocks/SectionBlock';
 import ConditionalButton from '../buttons/ConditionalButton';
 import GridFlex from '../blocks/BlockGridFlex';
 import BlockFormNetlify from '../blocks/BlockFormNetlify';
-import TestimonialGrid from '../blocks/TestimonialGrid';
+import TestimonialBlock from '../blocks/TestimonialBlock';
 import ClickableImage from '../portableText/insertable/ClickableImage';
 import SmartGridBlock from '../blocks/SmartGridBlock';
+import AccordionBlock from '../portableText/insertable/Accordion';
+import StepsBlock from '../blocks/StepsBlock';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
   mapGridFlexToProps,
   mapBlockFormNetlifyToProps,
-  mapTestimonialGridToProps,
+  mapTestimonialBlockToProps,
   mapClickableImageToProps,
   mapSmartGridBlockToProps,
   mapVideoToProps,
@@ -49,21 +51,29 @@ function StructuredLrFlex({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <StructuredSectionHeader
-          heading={heading}
-          subheading={subheading}
-          subtitle={subtitle}
-          headingColor={headingColor}
-          subheadingColor={subheadingColor}
-          subtitleColor={subtitleColor}
-          align={headerAlignment}
-        />
         <Grid container justifyContent="center" alignItems={blockAlignment} spacing={6}>
+          {(heading || subheading || subtitle) && (
+            <Grid xs={12}>
+              <StructuredSectionHeader
+                heading={heading}
+                subheading={subheading}
+                subtitle={subtitle}
+                headingColor={headingColor}
+                subheadingColor={subheadingColor}
+                subtitleColor={subtitleColor}
+                align={headerAlignment}
+              />
+            </Grid>
+          )}
           {blocks.map((block, index) => {
             const { _type, _key } = block;
             const col = lrColCalculator(colArr[index]);
             const blockSelector = (key) => {
               switch (true) {
+                case key === 'stepsBlock':
+                  return <StepsBlock key={_key} steps={block._rawSteps} />;
+                case key === 'accordionBlock':
+                  return <AccordionBlock key={_key} accordionSet={block._rawAccordionSet} />;
                 case key === 'smartGridBlock':
                   return (
                     <SmartGridBlock
@@ -120,9 +130,9 @@ function StructuredLrFlex({
                   );
                 case key === 'btnBlockMui':
                   return <ConditionalButton {...mapMuiBtnToProps(block)} />;
-                case key === 'testimonialGrid':
+                case key === 'testimonialBlock':
                   return (
-                    <TestimonialGrid
+                    <TestimonialBlock
                       key={_key}
                       hasSectionHeading={!!heading}
                       hasSectionSubheading={!!subheading}
@@ -132,7 +142,7 @@ function StructuredLrFlex({
                       subheadingColor={subheadingColor}
                       subtitleColor={subtitleColor}
                       footerColor={footerColor}
-                      {...mapTestimonialGridToProps(block)}
+                      {...mapTestimonialBlockToProps(block)}
                     />
                   );
                 default:
@@ -141,7 +151,6 @@ function StructuredLrFlex({
             };
             return (
               <Grid
-                item
                 {...col}
                 key={block._key}
                 sx={[
@@ -153,12 +162,16 @@ function StructuredLrFlex({
               </Grid>
             );
           })}
+          {footer && (
+            <Grid xs={12}>
+              <StructuredSectionFooter
+                footer={footer}
+                footerColor={footerColor}
+                align={footerAlignment}
+              />
+            </Grid>
+          )}
         </Grid>
-        <StructuredSectionFooter
-          footer={footer}
-          footerColor={footerColor}
-          align={footerAlignment}
-        />
       </SectionInnerWrapper>
     </SectionOuterWrapper>
   );

@@ -21,7 +21,7 @@ function StructuredSectionHeader({
     (!hasSectionSubtitle && subtitle)
   ) {
     return (
-      <Box component={heading ? 'header' : 'div'} sx={{ mb: { xs: 2, sm: 4 }, textAlign: align }}>
+      <Box component={heading ? 'header' : 'div'} sx={{ textAlign: align }}>
         {!hasSectionHeading && heading && (
           <Typography variant="h2" gutterBottom sx={{ color: headingColor }}>
             {heading}
