@@ -41,7 +41,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -104,6 +104,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -199,6 +200,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -408,7 +410,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -471,6 +473,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -595,6 +598,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -771,7 +775,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -834,6 +838,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -928,6 +933,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -1131,7 +1137,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -1194,6 +1200,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -1288,6 +1295,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple

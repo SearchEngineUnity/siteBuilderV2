@@ -9,44 +9,37 @@ export const lrColCalculator = (value) => {
     case 9:
       return {
         xs: 12,
-        sm: 6,
-        md: 9,
+        sm: 9,
       };
     case 8:
       return {
         xs: 12,
-        sm: 6,
-        md: 8,
+        sm: 8,
       };
     case 7:
       return {
         xs: 12,
-        sm: 6,
-        md: 7,
+        sm: 7,
       };
     case 6:
       return {
         xs: 12,
         sm: 6,
-        md: 6,
       };
     case 5:
       return {
         xs: 12,
-        sm: 6,
-        md: 5,
+        sm: 5,
       };
     case 4:
       return {
         xs: 12,
-        sm: 6,
-        md: 4,
+        sm: 4,
       };
     case 3:
       return {
         xs: 12,
-        sm: 6,
-        md: 3,
+        sm: 3,
       };
     default:
       console.log('calculator missing');
