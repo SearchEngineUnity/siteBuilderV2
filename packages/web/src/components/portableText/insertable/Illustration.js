@@ -6,6 +6,7 @@ import sanityConfig from '../../../lib/sanityConfig';
 import CaptionContent from '../serializer/CaptionSerializer';
 
 function Illustration({ illustration, loading }) {
+  const { hasFrame } = illustration;
   const loadingSetting = loading || 'lazy';
   const imageFluid = illustration?.asset;
   const customMaxHeight = illustration.maxHeight || 'auto';
@@ -32,7 +33,15 @@ function Illustration({ illustration, loading }) {
   return (
     <Box sx={{ display: 'flex', justifyContent: illustration.align }}>
       <Box component="figure" sx={{ maxWidth: `${minMaxWidth}px`, m: 0 }}>
-        <GatsbyImage image={fluidProps} alt={illustration.alt || ''} loading={loadingSetting} />
+        <Box
+          sx={[
+            hasFrame && {
+              border: '1px solid #abb8c3',
+            },
+          ]}
+        >
+          <GatsbyImage image={fluidProps} alt={illustration.alt || ''} loading={loadingSetting} />
+        </Box>
         {illustration.caption && <CaptionContent blocks={illustration.caption} />}
       </Box>
     </Box>
