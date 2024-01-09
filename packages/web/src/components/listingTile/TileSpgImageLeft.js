@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Typography from '@mui/material/Typography';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -26,7 +26,7 @@ function TileImageRecSqr({ image, alt, url, title, text, date }) {
       {/* the link probably cannot be spread in the same way as from regular tiles */}
       <CardActionArea to={`/${url}`}>
         <Grid container spacing={2}>
-          <Grid item md={4} sm={3} xs={12}>
+          <Grid md={4} sm={3} xs={12}>
             <GatsbyImage
               image={imageData}
               alt={alt || ''}
@@ -39,7 +39,7 @@ function TileImageRecSqr({ image, alt, url, title, text, date }) {
               }}
             />
           </Grid>
-          <Grid item md={8} sm={9} xs={12}>
+          <Grid md={8} sm={9} xs={12}>
             <CardContent sx={{ paddingRight: { xs: '16px', sm: '32px' } }}>
               <Box sx={{ fontSize: '1.6rem', fontWeight: 800, mb: 1 }}>{title}</Box>
               <Typography variant="body1" color="textSecondary" component="p" gutterBottom>

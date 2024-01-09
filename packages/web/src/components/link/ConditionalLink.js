@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby-theme-material-ui';
+import MuiLink from '@mui/material/Link';
 
 function ConditionalLink({ link, children, className }) {
   let linkType = link._type;
@@ -21,16 +22,25 @@ function ConditionalLink({ link, children, className }) {
   }
 
   return (
-    <Link
-      underline="always"
-      target={target}
-      rel={rel || undefined}
-      to={linkType === 'internalLocal' ? href : undefined}
-      href={linkType !== 'internalLocal' ? href : undefined}
-      className={className}
-    >
-      {children}
-    </Link>
+    <>
+      {linkType === 'jumpLink' && (
+        <MuiLink underline="always" href={href} className={className}>
+          {children}
+        </MuiLink>
+      )}
+      {linkType !== 'jumpLink' && (
+        <Link
+          underline="always"
+          target={target}
+          rel={rel || undefined}
+          to={linkType === 'internalLocal' ? href : undefined}
+          href={linkType !== 'internalLocal' ? href : undefined}
+          className={className}
+        >
+          {children}
+        </Link>
+      )}
+    </>
   );
 }
 
