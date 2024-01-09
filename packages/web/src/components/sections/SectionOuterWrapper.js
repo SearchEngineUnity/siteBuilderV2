@@ -30,12 +30,15 @@ function SectionOuterWrapper({ idTag, designSettings, children, isHero }) {
           },
           '& .pt-link': {
             color: linkColor,
+            textDecorationColor: 'currentcolor',
           },
           '& .caption-text': {
             color: captionColor,
+            textDecorationColor: 'currentcolor',
           },
           '& .caption-link': {
             color: captionColor,
+            textDecorationColor: 'currentcolor',
           },
         }),
         bleed && {
@@ -45,7 +48,7 @@ function SectionOuterWrapper({ idTag, designSettings, children, isHero }) {
         },
         bgImage &&
           bleed && {
-            backgroundImage: { sx: 'none', sm: `url(${bgImage})` },
+            backgroundImage: `url(${bgImage})`,
           },
         repeat && { backgroundRepeat: 'repeat' },
       ]}
