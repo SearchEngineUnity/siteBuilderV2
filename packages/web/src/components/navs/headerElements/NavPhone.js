@@ -13,8 +13,9 @@ function NavPhone({ text, number }) {
       <Box
         sx={{
           display: { xs: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' },
-          fontWeight: 'bold',
-          fontSize: 'h3.fontSize',
+          fontWeight: 700,
+          fontSize: '24px',
+          lineHeight: 'normal',
         }}
         role="none"
       >
@@ -24,6 +25,7 @@ function NavPhone({ text, number }) {
           color="inherit"
           underline="none"
           role="menuitem"
+          className="nav-phone"
         >
           {text}
         </StyledLink>
@@ -31,8 +33,9 @@ function NavPhone({ text, number }) {
       <Box
         sx={{
           display: { xs: 'block', sm: 'block', md: 'block', lg: 'none', xl: 'none' },
-          fontWeight: 'bold',
-          fontSize: 'h4.fontSize',
+          fontWeight: 700,
+          fontSize: '20px',
+          lineHeight: 'normal',
         }}
         role="none"
       >
@@ -42,6 +45,7 @@ function NavPhone({ text, number }) {
           color="inherit"
           underline="none"
           role="menuitem"
+          className="nav-phone"
         >
           {number}
         </StyledLink>

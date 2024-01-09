@@ -1,72 +1,114 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-
-const Link = styled('a')(({ theme }) => ({
-  outlineColor: theme.palette.primary.main,
-}));
+import { getGatsbyImageData } from 'gatsby-source-sanity';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import sanityConfig from '../../../lib/sanityConfig';
 
 function NavBrand({ url, brandGroup, alt }) {
   return (
     <>
       {brandGroup.map((group) => {
-        const { type, brand, _key } = group;
-        const height = group.height || 48;
-        const { aspectRatio } = group.brand.logo.asset.metadata.dimensions;
+        const { type, brand, _key, maxHeight, maxWidth } = group;
+
+        const image = brand.logo._rawAsset;
+
+        const imageData = getGatsbyImageData(image, {}, sanityConfig);
+        const customMaxHeight = maxHeight || 'auto';
+        const customMaxWidth = maxWidth || 'auto';
+        const imageWidth = image.metadata.dimensions.width;
+        const imgAspectRatio = image.metadata.dimensions.aspectRatio;
+
+        const calculatedWidthBasedOnCustomMaxWidth =
+          customMaxWidth === 'auto' ? imageWidth : customMaxWidth;
+
+        const calculatedWidthBasedOnCustomMaxHeight =
+          customMaxHeight === 'auto' ? imageWidth : customMaxHeight * imgAspectRatio;
+
+        const widthArray = [
+          imageWidth,
+          calculatedWidthBasedOnCustomMaxWidth,
+          calculatedWidthBasedOnCustomMaxHeight,
+        ];
+
+        const minMaxWidth = `${Math.min(...widthArray)}px`;
 
         switch (type) {
           case 'desktop':
             return (
               <Box
-                sx={{ display: { xs: 'none', lg: 'block', xl: 'block' } }}
+                sx={{
+                  display: { xs: 'none', lg: 'flex', xl: 'flex' },
+                  justifyContent: 'flex-start',
+                }}
                 key={_key}
                 role="none"
               >
-                <Link href={url} role="menuitem">
-                  <img
-                    src={brand.logo.asset.url}
-                    alt={alt}
-                    height={height}
-                    width={height * aspectRatio}
+                <Box component="a" href={url} role="menuitem" sx={{ maxWidth: minMaxWidth }}>
+                  <GatsbyImage
+                    image={imageData}
+                    // eslint-disable-next-line no-unneeded-ternary
+                    alt={alt ? alt : ''}
                     loading="eager"
+                    objectFit="contain"
+                    style={{
+                      display: 'block',
+                      maxHeight: customMaxHeight,
+                      maxWidth: customMaxWidth,
+                    }}
                   />
-                </Link>
+                </Box>
               </Box>
             );
           case 'tablet':
             return (
               <Box
-                sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none', xl: 'none' } }}
+                sx={{
+                  display: { xs: 'none', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' },
+                  justifyContent: { sm: 'center', md: 'flex-start' },
+                }}
                 key={_key}
                 role="none"
               >
-                <Link href={url} role="menuitem">
-                  <img
-                    src={brand.logo.asset.url}
-                    alt={alt}
-                    height={height}
-                    width={height * aspectRatio}
+                <Box component="a" href={url} role="menuitem" sx={{ maxWidth: minMaxWidth }}>
+                  <GatsbyImage
+                    image={imageData}
+                    // eslint-disable-next-line no-unneeded-ternary
+                    alt={alt ? alt : ''}
                     loading="eager"
+                    objectFit="contain"
+                    style={{
+                      display: 'block',
+                      maxHeight: customMaxHeight,
+                      maxWidth: customMaxWidth,
+                    }}
                   />
-                </Link>
+                </Box>
               </Box>
             );
           case 'mobile':
             return (
               <Box
-                sx={{ display: { xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' } }}
+                sx={{
+                  display: { xs: 'flex', sm: 'none', md: 'none', lg: 'none', xl: 'none' },
+                  justifyContent: 'center',
+                }}
                 key={_key}
                 role="none"
               >
-                <Link href={url} role="menuitem">
-                  <img
-                    src={brand.logo.asset.url}
-                    alt={alt}
-                    height={height}
-                    width={height * aspectRatio}
+                <Box component="a" href={url} role="menuitem" sx={{ maxWidth: minMaxWidth }}>
+                  <GatsbyImage
+                    image={imageData}
+                    // eslint-disable-next-line no-unneeded-ternary
+                    alt={alt ? alt : ''}
                     loading="eager"
+                    objectFit="contain"
+                    style={{
+                      display: 'block',
+                      maxHeight: customMaxHeight,
+                      maxWidth: customMaxWidth,
+                    }}
                   />
-                </Link>
+                </Box>
               </Box>
             );
 
