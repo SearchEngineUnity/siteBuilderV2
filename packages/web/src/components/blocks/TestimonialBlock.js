@@ -1,30 +1,41 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import SectionTextBlock from '../portableText/serializer/FullIndentSerializer';
+import TestimonialGrid from './TestimonialGrid';
+import TestimonialSlider from './TestimonialSlider';
+import TestimonialCarousel from './TestimonialCarousel';
 import StructuredSectionHeader from '../sections/StructuredSectionHeader';
 import StructuredSectionFooter from '../sections/StructuredSectionFooter';
 
-function SectionBlock({
-  hasSectionHeading,
-  hasSectionSubheading,
-  hasSectionSubtitle,
-  hasSectionFooter,
-  heading,
-  subheading,
-  subtitle,
-  sectionText,
-  footer,
-  headerAlignment,
-  textAlignment,
-  footerAlignment,
-  headingColor,
-  subheadingColor,
-  subtitleColor,
-  footerColor,
-}) {
+function TestimonialBlock(props) {
+  const {
+    hasSectionHeading,
+    hasSectionSubheading,
+    hasSectionSubtitle,
+    hasSectionFooter,
+    heading,
+    subheading,
+    subtitle,
+    footer,
+    headerAlignment,
+    footerAlignment,
+    headingColor,
+    subheadingColor,
+    subtitleColor,
+    footerColor,
+    tileOption,
+  } = props;
+
+  const typeSelector = {
+    1: TestimonialGrid,
+    2: TestimonialGrid,
+    3: TestimonialSlider,
+    4: TestimonialCarousel,
+  };
+
+  const TestimonialDisplay = typeSelector[tileOption];
+
   return (
-    <Grid container spacing={3} direction="column">
+    <Grid container spacing={3}>
       {(heading || subheading || subtitle) && (
         <Grid xs={12}>
           <StructuredSectionHeader
@@ -41,13 +52,9 @@ function SectionBlock({
           />
         </Grid>
       )}
-      {sectionText && (
-        <Grid xs={12}>
-          <Box sx={{ textAlign: textAlignment }}>
-            <SectionTextBlock blocks={sectionText} />
-          </Box>
-        </Grid>
-      )}
+      <Grid xs={12}>
+        <TestimonialDisplay {...props} />
+      </Grid>
       {footer && (
         <Grid xs={12}>
           <StructuredSectionFooter
@@ -61,4 +68,5 @@ function SectionBlock({
     </Grid>
   );
 }
-export default SectionBlock;
+
+export default TestimonialBlock;
