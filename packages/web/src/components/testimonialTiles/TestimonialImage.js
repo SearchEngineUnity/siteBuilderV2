@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Typography from '@mui/material/Typography';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -28,7 +28,7 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
     >
       <CardContent sx={{ p: '8px 16px', '&:last-child': { pb: '8px' } }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm>
+          <Grid xs={12} sm>
             <Typography variant="body1" sx={{ fontStyle: 'italic', marginBottom: '16px' }}>
               {text}
             </Typography>
@@ -39,7 +39,7 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
               {printedCompany}
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid>
             {image ? (
               <GatsbyImage
                 image={imageData}
