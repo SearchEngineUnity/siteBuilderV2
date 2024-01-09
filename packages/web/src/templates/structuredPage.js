@@ -1,11 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
+import VideoHero from '../components/sections/VideoHero';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
 import StackHero from '../components/sections/StackHero';
-import { mapLrHeroToProps, mapLrFlexToProps, mapStackSectionToProps } from '../lib/mapToProps';
+import {
+  mapLrHeroToProps,
+  mapLrFlexToProps,
+  mapStackSectionToProps,
+  mapVideoHeroToProps,
+} from '../lib/mapToProps';
 
 const type = 'page';
 
@@ -16,10 +22,223 @@ export const query = graphql`
         current
       }
       sections {
+        ... on SanityVideoHero {
+          _key
+          _type
+          button {
+            _key
+            _type
+            idTag
+            btnAlignment
+            link {
+              ... on SanityJumpLink {
+                _key
+                _type
+                hashId
+              }
+              ... on SanityAffiliateLink {
+                _key
+                _type
+                href
+              }
+              ... on SanityExternalLink {
+                _key
+                _type
+                href
+                newTab
+                noreferrer
+              }
+              ... on SanityInternalGlobal {
+                _key
+                _type
+                href
+                newTab
+              }
+              ... on SanityInternalLocal {
+                _key
+                _type
+                newTab
+                href
+              }
+            }
+            text
+            design {
+              bgImage {
+                asset {
+                  url
+                }
+              }
+              typography {
+                fontFamily
+                fontWeight
+                fontSize
+                lineHeight
+                letterSpacing
+              }
+              settings {
+                border
+                disableElevation
+                disableFocusRipple
+                disableRipple
+                fullWidth
+                variant
+                padding
+                borderRadius
+              }
+              colors {
+                contrastText {
+                  color {
+                    rgb {
+                      r
+                      g
+                      b
+                      a
+                    }
+                  }
+                }
+                dark {
+                  color {
+                    rgb {
+                      r
+                      g
+                      b
+                      a
+                    }
+                  }
+                }
+                main {
+                  color {
+                    rgb {
+                      r
+                      g
+                      b
+                      a
+                    }
+                  }
+                }
+              }
+            }
+          }
+          designSettings {
+            outerPadding: _rawOuterPadding
+            innerPadding: _rawInnerPadding
+            borderRadius
+            caption {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            background {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
+            footer {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            foreground {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            heading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subheading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            link {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subtitle {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+          }
+          heading
+          headingAlignment
+          imageAlignment
+          idTag
+          heroImage {
+            alt
+            _rawAsset(resolveReferences: { maxDepth: 1 })
+          }
+          video {
+            asset {
+              _rawAsset(resolveReferences: { maxDepth: 1 })
+            }
+          }
+        }
         ... on SanityLrHero {
           _key
           _type
           blocks {
+            ... on SanityStepsBlock {
+              _key
+              _type
+              _rawSteps
+            }
+            ... on SanityAccordionBlock {
+              _key
+              _type
+              _rawAccordionSet
+            }
             ... on SanitySmartGridBlock {
               _key
               _type
@@ -34,7 +253,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -97,6 +316,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -192,6 +412,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -387,6 +608,16 @@ export const query = graphql`
           headerAlignment
           footerAlignment
           blocks {
+            ... on SanityStepsBlock {
+              _key
+              _type
+              _rawSteps
+            }
+            ... on SanityAccordionBlock {
+              _key
+              _type
+              _rawAccordionSet
+            }
             ... on SanitySmartGridBlock {
               _key
               _type
@@ -401,7 +632,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -464,6 +695,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -588,6 +820,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -750,6 +983,16 @@ export const query = graphql`
           headerAlignment
           idTag
           blocks {
+            ... on SanityStepsBlock {
+              _key
+              _type
+              _rawSteps
+            }
+            ... on SanityAccordionBlock {
+              _key
+              _type
+              _rawAccordionSet
+            }
             ... on SanitySmartGridBlock {
               _key
               _type
@@ -764,7 +1007,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -827,6 +1070,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -921,6 +1165,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -1110,6 +1355,16 @@ export const query = graphql`
           headerAlignment
           idTag
           blocks {
+            ... on SanityStepsBlock {
+              _key
+              _type
+              _rawSteps
+            }
+            ... on SanityAccordionBlock {
+              _key
+              _type
+              _rawAccordionSet
+            }
             ... on SanitySmartGridBlock {
               _key
               _type
@@ -1124,7 +1379,7 @@ export const query = graphql`
               headerAlignment
               footerAlignment
             }
-            ... on SanityTestimonialGrid {
+            ... on SanityTestimonialBlock {
               _key
               _type
               header {
@@ -1187,6 +1442,7 @@ export const query = graphql`
                 }
                 text
                 title
+                subtitle
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
@@ -1281,6 +1537,7 @@ export const query = graphql`
                   letterSpacing
                 }
                 settings {
+                  border
                   disableElevation
                   disableFocusRipple
                   disableRipple
@@ -1499,6 +1756,8 @@ function StructuredPage({ data, location }) {
         {data.page.sections.map((section) => {
           const { _type } = section;
           switch (_type) {
+            case 'videoHero':
+              return <VideoHero key={section._key} {...mapVideoHeroToProps(section)} />;
             case 'lrHero':
               return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
 

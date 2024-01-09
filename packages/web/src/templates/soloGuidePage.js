@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Layout from '../containers/layout';
 import LrGuideHero from '../components/sections/LrGuideHero';
 import StackGuideHero from '../components/sections/StackGuideHero';
@@ -151,12 +151,12 @@ function SoloGuidePage({ data, location }) {
         <Box sx={{ my: 3 }}>
           <Container maxWidth="lg">
             <Grid container spacing={3}>
-              <Grid item md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
+              <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
                 {data?.guide?.toc?.length > 0 && (
                   <ToC toc={data.guide.toc} content={data.guide._rawGuideBody} />
                 )}
               </Grid>
-              <Grid item md={9} xs={12} component="article" sx={{ order: 1 }}>
+              <Grid md={9} xs={12} component="article" sx={{ order: 1 }}>
                 {sections.map((section, index) => (
                   // eslint-disable-next-line react/no-array-index-key
                   <section key={`section-${index}-${section.id}`} id={section.id}>
