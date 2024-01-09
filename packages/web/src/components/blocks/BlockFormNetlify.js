@@ -38,7 +38,7 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
     selectorColor,
   } = style;
 
-  const { formFields, name, thankYou, submitBtn } = form;
+  const { formFields, name, subject, thankYou, submitBtn } = form;
 
   const componentTheme = {
     palette: {
@@ -124,6 +124,7 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
 
   const handleCheckboxChange = (e, key) => {
     setState({ ...state, [e.target.name]: e.target.checked });
+    // const key = e.target.closest('fieldset').id;
     setErrorMsgs({ ...errorMsgs, [key]: '' });
   };
 
@@ -206,7 +207,7 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
           'form-name': thisForm.getAttribute('name'),
           'bot-field': thisForm.elements['bot-field'].value,
           // eslint-disable-next-line dot-notation
-          // subject: thisForm.elements['subject'].value, to activate subject on email if he would like one.
+          // subject: thisForm.elements['subject'].value,
           ...state,
         }),
       })
@@ -230,7 +231,14 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
 
   return (
     <ThemeProvider theme={(theme) => createTheme(deepmerge(theme, componentTheme))}>
-      <Box sx={{ boxShadow: 5, p: 4, bgcolor: 'background.paper' }}>
+      <Box
+        sx={{
+          border: (theme) => `1px solid ${theme.palette.common.black}`,
+          borderRadius: '4px',
+          p: 4,
+          bgcolor: 'background.paper',
+        }}
+      >
         <Box sx={{ textAlign: titleAlignment, color: determineColor(labelColor.color) }}>
           <Typography variant={headingLevel} sx={{ marginBottom: 4 }}>
             {heading}
@@ -240,6 +248,7 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
         <form
           name={name}
           method="POST"
+          // eslint-disable-next-line react/no-unknown-property
           data-netlify="true"
           // eslint-disable-next-line react/no-unknown-property
           netlify-honeypot="bot-field"
@@ -255,8 +264,6 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
               <input name="bot-field" onChange={handleChange} />
             </label>
           </Box>
-
-          {success && <p>{thankYou}</p>}
 
           <input type="hidden" name="form-name" value={name} />
           {/* <input type="hidden" name="subject" value={subject} /> */}
@@ -398,6 +405,7 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
                       minRows={input.rows}
                       placeholder={input.placeholderText}
                       onBlur={(e) => fieldValidation(e.currentTarget)}
+                      inputProps={{ sx: { padding: 0 } }}
                     />
                     <FormHelperText error={!!errorMsgs[input.id]} id={`${input.id}-helper-text`}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
@@ -437,6 +445,7 @@ function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
                 return <div key="form-default">Form Field not Created</div>;
             }
           })}
+          {success && <p className="thank-you-message">{thankYou}</p>}
           <Box sx={{ textAlign: btnAlignment }}>
             <ButtonSubmit
               type="submit"
