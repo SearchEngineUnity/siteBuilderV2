@@ -103,7 +103,7 @@ export default {
       title: 'Tile Image',
       type: 'tileImage',
       fieldset: 'tile',
-      validation: (Rule) => Rule.custom((value) => (value?.asset ? true : 'An image is required')),
+      // validation: (Rule) => Rule.custom((value) => (value?.asset ? true : 'An image is required')),
     },
     {
       name: 'tileText',
@@ -130,7 +130,7 @@ export default {
       type: 'maxPT',
       title: 'Guide Content Body',
       fieldset: 'mainContent',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+      // validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'includeDisclaimer',
