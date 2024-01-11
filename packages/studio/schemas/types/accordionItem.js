@@ -2,18 +2,19 @@ import { BiChevronDownSquare } from 'react-icons/bi';
 
 export default {
   name: 'accordionItem',
-  title: 'Item',
+  title: 'Accordion Item',
   type: 'object',
+  icon: BiChevronDownSquare,
   fields: [
     {
       name: 'title',
-      title: 'Item Title',
+      title: 'Accordion Title',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'text',
-      title: 'Item Text',
+      title: 'Accordion Text',
       type: 'minPT',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
