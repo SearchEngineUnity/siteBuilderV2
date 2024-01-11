@@ -16,7 +16,7 @@ export default {
       name: 'steps',
       title: 'Steps',
       type: 'array',
-      of: [{ type: 'accordionItem' }],
+      of: [{ type: 'stepItem' }],
     },
   ],
   preview: {
