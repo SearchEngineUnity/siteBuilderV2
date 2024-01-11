@@ -3,7 +3,6 @@ export default {
   title: 'Tile Image',
   type: 'image',
   options: {
-    hotspot: true, // <-- Defaults to false
     storeOriginalFilename: true,
   },
   fields: [

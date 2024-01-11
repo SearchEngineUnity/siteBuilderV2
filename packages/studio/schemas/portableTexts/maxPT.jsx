@@ -90,7 +90,6 @@ export default {
           //   name: 'inlineImage',
           //   type: 'image',
           //   options: {
-          //     hotspot: true, // <-- Defaults to false
           //     storeOriginalFilename: true,
           //   },
           //   fields: [

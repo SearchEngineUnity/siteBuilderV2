@@ -6,7 +6,6 @@ export default {
   type: 'image',
   icon: BsCardImage,
   options: {
-    hotspot: true, // <-- Defaults to false
     storeOriginalFilename: true,
   },
   fields: [
