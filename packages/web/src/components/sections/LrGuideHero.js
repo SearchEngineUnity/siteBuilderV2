@@ -19,16 +19,30 @@ const featureComponentMapping = {
 const propsMapping = (type, props) => {
   switch (type) {
     case 'image':
-      return {
-        ...mapFluidImgBlockToProps(props.image),
-        loading: 'eager',
-      };
+      return props.image
+        ? {
+            ...mapFluidImgBlockToProps(props.image),
+            loading: 'eager',
+          }
+        : null;
     case 'video':
       return { url: props?.video };
     default:
       return props;
   }
 };
+
+function ErrorImage() {
+  return (
+    <img
+      src="https://cdn.sanity.io/images/ki8bqxrw/production/224a3d526d428e538ee88ef68df5c27b00f20e04-1280x720.png"
+      loading="eager"
+      alt=""
+      width="100%"
+    />
+  );
+}
+
 const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
   { featureType, h1, subtitle, date, feature, includeDisclaimer },
   ref,
@@ -39,7 +53,7 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
   const disclaimerText = useDisclaimerText();
   const Feature = featureComponentMapping[featureType];
   const values = propsMapping(featureType, feature);
-  const errorMessage = 'No matching Feature component';
+  // const errorMessage = 'No matching Feature component';
 
   return (
     <Box
@@ -88,7 +102,7 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
           </Grid>
           <Grid md={6} xs={12}>
             <Box sx={{ display: 'flex', justifyContent: heroAlignment.heroImgAlignment }}>
-              {Feature ? <Feature {...values} /> : errorMessage}
+              {Feature && values ? <Feature {...values} /> : <ErrorImage />}
             </Box>
           </Grid>
         </Grid>
