@@ -40,7 +40,15 @@ function Illustration({ illustration, loading }) {
             },
           ]}
         >
-          <GatsbyImage image={fluidProps} alt={illustration.alt || ''} loading={loadingSetting} />
+          <GatsbyImage
+            image={fluidProps}
+            alt={illustration.alt || ''}
+            loading={loadingSetting}
+            style={{
+              maxHeight: `${customMaxHeight}px`,
+              maxWidth: `${customMaxWidth}px`,
+            }}
+          />
         </Box>
         {illustration.caption && <CaptionContent blocks={illustration.caption} />}
       </Box>

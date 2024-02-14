@@ -38,8 +38,8 @@ function FluidImgBlock({ id, image, alt, loading, maxHeight, maxWidth, caption }
           objectFit="contain"
           style={{
             display: 'block',
-            maxHeight: customMaxHeight,
-            maxWidth: customMaxWidth,
+            maxHeight: `${customMaxHeight}px`,
+            maxWidth: `${customMaxWidth}px`,
           }}
         />
         {caption && <CaptionContent blocks={caption} />}
