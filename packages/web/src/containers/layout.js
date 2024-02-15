@@ -6,7 +6,7 @@ import { useLayout } from '../hooks/useLayout';
 import { mapSeoToProps } from '../lib/mapToProps';
 import Search from '../components/search';
 
-const searchIndices = [{ name: `testing`, title: `testing` }];
+const searchIndices = [{ name: `pro_SGP`, title: `pro_SGP` }];
 
 export default function MyLayout({ children, location, type, data, heroImage }) {
   const { mainNav, footer } = useLayout();

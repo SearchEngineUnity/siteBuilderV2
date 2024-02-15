@@ -1,6 +1,6 @@
 // const escapeStringRegexp = require('escape-string-regexp');
 // const pagePath = `content`;
-const indexName = `testing`;
+const indexName = `pro_SGP`;
 
 const pageQuery = `{
   pages: allSanitySoloGuidePage {
