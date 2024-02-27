@@ -45,5 +45,8 @@
   },
   "author": "SEU Dev",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "gatsby-cli": "^5.12.1"
+  }
 }
