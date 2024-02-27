@@ -15,6 +15,16 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs);
 };
 
+// Remove /dev-404-page as part of gatsby develop
+exports.onCreatePage = ({ page, actions }) => {
+  const { deletePage, createPage } = actions;
+  if (page.path === '/dev-404-page') {
+    deletePage(page);
+  } else {
+    createPage(page);
+  }
+};
+
 // create all structured pages
 async function createStructuredPages(actions, graphql) {
   const { data } = await graphql(`
