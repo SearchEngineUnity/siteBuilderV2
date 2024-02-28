@@ -8,7 +8,7 @@ import { colorInput } from '@sanity/color-input';
 import { sanityLimitWidget } from './schemas/components/widgets/sanityLimitWidget';
 import { schemaTypes } from './schemas';
 import deskStructure from './deskStructure';
-import { NetlifyViewAction } from './actions';
+import { DigitalOceanPreviewAction } from './actions';
 
 export default defineConfig({
   name: 'default',
@@ -88,7 +88,7 @@ export default defineConfig({
         schemaType === 'soloGuidePage' ||
         schemaType === 'flexListingPage'
       ) {
-        return [NetlifyViewAction, ...prev];
+        return [DigitalOceanPreviewAction, ...prev];
       }
       return prev;
     },
