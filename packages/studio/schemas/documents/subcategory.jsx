@@ -24,6 +24,7 @@ export default {
       title: 'Category',
       type: 'reference',
       to: [{ type: 'category' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

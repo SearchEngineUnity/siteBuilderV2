@@ -50,7 +50,7 @@ export default (S) =>
                 ),
             ]),
         ),
-      S.documentTypeListItem('contributor').title('Contributor'),
+      S.documentTypeListItem('contributor').title('Contributors'),
       S.documentTypeListItem('testimonial').title('Testimonials'),
       S.documentTypeListItem('videoAsset').title('Video Assets'),
       S.documentTypeListItem('formNetlify').title('Forms'),
