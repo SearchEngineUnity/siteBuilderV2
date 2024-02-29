@@ -1,7 +1,9 @@
 export { default as btnDesignMui } from './btnDesignMui';
+export { default as category } from './category';
 export { default as colorOption } from './colorOption';
 export { default as companyLogo } from './companyLogo';
 export { default as contactInfo } from './contactInfo';
+export { default as contributor } from './contributor';
 export { default as customSpacing } from './customSpacing';
 export { default as flexListingPage } from './flexListingPage';
 export { default as formNetlify } from './formNetlify';
@@ -14,6 +16,8 @@ export { default as palette } from './palette';
 export { default as sectionDesignSet } from './sectionDesignSet';
 export { default as socialInfo } from './socialInfo';
 export { default as soloGuidePage } from './soloGuidePage';
+export { default as subcategory } from './subcategory';
 export { default as testimonial } from './testimonial';
+export { default as topic } from './topic';
 export { default as typography } from './typography';
 export { default as videoAsset } from './videoAsset';

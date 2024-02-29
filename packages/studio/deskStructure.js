@@ -1,5 +1,5 @@
 import { FaPalette } from 'react-icons/fa';
-import { MdSettings, MdBusiness } from 'react-icons/md';
+import { MdSettings, MdBusiness, MdAccountTree } from 'react-icons/md';
 import { BsType, BsViewList } from 'react-icons/bs';
 import { HiOutlineOfficeBuilding, HiOutlineColorSwatch } from 'react-icons/hi';
 import ButtonDesignPreview from './preview/ButtonDesignPreview';
@@ -13,6 +13,44 @@ export default (S) =>
       S.documentTypeListItem('flexListingPage').title('Flex Listing Pages'),
       S.documentTypeListItem('navMenu').title('Navigation Menus'),
       S.divider(),
+      S.listItem()
+        .title('Taxonomy')
+        .icon(MdAccountTree)
+        .child(
+          S.list()
+            .title('Taxonomy')
+            .items([
+              S.listItem()
+                .title('Categories')
+                .schemaType('category')
+                .child(
+                  S.documentTypeList('category')
+                    .title('Categories')
+                    .child((documentId) =>
+                      S.document().documentId(documentId).schemaType('category'),
+                    ),
+                ),
+              S.listItem()
+                .title('Subcategories')
+                .schemaType('subcategory')
+                .child(
+                  S.documentTypeList('subcategory')
+                    .title('Subcategories')
+                    .child((documentId) =>
+                      S.document().documentId(documentId).schemaType('subcategory'),
+                    ),
+                ),
+              S.listItem()
+                .title('Topics')
+                .schemaType('topic')
+                .child(
+                  S.documentTypeList('topic')
+                    .title('Topics')
+                    .child((documentId) => S.document().documentId(documentId).schemaType('topic')),
+                ),
+            ]),
+        ),
+      S.documentTypeListItem('contributor').title('Contributor'),
       S.documentTypeListItem('testimonial').title('Testimonials'),
       S.documentTypeListItem('videoAsset').title('Video Assets'),
       S.documentTypeListItem('formNetlify').title('Forms'),
