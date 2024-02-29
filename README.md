@@ -10,8 +10,8 @@
 
 ### Node/NPM versions
 
-* node v18.13.0
-* npm v8.19.3
+* node v20.11.1
+* npm v10.2.4
 
 ### Install
 

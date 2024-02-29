@@ -2,7 +2,7 @@
   base = "packages/web/"
   command = "npm run build"
   publish = "public"
-  environment = { NODE_VERSION = "18.13.0" }
+  environment = { NODE_VERSION = "20.11.1" }
 
 [context.staging.environment]
   NODE_ENV = "development"
