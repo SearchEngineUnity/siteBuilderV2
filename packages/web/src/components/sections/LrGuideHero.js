@@ -8,7 +8,7 @@ import Video from '../portableText/insertable/Video';
 import Subtitle from '../portableText/serializer/H1SubtitleSerializer';
 import Disclaimer from '../portableText/serializer/DisclaimerSerializer';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
-import { useSpGuideHero } from '../../hooks/useSpGuideHero';
+// import { useSpGuideHero } from '../../hooks/useSpGuideHero';
 import { useDisclaimerText } from '../../hooks/useDisclaimerText';
 
 const featureComponentMapping = {
@@ -49,7 +49,8 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
 ) {
   const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  const heroAlignment = useSpGuideHero();
+  // currently commented out as not in use
+  // const heroAlignment = useSpGuideHero();
   const disclaimerText = useDisclaimerText();
   const Feature = featureComponentMapping[featureType];
   const values = propsMapping(featureType, feature);
@@ -82,7 +83,7 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
           container
           direction="row"
           justifyContent="center"
-          alignItems={heroAlignment.heroLrAlignment}
+          alignItems="center"
           spacing={6}
           component="header"
         >
@@ -101,7 +102,7 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
             )}
           </Grid>
           <Grid md={6} xs={12}>
-            <Box sx={{ display: 'flex', justifyContent: heroAlignment.heroImgAlignment }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               {Feature && values ? <Feature {...values} /> : <ErrorImage />}
             </Box>
           </Grid>
