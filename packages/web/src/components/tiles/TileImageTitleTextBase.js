@@ -25,7 +25,7 @@ function TileImageTitleTextBase({ image, alt, link, title, text }) {
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="div">
+          <Typography variant="body1" color="textSecondary" component="div">
             {text}
           </Typography>
         </CardContent>

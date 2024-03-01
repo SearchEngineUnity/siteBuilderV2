@@ -8,8 +8,8 @@ function SectionOuterWrapper({ idTag, designSettings, children, isHero }) {
   const repeat = !!designSettings?.repeat;
   const backgroundColor = determineColor(designSettings?.background?.color) || 'transparent';
   const foregroundColor = determineColor(designSettings?.foreground?.color) || 'text.primary';
-  const linkColor = determineColor(designSettings?.link?.color) || 'initial';
-  const captionColor = determineColor(designSettings?.caption?.color) || '#757575';
+  const linkColor = determineColor(designSettings?.link?.color) || 'primary.main';
+  const captionColor = determineColor(designSettings?.caption?.color) || 'text.secondary';
   const desktopPadding = designSettings?.outerPadding?.desktopPadding;
   const tabletPadding = designSettings?.outerPadding?.tabletPadding;
   const tabletMobilePadding = designSettings?.outerPadding?.tabletMobilePadding;
