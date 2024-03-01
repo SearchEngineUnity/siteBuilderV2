@@ -13,6 +13,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gatsby-cli": "^5.13.2",
     "husky": "^8.0.0",
     "lerna": "^6.4.1",
     "lint-staged": "^13.1.0",
@@ -47,8 +48,5 @@
   },
   "author": "SEU Dev",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "gatsby-cli": "^5.12.1"
-  }
+  "description": ""
 }
