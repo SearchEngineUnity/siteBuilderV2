@@ -1,25 +1,26 @@
+// currently commented out as not in use
 /* eslint-disable import/prefer-default-export */
-import { useStaticQuery, graphql } from 'gatsby';
+// import { useStaticQuery, graphql } from 'gatsby';
 
-export const useSpGuideHero = () => {
-  const { layout } = useStaticQuery(
-    graphql`
-      query guideHero {
-        layout: sanityLayoutSpg {
-          heroImgAlignment
-          heroLrAlignment
-        }
-      }
-    `,
-  );
+// export const useSpGuideHero = () => {
+//   const { layout } = useStaticQuery(
+//     graphql`
+//       query guideHero {
+//         layout: sanityLayoutSpg {
+//           heroImgAlignment
+//           heroLrAlignment
+//         }
+//       }
+//     `,
+//   );
 
-  if (!layout.heroImgAlignment) {
-    layout.heroImgAlignment = 'center';
-  }
+//   if (!layout.heroImgAlignment) {
+//     layout.heroImgAlignment = 'center';
+//   }
 
-  if (!layout.heroLrAlignment) {
-    layout.heroLrAlignment = 'center';
-  }
+//   if (!layout.heroLrAlignment) {
+//     layout.heroLrAlignment = 'center';
+//   }
 
-  return layout;
-};
+//   return layout;
+// };
