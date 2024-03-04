@@ -14,6 +14,7 @@ export default {
         list: [
           { title: 'LR Hero', value: 'lrHero' },
           { title: 'Stack Hero', value: 'stackHero' },
+          { title: 'Main Column', value: 'mainColumnHero' },
         ],
         layout: 'radio',
         direction: 'horizontal',
