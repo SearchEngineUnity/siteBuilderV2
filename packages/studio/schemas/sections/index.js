@@ -1,6 +1,11 @@
-export { default as paginatedListingSection } from './paginatedListingSection';
+// export { default as customLTileSet } from './customTileSet';
+export { default as featuredTileSet } from './featuredTileSet';
+export { default as latestPaginatedTileSet } from './latestPaginatedTileSet';
+export { default as latestTileSet } from './latestTileSet';
 export { default as lrFlex } from './lrFlex';
 export { default as lrHero } from './lrHero';
+export { default as paginatedListingSection } from './paginatedListingSection';
 export { default as stackFlex } from './stackFlex';
 export { default as stackHero } from './stackHero';
+export { default as tagSetHero } from './tagSetHero';
 export { default as videoHero } from './videoHero';
