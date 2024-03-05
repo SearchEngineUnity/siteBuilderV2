@@ -12,14 +12,14 @@ export default {
       type: 'string',
       options: {
         list: [
+          { title: 'Main Column', value: 'mainColumnHero' },
           { title: 'LR Hero', value: 'lrHero' },
           { title: 'Stack Hero', value: 'stackHero' },
-          { title: 'Main Column', value: 'mainColumnHero' },
         ],
         layout: 'radio',
         direction: 'horizontal',
       },
-      initialValue: 'lrHero',
+      initialValue: 'mainColumnHero',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -28,6 +28,7 @@ export default {
       type: 'string',
       options: {
         list: [
+          { title: 'Featureless', value: 'featureless' },
           { title: 'Image', value: 'image' },
           { title: 'Video', value: 'video' },
           { title: 'Product Grid', value: 'productGrid' },
@@ -35,7 +36,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      initialValue: 'image',
+      initialValue: 'featureless',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
