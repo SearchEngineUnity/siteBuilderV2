@@ -8,9 +8,14 @@ function TableOfContent({ toc }) {
   const { activeId } = useSectionsObserver();
 
   return (
-    <Box sx={{ display: 'block', bgcolor: 'grey.100', position: 'sticky', top: 0, padding: 3 }}>
-      <Typography component="p" variant="h4" gutterBottom>
-        Table of Contents
+    <Box sx={{ display: 'block', bgcolor: '#F7F7F7', position: 'sticky', top: 0, padding: 3 }}>
+      <Typography
+        component="p"
+        variant="h4"
+        gutterBottom
+        sx={{ color: 'primary.main', fontWeight: 'bold' }}
+      >
+        TABLE OF CONTENTS
       </Typography>
       <nav>
         <Box component="ul" sx={{ listStyleType: 'none', padding: '0px' }}>
@@ -23,12 +28,12 @@ function TableOfContent({ toc }) {
               sx={{ mb: 1.5 }}
             >
               <Link
-                sx={
+                sx={[
                   item.hashID === activeId && {
-                    color: 'primary.dark',
                     fontWeight: 'bold',
-                  }
-                }
+                  },
+                  { color: 'text.primary' },
+                ]}
                 href={`#${item.hashID}`}
                 underline="hover"
               >
