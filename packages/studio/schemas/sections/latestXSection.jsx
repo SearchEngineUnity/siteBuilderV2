@@ -40,12 +40,9 @@ export default {
     {
       name: 'subject',
       title: 'Subject',
-      type: 'string',
-      options: {
-        list: ['topic', 'subcategory', 'category'],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
+      type: 'reference',
+      to: [{ type: 'topic' }, { type: 'subcategory' }, { type: 'category' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'footer',
