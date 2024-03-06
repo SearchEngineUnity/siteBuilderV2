@@ -58,70 +58,70 @@ async function createStructuredPages(actions, graphql) {
 }
 
 // create all listing pages
-async function createFlexListingPages(actions, graphql) {
-  const { data } = await graphql(`
-    {
-      allSanityFlexListingPage {
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
-            sections {
-              ... on SanityPaginatedListingSection {
-                _key
-                _type
-                count
-                listItemType
-              }
-            }
-          }
-        }
-      }
-      allSanitySoloGuidePage {
-        totalCount
-      }
-    }
-  `);
+// async function createFlexListingPages(actions, graphql) {
+//   const { data } = await graphql(`
+//     {
+//       allSanityFlexListingPage {
+//         edges {
+//           node {
+//             id
+//             slug {
+//               current
+//             }
+//             sections {
+//               ... on SanityPaginatedListingSection {
+//                 _key
+//                 _type
+//                 count
+//                 listItemType
+//               }
+//             }
+//           }
+//         }
+//       }
+//       allSanitySoloGuidePage {
+//         totalCount
+//       }
+//     }
+//   `);
 
-  const pages = data.allSanityFlexListingPage.edges;
-  pages.forEach((page) => {
-    const { listItemType } = page.node.sections.filter(
-      (section) => section._type === 'paginatedListingSection',
-    )[0];
-    const numPerPage = page.node.sections.filter(
-      (section) => section._type === 'paginatedListingSection',
-    )[0].count;
-    let totalCount;
-    switch (listItemType) {
-      case 'Solo Guide Page':
-        totalCount = data.allSanitySoloGuidePage.totalCount;
-        break;
+//   const pages = data.allSanityFlexListingPage.edges;
+//   pages.forEach((page) => {
+//     const { listItemType } = page.node.sections.filter(
+//       (section) => section._type === 'paginatedListingSection',
+//     )[0];
+//     const numPerPage = page.node.sections.filter(
+//       (section) => section._type === 'paginatedListingSection',
+//     )[0].count;
+//     let totalCount;
+//     switch (listItemType) {
+//       case 'Solo Guide Page':
+//         totalCount = data.allSanitySoloGuidePage.totalCount;
+//         break;
 
-      default:
-        break;
-    }
-    const numPages = Math.ceil(totalCount / numPerPage);
-    Array.from({ length: numPages }).forEach((_, i) => {
-      if (page?.node?.slug?.current) {
-        actions.createPage({
-          path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
-          component: path.resolve(`./src/templates/flexListingPage.js`),
-          ownerNodeId: page.node.id,
-          context: {
-            listItemType,
-            limit: numPerPage,
-            skip: i * numPerPage,
-            numPages,
-            currentpage: i + 1,
-            slug: page.node.slug.current,
-          },
-        });
-      }
-    });
-  });
-}
+//       default:
+//         break;
+//     }
+//     const numPages = Math.ceil(totalCount / numPerPage);
+//     Array.from({ length: numPages }).forEach((_, i) => {
+//       if (page?.node?.slug?.current) {
+//         actions.createPage({
+//           path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
+//           component: path.resolve(`./src/templates/flexListingPage.js`),
+//           ownerNodeId: page.node.id,
+//           context: {
+//             listItemType,
+//             limit: numPerPage,
+//             skip: i * numPerPage,
+//             numPages,
+//             currentpage: i + 1,
+//             slug: page.node.slug.current,
+//           },
+//         });
+//       }
+//     });
+//   });
+// }
 
 // create individual guides
 async function createSoloGuidePages(actions, graphql) {
@@ -190,7 +190,7 @@ async function createAirtableRedirects(actions, graphql) {
 
 exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
-  await createFlexListingPages(actions, graphql);
+  // await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
   await createAirtableRedirects(actions, graphql);
 };
