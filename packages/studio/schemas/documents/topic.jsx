@@ -4,7 +4,7 @@ import { MdAccountTree } from 'react-icons/md';
 export default {
   name: 'topic',
   type: 'document',
-  title: 'SubcategTpoicory',
+  title: 'Topic',
   icon: MdAccountTree,
   fields: [
     {

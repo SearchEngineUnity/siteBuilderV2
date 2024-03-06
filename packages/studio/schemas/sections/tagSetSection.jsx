@@ -1,10 +1,10 @@
-import { ImBooks } from 'react-icons/im';
+import { FaTags } from 'react-icons/fa';
 
 export default {
-  name: 'featuredTileSet',
-  title: 'Featured Tile Set',
+  name: 'tagSetSection',
+  title: 'Tag Set Section',
   type: 'object',
-  icon: ImBooks,
+  icon: FaTags,
   fieldsets: [
     {
       name: 'presentation',
@@ -20,7 +20,10 @@ export default {
       name: 'seuID',
       title: 'seuID',
       type: 'string',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        // add a custom rule for isUnique
+      ],
     },
     {
       name: 'idTag',
@@ -30,15 +33,15 @@ export default {
         'Add ID to the selected string. Please only use alphanumeric characters and hypen and do not start the string with a number.',
     },
     {
-      name: 'featuredTileSet',
-      title: 'Featured Tile Set',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'soloGuidePage' }] }],
-    },
-    {
       name: 'header',
       type: 'header',
       title: 'Header',
+    },
+    {
+      name: 'tagSet',
+      title: 'Tag Set',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'topic' }, { type: 'subcategory' }] }],
     },
     {
       name: 'footer',

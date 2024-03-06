@@ -1,8 +1,8 @@
 import { ImBooks } from 'react-icons/im';
 
 export default {
-  name: 'latestPaginatedTileSet',
-  title: 'Latest Paginated Tile Set',
+  name: 'latestXSection',
+  title: 'Latest X Section',
   type: 'object',
   icon: ImBooks,
   fieldsets: [
@@ -33,8 +33,13 @@ export default {
         'Add ID to the selected string. Please only use alphanumeric characters and hypen and do not start the string with a number.',
     },
     {
-      name: 'contentType',
-      title: 'Content Type',
+      name: 'header',
+      type: 'header',
+      title: 'Header',
+    },
+    {
+      name: 'subject',
+      title: 'Subject',
       type: 'string',
       options: {
         list: ['topic', 'subcategory', 'category'],
@@ -43,14 +48,21 @@ export default {
       },
     },
     {
-      name: 'header',
-      type: 'header',
-      title: 'Header',
-    },
-    {
       name: 'footer',
       title: 'Footer',
       type: 'minPT',
+    },
+    {
+      name: 'count',
+      type: 'number',
+      title: 'Tiles Shown',
+      fieldset: 'presentation',
+      description: 'Number of tiles per section',
+      initialValue: 4,
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        Rule.integer().error('Value must be an integer'),
+      ],
     },
     {
       name: 'headerAlignment',
