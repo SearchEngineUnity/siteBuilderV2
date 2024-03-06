@@ -18,6 +18,7 @@ const featureComponentMapping = {
   image: ImgBlock,
   video: Video,
   productGrid: ProductGrid,
+  featureless: null,
 };
 
 const propsMapping = (type, props) => {

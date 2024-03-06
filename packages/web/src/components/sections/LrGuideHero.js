@@ -14,6 +14,7 @@ import { useDisclaimerText } from '../../hooks/useDisclaimerText';
 const featureComponentMapping = {
   image: ImgBlock,
   video: Video,
+  featureless: null,
 };
 
 const propsMapping = (type, props) => {
@@ -26,7 +27,7 @@ const propsMapping = (type, props) => {
           }
         : null;
     case 'video':
-      return { url: props?.video };
+      return { ...props.video };
     default:
       return props;
   }
@@ -79,14 +80,7 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
       component="header"
     >
       <Container maxWidth="lg">
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          spacing={6}
-          component="header"
-        >
+        <Grid container direction="row" justifyContent="center" alignItems="center" spacing={6}>
           <Grid md={6} xs={12}>
             <Typography variant="h1">{h1}</Typography>
             {subtitle && <Subtitle blocks={subtitle} />}
