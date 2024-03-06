@@ -28,7 +28,7 @@ export const useSpGuides = () => {
     ({ _id, tileTitle, tileImage, displayDate, slug, tileText }) => ({
       _key: _id,
       title: tileTitle,
-      image: tileImage._rawAsset,
+      image: tileImage?._rawAsset,
       text: tileText,
       date: displayDate,
       url: slug.current,
