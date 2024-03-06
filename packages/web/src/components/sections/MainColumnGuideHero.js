@@ -50,9 +50,28 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
             </Box>
 
             <Typography variant="body1" component="p">
-              {author && <Box component="span">By {author} | </Box>}
+              {author && (
+                <Box
+                  component="span"
+                  sx={{
+                    '&:after': {
+                      content: '" | "',
+                      display: {
+                        xs: 'none',
+                        sm: 'inline',
+                      },
+                    },
+                  }}
+                >
+                  By {author}
+                </Box>
+              )}
               {lastUpdatedDate && (
-                <Box component="span" color="text.secondary">
+                <Box
+                  component="span"
+                  color="text.secondary"
+                  sx={{ display: { xs: 'block', sm: 'inline-block' } }}
+                >
                   Updated on {lastUpdatedDate.toLocaleDateString('en-US', options)}
                 </Box>
               )}
