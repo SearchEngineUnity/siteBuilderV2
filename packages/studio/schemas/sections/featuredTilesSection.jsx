@@ -1,8 +1,8 @@
 import { ImBooks } from 'react-icons/im';
 
 export default {
-  name: 'tagSetHero',
-  title: 'Tag Set Hero',
+  name: 'featuredTilesSection',
+  title: 'Featured Tiles Section',
   type: 'object',
   icon: ImBooks,
   fieldsets: [
@@ -20,10 +20,7 @@ export default {
       name: 'seuID',
       title: 'seuID',
       type: 'string',
-      validation: (Rule) => [
-        Rule.required().error('Field is required'),
-        // add a custom rule for isUnique
-      ],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'idTag',
@@ -36,6 +33,13 @@ export default {
       name: 'header',
       type: 'header',
       title: 'Header',
+    },
+    {
+      name: 'featuredTiles',
+      title: 'Featured Tiles',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'soloGuidePage' }] }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'footer',
@@ -76,12 +80,6 @@ export default {
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
       fieldset: 'presentation',
-    },
-    {
-      name: 'tagSet',
-      title: 'Tag Set',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'topic' }] }],
     },
   ],
   preview: {

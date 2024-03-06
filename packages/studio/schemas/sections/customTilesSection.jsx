@@ -1,8 +1,8 @@
 // import { ImBooks } from 'react-icons/im';
 
 // export default {
-//   name: 'customerTileSet',
-//   title: 'Custom Tile Set',
+//   name: 'customerTilesSection',
+//   title: 'Custom Tiles Section',
 //   type: 'object',
 //   icon: ImBooks,
 //   fieldsets: [
