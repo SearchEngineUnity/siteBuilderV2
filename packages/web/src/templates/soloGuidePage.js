@@ -7,7 +7,9 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Layout from '../containers/layout';
 import LrGuideHero from '../components/sections/LrGuideHero';
 import StackGuideHero from '../components/sections/StackGuideHero';
+import MainColumnGuideHero from '../components/sections/MainColumnGuideHero';
 import ProgressBar from '../components/ScrollProgressBar';
+import MainColumnFeature from '../components/sections/MainColumnFeature';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
 import { useUpdateUrl } from '../hooks/useUpdateUrl';
@@ -23,6 +25,43 @@ export const query = graphql`
       }
       includeDisclaimer
       displayDate
+      author {
+        name
+      }
+      primarySubcategory {
+        name
+        listingPage {
+          slug {
+            current
+          }
+        }
+        category {
+          name
+          listingPage {
+            slug {
+              current
+            }
+          }
+        }
+      }
+      secondarySubcategory {
+        _key
+        name
+        listingPage {
+          slug {
+            current
+          }
+        }
+      }
+      topicTags {
+        _key
+        name
+        listingPage {
+          slug {
+            current
+          }
+        }
+      }
       pageTitle
       twitterShareMetaPack {
         twitterShareImage {
@@ -87,6 +126,7 @@ export const query = graphql`
 const heroComponentMapping = {
   lrHero: LrGuideHero,
   stackHero: StackGuideHero,
+  mainColumnHero: MainColumnGuideHero,
 };
 
 function SoloGuidePage({ data, location }) {
@@ -157,6 +197,9 @@ function SoloGuidePage({ data, location }) {
                 )}
               </Grid>
               <Grid md={9} xs={12} component="article" sx={{ order: 1 }}>
+                {heroLayout === 'mainColumnHero' && (
+                  <MainColumnFeature {...mapGuideHeroToProps(data.guide)} />
+                )}
                 {sections.map((section, index) => (
                   // eslint-disable-next-line react/no-array-index-key
                   <section key={`section-${index}-${section.id}`} id={section.id}>
