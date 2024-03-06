@@ -84,7 +84,13 @@ export default {
       title: 'Sections',
       of: [
         ...Object.values(sections)
-          .filter((section) => section.name !== 'paginatedListingSection')
+          .filter(
+            (section) =>
+              section.name !== 'featuredTilesSection' &&
+              section.name !== 'latestWithPaginationSection' &&
+              section.name !== 'latestXSection' &&
+              section.name !== 'tagSetSection',
+          )
           .map(({ name, title }) => ({
             type: name,
             title,
