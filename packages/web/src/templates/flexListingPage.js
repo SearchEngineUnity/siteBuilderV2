@@ -5,13 +5,13 @@ import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
 import StackHero from '../components/sections/StackHero';
-import PaginatedListingSection from '../components/sections/PaginatedListingSection';
+// import PaginatedListingSection from '../components/sections/PaginatedListingSection';
 import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
   mapLrFlexToProps,
   mapStackSectionToProps,
-  mapPaginatedListingSectionToProps,
+  // mapPaginatedListingSectionToProps,
 } from '../lib/mapToProps';
 
 const type = 'page';
@@ -1476,113 +1476,6 @@ export const query = graphql`
             _rawSubtitle(resolveReferences: { maxDepth: 4 })
           }
         }
-        ... on SanityPaginatedListingSection {
-          _key
-          _type
-          listItemType
-          _rawFooter(resolveReferences: { maxDepth: 4 })
-          count
-          footerAlignment
-          header {
-            _rawSubtitle(resolveReferences: { maxDepth: 4 })
-            heading
-            subheading
-          }
-          headerAlignment
-          idTag
-          designSettings {
-            outerPadding: _rawOuterPadding
-            innerPadding: _rawInnerPadding
-            borderRadius
-            caption {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-            background {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-            bgImage {
-              asset {
-                url
-              }
-            }
-            bleed
-            repeat
-            footer {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-            foreground {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-            heading {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-            subheading {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-            link {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-            subtitle {
-              color {
-                rgb {
-                  r
-                  g
-                  b
-                  a
-                }
-              }
-            }
-          }
-        }
       }
       canonical
       slug {
@@ -1649,16 +1542,15 @@ function FlexListingPage({ data, location, pageContext }) {
             case 'stackHero':
               return <StackHero key={section._key} {...mapStackSectionToProps(section)} />;
 
-            case 'paginatedListingSection':
-              return (
-                <PaginatedListingSection
-                  key={section._key}
-                  {...mapPaginatedListingSectionToProps(section)}
-                  {...pageContext}
-                  listingItems={listingItems}
-                />
-              );
-
+            // case 'paginatedListingSection':
+            //   return (
+            //     <PaginatedListingSection
+            //       key={section._key}
+            //       {...mapPaginatedListingSectionToProps(section)}
+            //       {...pageContext}
+            //       listingItems={listingItems}
+            //     />
+            //   );
             default:
               return <div>Still under development</div>;
           }
