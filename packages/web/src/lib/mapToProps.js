@@ -80,18 +80,30 @@ export function mapFluidImgBlockToProps({
   };
 }
 
-export function mapGuideHeroToProps({ hero, displayDate, includeDisclaimer }) {
+export function mapGuideHeroToProps({
+  hero,
+  displayDate,
+  author,
+  topicTags,
+  includeDisclaimer,
+  primarySubcategory,
+  secondarySubcategory,
+}) {
   return {
     featureType: hero?.feature || 'image',
     h1: hero.h1,
     subtitle: hero?._rawSubtitle,
     date: displayDate,
+    author: author?.name,
+    topicTags,
     feature: {
       image: hero?.image,
       video: hero?.video,
       productGrid: hero?.productGrid,
     },
     includeDisclaimer,
+    primarySubcategory,
+    secondarySubcategory,
   };
 }
 
