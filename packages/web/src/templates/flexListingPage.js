@@ -5,12 +5,18 @@ import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
 import StackHero from '../components/sections/StackHero';
+import VideoHero from '../components/sections/VideoHero';
+import FeaturedTilesSection from '../components/sections/FeaturedTilesSection';
+import LatestWithPaginationSection from '../components/sections/LatestWithPaginationSection';
+import LatestXSection from '../components/sections/LatestXSection';
+import TagSetSection from '../components/sections/TagSetSection';
 // import PaginatedListingSection from '../components/sections/PaginatedListingSection';
 import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
   mapLrFlexToProps,
   mapStackSectionToProps,
+  mapVideoHeroToProps,
   // mapPaginatedListingSectionToProps,
 } from '../lib/mapToProps';
 
@@ -1476,6 +1482,673 @@ export const query = graphql`
             _rawSubtitle(resolveReferences: { maxDepth: 4 })
           }
         }
+        ... on SanityFeaturedTilesSection {
+          _key
+          _type
+          header {
+            heading
+            subheading
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
+          }
+          _rawFooter(resolveReferences: { maxDepth: 4 })
+          headerAlignment
+          footerAlignment
+          designSettings {
+            outerPadding: _rawOuterPadding
+            innerPadding: _rawInnerPadding
+            borderRadius
+            caption {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            background {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
+            footer {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            foreground {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            heading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subheading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            link {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subtitle {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+          }
+          idTag
+          featuredTiles {
+            _key
+            slug {
+              current
+            }
+            _rawTileImage(resolveReferences: { maxDepth: 1 })
+            tileText
+            tileTitle
+            hero {
+              feature
+            }
+          }
+        }
+        ... on SanityLatestWithPaginationSection {
+          _key
+          _type
+          header {
+            heading
+            subheading
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
+          }
+          _rawFooter(resolveReferences: { maxDepth: 4 })
+          headerAlignment
+          footerAlignment
+          designSettings {
+            outerPadding: _rawOuterPadding
+            innerPadding: _rawInnerPadding
+            borderRadius
+            caption {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            background {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
+            footer {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            foreground {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            heading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subheading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            link {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subtitle {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+          }
+          idTag
+          subject {
+            ... on SanityCategory {
+              name
+            }
+            ... on SanitySubcategory {
+              name
+            }
+            ... on SanityTopic {
+              name
+            }
+          }
+        }
+        ... on SanityLatestXSection {
+          _key
+          _type
+          header {
+            heading
+            subheading
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
+          }
+          _rawFooter(resolveReferences: { maxDepth: 4 })
+          headerAlignment
+          footerAlignment
+          designSettings {
+            outerPadding: _rawOuterPadding
+            innerPadding: _rawInnerPadding
+            borderRadius
+            caption {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            background {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
+            footer {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            foreground {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            heading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subheading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            link {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subtitle {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+          }
+          idTag
+          subject {
+            ... on SanityCategory {
+              name
+            }
+            ... on SanitySubcategory {
+              name
+            }
+            ... on SanityTopic {
+              name
+            }
+          }
+        }
+        ... on SanityTagSetSection {
+          _key
+          _type
+          header {
+            heading
+            subheading
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
+          }
+          _rawFooter(resolveReferences: { maxDepth: 4 })
+          headerAlignment
+          footerAlignment
+          designSettings {
+            outerPadding: _rawOuterPadding
+            innerPadding: _rawInnerPadding
+            borderRadius
+            caption {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            background {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
+            footer {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            foreground {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            heading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subheading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            link {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subtitle {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+          }
+          idTag
+          tagSet {
+            ... on SanitySubcategory {
+              name
+              _key
+            }
+            ... on SanityTopic {
+              name
+              _key
+            }
+          }
+        }
+        ... on SanityVideoHero {
+          _key
+          _type
+          button {
+            _key
+            _type
+            idTag
+            btnAlignment
+            link {
+              ... on SanityJumpLink {
+                _key
+                _type
+                hashId
+              }
+              ... on SanityAffiliateLink {
+                _key
+                _type
+                href
+              }
+              ... on SanityExternalLink {
+                _key
+                _type
+                href
+                newTab
+                noreferrer
+              }
+              ... on SanityInternalGlobal {
+                _key
+                _type
+                href
+                newTab
+              }
+              ... on SanityInternalLocal {
+                _key
+                _type
+                newTab
+                href
+              }
+            }
+            text
+            design {
+              bgImage {
+                asset {
+                  url
+                }
+              }
+              typography {
+                fontFamily
+                fontWeight
+                fontSize
+                lineHeight
+                letterSpacing
+              }
+              settings {
+                border
+                disableElevation
+                disableFocusRipple
+                disableRipple
+                fullWidth
+                variant
+                padding
+                borderRadius
+              }
+              colors {
+                contrastText {
+                  color {
+                    rgb {
+                      r
+                      g
+                      b
+                      a
+                    }
+                  }
+                }
+                dark {
+                  color {
+                    rgb {
+                      r
+                      g
+                      b
+                      a
+                    }
+                  }
+                }
+                main {
+                  color {
+                    rgb {
+                      r
+                      g
+                      b
+                      a
+                    }
+                  }
+                }
+              }
+            }
+          }
+          designSettings {
+            outerPadding: _rawOuterPadding
+            innerPadding: _rawInnerPadding
+            borderRadius
+            caption {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            background {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
+            footer {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            foreground {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            heading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subheading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            link {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subtitle {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+          }
+          heading
+          headingAlignment
+          imageAlignment
+          idTag
+          heroImage {
+            alt
+            _rawAsset(resolveReferences: { maxDepth: 1 })
+          }
+          video {
+            asset {
+              _rawAsset(resolveReferences: { maxDepth: 1 })
+            }
+          }
+        }
       }
       canonical
       slug {
@@ -1508,21 +2181,8 @@ export const query = graphql`
 `;
 
 function FlexListingPage({ data, location, pageContext }) {
-  let allListItems;
   const spGuides = useSpGuides();
-
-  switch (pageContext.listItemType) {
-    case 'Solo Guide Page':
-      allListItems = spGuides;
-      break;
-
-    default:
-      break;
-  }
-
-  const { currentpage, limit } = pageContext;
-
-  const listingItems = allListItems.slice((currentpage - 1) * limit, currentpage * limit);
+  console.log(pageContext);
 
   return (
     <Layout location={location} data={data.page} type={type}>
@@ -1541,6 +2201,21 @@ function FlexListingPage({ data, location, pageContext }) {
 
             case 'stackHero':
               return <StackHero key={section._key} {...mapStackSectionToProps(section)} />;
+
+            case 'videoHero':
+              return <VideoHero key={section._key} {...mapVideoHeroToProps(section)} />;
+
+            case 'featuredTilesSection':
+              return <FeaturedTilesSection key={section._key} />;
+
+            case 'latestWithPaginationSection':
+              return <LatestWithPaginationSection key={section._key} />;
+
+            case 'latestXSection':
+              return <LatestXSection key={section._key} />;
+
+            case 'tagSetSection':
+              return <TagSetSection key={section._key} />;
 
             // case 'paginatedListingSection':
             //   return (
