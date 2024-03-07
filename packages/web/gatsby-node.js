@@ -122,6 +122,121 @@ async function createStructuredPages(actions, graphql) {
 //     });
 //   });
 // }
+async function createFlexListingPages(actions, graphql) {
+  const { data } = await graphql(`
+    {
+      allSanityFlexListingPage {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+            sections {
+              ... on SanityLatestWithPaginationSection {
+                _key
+                _type
+                subject {
+                  ... on SanityCategory {
+                    name
+                  }
+                  ... on SanitySubcategory {
+                    name
+                  }
+                  ... on SanityTopic {
+                    name
+                  }
+                }
+              }
+              ... on SanityFeaturedTilesSection {
+                _key
+                _type
+                featuredTiles {
+                  slug {
+                    current
+                  }
+                }
+              }
+              ... on SanityLatestXSection {
+                _key
+                _type
+                count
+                subject {
+                  ... on SanityCategory {
+                    name
+                  }
+                  ... on SanitySubcategory {
+                    name
+                  }
+                  ... on SanityTopic {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      allSanitySoloGuidePage {
+        edges {
+          node {
+            primarySubcategory {
+              name
+            }
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const pages = data.allSanityFlexListingPage.edges;
+  pages.forEach((page) => {
+    const sections = page?.node?.sections;
+    let subject;
+    if (sections) {
+      subject = sections.filter((section) => section._type === 'latestWithPaginationSection')[0]
+        ?.subject?.name;
+    }
+
+    console.log(sections);
+    console.log(subject);
+
+    // const sgpCountbySubject = data.allSanitySoloGuidePage.edges.node.filter(
+    //   (sgp) => sgp?.primarySubcategory?.name === subjectName,
+    // );
+
+    const firstPageCount = 8;
+    const secondPageCount = 24;
+
+    if (page?.node?.slug?.current) {
+      // create first page
+      actions.createPage({
+        path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
+        ownerNodeId: page.node.id,
+        component: path.resolve(`./src/templates/flexListingPage.js`),
+        context: {
+          slug: page.node.slug.current,
+        },
+      });
+      // actions.createPage({
+      //   path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
+      //   component: path.resolve(`./src/templates/flexListingPage.js`),
+      //   ownerNodeId: page.node.id,
+      //   context: {
+      //     listItemType,
+      //     limit: numPerPage,
+      //     skip: i * numPerPage,
+      //     numPages,
+      //     currentpage: i + 1,
+      //     slug: page.node.slug.current,
+      //   },
+      // });
+    }
+  });
+}
 
 // create individual guides
 async function createSoloGuidePages(actions, graphql) {
@@ -190,7 +305,7 @@ async function createAirtableRedirects(actions, graphql) {
 
 exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
-  // await createFlexListingPages(actions, graphql);
+  await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
   await createAirtableRedirects(actions, graphql);
 };
