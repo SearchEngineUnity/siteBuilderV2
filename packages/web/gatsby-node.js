@@ -252,10 +252,34 @@ async function createSoloGuidePages(actions, graphql) {
           }
         }
       }
+      allSanityFlexListingPage {
+        edges {
+          node {
+            slug {
+              current
+            }
+            subject {
+              ... on SanityCategory {
+                id
+                name
+              }
+              ... on SanitySubcategory {
+                id
+                name
+              }
+              ... on SanityTopic {
+                id
+                name
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
   const guides = data.allSanitySoloGuidePage.edges;
+  const subjectListingPages = data.allSanityFlexListingPage.edges;
   guides.forEach((guide) => {
     if (guide?.node?.slug?.current) {
       actions.createPage({
@@ -264,6 +288,7 @@ async function createSoloGuidePages(actions, graphql) {
         component: path.resolve(`./src/templates/soloGuidePage.js`),
         context: {
           slug: guide.node.slug.current,
+          subjectListingPages,
         },
       });
     }

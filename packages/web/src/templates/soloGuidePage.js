@@ -129,7 +129,9 @@ const heroComponentMapping = {
   mainColumnHero: MainColumnGuideHero,
 };
 
-function SoloGuidePage({ data, location }) {
+function SoloGuidePage({ data, location, pageContext }) {
+  console.log(pageContext.subjectListingPages);
+
   const heroRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -186,7 +188,11 @@ function SoloGuidePage({ data, location }) {
       heroImage={data?.guide?.hero?.image?.asset?.url}
     >
       <main>
-        <Hero {...mapGuideHeroToProps(data.guide)} ref={heroRef} />
+        <Hero
+          {...mapGuideHeroToProps(data.guide)}
+          ref={heroRef}
+          subjectListingPages={pageContext.subjectListingPages}
+        />
         {isVisible && <ProgressBar />}
         <Box sx={{ my: 3 }}>
           <Container maxWidth="lg">
