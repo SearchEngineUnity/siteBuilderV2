@@ -138,12 +138,15 @@ async function createFlexListingPages(actions, graphql) {
                 _type
                 subject {
                   ... on SanityCategory {
+                    _type
                     name
                   }
                   ... on SanitySubcategory {
+                    _type
                     name
                   }
                   ... on SanityTopic {
+                    _type
                     name
                   }
                 }
@@ -177,10 +180,24 @@ async function createFlexListingPages(actions, graphql) {
           }
         }
       }
-      allSanitySoloGuidePage {
+      allSanitySoloGuidePage(sort: { displayDate: DESC }) {
         edges {
           node {
+            id
+            displayDate
+            tileTitle
+            tileText
+            tileImage {
+              alt
+              _rawAsset(resolveReferences: { maxDepth: 4 })
+            }
             primarySubcategory {
+              name
+              category {
+                name
+              }
+            }
+            topicTags {
               name
             }
             slug {
@@ -194,22 +211,136 @@ async function createFlexListingPages(actions, graphql) {
 
   const pages = data.allSanityFlexListingPage.edges;
   pages.forEach((page) => {
+    let subjectName;
+    const allSgps = data.allSanitySoloGuidePage.edges;
+    let featuredSgps;
+    let sgpsExcludesFeatured = [];
+    let sgpsWithFullExclusion = [];
+    let allSgpsForPagination = [];
+
     const sections = page?.node?.sections;
-    let subject;
-    if (sections) {
-      subject = sections.filter((section) => section._type === 'latestWithPaginationSection')[0]
-        ?.subject?.name;
+
+    const containsLatestWithPaginationSection = sections
+      .map((section) => section._type)
+      .includes('latestWithPaginationSection');
+
+    const containsFeaturedTilesSection = sections
+      .map((section) => section._type)
+      .includes('featuredTilesSection');
+
+    const containsLatestXSection = sections
+      .map((section) => section._type)
+      .includes('latestXSection');
+
+    // find all the articles from featured tiles section
+    if (containsFeaturedTilesSection) {
+      // console.log('this page contains at least one featured tiles section');
+      const featuredTilesSectionArr = sections.filter(
+        (section) => section._type === 'featuredTilesSection',
+      );
+
+      featuredSgps = featuredTilesSectionArr
+        .map((section) => section.featuredTiles)
+        .flat()
+        .map((tiles) => tiles.slug.current);
+      // console.log('featured tiles section arr');
+      // console.log(featuredTilesSectionArr);
+      // console.log(featuredSgps);
+      sgpsExcludesFeatured = allSgps.filter(
+        (sgp) => !featuredSgps.includes(sgp.node?.slug?.current),
+      );
+      // console.log(sgpsExcludesFeatured);
     }
 
-    console.log(sections);
-    console.log(subject);
+    // find all the articles from latest x section
+    if (containsLatestXSection && containsLatestWithPaginationSection) {
+      console.log('this page contains at least one latest x section');
+      // identify all the latest x section arr
+      const latestXSectionsArr = sections.filter((section) => section._type === 'latestXSection');
+      // console.log('latest X section arr');
+      // console.log(latestXSectionsArr);
 
-    // const sgpCountbySubject = data.allSanitySoloGuidePage.edges.node.filter(
-    //   (sgp) => sgp?.primarySubcategory?.name === subjectName,
-    // );
+      const sgpsForAllLatestXSections = [];
 
+      latestXSectionsArr.forEach((section) => {
+        const sectionType = section._type;
+        const sectionSubjectName = section.subject.name;
+        const sectionTileCount = section.count;
+
+        // console.log(sectionType);
+        // console.log(sectionSubjectName);
+        // console.log(sectionTileCount);
+
+        const sectionTiles = sgpsExcludesFeatured
+          .filter((sgp) => {
+            if (
+              sgp.node.primarySubcategory?.name === sectionSubjectName ||
+              sgp.node.primarySubcategory?.category?.name === sectionSubjectName ||
+              sgp.node.topicTags.map((x) => x.name).includes(sectionSubjectName)
+            ) {
+              return true;
+            }
+            return false;
+          })
+          .slice(0, sectionTileCount);
+
+        console.log(sectionTiles);
+        sgpsForAllLatestXSections.push(...sectionTiles);
+      });
+
+      console.log('sgps for all latest x sections');
+      console.log(sgpsForAllLatestXSections);
+      const slugsForAllSgpsInLatestXSections = [
+        ...new Set(sgpsForAllLatestXSections.map((sgp) => sgp?.node?.slug?.current)),
+      ];
+      console.log(slugsForAllSgpsInLatestXSections);
+      sgpsWithFullExclusion = sgpsExcludesFeatured.filter(
+        (sgp) => !slugsForAllSgpsInLatestXSections.includes(sgp.node?.slug.current),
+      );
+    }
+
+    // provide the final filtered out sgps for sgpsForLatestWithPagination
+    if (containsLatestWithPaginationSection) {
+      // find out the subject name and type for the latest with pagination section
+      const subject = sections.filter(
+        (section) => section._type === 'latestWithPaginationSection',
+      )[0]?.subject;
+      subjectName = subject?.name;
+
+      // console.log('subject name');
+      // console.log(subjectName);
+
+      // get all the articles that has the same subject tag
+      allSgpsForPagination = sgpsWithFullExclusion.filter((sgp) => {
+        if (
+          sgp.node.primarySubcategory?.name === subjectName ||
+          sgp.node.primarySubcategory?.category?.name === subjectName ||
+          sgp.node.topicTags.map((x) => x.name).includes(subjectName)
+        ) {
+          return true;
+        }
+        return false;
+      });
+
+      // console.log('all spg matching subject name');
+      // console.log(allSgpsForPagination);
+    }
+
+    const totalSgpsCountForPagination = allSgpsForPagination.length;
     const firstPageCount = 8;
-    const secondPageCount = 24;
+    const subsequentPageCount = 16;
+
+    const numOfSubsequentPage =
+      totalSgpsCountForPagination < firstPageCount
+        ? 0
+        : Math.ceil((totalSgpsCountForPagination - firstPageCount) / subsequentPageCount);
+
+    console.log('total count');
+    console.log(totalSgpsCountForPagination);
+    console.log('numb of sub pages');
+    console.log(numOfSubsequentPage);
+    console.log('slug for sgps for pagination');
+    console.log(allSgpsForPagination.map((x) => x.node.slug.current));
 
     if (page?.node?.slug?.current) {
       // create first page
@@ -219,21 +350,35 @@ async function createFlexListingPages(actions, graphql) {
         component: path.resolve(`./src/templates/flexListingPage.js`),
         context: {
           slug: page.node.slug.current,
+          sgpsExcludesFeatured,
+          sgpsForPagination: allSgpsForPagination,
+          firstPageCount,
+          limit: subsequentPageCount,
+          numPages: numOfSubsequentPage,
+          currentpage: 1,
         },
       });
-      // actions.createPage({
-      //   path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
-      //   component: path.resolve(`./src/templates/flexListingPage.js`),
-      //   ownerNodeId: page.node.id,
-      //   context: {
-      //     listItemType,
-      //     limit: numPerPage,
-      //     skip: i * numPerPage,
-      //     numPages,
-      //     currentpage: i + 1,
-      //     slug: page.node.slug.current,
-      //   },
-      // });
+
+      if (numOfSubsequentPage > 0) {
+        Array.from({ length: numOfSubsequentPage }).forEach((_, i) => {
+          if (page?.node?.slug?.current) {
+            actions.createPage({
+              path: `/${page.node.slug.current}/${i + 2}`,
+              ownerNodeId: page.node.id,
+              component: path.resolve(`./src/templates/flexListingPage.js`),
+              context: {
+                slug: page.node.slug.current,
+                sgpsExcludesFeatured,
+                sgpsForPagination: allSgpsForPagination,
+                firstPageCount,
+                limit: subsequentPageCount,
+                numPages: numOfSubsequentPage,
+                currentpage: i + 2,
+              },
+            });
+          }
+        });
+      }
     }
   });
 }

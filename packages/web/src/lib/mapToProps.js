@@ -246,6 +246,58 @@ export function mapStackSectionToProps({
     designSettings,
   };
 }
+export function mapLatestXSectionToProps({
+  _rawFooter,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
+  subject,
+  count,
+  designSettings,
+  header,
+  idTag,
+  blockWidth,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subheading: header?.subheading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    blockWidth,
+    blockAlignment,
+    headerAlignment,
+    footerAlignment,
+    designSettings,
+    subjectName: subject?.name,
+    count,
+  };
+}
+export function mapLatestWithPaginationSectionToProps({
+  _rawFooter,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
+  subject,
+  designSettings,
+  header,
+  idTag,
+  blockWidth,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subheading: header?.subheading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    blockWidth,
+    blockAlignment,
+    headerAlignment,
+    footerAlignment,
+    designSettings,
+    subjectName: subject?.name,
+  };
+}
 
 export function mapPaginatedListingSectionToProps({
   _rawFooter,

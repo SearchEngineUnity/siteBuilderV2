@@ -17,6 +17,8 @@ import {
   mapLrFlexToProps,
   mapStackSectionToProps,
   mapVideoHeroToProps,
+  mapLatestXSectionToProps,
+  mapLatestWithPaginationSectionToProps,
   // mapPaginatedListingSectionToProps,
 } from '../lib/mapToProps';
 
@@ -1819,6 +1821,7 @@ export const query = graphql`
             }
           }
           idTag
+          count
           subject {
             ... on SanityCategory {
               name
@@ -2181,8 +2184,16 @@ export const query = graphql`
 `;
 
 function FlexListingPage({ data, location, pageContext }) {
-  const spGuides = useSpGuides();
   console.log(pageContext);
+
+  const {
+    sgpsExcludesFeatured,
+    sgpsForPagination,
+    firstPageCount,
+    subsequentPageCount,
+    numPages,
+    currentpage,
+  } = pageContext;
 
   return (
     <Layout location={location} data={data.page} type={type}>
@@ -2206,16 +2217,32 @@ function FlexListingPage({ data, location, pageContext }) {
               return <VideoHero key={section._key} {...mapVideoHeroToProps(section)} />;
 
             case 'featuredTilesSection':
-              return <FeaturedTilesSection key={section._key} />;
+              return currentpage === 1 ? <FeaturedTilesSection key={section._key} /> : null;
 
             case 'latestWithPaginationSection':
-              return <LatestWithPaginationSection key={section._key} />;
+              return (
+                <LatestWithPaginationSection
+                  key={section._key}
+                  {...mapLatestWithPaginationSectionToProps(section)}
+                  sgpsForPagination={sgpsForPagination}
+                  firstPageCount={firstPageCount}
+                  subsequentPageCount={subsequentPageCount}
+                  numPages={numPages}
+                  currentpage={currentpage}
+                />
+              );
 
             case 'latestXSection':
-              return <LatestXSection key={section._key} />;
+              return currentpage === 1 ? (
+                <LatestXSection
+                  key={section._key}
+                  {...mapLatestXSectionToProps(section)}
+                  sgpsExcludesFeatured={sgpsExcludesFeatured}
+                />
+              ) : null;
 
             case 'tagSetSection':
-              return <TagSetSection key={section._key} />;
+              return currentpage === 1 ? <TagSetSection key={section._key} /> : null;
 
             // case 'paginatedListingSection':
             //   return (
