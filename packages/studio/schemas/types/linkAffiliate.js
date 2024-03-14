@@ -13,7 +13,7 @@ export default {
       validation: (Rule) =>
         Rule.uri({
           allowRelative: false,
-          scheme: ['https', 'http', 'mailto', 'tel'],
+          scheme: ['https'],
         }),
     },
   ],
