@@ -66,6 +66,13 @@ export default {
       fieldset: 'general',
     },
     {
+      name: 'subject',
+      title: 'Subject',
+      type: 'reference',
+      to: [{ type: 'topic' }, { type: 'subcategory' }, { type: 'category' }],
+      fieldset: 'general',
+    },
+    {
       name: 'fbShareMetaPack',
       title: 'Facebook Open Graph Meta Pack',
       type: 'fbShareMetaPack',
