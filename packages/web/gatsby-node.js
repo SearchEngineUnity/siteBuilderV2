@@ -57,71 +57,6 @@ async function createStructuredPages(actions, graphql) {
   });
 }
 
-// create all listing pages
-// async function createFlexListingPages(actions, graphql) {
-//   const { data } = await graphql(`
-//     {
-//       allSanityFlexListingPage {
-//         edges {
-//           node {
-//             id
-//             slug {
-//               current
-//             }
-//             sections {
-//               ... on SanityPaginatedListingSection {
-//                 _key
-//                 _type
-//                 count
-//                 listItemType
-//               }
-//             }
-//           }
-//         }
-//       }
-//       allSanitySoloGuidePage {
-//         totalCount
-//       }
-//     }
-//   `);
-
-//   const pages = data.allSanityFlexListingPage.edges;
-//   pages.forEach((page) => {
-//     const { listItemType } = page.node.sections.filter(
-//       (section) => section._type === 'paginatedListingSection',
-//     )[0];
-//     const numPerPage = page.node.sections.filter(
-//       (section) => section._type === 'paginatedListingSection',
-//     )[0].count;
-//     let totalCount;
-//     switch (listItemType) {
-//       case 'Solo Guide Page':
-//         totalCount = data.allSanitySoloGuidePage.totalCount;
-//         break;
-
-//       default:
-//         break;
-//     }
-//     const numPages = Math.ceil(totalCount / numPerPage);
-//     Array.from({ length: numPages }).forEach((_, i) => {
-//       if (page?.node?.slug?.current) {
-//         actions.createPage({
-//           path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
-//           component: path.resolve(`./src/templates/flexListingPage.js`),
-//           ownerNodeId: page.node.id,
-//           context: {
-//             listItemType,
-//             limit: numPerPage,
-//             skip: i * numPerPage,
-//             numPages,
-//             currentpage: i + 1,
-//             slug: page.node.slug.current,
-//           },
-//         });
-//       }
-//     });
-//   });
-// }
 async function createFlexListingPages(actions, graphql) {
   const { data } = await graphql(`
     {
@@ -131,6 +66,20 @@ async function createFlexListingPages(actions, graphql) {
             id
             slug {
               current
+            }
+            subject {
+              ... on SanityCategory {
+                id
+                name
+              }
+              ... on SanitySubcategory {
+                id
+                name
+              }
+              ... on SanityTopic {
+                id
+                name
+              }
             }
             sections {
               ... on SanityLatestWithPaginationSection {
@@ -203,6 +152,12 @@ async function createFlexListingPages(actions, graphql) {
             slug {
               current
             }
+            hero {
+              feature
+              video {
+                url
+              }
+            }
           }
         }
       }
@@ -210,6 +165,18 @@ async function createFlexListingPages(actions, graphql) {
   `);
 
   const pages = data.allSanityFlexListingPage.edges;
+  const subjectListingPages = data.allSanityFlexListingPage.edges.map((x) => ({
+    node: {
+      slug: {
+        current: x?.node?.slug?.current,
+      },
+      subject: {
+        id: x?.node?.subject?.id,
+        name: x?.node?.subject?.name,
+      },
+    },
+  }));
+
   pages.forEach((page) => {
     let subjectName;
     const allSgps = data.allSanitySoloGuidePage.edges;
@@ -234,7 +201,6 @@ async function createFlexListingPages(actions, graphql) {
 
     // find all the articles from featured tiles section
     if (containsFeaturedTilesSection) {
-      // console.log('this page contains at least one featured tiles section');
       const featuredTilesSectionArr = sections.filter(
         (section) => section._type === 'featuredTilesSection',
       );
@@ -243,33 +209,22 @@ async function createFlexListingPages(actions, graphql) {
         .map((section) => section.featuredTiles)
         .flat()
         .map((tiles) => tiles.slug.current);
-      // console.log('featured tiles section arr');
-      // console.log(featuredTilesSectionArr);
-      // console.log(featuredSgps);
+
       sgpsExcludesFeatured = allSgps.filter(
         (sgp) => !featuredSgps.includes(sgp.node?.slug?.current),
       );
-      // console.log(sgpsExcludesFeatured);
     }
 
     // find all the articles from latest x section
     if (containsLatestXSection && containsLatestWithPaginationSection) {
-      console.log('this page contains at least one latest x section');
       // identify all the latest x section arr
       const latestXSectionsArr = sections.filter((section) => section._type === 'latestXSection');
-      // console.log('latest X section arr');
-      // console.log(latestXSectionsArr);
 
       const sgpsForAllLatestXSections = [];
 
       latestXSectionsArr.forEach((section) => {
-        const sectionType = section._type;
         const sectionSubjectName = section.subject.name;
         const sectionTileCount = section.count;
-
-        // console.log(sectionType);
-        // console.log(sectionSubjectName);
-        // console.log(sectionTileCount);
 
         const sectionTiles = sgpsExcludesFeatured
           .filter((sgp) => {
@@ -284,16 +239,13 @@ async function createFlexListingPages(actions, graphql) {
           })
           .slice(0, sectionTileCount);
 
-        console.log(sectionTiles);
         sgpsForAllLatestXSections.push(...sectionTiles);
       });
 
-      console.log('sgps for all latest x sections');
-      console.log(sgpsForAllLatestXSections);
       const slugsForAllSgpsInLatestXSections = [
         ...new Set(sgpsForAllLatestXSections.map((sgp) => sgp?.node?.slug?.current)),
       ];
-      console.log(slugsForAllSgpsInLatestXSections);
+
       sgpsWithFullExclusion = sgpsExcludesFeatured.filter(
         (sgp) => !slugsForAllSgpsInLatestXSections.includes(sgp.node?.slug.current),
       );
@@ -307,9 +259,6 @@ async function createFlexListingPages(actions, graphql) {
       )[0]?.subject;
       subjectName = subject?.name;
 
-      // console.log('subject name');
-      // console.log(subjectName);
-
       // get all the articles that has the same subject tag
       allSgpsForPagination = sgpsWithFullExclusion.filter((sgp) => {
         if (
@@ -321,9 +270,6 @@ async function createFlexListingPages(actions, graphql) {
         }
         return false;
       });
-
-      // console.log('all spg matching subject name');
-      // console.log(allSgpsForPagination);
     }
 
     const totalSgpsCountForPagination = allSgpsForPagination.length;
@@ -335,50 +281,26 @@ async function createFlexListingPages(actions, graphql) {
         ? 0
         : Math.ceil((totalSgpsCountForPagination - firstPageCount) / subsequentPageCount);
 
-    console.log('total count');
-    console.log(totalSgpsCountForPagination);
-    console.log('numb of sub pages');
-    console.log(numOfSubsequentPage);
-    console.log('slug for sgps for pagination');
-    console.log(allSgpsForPagination.map((x) => x.node.slug.current));
-
     if (page?.node?.slug?.current) {
-      // create first page
-      actions.createPage({
-        path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
-        ownerNodeId: page.node.id,
-        component: path.resolve(`./src/templates/flexListingPage.js`),
-        context: {
-          slug: page.node.slug.current,
-          sgpsExcludesFeatured,
-          sgpsForPagination: allSgpsForPagination,
-          firstPageCount,
-          limit: subsequentPageCount,
-          numPages: numOfSubsequentPage,
-          currentpage: 1,
-        },
-      });
-
-      if (numOfSubsequentPage > 0) {
-        Array.from({ length: numOfSubsequentPage }).forEach((_, i) => {
-          if (page?.node?.slug?.current) {
-            actions.createPage({
-              path: `/${page.node.slug.current}/${i + 2}`,
-              ownerNodeId: page.node.id,
-              component: path.resolve(`./src/templates/flexListingPage.js`),
-              context: {
-                slug: page.node.slug.current,
-                sgpsExcludesFeatured,
-                sgpsForPagination: allSgpsForPagination,
-                firstPageCount,
-                limit: subsequentPageCount,
-                numPages: numOfSubsequentPage,
-                currentpage: i + 2,
-              },
-            });
-          }
+      Array.from({ length: numOfSubsequentPage + 1 }).forEach((_, i) => {
+        actions.createPage({
+          path: `/${page.node.slug.current === '/' ? '' : page.node.slug.current}${
+            i === 0 ? '' : `/${i + 1}`
+          }`,
+          ownerNodeId: page.node.id,
+          component: path.resolve(`./src/templates/flexListingPage.js`),
+          context: {
+            slug: page.node.slug.current,
+            sgpsExcludesFeatured,
+            sgpsForPagination: allSgpsForPagination,
+            firstPageCount,
+            subsequentPageCount,
+            numPages: numOfSubsequentPage + 1,
+            currentpage: i + 1,
+            subjectListingPages,
+          },
         });
-      }
+      });
     }
   });
 }
