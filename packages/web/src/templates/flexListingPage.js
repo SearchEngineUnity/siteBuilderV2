@@ -10,8 +10,6 @@ import FeaturedTilesSection from '../components/sections/FeaturedTilesSection';
 import LatestWithPaginationSection from '../components/sections/LatestWithPaginationSection';
 import LatestXSection from '../components/sections/LatestXSection';
 import TagSetSection from '../components/sections/TagSetSection';
-// import PaginatedListingSection from '../components/sections/PaginatedListingSection';
-import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
   mapLrFlexToProps,
@@ -2184,8 +2182,6 @@ export const query = graphql`
 `;
 
 function FlexListingPage({ data, location, pageContext }) {
-  console.log(pageContext);
-
   const {
     sgpsExcludesFeatured,
     sgpsForPagination,
@@ -2193,7 +2189,17 @@ function FlexListingPage({ data, location, pageContext }) {
     subsequentPageCount,
     numPages,
     currentpage,
+    slug,
+    subjectListingPages,
   } = pageContext;
+
+  const spgTilesContent =
+    currentpage === 1
+      ? sgpsForPagination.slice(0, firstPageCount)
+      : sgpsForPagination.slice(
+          currentpage - 1 * subsequentPageCount,
+          currentpage * subsequentPageCount,
+        );
 
   return (
     <Layout location={location} data={data.page} type={type}>
@@ -2217,18 +2223,22 @@ function FlexListingPage({ data, location, pageContext }) {
               return <VideoHero key={section._key} {...mapVideoHeroToProps(section)} />;
 
             case 'featuredTilesSection':
-              return currentpage === 1 ? <FeaturedTilesSection key={section._key} /> : null;
+              return currentpage === 1 ? (
+                <FeaturedTilesSection
+                  key={section._key}
+                  subjectListingPages={subjectListingPages}
+                />
+              ) : null;
 
             case 'latestWithPaginationSection':
               return (
                 <LatestWithPaginationSection
                   key={section._key}
                   {...mapLatestWithPaginationSectionToProps(section)}
-                  sgpsForPagination={sgpsForPagination}
-                  firstPageCount={firstPageCount}
-                  subsequentPageCount={subsequentPageCount}
+                  spgTilesContent={spgTilesContent}
                   numPages={numPages}
                   currentpage={currentpage}
+                  slug={slug}
                 />
               );
 
@@ -2238,21 +2248,13 @@ function FlexListingPage({ data, location, pageContext }) {
                   key={section._key}
                   {...mapLatestXSectionToProps(section)}
                   sgpsExcludesFeatured={sgpsExcludesFeatured}
+                  subjectListingPages={subjectListingPages}
                 />
               ) : null;
 
             case 'tagSetSection':
               return currentpage === 1 ? <TagSetSection key={section._key} /> : null;
 
-            // case 'paginatedListingSection':
-            //   return (
-            //     <PaginatedListingSection
-            //       key={section._key}
-            //       {...mapPaginatedListingSectionToProps(section)}
-            //       {...pageContext}
-            //       listingItems={listingItems}
-            //     />
-            //   );
             default:
               return <div>Still under development</div>;
           }
