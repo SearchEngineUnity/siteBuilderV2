@@ -40,10 +40,13 @@ module.exports = {
       options: {
         webFontsConfig: {
           fonts: {
-            google: [
+            google2: [
               {
-                family: `Material+Icons`,
+                family: 'Material+Symbols+Outlined',
+                axes: 'opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
               },
+            ],
+            google: [
               {
                 family: `Roboto`,
                 variants: [`100`, `300`, `400`, `500`, `700`, `900`],
