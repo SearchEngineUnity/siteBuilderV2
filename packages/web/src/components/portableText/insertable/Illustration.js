@@ -32,11 +32,14 @@ function Illustration({ illustration, loading }) {
 
   return (
     <Box sx={{ display: 'flex', justifyContent: illustration.align }}>
-      <Box component="figure" sx={{ maxWidth: `${minMaxWidth}px`, m: 0 }}>
+      <Box
+        component="figure"
+        sx={{ maxWidth: hasFrame ? `${minMaxWidth + 2}px` : `${minMaxWidth}px`, m: 0 }}
+      >
         <Box
           sx={[
             hasFrame && {
-              border: '1px solid #abb8c3',
+              border: '1px solid #ABB8C3',
             },
           ]}
         >
@@ -44,10 +47,10 @@ function Illustration({ illustration, loading }) {
             image={fluidProps}
             alt={illustration.alt || ''}
             loading={loadingSetting}
-            style={{
-              maxHeight: `${customMaxHeight}px`,
-              maxWidth: `${customMaxWidth}px`,
-            }}
+            // style={{
+            //   maxHeight: `${customMaxHeight}px`,
+            //   maxWidth: `${customMaxWidth}px`,
+            // }}
           />
         </Box>
         {illustration.caption && <CaptionContent blocks={illustration.caption} />}
