@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Container from '@mui/material/Container';
 import Layout from '../containers/layout';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
@@ -10,6 +11,8 @@ import FeaturedTilesSection from '../components/sections/FeaturedTilesSection';
 import LatestWithPaginationSection from '../components/sections/LatestWithPaginationSection';
 import LatestXSection from '../components/sections/LatestXSection';
 import TagSetSection from '../components/sections/TagSetSection';
+import PageBreadcrumbs from '../components/navs/breadcrumbs/PageBreadcrumbs';
+
 import {
   mapLrHeroToProps,
   mapLrFlexToProps,
@@ -2156,6 +2159,29 @@ export const query = graphql`
         current
       }
       pageTitle
+      subject {
+        ... on SanityCategory {
+          _type
+          name
+        }
+        ... on SanitySubcategory {
+          _type
+          name
+          category {
+            name
+          }
+        }
+        ... on SanityTopic {
+          _type
+          name
+          subcategory {
+            name
+            category {
+              name
+            }
+          }
+        }
+      }
       metaDescription
       twitterShareMetaPack {
         twitterShareImage {
@@ -2204,6 +2230,9 @@ function FlexListingPage({ data, location, pageContext }) {
   return (
     <Layout location={location} data={data.page} type={type}>
       <main>
+        <Container maxWidth="lg">
+          <PageBreadcrumbs subject={data.page?.subject} subjectListingPages={subjectListingPages} />
+        </Container>
         {data.page.sections.map((section) => {
           const { _type } = section;
           switch (_type) {
