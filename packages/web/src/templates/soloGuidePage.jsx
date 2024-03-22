@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import LrGuideHero from '../components/sections/LrGuideHero';
 import StackGuideHero from '../components/sections/StackGuideHero';
@@ -13,7 +14,7 @@ import MainColumnFeature from '../components/sections/MainColumnFeature';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
 import { useUpdateUrl } from '../hooks/useUpdateUrl';
-import { mapGuideHeroToProps } from '../lib/mapToProps';
+import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
 const type = 'guide';
 
@@ -222,3 +223,7 @@ function SoloGuidePage({ data, location, pageContext }) {
 }
 
 export default SoloGuidePage;
+
+export function Head({ data }) {
+  return <Seo {...mapSeoToProps(data.guide)} type={type} />;
+}
