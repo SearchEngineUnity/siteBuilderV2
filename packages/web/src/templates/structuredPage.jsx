@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import VideoHero from '../components/sections/VideoHero';
 import LrHero from '../components/sections/LrFlexHero';
@@ -11,6 +12,7 @@ import {
   mapLrFlexToProps,
   mapStackSectionToProps,
   mapVideoHeroToProps,
+  mapSeoToProps,
 } from '../lib/mapToProps';
 
 const type = 'page';
@@ -1780,3 +1782,7 @@ function StructuredPage({ data, location }) {
 }
 
 export default StructuredPage;
+
+export function Head({ data }) {
+  return <Seo {...mapSeoToProps(data.page)} type={type} />;
+}
