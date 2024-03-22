@@ -13,12 +13,6 @@ export default {
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
-    {
-      name: 'listingPage',
-      title: 'Listing Page',
-      type: 'reference',
-      to: [{ type: 'flexListingPage' }],
-    },
   ],
   preview: {
     select: {

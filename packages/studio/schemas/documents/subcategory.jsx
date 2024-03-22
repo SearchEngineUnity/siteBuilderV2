@@ -14,12 +14,6 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'listingPage',
-      title: 'Listing Page',
-      type: 'reference',
-      to: [{ type: 'flexListingPage' }],
-    },
-    {
       name: 'category',
       title: 'Category',
       type: 'reference',
