@@ -3,7 +3,7 @@ import { Link } from 'gatsby-theme-material-ui';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-function PageBreadcrumbs({ subject, subjectListingPages }) {
+function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
   const { _type: type } = subject || {};
 
   const firstLevel = {};
@@ -13,6 +13,13 @@ function PageBreadcrumbs({ subject, subjectListingPages }) {
     firstLevel.name = subject?.category?.name;
     firstLevel.slug = subjectListingPages.filter(
       (x) => x?.node?.subject?.name === subject?.category?.name,
+    )[0]?.node?.slug?.current;
+  }
+
+  if (type === 'subcategory' && isSGP) {
+    secondLevel.name = subject?.name;
+    secondLevel.slug = subjectListingPages.filter(
+      (x) => x?.node?.subject?.name === subject?.name,
     )[0]?.node?.slug?.current;
   }
 

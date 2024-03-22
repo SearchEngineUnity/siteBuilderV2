@@ -30,38 +30,19 @@ export const query = graphql`
         name
       }
       primarySubcategory {
+        _type
         name
-        listingPage {
-          slug {
-            current
-          }
-        }
         category {
           name
-          listingPage {
-            slug {
-              current
-            }
-          }
         }
       }
       secondarySubcategory {
         _key
         name
-        listingPage {
-          slug {
-            current
-          }
-        }
       }
       topicTags {
         _key
         name
-        listingPage {
-          slug {
-            current
-          }
-        }
       }
       pageTitle
       twitterShareMetaPack {
@@ -131,8 +112,6 @@ const heroComponentMapping = {
 };
 
 function SoloGuidePage({ data, location, pageContext }) {
-  console.log(pageContext.subjectListingPages);
-
   const heroRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 

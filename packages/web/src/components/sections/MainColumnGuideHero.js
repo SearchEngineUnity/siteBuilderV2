@@ -5,10 +5,19 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import Typography from '@mui/material/Typography';
 import Subtitle from '../portableText/serializer/H1SubtitleSerializer';
 import HeroTags from './HeroTags';
-import Breadcrumbs from '../navs/breadcrumbs/SpgHeroBreadcrumbs';
+import Breadcrumbs from '../navs/breadcrumbs/PageBreadcrumbs';
 
 const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
-  { h1, subtitle, date, author, topicTags, primarySubcategory, secondarySubcategory },
+  {
+    h1,
+    subtitle,
+    date,
+    author,
+    topicTags,
+    primarySubcategory,
+    secondarySubcategory,
+    subjectListingPages,
+  },
   ref,
 ) {
   const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
@@ -27,9 +36,15 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
       component="header"
     >
       <Container maxWidth="lg">
-        <Grid container direction="row" spacing={3}>
+        <Grid container direction="column" spacing={3}>
           <Grid>
-            {primarySubcategory && <Breadcrumbs primarySubcategory={primarySubcategory} />}
+            {primarySubcategory && (
+              <Breadcrumbs
+                subject={primarySubcategory}
+                subjectListingPages={subjectListingPages}
+                isSGP
+              />
+            )}
           </Grid>
           <Grid>
             <Typography variant="h1">{h1}</Typography>
@@ -46,6 +61,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
                 topicTags={topicTags}
                 primarySubcategory={primarySubcategory}
                 secondarySubcategory={secondarySubcategory}
+                subjectListingPages={subjectListingPages}
               />
             </Box>
 
