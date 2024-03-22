@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '@mui/material/Container';
+import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
@@ -20,7 +21,7 @@ import {
   mapVideoHeroToProps,
   mapLatestXSectionToProps,
   mapLatestWithPaginationSectionToProps,
-  // mapPaginatedListingSectionToProps,
+  mapSeoToProps,
 } from '../lib/mapToProps';
 
 const type = 'page';
@@ -2228,7 +2229,7 @@ function FlexListingPage({ data, location, pageContext }) {
         );
 
   return (
-    <Layout location={location} data={data.page} type={type}>
+    <Layout location={location} type={type}>
       <main>
         <Container maxWidth="lg">
           <PageBreadcrumbs subject={data.page?.subject} subjectListingPages={subjectListingPages} />
@@ -2294,3 +2295,7 @@ function FlexListingPage({ data, location, pageContext }) {
 }
 
 export default FlexListingPage;
+
+export function Head({ data, pageContext }) {
+  return <Seo {...mapSeoToProps(data.page)} type={type} currentpage={pageContext.currentpage} />;
+}

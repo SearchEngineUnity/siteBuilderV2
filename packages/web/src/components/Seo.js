@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { useSeoDefaults } from '../hooks/useSeoDefaults';
 
 export default function Seo({
@@ -13,7 +12,7 @@ export default function Seo({
   nofollow,
   canonical,
   heroImage,
-  children,
+  currentpage,
 }) {
   const defaults = useSeoDefaults();
   const { socialImage } = defaults;
@@ -23,7 +22,8 @@ export default function Seo({
 
   switch (type) {
     case 'page':
-      metaUrl = slug === '/' ? metaUrl : `${metaUrl}/${slug}`;
+      metaUrl =
+        slug === '/' ? metaUrl : `${metaUrl}/${slug}${currentpage > 1 ? `/${currentpage}` : ''}`;
       ogType = 'website';
       break;
     case 'guide':
@@ -45,7 +45,7 @@ export default function Seo({
     twitterShareMetaPack?.twitterShareDescription || ogDescription || metaDescription;
 
   return (
-    <Helmet>
+    <>
       <html lang="en" />
       <title>{pageTitle}</title>
       {metaDescription && <meta name="description" content={metaDescription} />}
@@ -65,7 +65,6 @@ export default function Seo({
       ) : (
         <link rel="canonical" href={metaUrl} />
       )}
-      {children}
-    </Helmet>
+    </>
   );
 }
