@@ -146,6 +146,12 @@ async function createFlexListingPages(actions, graphql) {
                 name
               }
             }
+            secondarySubcategory {
+              name
+              category {
+                name
+              }
+            }
             topicTags {
               name
             }
@@ -264,7 +270,9 @@ async function createFlexListingPages(actions, graphql) {
         if (
           sgp.node.primarySubcategory?.name === subjectName ||
           sgp.node.primarySubcategory?.category?.name === subjectName ||
-          sgp.node.topicTags.map((x) => x.name).includes(subjectName)
+          sgp.node.secondarySubcategory.map((x) => x?.name).includes(subjectName) ||
+          sgp.node.secondarySubcategory?.map((x) => x?.category?.name).includes(subjectName) ||
+          sgp.node.topicTags.map((x) => x?.name).includes(subjectName)
         ) {
           return true;
         }
