@@ -188,6 +188,7 @@ async function createFlexListingPages(actions, graphql) {
     const allSgps = data.allSanitySoloGuidePage.edges;
     let featuredSgps;
     let sgpsExcludesFeatured = [];
+    const sgpsForAllLatestXSections = [];
     let sgpsWithFullExclusion = [];
     let allSgpsForPagination = [];
 
@@ -225,8 +226,6 @@ async function createFlexListingPages(actions, graphql) {
     if (containsLatestXSection && containsLatestWithPaginationSection) {
       // identify all the latest x section arr
       const latestXSectionsArr = sections.filter((section) => section._type === 'latestXSection');
-
-      const sgpsForAllLatestXSections = [];
 
       latestXSectionsArr.forEach((section) => {
         const sectionSubjectName = section.subject.name;
@@ -299,7 +298,7 @@ async function createFlexListingPages(actions, graphql) {
           component: path.resolve(`./src/templates/flexListingPage.jsx`),
           context: {
             slug: page.node.slug.current,
-            sgpsExcludesFeatured,
+            sgpsForAllLatestXSections,
             sgpsForPagination:
               i === 0
                 ? allSgpsForPagination.slice(0, firstPageCount)

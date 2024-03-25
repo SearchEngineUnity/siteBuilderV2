@@ -2210,7 +2210,7 @@ export const query = graphql`
 
 function FlexListingPage({ data, location, pageContext }) {
   const {
-    sgpsExcludesFeatured,
+    sgpsForAllLatestXSections,
     sgpsForPagination,
     numPages,
     currentpage,
@@ -2267,7 +2267,7 @@ function FlexListingPage({ data, location, pageContext }) {
                 <LatestXSection
                   key={section._key}
                   {...mapLatestXSectionToProps(section)}
-                  sgpsExcludesFeatured={sgpsExcludesFeatured}
+                  sgpsForAllLatestXSections={sgpsForAllLatestXSections}
                   subjectListingPages={subjectListingPages}
                 />
               ) : null;
