@@ -300,7 +300,13 @@ async function createFlexListingPages(actions, graphql) {
           context: {
             slug: page.node.slug.current,
             sgpsExcludesFeatured,
-            sgpsForPagination: allSgpsForPagination,
+            sgpsForPagination:
+              i === 0
+                ? allSgpsForPagination.slice(0, firstPageCount)
+                : allSgpsForPagination.slice(
+                    (i - 1) * subsequentPageCount + firstPageCount,
+                    i * subsequentPageCount + firstPageCount,
+                  ),
             firstPageCount,
             subsequentPageCount,
             numPages: numOfSubsequentPage + 1,

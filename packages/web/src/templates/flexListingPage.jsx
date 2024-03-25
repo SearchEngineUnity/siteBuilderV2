@@ -2212,21 +2212,11 @@ function FlexListingPage({ data, location, pageContext }) {
   const {
     sgpsExcludesFeatured,
     sgpsForPagination,
-    firstPageCount,
-    subsequentPageCount,
     numPages,
     currentpage,
     slug,
     subjectListingPages,
   } = pageContext;
-
-  const spgTilesContent =
-    currentpage === 1
-      ? sgpsForPagination.slice(0, firstPageCount)
-      : sgpsForPagination.slice(
-          currentpage - 1 * subsequentPageCount,
-          currentpage * subsequentPageCount,
-        );
 
   return (
     <Layout location={location} type={type}>
@@ -2265,7 +2255,7 @@ function FlexListingPage({ data, location, pageContext }) {
                 <LatestWithPaginationSection
                   key={section._key}
                   {...mapLatestWithPaginationSectionToProps(section)}
-                  spgTilesContent={spgTilesContent}
+                  spgTilesContent={sgpsForPagination}
                   numPages={numPages}
                   currentpage={currentpage}
                   slug={slug}
