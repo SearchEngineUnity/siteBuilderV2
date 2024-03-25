@@ -146,6 +146,12 @@ async function createFlexListingPages(actions, graphql) {
                 name
               }
             }
+            secondarySubcategory {
+              name
+              category {
+                name
+              }
+            }
             topicTags {
               name
             }
@@ -264,7 +270,9 @@ async function createFlexListingPages(actions, graphql) {
         if (
           sgp.node.primarySubcategory?.name === subjectName ||
           sgp.node.primarySubcategory?.category?.name === subjectName ||
-          sgp.node.topicTags.map((x) => x.name).includes(subjectName)
+          sgp.node.secondarySubcategory.map((x) => x?.name).includes(subjectName) ||
+          sgp.node.secondarySubcategory?.map((x) => x?.category?.name).includes(subjectName) ||
+          sgp.node.topicTags.map((x) => x?.name).includes(subjectName)
         ) {
           return true;
         }
@@ -292,7 +300,13 @@ async function createFlexListingPages(actions, graphql) {
           context: {
             slug: page.node.slug.current,
             sgpsExcludesFeatured,
-            sgpsForPagination: allSgpsForPagination,
+            sgpsForPagination:
+              i === 0
+                ? allSgpsForPagination.slice(0, firstPageCount)
+                : allSgpsForPagination.slice(
+                    (i - 1) * subsequentPageCount + firstPageCount,
+                    i * subsequentPageCount + firstPageCount,
+                  ),
             firstPageCount,
             subsequentPageCount,
             numPages: numOfSubsequentPage + 1,
