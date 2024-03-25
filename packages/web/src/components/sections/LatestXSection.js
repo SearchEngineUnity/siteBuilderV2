@@ -17,7 +17,7 @@ function LatestXSection({
   designSettings,
   subjectName,
   count,
-  sgpsExcludesFeatured,
+  sgpsForAllLatestXSections,
   subjectListingPages,
 }) {
   const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
@@ -25,7 +25,7 @@ function LatestXSection({
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
 
-  const sectionTiles = sgpsExcludesFeatured
+  const sectionTiles = sgpsForAllLatestXSections
     .filter((sgp) => {
       if (
         sgp.node.primarySubcategory?.name === subjectName ||
