@@ -3,6 +3,8 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { Link } from 'gatsby';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
 import SectionOuterWrapper from './SectionOuterWrapper';
@@ -61,16 +63,63 @@ function LatestWithPaginationSection({
           {numPages > 1 && (
             <Grid xs={12}>
               <Pagination
-                variant="outlined"
-                shape="rounded"
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  '& .MuiPaginationItem-root': {
+                    fontSize: {
+                      xs: '0.875rem',
+                      sm: '0.875rem',
+                      md: '1.0714285714285714rem',
+                    },
+                    borderRadius: {
+                      xs: '13px',
+                      sm: '16px',
+                      md: '20px',
+                    },
+                    minWidth: {
+                      xs: '26px',
+                      sm: '32px',
+                      md: '40px',
+                    },
+                    height: {
+                      xs: '26px',
+                      sm: '32px',
+                      md: '40px',
+                    },
+                    padding: {
+                      xs: '0 4px',
+                      sm: '0 6px',
+                      md: '0 10px',
+                    },
+                    margin: {
+                      xs: '0 1px',
+                      sm: '0 3px',
+                      md: '0 3px',
+                    },
+                  },
+                  '& .MuiPaginationItem-icon': {
+                    fontSize: {
+                      xs: '1.2857142857142856rem',
+                      sm: '1.4285714285714284rem',
+                      md: '1.5714285714285714rem',
+                    },
+                  },
+                }}
+                color="primary"
                 showFirstButton
                 showLastButton
                 page={currentpage}
                 count={numPages}
+                siblingCount={2}
+                boundaryCount={0}
                 renderItem={(item) => (
                   <PaginationItem
+                    sx={{}}
                     component={Link}
                     to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
+                    slots={{ first: SkipPreviousIcon, last: SkipNextIcon }}
                     {...item}
                   />
                 )}
