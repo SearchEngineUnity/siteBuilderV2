@@ -62,6 +62,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
             sx={{
               display: 'inline',
               fontWeight: 'normal',
+              color: (theme) => theme.palette.primary.main,
               '&:before': {
                 display: 'inline-block',
                 content: '" > "',
@@ -81,6 +82,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
             sx={{
               display: 'inline',
               fontWeight: 'normal',
+              color: (theme) => theme.palette.primary.main,
               '&:before': {
                 display: 'inline-block',
                 content: '" > "',
