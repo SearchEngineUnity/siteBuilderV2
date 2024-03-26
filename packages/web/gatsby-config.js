@@ -44,6 +44,10 @@ module.exports = {
                 family: 'Material+Symbols+Outlined',
                 axes: 'opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
               },
+              {
+                family: 'Figtree',
+                axes: 'ital,wght@0,300..900;1,300..900',
+              },
             ],
             google: [
               {

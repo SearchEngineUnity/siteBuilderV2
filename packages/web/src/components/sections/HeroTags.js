@@ -29,6 +29,10 @@ const btnTheme = (theme) =>
             padding: '4px 8px',
             margin: '0px 0px 4px 4px',
             borderColor: '#ABABAB',
+            '&:hover': {
+              borderColor: theme.palette.primary.main,
+              color: theme.palette.primary.main,
+            },
           },
         },
       },
