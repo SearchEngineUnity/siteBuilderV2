@@ -19,6 +19,7 @@ import {
   mapLrFlexToProps,
   mapStackSectionToProps,
   mapVideoHeroToProps,
+  mapTagSetSectionToProps,
   mapLatestXSectionToProps,
   mapLatestWithPaginationSectionToProps,
   mapSeoToProps,
@@ -2273,7 +2274,13 @@ function FlexListingPage({ data, location, pageContext }) {
               ) : null;
 
             case 'tagSetSection':
-              return currentpage === 1 ? <TagSetSection key={section._key} /> : null;
+              return currentpage === 1 ? (
+                <TagSetSection
+                  key={section._key}
+                  subjectListingPages={subjectListingPages}
+                  {...mapTagSetSectionToProps(section)}
+                />
+              ) : null;
 
             default:
               return <div>Still under development</div>;
