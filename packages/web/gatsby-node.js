@@ -137,8 +137,9 @@ async function createFlexListingPages(actions, graphql) {
             tileTitle
             tileText
             tileImage {
-              alt
-              _rawAsset(resolveReferences: { maxDepth: 4 })
+              asset {
+                gatsbyImageData(fit: CROP)
+              }
             }
             primarySubcategory {
               name
