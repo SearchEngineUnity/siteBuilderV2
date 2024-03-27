@@ -506,3 +506,15 @@ export function mapVideoHeroToProps({
     designSettings,
   };
 }
+
+export function mapTileSgpListingToProps({
+  node: { tileTitle, tileImage, primarySubcategory, hero, slug },
+}) {
+  return {
+    image: tileImage?.asset?.gatsbyImageData,
+    tag: primarySubcategory?.name,
+    title: tileTitle,
+    slug: slug?.current,
+    hasVideo: !!(hero?.feature && hero?.video?.url),
+  };
+}
