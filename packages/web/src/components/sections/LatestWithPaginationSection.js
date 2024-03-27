@@ -10,6 +10,8 @@ import StructuredSectionHeader from './StructuredSectionHeader';
 import SectionOuterWrapper from './SectionOuterWrapper';
 import SectionInnerWrapper from './SectionInnerWrapper';
 import { determineColor } from '../../lib/helperFunctions';
+import TileSgpListing from '../tiles/TileSgpListing';
+import { mapTileSgpListingToProps } from '../../lib/mapToProps';
 
 function LatestWithPaginationSection({
   idTag,
@@ -47,16 +49,10 @@ function LatestWithPaginationSection({
               />
             </Grid>
           )}
-          <Grid container spacing={6}>
+          <Grid container direction="row" spacing={3}>
             {spgTilesContent.map((tile) => (
-              <Grid key={tile.node.slug.current}>
-                <div>{tile.node.slug.current}</div>
-                <div>{tile.node.displayDate}</div>
-                <div>
-                  {tile.node.hero.feature === 'video' && tile.node.hero?.video?.url
-                    ? 'spg has video'
-                    : 'no video'}
-                </div>
+              <Grid xs={12} sm={6} md={3} key={tile._key}>
+                <TileSgpListing {...mapTileSgpListingToProps(tile)} />
               </Grid>
             ))}
           </Grid>
