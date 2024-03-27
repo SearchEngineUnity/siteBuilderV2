@@ -281,8 +281,8 @@ async function createFlexListingPages(actions, graphql) {
     }
 
     const totalSgpsCountForPagination = allSgpsForPagination.length;
-    const firstPageCount = 8;
-    const subsequentPageCount = 16;
+    const firstPageCount = 4; // once done testing set to 20
+    const subsequentPageCount = 1; // once done testing set to 40
 
     const numOfSubsequentPage =
       totalSgpsCountForPagination < firstPageCount
