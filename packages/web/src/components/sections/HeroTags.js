@@ -1,43 +1,6 @@
 import React from 'react';
-import { Button } from 'gatsby-theme-material-ui';
 import Box from '@mui/material/Box';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const btnTheme = (theme) =>
-  createTheme({
-    palette: {
-      primary: {
-        main: '#535353',
-        dark: theme.palette.common.black,
-        contrastText: theme.palette.common.white,
-      },
-    },
-    typography: {
-      button: {
-        fontFamily: theme.typography.fontFamily,
-        fontWeight: theme.typography.fontWeightRegular,
-        fontSize: theme.typography.h5.fontSize,
-        lineHeight: theme.typography.h5.lineHeight,
-        letterSpacing: theme.typography.h5.letterSpacing,
-        textTransform: 'none',
-      },
-    },
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            padding: '4px 8px',
-            margin: '0px 0px 4px 4px',
-            borderColor: '#ABABAB',
-            '&:hover': {
-              borderColor: theme.palette.primary.main,
-              color: theme.palette.primary.main,
-            },
-          },
-        },
-      },
-    },
-  });
+import SubjectTagButton from '../buttons/SubjectTagButton';
 
 function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subjectListingPages }) {
   const primarySubcategorySlugString =
@@ -47,7 +10,7 @@ function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subject
   const primarySubcategorySlug =
     primarySubcategorySlugString === '/' ? '/' : `/${primarySubcategorySlugString}`;
   return (
-    <ThemeProvider theme={(theme) => btnTheme(theme)}>
+    <>
       {primarySubcategory && (
         <Box
           component="span"
@@ -71,9 +34,17 @@ function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subject
 
         const slug = currentSlug === '/' ? '/' : `/${currentSlug}`;
         return (
-          <Button key={_key} to={currentSlug && slug} variant="outlined">
+          <SubjectTagButton
+            disableFocusRipple
+            disableRipple
+            key={_key}
+            to={currentSlug && slug}
+            fontSize="h5"
+            variant="outlined"
+            sx={{ margin: '0px 0px 4px 4px' }}
+          >
             {name}
-          </Button>
+          </SubjectTagButton>
         );
       })}
       {secondarySubcategory.map((subcategory) => {
@@ -83,17 +54,32 @@ function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subject
             ?.current || '';
         const slug = currentSlug === '/' ? '/' : `/${currentSlug}`;
         return (
-          <Button key={_key} to={currentSlug && slug} variant="outlined">
+          <SubjectTagButton
+            disableFocusRipple
+            disableRipple
+            key={_key}
+            to={currentSlug && slug}
+            fontSize="h5"
+            variant="outlined"
+            sx={{ margin: '0px 0px 4px 4px' }}
+          >
             {name}
-          </Button>
+          </SubjectTagButton>
         );
       })}
       {primarySubcategory && (
-        <Button to={primarySubcategorySlugString && primarySubcategorySlug} variant="outlined">
+        <SubjectTagButton
+          disableFocusRipple
+          disableRipple
+          to={primarySubcategorySlugString && primarySubcategorySlug}
+          fontSize="h5"
+          variant="outlined"
+          sx={{ margin: '0px 0px 4px 4px' }}
+        >
           {primarySubcategory?.name}
-        </Button>
+        </SubjectTagButton>
       )}
-    </ThemeProvider>
+    </>
   );
 }
 

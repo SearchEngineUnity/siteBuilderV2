@@ -1,7 +1,5 @@
 import React from 'react';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Button } from 'gatsby-theme-material-ui';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
 import SectionOuterWrapper from './SectionOuterWrapper';
@@ -9,42 +7,7 @@ import SectionInnerWrapper from './SectionInnerWrapper';
 import { determineColor } from '../../lib/helperFunctions';
 import TileSgpListing from '../tiles/TileSgpListing';
 import { mapTileSgpListingToProps } from '../../lib/mapToProps';
-
-const btnTheme = (theme) =>
-  createTheme({
-    palette: {
-      primary: {
-        main: '#535353',
-        dark: theme.palette.common.black,
-        contrastText: theme.palette.common.white,
-      },
-    },
-    typography: {
-      button: {
-        fontFamily: theme.typography.fontFamily,
-        fontWeight: theme.typography.fontWeightRegular,
-        fontSize: theme.typography.h5.fontSize,
-        lineHeight: theme.typography.h5.lineHeight,
-        letterSpacing: theme.typography.h5.letterSpacing,
-        textTransform: 'none',
-      },
-    },
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            padding: '4px 8px',
-            margin: '0px 0px 4px 4px',
-            borderColor: '#ABABAB',
-            '&:hover': {
-              borderColor: theme.palette.primary.main,
-              color: theme.palette.primary.main,
-            },
-          },
-        },
-      },
-    },
-  });
+import SubjectTagButton from '../buttons/SubjectTagButton';
 
 function LatestXSection({
   idTag,
@@ -101,14 +64,12 @@ function LatestXSection({
             </Grid>
           )}
           <Grid sx={{ alignSelf: 'flex-end' }}>
-            <ThemeProvider theme={(theme) => btnTheme(theme)}>
-              <Button to={subjectLink} variant="outlined">
-                View all
-              </Button>
-            </ThemeProvider>
+            <SubjectTagButton to={subjectLink} variant="outlined" fontSize="h5">
+              View all
+            </SubjectTagButton>
           </Grid>
           <Grid container direction="row" spacing={3}>
-            {sectionTiles.map((tile, i) => (
+            {sectionTiles.map((tile) => (
               <Grid xs={12} sm={6} md={3} key={tile._key}>
                 <TileSgpListing {...mapTileSgpListingToProps(tile)} />
               </Grid>

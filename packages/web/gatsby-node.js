@@ -323,13 +323,45 @@ async function createFlexListingPages(actions, graphql) {
 async function createSoloGuidePages(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanitySoloGuidePage {
+      allSanitySoloGuidePage(sort: { displayDate: DESC }) {
         edges {
           node {
             slug {
               current
             }
             id
+            displayDate
+            tileTitle
+            tileText
+            tileImage {
+              asset {
+                gatsbyImageData(fit: CROP)
+              }
+            }
+            primarySubcategory {
+              name
+              category {
+                name
+              }
+            }
+            secondarySubcategory {
+              name
+              category {
+                name
+              }
+            }
+            topicTags {
+              name
+            }
+            slug {
+              current
+            }
+            hero {
+              feature
+              video {
+                url
+              }
+            }
           }
         }
       }
@@ -363,6 +395,15 @@ async function createSoloGuidePages(actions, graphql) {
   const subjectListingPages = data.allSanityFlexListingPage.edges;
   guides.forEach((guide) => {
     if (guide?.node?.slug?.current) {
+      const subjectName = guide.node?.primarySubcategory?.name;
+      let moreInPrimarySubSgps = [];
+
+      if (subjectName) {
+        moreInPrimarySubSgps = guides
+          .filter((sgp) => sgp.node.primarySubcategory?.name === subjectName)
+          .slice(0, 8);
+      }
+
       actions.createPage({
         path: `/${guide.node.slug.current}`,
         ownerNodeId: guide.node.id,
@@ -370,6 +411,7 @@ async function createSoloGuidePages(actions, graphql) {
         context: {
           slug: guide.node.slug.current,
           subjectListingPages,
+          moreInPrimarySubSgps,
         },
       });
     }

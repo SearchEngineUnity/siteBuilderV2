@@ -13,6 +13,7 @@ import ProgressBar from '../components/ScrollProgressBar';
 import MainColumnFeature from '../components/sections/MainColumnFeature';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
+import MoreInSection from '../components/sections/MoreInSection';
 import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
@@ -197,6 +198,13 @@ function SoloGuidePage({ data, location, pageContext }) {
           </Container>
         </Box>
       </main>
+      {data.guide?.primarySubcategory?.name && (
+        <MoreInSection
+          subjectListingPages={pageContext.subjectListingPages}
+          subjectName={data.guide.primarySubcategory.name}
+          spgTilesContent={pageContext.moreInPrimarySubSgps}
+        />
+      )}
     </Layout>
   );
 }
