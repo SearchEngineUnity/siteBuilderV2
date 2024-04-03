@@ -35,7 +35,7 @@ function LatestWithPaginationSection({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container spacing={6} direction="column">
+        <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
             <Grid xs={12}>
               <StructuredSectionHeader
