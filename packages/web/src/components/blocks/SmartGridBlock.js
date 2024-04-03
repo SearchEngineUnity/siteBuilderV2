@@ -45,7 +45,7 @@ function SmartGridBlock({
   const col = colCalculate(layout);
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={{ xs: 2, sm: 3 }}>
       {(heading || subheading || subtitle) && (
         <Grid xs={12}>
           <StructuredSectionHeader
