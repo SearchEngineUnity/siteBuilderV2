@@ -274,6 +274,33 @@ export function mapTagSetSectionToProps({
     tagSet,
   };
 }
+
+export function mapFeaturedTilesSectionToProps({
+  _rawFooter,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
+  designSettings,
+  header,
+  idTag,
+  blockWidth,
+  featuredTiles,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subheading: header?.subheading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    blockWidth,
+    blockAlignment,
+    headerAlignment,
+    footerAlignment,
+    designSettings,
+    featuredTiles,
+  };
+}
+
 export function mapLatestXSectionToProps({
   _rawFooter,
   blockAlignment,
@@ -301,6 +328,7 @@ export function mapLatestXSectionToProps({
     count,
   };
 }
+
 export function mapLatestWithPaginationSectionToProps({
   _rawFooter,
   blockAlignment,
@@ -537,6 +565,22 @@ export function mapVideoHeroToProps({
 
 export function mapTileSgpListingToProps({
   node: { tileTitle, tileImage, primarySubcategory, hero, slug },
+}) {
+  return {
+    image: tileImage?.asset?.gatsbyImageData,
+    tag: primarySubcategory?.name,
+    title: tileTitle,
+    slug: slug?.current,
+    hasVideo: !!(hero?.feature && hero?.video?.url),
+  };
+}
+
+export function mapTileFeaturedSgpListingToProps({
+  tileTitle,
+  tileImage,
+  primarySubcategory,
+  hero,
+  slug,
 }) {
   return {
     image: tileImage?.asset?.gatsbyImageData,

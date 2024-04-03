@@ -4,6 +4,8 @@ import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
 import SectionOuterWrapper from './SectionOuterWrapper';
 import SectionInnerWrapper from './SectionInnerWrapper';
+import TileFeaturedSgpListing from '../tiles/TileFeaturedSgpListing';
+import { mapTileFeaturedSgpListingToProps } from '../../lib/mapToProps';
 import { determineColor } from '../../lib/helperFunctions';
 
 function FeaturedTilesSection({
@@ -15,6 +17,7 @@ function FeaturedTilesSection({
   headerAlignment,
   footerAlignment,
   designSettings,
+  featuredTiles,
 }) {
   const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
   const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
@@ -24,7 +27,7 @@ function FeaturedTilesSection({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container alignItems="center" spacing={{ xs: 2, sm: 3 }} direction="column">
+        <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
             <Grid xs={12}>
               <StructuredSectionHeader
@@ -38,7 +41,16 @@ function FeaturedTilesSection({
               />
             </Grid>
           )}
-          <Grid>Featured Tiles</Grid>
+          <Grid container direction="row">
+            {featuredTiles.map((tile, i) => (
+              <Grid xs={12} sm={i === 0 ? 12 : 6} md={4} key={tile._key}>
+                <TileFeaturedSgpListing
+                  {...mapTileFeaturedSgpListingToProps(tile)}
+                  isFirst={i === 0}
+                />
+              </Grid>
+            ))}
+          </Grid>
           {footer && (
             <Grid xs={12}>
               <StructuredSectionFooter

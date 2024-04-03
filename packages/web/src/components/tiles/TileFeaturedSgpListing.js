@@ -8,7 +8,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby-theme-material-ui';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
-function TileSgpListing({ image, tag, title, slug, hasVideo }) {
+function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) {
   const link = slug === '/' ? '/' : `/${slug}`;
   return (
     <Card
@@ -39,7 +39,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           flexDirection: 'row',
           alignItems: 'flex-start',
           flexWrap: 'wrap',
-          height: { sm: '100%', xs: '112px' },
+          height: { sm: '100%', xs: isFirst ? '100%' : '112px' },
           color: 'inherit',
           '&:focus': {
             boxShadow:
@@ -55,12 +55,13 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           sx={{
             position: 'relative',
             height: {
-              sm: '200px',
-              xs: '112px',
+              md: '290px',
+              sm: isFirst ? '326px' : '215px',
+              xs: isFirst ? '272px' : '112px',
             },
             width: {
               sm: '100%',
-              xs: '33%',
+              xs: isFirst ? '100%' : '33%',
             },
           }}
         >
@@ -99,7 +100,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
             style={{ width: '100%', height: '100%' }}
           />
         </Box>
-        <CardContent sx={{ width: { sm: '100%', xs: '67%' }, height: '100%' }}>
+        <CardContent sx={{ width: { sm: '100%', xs: isFirst ? '100%' : '67%' }, height: '100%' }}>
           <Typography
             color="primary"
             variant="body2"
@@ -110,7 +111,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
-              WebkitLineClamp: { xs: 1, sm: 'unset' },
+              WebkitLineClamp: { xs: isFirst ? 'unset' : 1, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
             }}
           >
@@ -123,7 +124,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
-              WebkitLineClamp: { xs: 3, sm: 'unset' },
+              WebkitLineClamp: { xs: isFirst ? 'unset' : 3, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
               color: 'inherit',
             }}
@@ -136,4 +137,4 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
   );
 }
 
-export default TileSgpListing;
+export default TileFeaturedSgpListing;
