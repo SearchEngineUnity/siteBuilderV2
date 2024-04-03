@@ -13,6 +13,8 @@ import {
   mapVideoToProps,
 } from '../../lib/mapToProps';
 import { useDisclaimerText } from '../../hooks/useDisclaimerText';
+import HeroTags from './HeroTags';
+import PageBreadcrumbs from '../navs/breadcrumbs/PageBreadcrumbs';
 
 const featureComponentMapping = {
   image: ImgBlock,
@@ -38,7 +40,19 @@ const propsMapping = (type, props) => {
 };
 
 const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
-  { featureType, h1, subtitle, date, feature, includeDisclaimer },
+  {
+    featureType,
+    h1,
+    subtitle,
+    date,
+    author,
+    feature,
+    includeDisclaimer,
+    topicTags,
+    primarySubcategory,
+    secondarySubcategory,
+    subjectListingPages,
+  },
   ref,
 ) {
   const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
@@ -77,19 +91,73 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
           py: { xs: '16px', md: '40px' },
         }}
       >
-        <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
-          <Typography variant="h1">{h1}</Typography>
-          {subtitle && <Subtitle blocks={subtitle} />}
-          {lastUpdatedDate && (
-            <Typography variant="body1" component="p" mt={1}>
-              Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
-            </Typography>
+        <Container maxWidth="lg">
+          {primarySubcategory && (
+            <PageBreadcrumbs
+              subject={primarySubcategory}
+              subjectListingPages={subjectListingPages}
+              isSGP
+            />
           )}
-          {includeDisclaimer && disclaimerText && (
-            <Box mt={6}>
-              <Disclaimer blocks={disclaimerText} />
+          <Typography variant="h1" textAlign="center">
+            {h1}
+          </Typography>
+
+          <Box sx={{ mx: 'auto', maxWidth: '940px', textAlign: 'center' }}>
+            {subtitle && (
+              <Box sx={{ mt: '18px' }}>
+                <Subtitle blocks={subtitle} />
+              </Box>
+            )}
+            <Box sx={{ mt: '18px' }}>
+              <HeroTags
+                topicTags={topicTags}
+                primarySubcategory={primarySubcategory}
+                secondarySubcategory={secondarySubcategory}
+                subjectListingPages={subjectListingPages}
+                color="#FFFFFF"
+                borderColor="#FFFFFF"
+              />
             </Box>
-          )}
+            <Typography variant="body1" component="p" sx={{ mt: '18px' }}>
+              {author && (
+                <Box
+                  component="span"
+                  sx={{
+                    fontWeight: 'fontWeightBold',
+                    '&:after': {
+                      content: '" | "',
+                      display: {
+                        xs: 'none',
+                        sm: 'inline',
+                      },
+                    },
+                  }}
+                >
+                  By {author}
+                </Box>
+              )}
+              {lastUpdatedDate && (
+                <Box component="span" sx={{ display: { xs: 'block', sm: 'inline-block' } }}>
+                  Updated on {lastUpdatedDate.toLocaleDateString('en-US', options)}
+                </Box>
+              )}
+            </Typography>
+            {includeDisclaimer && disclaimerText && (
+              <Box
+                sx={{
+                  mt: '18px',
+                  color: '#D5D5D5',
+                  '& .pt-link': {
+                    color: '#D5D5D5',
+                    textDecorationColor: 'currentcolor',
+                  },
+                }}
+              >
+                <Disclaimer blocks={disclaimerText} />
+              </Box>
+            )}
+          </Box>
         </Container>
       </Box>
       <Box
@@ -98,10 +166,10 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
           background: {
             xs: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} ${
               featureType === 'productGrid' ? '10%' : '30%'
-            }, ${theme.palette.background.default} ${
-              featureType === 'productGrid' ? '10%' : '30%'
-            }, ${theme.palette.background.default} 100%)`,
-            lg: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 30%, ${theme.palette.background.default} 30%, ${theme.palette.background.default} 100%)`,
+            }, ${theme.palette.common.white} ${featureType === 'productGrid' ? '10%' : '30%'}, ${
+              theme.palette.common.white
+            } 100%)`,
+            lg: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 30%, ${theme.palette.common.white} 30%, ${theme.palette.common.white} 100%)`,
           },
           color: 'text.primary',
           '& .caption-text': {
