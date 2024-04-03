@@ -27,7 +27,7 @@ function TagSetSection({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container alignItems="center" spacing={6} direction="column">
+        <Grid container alignItems="center" spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
             <Grid xs={12}>
               <StructuredSectionHeader
