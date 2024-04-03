@@ -36,7 +36,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
       component="header"
     >
       <Container maxWidth="lg">
-        <Grid container direction="column" spacing={3}>
+        <Grid container direction="column" spacing={{ xs: 2, sm: 3 }}>
           <Grid>
             {primarySubcategory && (
               <Breadcrumbs
