@@ -20,7 +20,7 @@ function VideoHero({
   designSettings,
 }) {
   const imageData = getGatsbyImageData(image, {}, sanityConfig);
-  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
   const backgroundColor = determineColor(designSettings?.background?.color) || 'primary.main';
   const backgroundImage = designSettings?.bgImage?.asset?.url;
   const desktopPadding = designSettings?.outerPadding?.desktopPadding;
