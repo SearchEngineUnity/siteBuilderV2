@@ -56,7 +56,7 @@ function SmartGrid({ layout, tiles }) {
   const errorMsg = 'Tile still under development.';
 
   return (
-    <Grid container spacing={3} className="smart-grid">
+    <Grid container spacing={2} className="smart-grid">
       {tiles &&
         tiles.map((tile) => {
           const { _key, _type } = tile;
