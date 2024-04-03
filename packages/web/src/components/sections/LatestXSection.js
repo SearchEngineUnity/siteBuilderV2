@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Typography from '@mui/material/Typography';
 import StructuredSectionFooter from './StructuredSectionFooter';
-import StructuredSectionHeader from './StructuredSectionHeader';
 import SectionOuterWrapper from './SectionOuterWrapper';
 import SectionInnerWrapper from './SectionInnerWrapper';
 import { determineColor } from '../../lib/helperFunctions';
@@ -12,8 +12,6 @@ import SubjectTagButton from '../buttons/SubjectTagButton';
 function LatestXSection({
   idTag,
   heading,
-  subheading,
-  subtitle,
   footer,
   headerAlignment,
   footerAlignment,
@@ -23,9 +21,7 @@ function LatestXSection({
   sgpsForAllLatestXSections,
   subjectListingPages,
 }) {
-  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
-  const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
-  const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
 
   const sectionTiles = sgpsForAllLatestXSections
@@ -49,31 +45,49 @@ function LatestXSection({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container spacing={6} direction="column">
-          {(heading || subheading || subtitle) && (
-            <Grid xs={12}>
-              <StructuredSectionHeader
-                heading={heading}
-                subheading={subheading}
-                subtitle={subtitle}
-                headingColor={headingColor}
-                subheadingColor={subheadingColor}
-                subtitleColor={subtitleColor}
-                align={headerAlignment}
-              />
+        <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
+          {heading && (
+            <Grid
+              container
+              direction="row"
+              wrap="wrap"
+              sx={{
+                justifyContent: 'space-between',
+                alignItems: 'flex-end',
+              }}
+            >
+              <Grid component={heading ? 'header' : 'div'} sx={{ textAlign: headerAlignment }}>
+                {heading && (
+                  <Typography variant="h2" gutterBottom sx={{ color: headingColor }}>
+                    {heading}
+                  </Typography>
+                )}
+              </Grid>
+              <Grid sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                <SubjectTagButton to={subjectLink} variant="outlined" fontSize="h5">
+                  View all
+                </SubjectTagButton>
+              </Grid>
             </Grid>
           )}
-          <Grid sx={{ alignSelf: 'flex-end' }}>
-            <SubjectTagButton to={subjectLink} variant="outlined" fontSize="h5">
-              View all
-            </SubjectTagButton>
-          </Grid>
-          <Grid container direction="row" spacing={3}>
+          <Grid container direction="row">
             {sectionTiles.map((tile) => (
               <Grid xs={12} sm={6} md={3} key={tile._key}>
                 <TileSgpListing {...mapTileSgpListingToProps(tile)} />
               </Grid>
             ))}
+          </Grid>
+          <Grid
+            xs={12}
+            sx={{
+              display: { xs: 'flex', sm: 'none' },
+              '& a': { flex: '0 1 200px' },
+              justifyContent: 'center',
+            }}
+          >
+            <SubjectTagButton to={subjectLink} variant="outlined" fontSize="h5">
+              View all
+            </SubjectTagButton>
           </Grid>
           {footer && (
             <Grid xs={12}>

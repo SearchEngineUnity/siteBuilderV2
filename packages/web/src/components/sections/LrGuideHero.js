@@ -80,7 +80,13 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
       component="header"
     >
       <Container maxWidth="lg">
-        <Grid container direction="row" justifyContent="center" alignItems="center" spacing={6}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={{ xs: 2, sm: 3 }}
+        >
           <Grid md={6} xs={12}>
             <Typography variant="h1">{h1}</Typography>
             {subtitle && <Subtitle blocks={subtitle} />}

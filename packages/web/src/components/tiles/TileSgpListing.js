@@ -15,11 +15,15 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
       sx={{
         borderRadius: '12px',
         height: '100%',
-        color: (theme) => theme.palette.text.primary,
+        color: 'text.secondary',
+
         '&:hover': {
           boxShadow:
             'rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.25) 4px 6px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px',
-          color: (theme) => theme.palette.primary.main,
+          color: 'primary.main',
+        },
+        '&:not(:hover) img': {
+          transition: 'transform 0.5s ease',
         },
         '&:hover img': {
           transform: 'scale(1.1)',
@@ -41,7 +45,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           '&:focus': {
             boxShadow:
               'rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px',
-            color: (theme) => theme.palette.primary.main,
+            color: 'primary.main',
           },
           '&:focus img': {
             transform: 'scale(1.1)',
@@ -61,34 +65,34 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
             },
           }}
         >
-          <Box
-            sx={{
-              position: 'absolute',
-              zIndex: 1,
-              color: 'common.white',
-              bgcolor: 'common.white',
-              bottom: '4px',
-              right: '4px',
-              width: '48px',
-              height: '48px',
-              borderRadius: '12px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {hasVideo && (
+          {hasVideo && (
+            <Box
+              sx={{
+                position: 'absolute',
+                zIndex: 1,
+                color: 'common.white',
+                bgcolor: 'common.white',
+                bottom: '4px',
+                right: '4px',
+                width: '48px',
+                height: '48px',
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
               <PlayCircleIcon
                 sx={{
                   color: 'common.white',
                   bgcolor: 'common.black',
-                  borderRadius: '50%',
+                  borderRadius: '18px',
                   width: '36px',
                   height: '36px',
                 }}
               />
-            )}
-          </Box>
+            </Box>
+          )}
           <GatsbyImage
             image={image}
             alt=""

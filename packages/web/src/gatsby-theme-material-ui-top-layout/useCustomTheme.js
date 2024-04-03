@@ -571,6 +571,13 @@ export const useCustomTheme = () => {
           },
         },
       },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: '6px',
+          },
+        },
+      },
     },
     palette: {
       common: {
@@ -768,6 +775,9 @@ export const useCustomTheme = () => {
           mobile: spacing?.sectionInner?.mobilePadding || '16px',
         },
       },
+    },
+    shape: {
+      borderRadius: 12,
     },
   };
 

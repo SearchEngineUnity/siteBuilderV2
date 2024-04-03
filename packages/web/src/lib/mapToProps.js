@@ -327,27 +327,27 @@ export function mapLatestWithPaginationSectionToProps({
   };
 }
 
-export function mapPaginatedListingSectionToProps({
-  _rawFooter,
-  headerAlignment,
-  footerAlignment,
-  layout = '1/1/1/1',
-  designSettings,
-  header,
-  idTag,
-}) {
-  return {
-    idTag,
-    heading: header?.heading,
-    subheading: header?.subheading,
-    subtitle: header?._rawSubtitle,
-    footer: _rawFooter,
-    layout,
-    headerAlignment,
-    footerAlignment,
-    designSettings,
-  };
-}
+// export function mapPaginatedListingSectionToProps({
+//   _rawFooter,
+//   headerAlignment,
+//   footerAlignment,
+//   layout = '1/1/1/1',
+//   designSettings,
+//   header,
+//   idTag,
+// }) {
+//   return {
+//     idTag,
+//     heading: header?.heading,
+//     subheading: header?.subheading,
+//     subtitle: header?._rawSubtitle,
+//     footer: _rawFooter,
+//     layout,
+//     headerAlignment,
+//     footerAlignment,
+//     designSettings,
+//   };
+// }
 
 export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
   return {

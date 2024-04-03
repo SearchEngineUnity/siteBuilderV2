@@ -43,6 +43,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
           sx={{
             display: 'inline-flex',
             verticalAlign: 'middle',
+            color: 'inherit',
           }}
         >
           <Link
@@ -51,6 +52,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
             style={{
               fontVariationSettings: '"FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24',
             }}
+            sx={{ color: 'inherit' }}
           >
             <span className="material-symbols-outlined">home</span>
           </Link>
@@ -62,7 +64,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
             sx={{
               display: 'inline',
               fontWeight: 'normal',
-              color: (theme) => theme.palette.primary.main,
+              color: 'inherit',
               '&:before': {
                 display: 'inline-block',
                 content: '" > "',
@@ -70,7 +72,11 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
               },
             }}
           >
-            <Link to={firstLevel.slug && `/${firstLevel.slug}`} underline="hover">
+            <Link
+              to={firstLevel.slug && `/${firstLevel.slug}`}
+              underline="hover"
+              sx={{ color: 'inherit' }}
+            >
               {firstLevel.name}
             </Link>
           </Typography>
@@ -82,7 +88,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
             sx={{
               display: 'inline',
               fontWeight: 'normal',
-              color: (theme) => theme.palette.primary.main,
+              color: 'inherit',
               '&:before': {
                 display: 'inline-block',
                 content: '" > "',
@@ -90,7 +96,11 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
               },
             }}
           >
-            <Link to={secondLevel.slug && `/${secondLevel.slug}`} underline="hover">
+            <Link
+              to={secondLevel.slug && `/${secondLevel.slug}`}
+              underline="hover"
+              sx={{ color: 'inherit' }}
+            >
               {secondLevel.name}
             </Link>
           </Typography>

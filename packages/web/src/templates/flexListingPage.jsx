@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import LrHero from '../components/sections/LrFlexHero';
@@ -2221,8 +2222,8 @@ function FlexListingPage({ data, location, pageContext }) {
 
   return (
     <Layout location={location} type={type}>
-      <main>
-        <Container maxWidth="lg">
+      <Box component="main" sx={{ color: 'text.secondary' }}>
+        <Container maxWidth="lg" sx={{ color: 'primary.main' }}>
           <PageBreadcrumbs subject={data.page?.subject} subjectListingPages={subjectListingPages} />
         </Container>
         {data.page.sections.map((section) => {
@@ -2286,7 +2287,7 @@ function FlexListingPage({ data, location, pageContext }) {
               return <div>Still under development</div>;
           }
         })}
-      </main>
+      </Box>
     </Layout>
   );
 }

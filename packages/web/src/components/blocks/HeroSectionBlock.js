@@ -24,7 +24,7 @@ function SectionBlock({
   footerColor,
 }) {
   return (
-    <Grid container spacing={3} direction="column">
+    <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
       {(heading || subheading || subtitle) && (
         <Grid xs={12}>
           <HeroSectionHeader

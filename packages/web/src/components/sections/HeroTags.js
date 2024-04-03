@@ -2,7 +2,14 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import SubjectTagButton from '../buttons/SubjectTagButton';
 
-function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subjectListingPages }) {
+function HeroTags({
+  topicTags,
+  primarySubcategory,
+  secondarySubcategory,
+  subjectListingPages,
+  color,
+  borderColor,
+}) {
   const primarySubcategorySlugString =
     subjectListingPages.filter((x) => x?.node?.subject?.name === primarySubcategory?.name)[0]?.node
       ?.slug?.current || '';
@@ -19,7 +26,7 @@ function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subject
             transform: 'rotate(17.6deg)',
             verticalAlign: 'middle',
             display: 'inline-block',
-            color: '#535353',
+            color: color || '#535353',
             marginBottom: '4px',
           }}
         >
@@ -41,7 +48,17 @@ function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subject
             to={currentSlug && slug}
             fontSize="h5"
             variant="outlined"
-            sx={{ margin: '0px 0px 4px 4px' }}
+            sx={{
+              margin: '0px 0px 4px 4px',
+              color,
+              borderColor,
+              '&:hover': {
+                borderColor,
+              },
+              '&:focus': {
+                borderColor,
+              },
+            }}
           >
             {name}
           </SubjectTagButton>
@@ -61,7 +78,17 @@ function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subject
             to={currentSlug && slug}
             fontSize="h5"
             variant="outlined"
-            sx={{ margin: '0px 0px 4px 4px' }}
+            sx={{
+              margin: '0px 0px 4px 4px',
+              color,
+              borderColor,
+              '&:hover': {
+                borderColor,
+              },
+              '&:focus': {
+                borderColor,
+              },
+            }}
           >
             {name}
           </SubjectTagButton>
@@ -74,7 +101,17 @@ function HeroTags({ topicTags, primarySubcategory, secondarySubcategory, subject
           to={primarySubcategorySlugString && primarySubcategorySlug}
           fontSize="h5"
           variant="outlined"
-          sx={{ margin: '0px 0px 4px 4px' }}
+          sx={{
+            margin: '0px 0px 4px 4px',
+            color,
+            borderColor,
+            '&:hover': {
+              borderColor,
+            },
+            '&:focus': {
+              borderColor,
+            },
+          }}
         >
           {primarySubcategory?.name}
         </SubjectTagButton>

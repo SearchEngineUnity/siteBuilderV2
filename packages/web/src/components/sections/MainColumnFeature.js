@@ -47,7 +47,7 @@ function MainColumnFeature({ featureType, feature, includeDisclaimer }) {
         </Box>
       )}
       {includeDisclaimer && disclaimerText && (
-        <Box sx={{ mb: '24px', color: 'text.secondary' }}>
+        <Box sx={{ mb: '24px', color: '#ABABAB' }}>
           <Disclaimer blocks={disclaimerText} />
         </Box>
       )}

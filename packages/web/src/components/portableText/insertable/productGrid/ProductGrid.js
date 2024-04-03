@@ -17,7 +17,6 @@ function ProductGrid({ id, pageJumpText, tiles, design }) {
     <Grid
       id={id}
       container
-      sx={{ color: 'text.primary' }}
       spacing={2}
       justifyContent="center"
       alignItems="stretch"

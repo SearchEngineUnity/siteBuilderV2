@@ -27,7 +27,7 @@ function LatestWithPaginationSection({
   currentpage,
   slug,
 }) {
-  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
   const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
@@ -35,7 +35,7 @@ function LatestWithPaginationSection({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container spacing={6} direction="column">
+        <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
             <Grid xs={12}>
               <StructuredSectionHeader
@@ -49,7 +49,7 @@ function LatestWithPaginationSection({
               />
             </Grid>
           )}
-          <Grid container direction="row" spacing={3}>
+          <Grid container direction="row">
             {spgTilesContent.map((tile) => (
               <Grid xs={12} sm={6} md={3} key={tile._key}>
                 <TileSgpListing {...mapTileSgpListingToProps(tile)} />
@@ -103,7 +103,6 @@ function LatestWithPaginationSection({
                     },
                   },
                 }}
-                color="primary"
                 showFirstButton
                 showLastButton
                 page={currentpage}
@@ -112,7 +111,7 @@ function LatestWithPaginationSection({
                 boundaryCount={0}
                 renderItem={(item) => (
                   <PaginationItem
-                    sx={{}}
+                    sx={{ color: 'text.secondary' }}
                     component={Link}
                     to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
                     slots={{ first: SkipPreviousIcon, last: SkipNextIcon }}

@@ -43,7 +43,7 @@ function StructuredLrFlex({
   designSettings,
 }) {
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
-  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
   const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
@@ -51,7 +51,12 @@ function StructuredLrFlex({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container justifyContent="center" alignItems={blockAlignment} spacing={6}>
+        <Grid
+          container
+          justifyContent="center"
+          alignItems={blockAlignment}
+          spacing={{ xs: 2, sm: 3 }}
+        >
           {(heading || subheading || subtitle) && (
             <Grid xs={12}>
               <StructuredSectionHeader

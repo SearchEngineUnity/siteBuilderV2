@@ -168,16 +168,16 @@ function SoloGuidePage({ data, location, pageContext }) {
       type={type}
       heroImage={data?.guide?.hero?.image?.asset?.url}
     >
-      <main>
+      <Box component="main" sx={{ backgroundColor: 'common.white' }}>
         <Hero
           {...mapGuideHeroToProps(data.guide)}
           ref={heroRef}
           subjectListingPages={pageContext.subjectListingPages}
         />
         {isVisible && <ProgressBar />}
-        <Box sx={{ my: 3 }}>
+        <Box sx={{ mt: 3, paddingBottom: { md: '80px', xs: '40px' } }}>
           <Container maxWidth="lg">
-            <Grid container spacing={3}>
+            <Grid container spacing={{ xs: 2, sm: 3 }}>
               <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
                 {data?.guide?.toc?.length > 0 && (
                   <ToC toc={data.guide.toc} content={data.guide._rawGuideBody} />
@@ -197,7 +197,7 @@ function SoloGuidePage({ data, location, pageContext }) {
             </Grid>
           </Container>
         </Box>
-      </main>
+      </Box>
       {data.guide?.primarySubcategory?.name && (
         <MoreInSection
           subjectListingPages={pageContext.subjectListingPages}

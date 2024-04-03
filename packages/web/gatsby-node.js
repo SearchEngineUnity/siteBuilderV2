@@ -221,10 +221,12 @@ async function createFlexListingPages(actions, graphql) {
       sgpsExcludesFeatured = allSgps.filter(
         (sgp) => !featuredSgps.includes(sgp.node?.slug?.current),
       );
+    } else {
+      sgpsExcludesFeatured = allSgps;
     }
 
     // find all the articles from latest x section
-    if (containsLatestXSection && containsLatestWithPaginationSection) {
+    if (containsLatestXSection) {
       // identify all the latest x section arr
       const latestXSectionsArr = sections.filter((section) => section._type === 'latestXSection');
 
@@ -255,6 +257,8 @@ async function createFlexListingPages(actions, graphql) {
       sgpsWithFullExclusion = sgpsExcludesFeatured.filter(
         (sgp) => !slugsForAllSgpsInLatestXSections.includes(sgp.node?.slug.current),
       );
+    } else {
+      sgpsWithFullExclusion = sgpsExcludesFeatured;
     }
 
     // provide the final filtered out sgps for sgpsForLatestWithPagination
