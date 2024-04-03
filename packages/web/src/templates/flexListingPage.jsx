@@ -21,6 +21,7 @@ import {
   mapStackSectionToProps,
   mapVideoHeroToProps,
   mapTagSetSectionToProps,
+  mapFeaturedTilesSectionToProps,
   mapLatestXSectionToProps,
   mapLatestWithPaginationSectionToProps,
   mapSeoToProps,
@@ -1597,11 +1598,22 @@ export const query = graphql`
             slug {
               current
             }
-            _rawTileImage(resolveReferences: { maxDepth: 1 })
+            displayDate
+            tileImage {
+              asset {
+                gatsbyImageData(fit: CROP)
+              }
+            }
             tileText
             tileTitle
+            primarySubcategory {
+              name
+            }
             hero {
               feature
+              video {
+                url
+              }
             }
           }
         }
@@ -2248,7 +2260,7 @@ function FlexListingPage({ data, location, pageContext }) {
               return currentpage === 1 ? (
                 <FeaturedTilesSection
                   key={section._key}
-                  subjectListingPages={subjectListingPages}
+                  {...mapFeaturedTilesSectionToProps(section)}
                 />
               ) : null;
 

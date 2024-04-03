@@ -83,6 +83,7 @@ module.exports = {
         dataset: 'production',
         token: process.env.SANITY_TOKEN,
         watchMode: !isProd, // watchMode only in dev mode
+        // watchMode: false,
         overlayDrafts: !isProd || previewEnabled, // drafts in dev & Gatsby Cloud Preview
       },
     },
