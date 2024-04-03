@@ -51,7 +51,12 @@ function StructuredLrFlex({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings}>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container justifyContent="center" alignItems={blockAlignment} spacing={6}>
+        <Grid
+          container
+          justifyContent="center"
+          alignItems={blockAlignment}
+          spacing={{ xs: 2, sm: 3 }}
+        >
           {(heading || subheading || subtitle) && (
             <Grid xs={12}>
               <StructuredSectionHeader
