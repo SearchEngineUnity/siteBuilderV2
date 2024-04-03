@@ -16,7 +16,11 @@ function MoreInSection({ subjectListingPages, spgTilesContent, subjectName }) {
       maxWidth="lg"
       id="more-in-subcategory"
       component="aside"
-      sx={{ paddingTop: { md: '80px', xs: '40px' }, paddingBottom: { md: '80px', xs: '40px' } }}
+      sx={{
+        py: { md: '80px', xs: '40px' },
+
+        color: 'text.secondary',
+      }}
     >
       <Grid container direction="column" spacing={{ xs: 2, sm: 3 }}>
         <Grid xs={12}>
