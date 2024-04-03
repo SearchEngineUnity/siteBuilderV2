@@ -19,7 +19,7 @@ function TagSetSection({
   tagSet,
   subjectListingPages,
 }) {
-  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
   const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
