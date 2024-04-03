@@ -25,7 +25,7 @@ export default function MainFooter() {
         sx={{ color: 'common.white', bgcolor: 'common.black', fontSize: '14px', pt: 2 }}
       >
         <Container maxWidth="lg" component="nav" role="menubar">
-          <Grid container spacing={3}>
+          <Grid container spacing={{ xs: 2, sm: 3 }}>
             {menuArray.map((group) => (
               <Grid container xs={12} md={3} key={group._key} direction="column">
                 {group.menuGroup.map((item) => {
