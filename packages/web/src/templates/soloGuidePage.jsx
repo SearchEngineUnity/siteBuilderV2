@@ -168,7 +168,7 @@ function SoloGuidePage({ data, location, pageContext }) {
       type={type}
       heroImage={data?.guide?.hero?.image?.asset?.url}
     >
-      <main>
+      <Box component="main" sx={{ backgroundColor: 'common.white' }}>
         <Hero
           {...mapGuideHeroToProps(data.guide)}
           ref={heroRef}
@@ -197,7 +197,7 @@ function SoloGuidePage({ data, location, pageContext }) {
             </Grid>
           </Container>
         </Box>
-      </main>
+      </Box>
       {data.guide?.primarySubcategory?.name && (
         <MoreInSection
           subjectListingPages={pageContext.subjectListingPages}
