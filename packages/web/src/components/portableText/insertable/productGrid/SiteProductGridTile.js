@@ -22,13 +22,13 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
 
   return (
     <Card
-      elevation={3}
+      elevation={1}
       sx={{
-        borderRadius: '16px',
         display: 'flex',
         flexDirection: { xs: 'column', sm: 'row', lg: 'column' },
         flexWrap: 'wrap',
         height: '100%',
+        backgroundColor: '#F8f8f8',
         '& .pt-link': {
           color: 'primary.main',
           textDecorationColor: 'currentcolor',
@@ -45,7 +45,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
       <CardHeader
         sx={{
           color: 'common.white',
-          bgcolor: 'common.black',
+          bgcolor: '#2E2E2E',
           textAlign: { xs: 'center', sm: 'left', lg: 'center' },
           width: '100%',
           order: 1,
@@ -76,7 +76,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
         {name && (
           <Typography
             variant="h5"
-            color="textPrimary"
+            color="text.secondary"
             component="p"
             sx={{
               padding: { xs: '0px 16px 16px', sm: '16px 16px 0px', lg: '0px 16px 16px' },
@@ -87,7 +87,14 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
           </Typography>
         )}
         <Box
-          sx={{ padding: { xs: '0px 16px 16px', sm: '16px', lg: '0px 16px 16px' } }}
+          sx={{
+            padding: {
+              xs: '0px 16px 16px',
+              sm: '16px',
+              lg: '0px 16px 16px',
+              color: 'text.secondary',
+            },
+          }}
           className="product-grid-tile__content"
         >
           <Content blocks={content} />
@@ -107,7 +114,8 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
           fullWidth
           text={btnText}
           disableElevation
-          borderRadius="0px"
+          borderRadius="6px"
+          border="solid 1px #ABABAB"
           className={`product-grid-tile__btn tile_position-${tilePosition}`}
         />
         {pageJumpText && hashId && (
@@ -119,9 +127,8 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
             <Link
               href={`#${hashId}`}
               underline="none"
-              color="textSecondary"
+              color="#747474"
               sx={{
-                fontStyle: 'italic',
                 textAlign: 'center',
                 display: 'block',
               }}
