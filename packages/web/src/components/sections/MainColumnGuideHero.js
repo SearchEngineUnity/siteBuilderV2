@@ -37,7 +37,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
     >
       <Container maxWidth="lg">
         <Grid container direction="column" spacing={{ xs: 2, sm: 3 }}>
-          <Grid>
+          <Grid sx={{ color: 'primary.main' }}>
             {primarySubcategory && (
               <Breadcrumbs
                 subject={primarySubcategory}
@@ -47,7 +47,9 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
             )}
           </Grid>
           <Grid>
-            <Typography variant="h1">{h1}</Typography>
+            <Typography variant="h1" color="text.secondary">
+              {h1}
+            </Typography>
           </Grid>
           <Grid md={9} xs={12}>
             {subtitle && (
@@ -85,7 +87,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
               {lastUpdatedDate && (
                 <Box
                   component="span"
-                  color="text.secondary"
+                  color="#747474"
                   sx={{ display: { xs: 'block', sm: 'inline-block' } }}
                 >
                   Updated on {lastUpdatedDate.toLocaleDateString('en-US', options)}
