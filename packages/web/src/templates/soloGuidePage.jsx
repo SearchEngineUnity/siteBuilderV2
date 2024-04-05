@@ -168,7 +168,7 @@ function SoloGuidePage({ data, location, pageContext }) {
       type={type}
       heroImage={data?.guide?.hero?.image?.asset?.url}
     >
-      <Box component="main" sx={{ backgroundColor: 'common.white' }}>
+      <Box component="main">
         <Hero
           {...mapGuideHeroToProps(data.guide)}
           ref={heroRef}

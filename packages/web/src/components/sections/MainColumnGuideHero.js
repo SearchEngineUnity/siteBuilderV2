@@ -67,7 +67,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
               />
             </Box>
 
-            <Typography variant="body1" component="p">
+            <Typography variant="h5" component="p">
               {author && (
                 <Box
                   component="span"

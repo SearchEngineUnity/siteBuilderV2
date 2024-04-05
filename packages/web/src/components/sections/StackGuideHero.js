@@ -71,16 +71,16 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
       id="hero"
       component="header"
       sx={{
-        color: 'primary.contrastText',
+        color: 'background.default',
         '& .pt-link': {
-          color: 'primary.contrastText',
+          color: 'background.default',
           textDecorationColor: 'currentcolor',
         },
         '& .caption-text': {
-          color: 'primary.contrastText',
+          color: 'background.default',
         },
         '& .caption-link': {
-          color: 'primary.contrastText',
+          color: 'background.default',
           textDecorationColor: 'currentcolor',
         },
       }}
@@ -91,7 +91,7 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
           py: { xs: '16px', md: '40px' },
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
           {primarySubcategory && (
             <PageBreadcrumbs
               subject={primarySubcategory}
@@ -115,11 +115,11 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
                 primarySubcategory={primarySubcategory}
                 secondarySubcategory={secondarySubcategory}
                 subjectListingPages={subjectListingPages}
-                color="#FFFFFF"
-                borderColor="#FFFFFF"
+                color="background.default"
+                borderColor="background.default"
               />
             </Box>
-            <Typography variant="body1" component="p" sx={{ mt: '18px' }}>
+            <Typography variant="h5" component="p" sx={{ mt: '18px' }}>
               {author && (
                 <Box
                   component="span"
@@ -166,10 +166,10 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
           background: {
             xs: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} ${
               featureType === 'productGrid' ? '10%' : '30%'
-            }, ${theme.palette.common.white} ${featureType === 'productGrid' ? '10%' : '30%'}, ${
-              theme.palette.common.white
-            } 100%)`,
-            lg: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 30%, ${theme.palette.common.white} 30%, ${theme.palette.common.white} 100%)`,
+            }, ${theme.palette.background.default} ${
+              featureType === 'productGrid' ? '10%' : '30%'
+            }, ${theme.palette.background.default} 100%)`,
+            lg: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 30%, ${theme.palette.background.default} 30%, ${theme.palette.background.default} 100%)`,
           },
           color: 'text.primary',
           '& .caption-text': {

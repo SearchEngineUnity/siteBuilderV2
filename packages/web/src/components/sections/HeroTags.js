@@ -46,7 +46,7 @@ function HeroTags({
             disableRipple
             key={_key}
             to={currentSlug && slug}
-            fontSize="h5"
+            fontSize="body1"
             variant="outlined"
             sx={{
               margin: '0px 0px 4px 4px',
@@ -76,7 +76,7 @@ function HeroTags({
             disableRipple
             key={_key}
             to={currentSlug && slug}
-            fontSize="h5"
+            fontSize="body1"
             variant="outlined"
             sx={{
               margin: '0px 0px 4px 4px',
@@ -99,7 +99,7 @@ function HeroTags({
           disableFocusRipple
           disableRipple
           to={primarySubcategorySlugString && primarySubcategorySlug}
-          fontSize="h5"
+          fontSize="body1"
           variant="outlined"
           sx={{
             margin: '0px 0px 4px 4px',

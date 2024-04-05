@@ -39,7 +39,7 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
           flexDirection: 'row',
           alignItems: 'flex-start',
           flexWrap: 'wrap',
-          height: { sm: '100%', xs: isFirst ? '100%' : '112px' },
+          height: '100%',
           color: 'inherit',
           '&:focus': {
             boxShadow:
@@ -57,7 +57,7 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
             height: {
               md: '290px',
               sm: isFirst ? '326px' : '215px',
-              xs: isFirst ? '272px' : '112px',
+              xs: isFirst ? '272px' : '100%',
             },
             width: {
               sm: '100%',
@@ -103,11 +103,12 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
         <CardContent sx={{ width: { sm: '100%', xs: isFirst ? '100%' : '67%' }, height: '100%' }}>
           <Typography
             color="primary"
-            variant="body2"
+            variant="h5"
             component="div"
             fontWeight="fontWeightBold"
             textTransform="uppercase"
             sx={{
+              lineHeight: (theme) => theme.typography.overline.lineHeight,
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
@@ -118,16 +119,33 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
             {tag}
           </Typography>
           <Typography
-            variant="h5"
+            variant="h4"
+            fontWeight="fontWeightBold"
             component="div"
-            sx={{
+            sx={(theme) => ({
+              lineHeight: 1.2,
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
               WebkitLineClamp: { xs: isFirst ? 'unset' : 3, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
               color: 'inherit',
-            }}
+              height: {
+                sm: 'auto',
+                xs: isFirst
+                  ? 'auto'
+                  : parseFloat(theme.typography.h4.fontSize) *
+                    parseFloat(theme.typography.htmlFontSize) *
+                    1.2 *
+                    3,
+              },
+              '@media (min-width: 600px) and (max-width: 959px)': {
+                fontSize: isFirst && '32px',
+              },
+              '@media (max-width: 599px)': {
+                fontSize: isFirst && '24px',
+              },
+            })}
           >
             {title}
           </Typography>

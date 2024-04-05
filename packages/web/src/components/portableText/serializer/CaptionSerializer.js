@@ -15,13 +15,7 @@ const serializers = {
   block: {
     normal: ({ children }) => {
       return children[0] ? (
-        <Typography
-          gutterBottom
-          variant="caption"
-          component="p"
-          className="caption-text"
-          sx={{ fontStyle: 'italic' }}
-        >
+        <Typography gutterBottom variant="caption" component="p" className="caption-text">
           {children}
         </Typography>
       ) : (
@@ -84,12 +78,7 @@ const serializers = {
     ),
   },
   listItem: ({ children }) => (
-    <Typography
-      variant="caption"
-      component="li"
-      className="caption-text"
-      sx={{ fontStyle: 'italic' }}
-    >
+    <Typography variant="caption" component="li" className="caption-text">
       {children}
     </Typography>
   ),

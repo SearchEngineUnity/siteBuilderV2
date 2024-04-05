@@ -37,7 +37,7 @@ function ButtonSubmit({
     },
     typography: {
       button: {
-        fontFamily: typography?.fontFamily || 'Roboto, Helvetica, Arial, sans-serif',
+        fontFamily: typography?.fontFamily || 'Figtree, Roboto, Helvetica, Arial, sans-serif',
         fontWeight: typography?.fontWeight || 500,
         fontSize: typography?.fontSize || '0.875rem',
         lineHeight: typography?.lineHeight || 1.75,
