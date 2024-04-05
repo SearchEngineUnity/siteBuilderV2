@@ -126,10 +126,11 @@ export default (S) =>
                 .title('Theme - Spacing')
                 .icon(BsViewList)
                 .child(S.document().schemaType('customSpacing').documentId('customSpacing')),
-              S.listItem()
-                .title('Solo Guide Page Hero Layout')
-                .icon(MdSettings)
-                .child(S.document().schemaType('layoutSpg').documentId('layoutSpg')),
+              // currently commented out as not in use
+              // S.listItem()
+              //   .title('Solo Guide Page Hero Layout')
+              //   .icon(MdSettings)
+              //   .child(S.document().schemaType('layoutSpg').documentId('layoutSpg')),
             ]),
         ),
       S.listItem()

@@ -61,7 +61,8 @@ export default defineConfig({
             templateItem.templateId === 'contactInfo' ||
             templateItem.templateId === 'customSpacing' ||
             templateItem.templateId === 'generalSettings' ||
-            templateItem.templateId === 'layoutSpg' ||
+            // currently commented out as not in use
+            // templateItem.templateId === 'layoutSpg' ||
             templateItem.templateId === 'palette' ||
             templateItem.templateId === 'typography'
           ) {
@@ -77,7 +78,8 @@ export default defineConfig({
         schemaType === 'contactInfo' ||
         schemaType === 'customSpacing' ||
         schemaType === 'generalSettings' ||
-        schemaType === 'layoutSpg' ||
+        // currently commented out as not in use
+        // schemaType === 'layoutSpg' ||
         schemaType === 'palette' ||
         schemaType === 'typography'
       ) {
