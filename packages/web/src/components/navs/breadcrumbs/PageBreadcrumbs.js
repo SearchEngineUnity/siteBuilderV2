@@ -39,7 +39,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
       <Box component="ol" sx={{ margin: 0, paddingLeft: 0, listStyle: 'none' }}>
         <Typography
           component="li"
-          variant="h5"
+          variant="body1"
           sx={{
             display: 'inline-flex',
             verticalAlign: 'middle',
@@ -60,7 +60,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
         {firstLevel.name && (
           <Typography
             component="li"
-            variant="h5"
+            variant="body1"
             sx={{
               display: 'inline',
               fontWeight: 'normal',
@@ -84,7 +84,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
         {secondLevel.name && (
           <Typography
             component="li"
-            variant="h5"
+            variant="body1"
             sx={{
               display: 'inline',
               fontWeight: 'normal',
