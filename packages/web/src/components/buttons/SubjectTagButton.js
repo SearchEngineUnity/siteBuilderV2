@@ -14,12 +14,12 @@ const SubjectTagButton = styled(Button)(({ theme, ...props }) => ({
   '&:hover': {
     borderColor: theme.palette.primary.main,
     color: theme.palette.primary.main,
-    backgroundColor: '#F8F8F8',
+    backgroundColor: theme.palette.background.default,
   },
   '&:focus': {
     borderColor: theme.palette.primary.main,
     color: theme.palette.primary.main,
-    backgroundColor: '#F8F8F8',
+    backgroundColor: theme.palette.background.default,
   },
 }));
 
