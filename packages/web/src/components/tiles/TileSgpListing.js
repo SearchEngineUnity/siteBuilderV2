@@ -39,7 +39,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           flexDirection: 'row',
           alignItems: 'flex-start',
           flexWrap: 'wrap',
-          height: { sm: '100%', xs: '112px' },
+          height: '100%',
           color: 'inherit',
           '&:focus': {
             boxShadow:
@@ -56,7 +56,8 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
             position: 'relative',
             height: {
               sm: '200px',
-              xs: '112px',
+              // xs: '112px',
+              xs: '100%',
             },
             width: {
               sm: '100%',
@@ -102,7 +103,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
         <CardContent sx={{ width: { sm: '100%', xs: '67%' }, height: '100%' }}>
           <Typography
             color="primary"
-            variant="body2"
+            variant="overline"
             component="div"
             fontWeight="fontWeightBold"
             textTransform="uppercase"
@@ -118,15 +119,25 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           </Typography>
           <Typography
             variant="h5"
+            fontWeight="fontWeightBold"
             component="div"
-            sx={{
+            sx={(theme) => ({
+              lineHeight: 1.2,
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
               WebkitLineClamp: { xs: 3, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
               color: 'inherit',
-            }}
+              height: {
+                sm: 'auto',
+                xs:
+                  parseFloat(theme.typography.h5.fontSize) *
+                  parseFloat(theme.typography.htmlFontSize) *
+                  1.2 *
+                  3,
+              },
+            })}
           >
             {title}
           </Typography>
