@@ -12,7 +12,6 @@ function TableOfContent({ toc }) {
       sx={{
         display: 'block',
         color: 'text.secondary',
-        backgroundColor: '#F7F7F7',
         position: 'sticky',
         top: 0,
         padding: 3,
@@ -20,7 +19,7 @@ function TableOfContent({ toc }) {
     >
       <Typography
         component="p"
-        variant="h4"
+        variant="h5"
         gutterBottom
         sx={{ color: 'primary.main', fontWeight: 'bold' }}
       >
@@ -32,7 +31,7 @@ function TableOfContent({ toc }) {
             <Typography
               component="li"
               key={item._key}
-              variant="body1"
+              variant="body2"
               lineHeight={1.4}
               sx={{ mb: 1.5 }}
             >
