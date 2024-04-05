@@ -28,7 +28,6 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
         flexDirection: { xs: 'column', sm: 'row', lg: 'column' },
         flexWrap: 'wrap',
         height: '100%',
-        backgroundColor: '#F8f8f8',
         '& .pt-link': {
           color: 'primary.main',
           textDecorationColor: 'currentcolor',
@@ -51,7 +50,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
           order: 1,
         }}
         title={
-          <Typography variant="h5" component="p">
+          <Typography variant="h4" component="p" fontWeight="fontWeightBold">
             {specialTagText}
           </Typography>
         }
@@ -113,6 +112,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
           padding="6px 16px"
           fullWidth
           text={btnText}
+          typography={{ fontSize: '18px', fontWeight: 400 }}
           disableElevation
           borderRadius="6px"
           border="solid 1px #ABABAB"
