@@ -38,11 +38,11 @@ export const query = graphql`
         }
       }
       secondarySubcategory {
-        _key
+        _id
         name
       }
       topicTags {
-        _key
+        _id
         name
       }
       pageTitle

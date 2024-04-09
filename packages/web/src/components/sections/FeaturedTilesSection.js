@@ -43,7 +43,7 @@ function FeaturedTilesSection({
           )}
           <Grid container direction="row">
             {featuredTiles.map((tile, i) => (
-              <Grid xs={12} sm={i === 0 ? 12 : 6} md={4} key={tile._key}>
+              <Grid xs={12} sm={i === 0 ? 12 : 6} md={4} key={tile._id}>
                 <TileFeaturedSgpListing
                   {...mapTileFeaturedSgpListingToProps(tile)}
                   isFirst={i === 0}

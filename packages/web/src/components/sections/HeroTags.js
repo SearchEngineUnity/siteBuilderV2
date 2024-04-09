@@ -34,7 +34,7 @@ function HeroTags({
         </Box>
       )}
       {topicTags.map((topic) => {
-        const { _key, name } = topic || {};
+        const { _id, name } = topic || {};
         const currentSlug =
           subjectListingPages.filter((x) => x?.node?.subject?.name === name)[0]?.node?.slug
             ?.current || '';
@@ -44,7 +44,7 @@ function HeroTags({
           <SubjectTagButton
             disableFocusRipple
             disableRipple
-            key={_key}
+            key={_id}
             to={currentSlug && slug}
             fontSize="body1"
             variant="outlined"
@@ -65,7 +65,7 @@ function HeroTags({
         );
       })}
       {secondarySubcategory.map((subcategory) => {
-        const { _key, name } = subcategory || {};
+        const { _id, name } = subcategory || {};
         const currentSlug =
           subjectListingPages.filter((x) => x?.node?.subject?.name === name)[0]?.node?.slug
             ?.current || '';
@@ -74,7 +74,7 @@ function HeroTags({
           <SubjectTagButton
             disableFocusRipple
             disableRipple
-            key={_key}
+            key={_id}
             to={currentSlug && slug}
             fontSize="body1"
             variant="outlined"
