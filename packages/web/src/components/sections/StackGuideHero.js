@@ -138,7 +138,13 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
                 </Box>
               )}
               {lastUpdatedDate && (
-                <Box component="span" sx={{ display: { xs: 'block', sm: 'inline-block' } }}>
+                <Box
+                  component="span"
+                  sx={{
+                    display: { xs: 'block', sm: 'inline-block' },
+                    fontWeight: 'fontWeightRegular',
+                  }}
+                >
                   Updated on {lastUpdatedDate.toLocaleDateString('en-US', options)}
                 </Box>
               )}
