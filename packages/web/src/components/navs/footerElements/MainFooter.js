@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Grid from '@mui/material/Unstable_Grid2';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'gatsby-theme-material-ui';
 import NavBrand from '../headerElements/NavBrand';
@@ -32,7 +32,7 @@ export default function MainFooter() {
                   switch (item._type) {
                     case 'navBrand':
                       return (
-                        <Grid item key={item._key}>
+                        <Grid key={item._key}>
                           <Box sx={{ my: 2 }}>
                             <NavBrand {...mapNavBrandToProps(item)} url={contactInfo.homePage} />
                             <ContactInfo />
@@ -44,19 +44,19 @@ export default function MainFooter() {
                       );
                     case 'navItem':
                       return (
-                        <Grid item key={item._key} sx={{ display: { xs: 'none', md: 'block' } }}>
+                        <Grid key={item._key} sx={{ display: { xs: 'none', md: 'block' } }}>
                           <FooterItem {...mapNavItemToProps(item)} />
                         </Grid>
                       );
                     case 'navGroup':
                       return (
-                        <Grid item key={item._key} sx={{ display: { xs: 'none', md: 'block' } }}>
+                        <Grid key={item._key} sx={{ display: { xs: 'none', md: 'block' } }}>
                           <FooterGroup {...mapNavGroupToProps(item)} />
                         </Grid>
                       );
                     case 'navPhone':
                       return (
-                        <Grid item key={item._key} sx={{ display: { xs: 'none', md: 'block' } }}>
+                        <Grid key={item._key} sx={{ display: { xs: 'none', md: 'block' } }}>
                           <NavPhone text={item.text} number={item.phoneNUmber} />
                         </Grid>
                       );

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import Subtitle from '../portableText/serializer/H1SubtitleSerializer';
 import HeroTags from './HeroTags';
