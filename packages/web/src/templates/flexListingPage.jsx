@@ -1594,7 +1594,7 @@ export const query = graphql`
           }
           idTag
           featuredTiles {
-            _key
+            _id
             slug {
               current
             }
@@ -1957,11 +1957,11 @@ export const query = graphql`
           tagSet {
             ... on SanitySubcategory {
               name
-              _key
+              _id
             }
             ... on SanityTopic {
               name
-              _key
+              _id
             }
           }
         }

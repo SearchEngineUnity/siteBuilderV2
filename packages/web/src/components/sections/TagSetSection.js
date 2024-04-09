@@ -43,7 +43,7 @@ function TagSetSection({
           )}
           <Grid sx={{ alignSelf: 'flex-start' }}>
             {tagSet.map((tag) => {
-              const { _key, name } = tag || {};
+              const { _id, name } = tag || {};
               const currentSlug =
                 subjectListingPages.filter((x) => x?.node?.subject?.name === name)[0]?.node?.slug
                   ?.current || '';
@@ -51,7 +51,7 @@ function TagSetSection({
               const slug = currentSlug === '/' ? '/' : `/${currentSlug}`;
               return (
                 <SubjectTagButton
-                  key={_key}
+                  key={_id}
                   to={currentSlug && slug}
                   variant="outlined"
                   fontSize="h5"

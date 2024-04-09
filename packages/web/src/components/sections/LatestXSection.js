@@ -72,7 +72,7 @@ function LatestXSection({
           )}
           <Grid container direction="row">
             {sectionTiles.map((tile) => (
-              <Grid xs={12} sm={6} md={3} key={tile._key}>
+              <Grid xs={12} sm={6} md={3} key={tile.node.id}>
                 <TileSgpListing {...mapTileSgpListingToProps(tile)} />
               </Grid>
             ))}
