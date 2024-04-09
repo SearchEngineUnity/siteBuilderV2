@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';

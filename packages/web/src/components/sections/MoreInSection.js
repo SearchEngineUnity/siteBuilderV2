@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import TileSgpListing from '../tiles/TileSgpListing';

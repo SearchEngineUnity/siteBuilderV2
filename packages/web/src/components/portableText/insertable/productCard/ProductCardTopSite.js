@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../../lib/sanityConfig';
@@ -24,7 +24,7 @@ function ProductCardTopSite({ rating, image, infoList, btnSet }) {
   return (
     <Box sx={{ m: 3 }}>
       <Grid container spacing={2} sx={{ alignItems: 'center' }}>
-        <Grid item xs={12} sm={6}>
+        <Grid xs={12} sm={6}>
           <Box
             component={Box}
             as="figure"
@@ -58,7 +58,6 @@ function ProductCardTopSite({ rating, image, infoList, btnSet }) {
           </Box>
         </Grid>
         <Grid
-          item
           xs={12}
           sm={6}
           sx={{

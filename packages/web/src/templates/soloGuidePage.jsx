@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Grid from '@mui/material/Unstable_Grid2';
 import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import LrGuideHero from '../components/sections/LrGuideHero';

@@ -3,7 +3,7 @@
 import React from 'react';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Modal from '@mui/material/Modal';
@@ -44,7 +44,7 @@ function ProductCardTopeCommerce(props) {
         sx={{ m: 3, display: { xl: 'none', lg: 'none', md: 'block', sm: 'block', xs: 'block' } }}
       >
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={4}>
+          <Grid xs={12} sm={4}>
             <Box component={Box} as="figure" sx={{ m: 0, display: { xs: 'none', sm: 'block' } }}>
               <ButtonBase
                 type="button"
@@ -163,7 +163,7 @@ function ProductCardTopeCommerce(props) {
               )}
             </Box>
           </Grid>
-          <Grid item xs={12} sm={8}>
+          <Grid xs={12} sm={8}>
             <Typography component={headingLevel || 'p'} variant="h4">
               {name}
             </Typography>
