@@ -72,6 +72,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
                 <Box
                   component="span"
                   sx={{
+                    fontWeight: 'fontWeightRegular',
                     '&:after': {
                       content: '" | "',
                       display: {
@@ -88,7 +89,10 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
                 <Box
                   component="span"
                   color="#747474"
-                  sx={{ display: { xs: 'block', sm: 'inline-block' } }}
+                  sx={{
+                    display: { xs: 'block', sm: 'inline-block' },
+                    fontWeight: 'fontWeightRegular',
+                  }}
                 >
                   Updated on {lastUpdatedDate.toLocaleDateString('en-US', options)}
                 </Box>
