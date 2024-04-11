@@ -40,11 +40,20 @@ export default function ScrollPRogressBar() {
 
   return (
     <LinearProgress
-      sx={{ width: '100%', position: 'sticky', top: 0, zIndex: 5, height: '0.4rem' }}
+      sx={{
+        width: '100%',
+        position: 'sticky',
+        top: 0,
+        zIndex: 5,
+        height: '6px',
+        backgroundColor: '#81C3D7',
+        '& .MuiLinearProgress-bar1Determinate': {
+          backgroundColor: '#186E9C',
+        },
+      }}
       aria-label="scroll depth indicator"
       variant="determinate"
       value={progress}
-      color="secondary"
     />
   );
 }
