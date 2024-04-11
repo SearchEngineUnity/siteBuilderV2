@@ -114,6 +114,9 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
               display: '-webkit-box',
               WebkitLineClamp: { xs: isFirst ? 'unset' : 1, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
+              '@media (max-width: 599px)': {
+                fontSize: (theme) => theme.typography.overline.fontSize,
+              },
             }}
           >
             {tag}
@@ -122,7 +125,7 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
             variant="h4"
             fontWeight="fontWeightBold"
             component="div"
-            sx={(theme) => ({
+            sx={{
               lineHeight: 1.2,
               overflow: 'hidden',
               textOverflow: 'ellipsis',
@@ -130,22 +133,14 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
               WebkitLineClamp: { xs: isFirst ? 'unset' : 3, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
               color: 'inherit',
-              height: {
-                sm: 'auto',
-                xs: isFirst
-                  ? 'auto'
-                  : parseFloat(theme.typography.h4.fontSize) *
-                    parseFloat(theme.typography.htmlFontSize) *
-                    1.2 *
-                    3,
-              },
               '@media (min-width: 600px) and (max-width: 959px)': {
                 fontSize: isFirst && '32px',
               },
               '@media (max-width: 599px)': {
-                fontSize: isFirst && '24px',
+                fontSize: isFirst ? '24px' : '1.125rem',
+                height: isFirst ? 'auto' : 1.125 * 16 * 1.2 * 3,
               },
-            })}
+            }}
           >
             {title}
           </Typography>
