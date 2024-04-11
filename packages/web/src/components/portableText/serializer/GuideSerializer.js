@@ -32,8 +32,9 @@ const serializers = {
     },
     h2: ({ value, children }) => <PTHeadingTypography variant="h2">{children}</PTHeadingTypography>,
     h3: ({ value, children }) => (
-      <PTHeadingTypography
+      <Typography
         variant="h3"
+        sx={{ mt: '1.35em', mb: '0.42857em' }}
         id={
           value.markDefs.length !== 0
             ? value.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -41,11 +42,12 @@ const serializers = {
         }
       >
         {children}
-      </PTHeadingTypography>
+      </Typography>
     ),
     h4: ({ value, children }) => (
-      <PTHeadingTypography
+      <Typography
         variant="h4"
+        sx={{ mt: '1.35em', mb: '0.42857em' }}
         id={
           value.markDefs.length !== 0
             ? value.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -53,11 +55,12 @@ const serializers = {
         }
       >
         {children}
-      </PTHeadingTypography>
+      </Typography>
     ),
     h5: ({ value, children }) => (
-      <PTHeadingTypography
+      <Typography
         variant="h5"
+        sx={{ mt: '1.35em', mb: '0.42857em' }}
         id={
           value.markDefs.length !== 0
             ? value.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -65,11 +68,12 @@ const serializers = {
         }
       >
         {children}
-      </PTHeadingTypography>
+      </Typography>
     ),
     h6: ({ value, children }) => (
-      <PTHeadingTypography
+      <Typography
         variant="h6"
+        sx={{ mt: '1.35em', mb: '0.42857em' }}
         id={
           value.markDefs.length !== 0
             ? value.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -77,7 +81,7 @@ const serializers = {
         }
       >
         {children}
-      </PTHeadingTypography>
+      </Typography>
     ),
     blockquote: ({ children }) => (
       <Typography
