@@ -23,7 +23,7 @@ function TableOfContent({ toc }) {
         gutterBottom
         sx={{ color: 'primary.main', fontWeight: 'bold' }}
       >
-        IN THIS ARTICLE
+        IN THIS GUIDE
       </Typography>
       <nav>
         <Box component="ul" sx={{ listStyleType: 'none', padding: '0px' }}>
