@@ -28,7 +28,6 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
       ref={ref}
       sx={{
         bgcolor: 'transparent',
-        color: 'text.primary',
         pt: { xs: '16px', md: '40px' },
         mb: '12px',
       }}
@@ -47,7 +46,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
             )}
           </Grid>
           <Grid>
-            <Typography variant="h1" color="text.secondary">
+            <Typography variant="h1" color="text.primary">
               {h1}
             </Typography>
           </Grid>
@@ -88,7 +87,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
               {lastUpdatedDate && (
                 <Box
                   component="span"
-                  color="#747474"
+                  color="text.secondary"
                   sx={{
                     display: { xs: 'block', sm: 'inline-block' },
                     fontWeight: 'fontWeightRegular',

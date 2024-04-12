@@ -2234,7 +2234,7 @@ function FlexListingPage({ data, location, pageContext }) {
 
   return (
     <Layout location={location} type={type}>
-      <Box component="main" sx={{ color: 'text.secondary' }}>
+      <Box component="main">
         <Container maxWidth="lg" sx={{ color: 'primary.main' }}>
           <PageBreadcrumbs subject={data.page?.subject} subjectListingPages={subjectListingPages} />
         </Container>

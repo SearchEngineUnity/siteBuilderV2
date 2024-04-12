@@ -11,7 +11,6 @@ function TableOfContent({ toc }) {
     <Box
       sx={{
         display: 'block',
-        color: 'text.secondary',
         position: 'sticky',
         top: 0,
         padding: 3,
@@ -40,7 +39,7 @@ function TableOfContent({ toc }) {
                   item.hashID === activeId && {
                     fontWeight: 'bold',
                   },
-                  { color: 'text.secondary' },
+                  { color: 'text.primary' },
                 ]}
                 href={`#${item.hashID}`}
                 underline="hover"
