@@ -127,7 +127,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
             <Link
               href={`#${hashId}`}
               underline="none"
-              color="#747474"
+              color="text.secondary"
               sx={{
                 textAlign: 'center',
                 display: 'block',

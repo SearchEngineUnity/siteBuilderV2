@@ -21,7 +21,7 @@ function LatestXSection({
   sgpsForAllLatestXSections,
   subjectListingPages,
 }) {
-  const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'text.primary';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
 
   const sectionTiles = sgpsForAllLatestXSections

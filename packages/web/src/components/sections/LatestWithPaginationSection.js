@@ -27,7 +27,7 @@ function LatestWithPaginationSection({
   currentpage,
   slug,
 }) {
-  const headingColor = determineColor(designSettings?.heading?.color) || 'text.secondary';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'text.primary';
   const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
@@ -111,7 +111,7 @@ function LatestWithPaginationSection({
                 boundaryCount={0}
                 renderItem={(item) => (
                   <PaginationItem
-                    sx={{ color: 'text.secondary' }}
+                    sx={{ color: 'text.primary' }}
                     component={Link}
                     to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
                     slots={{ first: SkipPreviousIcon, last: SkipNextIcon }}

@@ -15,7 +15,7 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
       sx={{
         borderRadius: '12px',
         height: '100%',
-        color: 'text.secondary',
+        color: 'text.primary',
         '&:hover': {
           boxShadow:
             'rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.25) 4px 6px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px',

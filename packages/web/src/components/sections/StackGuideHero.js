@@ -177,7 +177,6 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
             }, ${theme.palette.background.default} 100%)`,
             lg: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 30%, ${theme.palette.background.default} 30%, ${theme.palette.background.default} 100%)`,
           },
-          color: 'text.primary',
           '& .caption-text': {
             color: 'text.primary',
           },
