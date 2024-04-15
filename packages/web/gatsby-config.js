@@ -28,7 +28,6 @@ module.exports = {
     siteUrl,
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-algolia`,
       options: {

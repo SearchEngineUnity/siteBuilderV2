@@ -1,7 +1,6 @@
-'use client';
-
 /* eslint-disable no-plusplus */
-import React, { useState, useEffect, useRef } from 'react';
+// import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -11,12 +10,12 @@ import Layout from '../containers/layout';
 import LrGuideHero from '../components/sections/LrGuideHero';
 import StackGuideHero from '../components/sections/StackGuideHero';
 import MainColumnGuideHero from '../components/sections/MainColumnGuideHero';
-import ProgressBar from '../components/ScrollProgressBar';
+// import ProgressBar from '../components/ScrollProgressBar';
 import MainColumnFeature from '../components/sections/MainColumnFeature';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
 import MoreInSection from '../components/sections/MoreInSection';
-import { useUpdateUrl } from '../hooks/useUpdateUrl';
+// import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
 const type = 'guide';
@@ -115,21 +114,21 @@ const heroComponentMapping = {
 };
 
 function SoloGuidePage({ data, location, pageContext }) {
-  const heroRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  // const heroRef = useRef(null);
+  // const [isVisible, setIsVisible] = useState(false);
 
-  const setProgressBarVisibility = (entries) => {
-    const [entry] = entries;
-    setIsVisible(!entry.isIntersecting);
-  };
+  // const setProgressBarVisibility = (entries) => {
+  //   const [entry] = entries;
+  //   setIsVisible(!entry.isIntersecting);
+  // };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(setProgressBarVisibility);
-    observer.observe(heroRef.current);
-    return () => observer.disconnect();
-  }, []);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(setProgressBarVisibility);
+  //   observer.observe(heroRef.current);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  useUpdateUrl();
+  // useUpdateUrl();
 
   const heroLayout = data?.guide?.hero?.layout;
   const Hero = heroComponentMapping[heroLayout];
@@ -173,10 +172,10 @@ function SoloGuidePage({ data, location, pageContext }) {
       <Box component="main">
         <Hero
           {...mapGuideHeroToProps(data.guide)}
-          ref={heroRef}
+          // ref={heroRef}
           subjectListingPages={pageContext.subjectListingPages}
         />
-        {isVisible && <ProgressBar />}
+        {/* {isVisible && <ProgressBar />} */}
         <Box sx={{ mt: 3, paddingBottom: { md: '80px', xs: '40px' } }}>
           <Container maxWidth="lg">
             <Grid container spacing={{ xs: 2, sm: 3 }}>

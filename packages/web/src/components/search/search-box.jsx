@@ -1,29 +1,27 @@
-'use client';
+// import React from 'react';
+// import { useSearchBox } from 'react-instantsearch-hooks-web';
+// import { Search as SearchIcon } from '@styled-icons/fa-solid';
 
-import React from 'react';
-import { useSearchBox } from 'react-instantsearch-hooks-web';
-import { Search as SearchIcon } from '@styled-icons/fa-solid';
+// function SearchBox({ className, onFocus, onChange }) {
+//   const { query, refine } = useSearchBox();
 
-function SearchBox({ className, onFocus, onChange }) {
-  const { query, refine } = useSearchBox();
+//   return (
+//     <form className={className}>
+//       <input
+//         className="SearchInput"
+//         type="text"
+//         placeholder="Search"
+//         aria-label="Search"
+//         onChange={(e) => {
+//           refine(e.target.value);
+//           onChange(e.target.value);
+//         }}
+//         value={query}
+//         onFocus={onFocus}
+//       />
+//       <SearchIcon className="SearchIcon" />
+//     </form>
+//   );
+// }
 
-  return (
-    <form className={className}>
-      <input
-        className="SearchInput"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-        onChange={(e) => {
-          refine(e.target.value);
-          onChange(e.target.value);
-        }}
-        value={query}
-        onFocus={onFocus}
-      />
-      <SearchIcon className="SearchIcon" />
-    </form>
-  );
-}
-
-export default SearchBox;
+// export default SearchBox;
