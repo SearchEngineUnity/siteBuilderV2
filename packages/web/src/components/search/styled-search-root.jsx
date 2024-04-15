@@ -1,8 +1,6 @@
-'use client';
+// import styled from 'styled-components';
 
-import styled from 'styled-components';
-
-export default styled.div`
-  position: relative;
-  margin: 0.6em 0;
-`;
+// export default styled.div`
+//   position: relative;
+//   margin: 0.6em 0;
+// `;
