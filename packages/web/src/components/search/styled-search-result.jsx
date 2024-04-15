@@ -1,3 +1,5 @@
+'use client';
+
 import styled, { css } from 'styled-components';
 import SearchResult from './search-result';
 
