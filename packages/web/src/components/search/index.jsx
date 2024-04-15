@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable no-shadow */
 import React, { createRef, useState, useMemo } from 'react';
 import algoliasearch from 'algoliasearch/lite';
