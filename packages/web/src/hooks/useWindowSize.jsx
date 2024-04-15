@@ -1,5 +1,4 @@
-'use client';
-
+// file not in use
 /* eslint-disable import/prefer-default-export */
 import { useState, useEffect } from 'react';
 
