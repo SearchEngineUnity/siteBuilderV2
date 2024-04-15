@@ -1,5 +1,3 @@
-'use client';
-
 /* eslint-disable import/prefer-default-export */
 import { useEffect, useRef } from 'react';
 
