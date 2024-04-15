@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 // import ReactPlayer from 'react-player/lazy';
 import Box from '@mui/material/Box';
