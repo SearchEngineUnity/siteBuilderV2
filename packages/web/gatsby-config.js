@@ -20,6 +20,7 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 module.exports = {
   flags: {
     PARTIAL_HYDRATION: true,
+    DEV_SSR: true,
   },
   trailingSlash: `never`,
   siteMetadata: {

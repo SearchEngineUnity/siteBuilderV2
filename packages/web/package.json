@@ -27,6 +27,7 @@
     "babel-plugin-styled-components": "^2.1.4",
     "dotenv": "^16.4.5",
     "gatsby": "^5.13.3",
+    "gatsby-adapter-netlify": "^1.1.4",
     "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-emotion": "^8.13.1",
     "gatsby-plugin-google-tagmanager": "^5.13.1",
