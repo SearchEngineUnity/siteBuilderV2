@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable no-plusplus */
 import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';

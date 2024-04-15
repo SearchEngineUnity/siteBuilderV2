@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { navigate } from 'gatsby';
 import Box from '@mui/material/Box';

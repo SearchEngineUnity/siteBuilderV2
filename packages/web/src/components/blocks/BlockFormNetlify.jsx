@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable no-useless-escape */
 import React, { useState, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';

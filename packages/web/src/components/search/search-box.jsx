@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { useSearchBox } from 'react-instantsearch-hooks-web';
 import { Search as SearchIcon } from '@styled-icons/fa-solid';
