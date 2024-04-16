@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 
-function Video({ id, videoId, stackHero, isHero }) {
+function Video({ id, videoId, stackHero, loading }) {
   const ptStackHeroDesktop = `${70 * 0.5625}%`;
   const ptStackHeroTablet = `${80 * 0.5625}%`;
 
@@ -26,7 +26,7 @@ function Video({ id, videoId, stackHero, isHero }) {
         title="Youtube Embed"
         src={`https://www.youtube.com/embed/${videoId}`}
         // need more variables to load eager when in hero spot
-        loading={isHero ? 'eager' : 'lazy'}
+        loading={loading}
         width="100%"
         height="100%"
       />
