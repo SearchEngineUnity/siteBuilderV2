@@ -1,7 +1,7 @@
 import React from 'react';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
+// import { getGatsbyImageData } from 'gatsby-source-sanity';
 import Box from '@mui/material/Box';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import ConditionalButton from '../buttons/ConditionalButton';
 import SectionInnerWrapper from './SectionInnerWrapper';
 import { determineColor } from '../../lib/helperFunctions';
@@ -19,7 +19,7 @@ function VideoHero({
   videoUrl,
   designSettings,
 }) {
-  const imageData = getGatsbyImageData(image, {}, sanityConfig);
+  // const imageData = getGatsbyImageData(image, {}, sanityConfig);
   const headingColor = determineColor(designSettings?.heading?.color) || 'text.primary';
   const backgroundColor = determineColor(designSettings?.background?.color) || 'primary.main';
   const backgroundImage = designSettings?.bgImage?.asset?.url;
@@ -97,7 +97,8 @@ function VideoHero({
           {image && (
             <Box sx={{ display: 'flex', justifyContent: imageAlignment }}>
               <Box sx={{ maxWidth: { xs: '100%', sm: '80%' } }}>
-                <GatsbyImage image={imageData} loading="eager" objectFit="contain" alt={imageAlt} />
+                video hero back up image
+                {/* <GatsbyImage image={imageData} loading="eager" objectFit="contain" alt={imageAlt} /> */}
               </Box>
             </Box>
           )}

@@ -1,13 +1,13 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { getGatsbyImageData } from 'gatsby-source-sanity';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../lib/sanityConfig';
 import CaptionContent from '../portableText/serializer/CaptionSerializer';
 
 function FluidImgBlock({ id, image, alt, loading, maxHeight, maxWidth, caption }) {
   const loadingSetting = loading || 'lazy';
-  const imageData = getGatsbyImageData(image, {}, sanityConfig);
+  // const imageData = getGatsbyImageData(image, {}, sanityConfig);
   const customMaxHeight = maxHeight || 'auto';
   const customMaxWidth = maxWidth || 'auto';
   const imageWidth = image.metadata.dimensions.width;
@@ -30,7 +30,7 @@ function FluidImgBlock({ id, image, alt, loading, maxHeight, maxWidth, caption }
   return (
     <Box component="figure" id={id} sx={{ justifyContent: 'center', m: 0, display: 'flex' }}>
       <Box sx={{ maxWidth: minMaxWidth }}>
-        <GatsbyImage
+        {/* <GatsbyImage
           image={imageData}
           // eslint-disable-next-line no-unneeded-ternary
           alt={alt ? alt : ''}
@@ -41,7 +41,8 @@ function FluidImgBlock({ id, image, alt, loading, maxHeight, maxWidth, caption }
             maxHeight: `${customMaxHeight}px`,
             maxWidth: `${customMaxWidth}px`,
           }}
-        />
+        /> */}
+        this is fluid image block
         {caption && <CaptionContent blocks={caption} />}
       </Box>
     </Box>

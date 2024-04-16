@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Unstable_Grid2';
 import CardActionArea from '@mui/material/CardActionArea';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { getGatsbyImageData } from 'gatsby-source-sanity';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../../lib/sanityConfig';
 import ProductInfoList from './ProductInfoList';
 import ProductCardRating from './ProductCardRating';
@@ -15,13 +15,13 @@ import appStore from './assets/appStore.png';
 import googlePlay from './assets/googlePlay.png';
 
 function ProductCardTopApp({ rating, image, infoList, iosLink, googlePlayLink }) {
-  const imageData = getGatsbyImageData(
-    image,
-    {
-      layout: 'constrained',
-    },
-    sanityConfig,
-  );
+  // const imageData = getGatsbyImageData(
+  //   image,
+  //   {
+  //     layout: 'constrained',
+  //   },
+  //   sanityConfig,
+  // );
 
   return (
     <Box sx={{ m: 3 }}>
@@ -36,13 +36,14 @@ function ProductCardTopApp({ rating, image, infoList, iosLink, googlePlayLink })
               display: { xs: 'flex', sm: 'block', alignItems: 'center' },
             }}
           >
-            <GatsbyImage
+            this is PC image
+            {/* <GatsbyImage
               image={imageData}
               alt={image?.alt}
               style={{ display: 'block', maxWidth: '100%', maxHeight: '240px' }}
               objectPosition="left"
               objectFit="contain"
-            />
+            /> */}
             {image.caption && (
               <Box
                 component={Caption}
