@@ -533,10 +533,10 @@ export function mapProductGridToProps({ idTag, btnText, pageJumpText, _rawTiles,
   };
 }
 
-export function mapVideoToProps({ idTag, url }) {
+export function mapVideoToProps({ idTag, videoId }) {
   return {
     id: idTag,
-    url,
+    videoId,
   };
 }
 
@@ -571,7 +571,7 @@ export function mapTileSgpListingToProps({
     tag: primarySubcategory?.name,
     title: tileTitle,
     slug: slug?.current,
-    hasVideo: !!(hero?.feature && hero?.video?.url),
+    hasVideo: !!(hero?.feature && hero?.video?.videoId),
   };
 }
 
@@ -587,6 +587,6 @@ export function mapTileFeaturedSgpListingToProps({
     tag: primarySubcategory?.name,
     title: tileTitle,
     slug: slug?.current,
-    hasVideo: !!(hero?.feature && hero?.video?.url),
+    hasVideo: !!(hero?.feature && hero?.video?.videoId),
   };
 }

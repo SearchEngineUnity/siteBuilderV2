@@ -94,7 +94,7 @@ export const query = graphql`
         _rawSubtitle(resolveReferences: { maxDepth: 1 })
         video {
           idTag
-          url
+          videoId
         }
         productGrid {
           design

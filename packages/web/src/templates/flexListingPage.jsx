@@ -284,7 +284,7 @@ export const query = graphql`
               _key
               _type
               idTag
-              url
+              videoId
             }
             ... on SanityBlockFormNetlify {
               _key
@@ -521,7 +521,7 @@ export const query = graphql`
               _key
               _type
               idTag
-              url
+              videoId
             }
             ... on SanityClickableImage {
               _key
@@ -1017,7 +1017,7 @@ export const query = graphql`
               _key
               _type
               idTag
-              url
+              videoId
             }
             ... on SanityBlockFormNetlify {
               _key
@@ -1379,7 +1379,7 @@ export const query = graphql`
               _key
               _type
               idTag
-              url
+              videoId
             }
             ... on SanityBlockFormNetlify {
               _key

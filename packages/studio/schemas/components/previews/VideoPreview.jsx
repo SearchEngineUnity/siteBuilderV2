@@ -4,13 +4,13 @@ import React from 'react';
 function VideoPreview(props) {
   const {
     renderDefault,
-    url,
+    videoId,
     schemaType: { icon },
   } = props;
 
   const Link = (
-    <a href={url} target="_blank" rel="noreferrer">
-      {url}
+    <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noreferrer">
+      {videoId}
     </a>
   );
 

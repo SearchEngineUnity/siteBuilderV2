@@ -19,12 +19,17 @@ export default {
       type: 'url',
       name: 'url',
       title: 'URL',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      type: 'string',
+      name: 'videoId',
+      title: 'Video Id',
     },
   ],
   preview: {
     select: {
       url: 'url',
+      videoId: 'videoId',
     },
   },
   components: {
