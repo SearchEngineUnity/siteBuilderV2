@@ -48,7 +48,6 @@
     "react-instantsearch": "^7.7.1",
     "react-instantsearch-hooks-web": "^6.47.3",
     "react-material-ui-carousel": "^3.4.2",
-    "react-player": "^2.15.0",
     "tss-react": "^4.9.4"
   }
 }
