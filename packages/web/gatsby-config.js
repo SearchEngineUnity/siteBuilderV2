@@ -90,33 +90,7 @@ module.exports = {
         overlayDrafts: !isProd || previewEnabled, // drafts in dev & Gatsby Cloud Preview
       },
     },
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaults: {
-          formats: [`auto`, `webp`],
-          placeholder: `dominantColor`,
-          quality: 50,
-          breakpoints: [600, 960, 1280, 1920],
-          backgroundColor: `transparent`,
-          blurredOptions: {},
-          jpgOptions: {},
-          pngOptions: {},
-          webpOptions: {},
-          avifOptions: {},
-        },
-      },
-    },
-    'gatsby-transformer-sharp',
     'gatsby-plugin-image',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'src/images/icon.png',
-      },
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -124,6 +98,16 @@ module.exports = {
         path: './src/images/',
       },
       __key: 'images',
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png',
+      },
     },
     `gatsby-plugin-netlify`,
     {
