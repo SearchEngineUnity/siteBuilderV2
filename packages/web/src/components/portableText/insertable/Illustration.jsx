@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { getGatsbyImageData } from 'gatsby-source-sanity';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../lib/sanityConfig';
 import CaptionContent from '../serializer/CaptionSerializer';
 
@@ -28,7 +28,7 @@ function Illustration({ illustration, loading }) {
 
   const minMaxWidth = Math.min(...widthArray);
 
-  const fluidProps = getGatsbyImageData(imageFluid._id, { maxWidth: minMaxWidth }, sanityConfig);
+  // const fluidProps = getGatsbyImageData(imageFluid._id, { maxWidth: minMaxWidth }, sanityConfig);
 
   return (
     <Box sx={{ display: 'flex', justifyContent: illustration.align }}>
@@ -43,7 +43,8 @@ function Illustration({ illustration, loading }) {
             },
           ]}
         >
-          <GatsbyImage
+          this is illustration
+          {/* <GatsbyImage
             image={fluidProps}
             alt={illustration.alt || ''}
             loading={loadingSetting}
@@ -51,7 +52,7 @@ function Illustration({ illustration, loading }) {
             //   maxHeight: `${customMaxHeight}px`,
             //   maxWidth: `${customMaxWidth}px`,
             // }}
-          />
+          /> */}
         </Box>
         {illustration.caption && <CaptionContent blocks={illustration.caption} />}
       </Box>

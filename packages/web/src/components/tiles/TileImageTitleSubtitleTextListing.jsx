@@ -3,19 +3,19 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { getGatsbyImageData } from 'gatsby-source-sanity';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../lib/sanityConfig';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 
 function TileImageTitleSubtitleTextListing({ image, alt, link, title, text, subtitle }) {
-  const imageData = getGatsbyImageData(
-    image,
-    {
-      layout: 'fullWidth',
-    },
-    sanityConfig,
-  );
+  // const imageData = getGatsbyImageData(
+  //   image,
+  //   {
+  //     layout: 'fullWidth',
+  //   },
+  //   sanityConfig,
+  // );
 
   return (
     <Card square elevation={link ? 8 : 0} sx={{ display: 'flex' }}>
@@ -29,11 +29,12 @@ function TileImageTitleSubtitleTextListing({ image, alt, link, title, text, subt
               flexShrink: 0,
             }}
           >
-            <GatsbyImage
+            tile image
+            {/* <GatsbyImage
               image={imageData}
               alt={alt || ''}
               style={{ width: '100%', height: '100%' }}
-            />
+            /> */}
           </Box>
           <Box sx={{ paddingLeft: { md: 3, sm: 0 } }}>
             <Typography gutterBottom variant="h3" component="p">

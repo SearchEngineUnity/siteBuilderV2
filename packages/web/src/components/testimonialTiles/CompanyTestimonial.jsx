@@ -2,18 +2,18 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+// import { getGatsbyImageData } from 'gatsby-source-sanity';
+// import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../lib/sanityConfig';
 
 function CompanyTestimonial({ image, alt, name, text, role, company }) {
-  const imageData = getGatsbyImageData(
-    image,
-    {
-      layout: 'constrained',
-    },
-    sanityConfig,
-  );
+  // const imageData = getGatsbyImageData(
+  //   image,
+  //   {
+  //     layout: 'constrained',
+  //   },
+  //   sanityConfig,
+  // );
 
   const customMaxHeight = 53;
   const width = image?.metadata?.dimensions?.width;
@@ -76,7 +76,8 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
               maxHeight: '53px',
             }}
           >
-            <GatsbyImage objectFit="contain" image={imageData} alt={alt || ''} loading="lazy" />
+            company image
+            {/* <GatsbyImage objectFit="contain" image={imageData} alt={alt || ''} loading="lazy" /> */}
           </Box>
         )}
 
@@ -96,7 +97,8 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
         sx={{ height: '100%', borderLeft: (theme) => `3px solid ${theme.palette.primary.main}` }}
       />
       <Box sx={{ padding: 2, flex: '1 1 auto' }}>
-        <StaticImage src="../../images/quotes.png" alt="" height={27} width={44} loading="lazy" />
+        company image
+        {/* <StaticImage src="../../images/quotes.png" alt="" height={27} width={44} loading="lazy" /> */}
         <Typography
           variant="body1"
           component="p"
@@ -135,7 +137,8 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
                 maxHeight: '53px',
               }}
             >
-              <GatsbyImage objectFit="contain" image={imageData} alt={alt || ''} loading="lazy" />
+              company image
+              {/* <GatsbyImage objectFit="contain" image={imageData} alt={alt || ''} loading="lazy" /> */}
             </Box>
           )}
 

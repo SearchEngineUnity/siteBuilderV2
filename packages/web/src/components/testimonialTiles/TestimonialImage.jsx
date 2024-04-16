@@ -4,18 +4,18 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { getGatsbyImageData } from 'gatsby-source-sanity';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../lib/sanityConfig';
 
 function TestimonialImage({ image, alt, name, text, role, company }) {
-  const imageData = getGatsbyImageData(
-    image,
-    {
-      layout: 'fullWidth',
-    },
-    sanityConfig,
-  );
+  // const imageData = getGatsbyImageData(
+  //   image,
+  //   {
+  //     layout: 'fullWidth',
+  //   },
+  //   sanityConfig,
+  // );
 
   const printedRole = role && `, ${role}`;
   const printedCompany = company && `, ${company}`;
@@ -41,12 +41,13 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
           </Grid>
           <Grid>
             {image ? (
-              <GatsbyImage
-                image={imageData}
-                alt={alt || ''}
-                style={{ width: '100px', height: '100px', borderRadius: '50px' }}
-              />
+              <div>testimonial image</div>
             ) : (
+              // <GatsbyImage
+              //   image={imageData}
+              //   alt={alt || ''}
+              //   style={{ width: '100px', height: '100px', borderRadius: '50px' }}
+              // />
               <Avatar sx={{ width: '100px', height: '100px', fontSize: 'h2.fontSize' }}>
                 {name[0].toUpperCase()}
               </Avatar>
