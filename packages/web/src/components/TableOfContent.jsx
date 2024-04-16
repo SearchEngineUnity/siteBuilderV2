@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { useSectionsObserver } from '../hooks/useSectionsObserver';
 
-function TableOfContent({ toc }) {
+export function TableOfContent({ toc }) {
   const { activeId } = useSectionsObserver();
 
   return (
@@ -55,5 +55,3 @@ function TableOfContent({ toc }) {
     </Box>
   );
 }
-
-export default TableOfContent;
