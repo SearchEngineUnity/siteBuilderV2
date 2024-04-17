@@ -2,10 +2,10 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import { useSectionsObserver } from '../hooks/useSectionsObserver';
+// import { useSectionsObserver } from '../hooks/useSectionsObserver';
 
 function TableOfContent({ toc }) {
-  const { activeId } = useSectionsObserver();
+  // const { activeId } = useSectionsObserver();
 
   return (
     <Box
@@ -36,13 +36,14 @@ function TableOfContent({ toc }) {
             >
               <Link
                 sx={[
-                  item.hashID === activeId && {
-                    fontWeight: 'bold',
-                  },
+                  // item.hashID === activeId && {
+                  //   fontWeight: 'bold',
+                  // },
                   { color: 'text.primary' },
                 ]}
                 href={`#${item.hashID}`}
                 underline="hover"
+                className="toc-link"
               >
                 {item.title}
               </Link>
