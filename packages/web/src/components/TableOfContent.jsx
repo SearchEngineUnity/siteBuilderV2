@@ -1,12 +1,10 @@
-'use client';
-
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { useSectionsObserver } from '../hooks/useSectionsObserver';
 
-export function TableOfContent({ toc }) {
+function TableOfContent({ toc }) {
   const { activeId } = useSectionsObserver();
 
   return (
@@ -55,3 +53,5 @@ export function TableOfContent({ toc }) {
     </Box>
   );
 }
+
+export default TableOfContent;

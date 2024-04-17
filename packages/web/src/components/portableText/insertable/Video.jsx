@@ -25,8 +25,7 @@ function Video({ id, videoId, stackHero, loading }) {
         }}
         title="Youtube Embed"
         src={`https://www.youtube.com/embed/${videoId}`}
-        // need more variables to load eager when in hero spot
-        loading={loading}
+        loading={loading || 'lazy'}
         width="100%"
         height="100%"
       />
