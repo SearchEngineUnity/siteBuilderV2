@@ -13,7 +13,7 @@ import MainColumnGuideHero from '../components/sections/MainColumnGuideHero';
 // import ProgressBar from '../components/ScrollProgressBar';
 import MainColumnFeature from '../components/sections/MainColumnFeature';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
-import { TableOfContent } from '../components/TableOfContent';
+import ToC from '../components/TableOfContent';
 import MoreInSection from '../components/sections/MoreInSection';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
@@ -181,7 +181,7 @@ function SoloGuidePage({ data, location, pageContext }) {
             <Grid container spacing={{ xs: 2, sm: 3 }}>
               <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
                 {data?.guide?.toc?.length > 0 && (
-                  <TableOfContent toc={data.guide.toc} content={data.guide._rawGuideBody} />
+                  <ToC toc={data.guide.toc} content={data.guide._rawGuideBody} />
                 )}
               </Grid>
               <Grid md={9} xs={12} component="article" sx={{ order: 1 }}>
