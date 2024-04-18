@@ -2,19 +2,9 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-// import { getGatsbyImageData } from 'gatsby-source-sanity';
-// import { GatsbyImage } from 'gatsby-plugin-image';
-import sanityConfig from '../../lib/sanityConfig';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 export default function TileBorderSmImageTopTitleText({ image, alt, title, text }) {
-  // const imageData = getGatsbyImageData(
-  //   image,
-  //   {
-  //     layout: 'fullWidth',
-  //   },
-  //   sanityConfig,
-  // );
-
   return (
     <Box sx={{ paddingTop: '30px', height: '100%', display: 'flex' }}>
       <Box
@@ -25,9 +15,8 @@ export default function TileBorderSmImageTopTitleText({ image, alt, title, text 
           width: '100%',
         }}
       >
-        tile image
-        {/* <GatsbyImage
-          image={imageData}
+        <GatsbyImage
+          image={image}
           alt={alt || ''}
           style={{
             height: '72px',
@@ -37,7 +26,7 @@ export default function TileBorderSmImageTopTitleText({ image, alt, title, text 
             left: '50%',
             transform: 'translateX(-50%)',
           }}
-        /> */}
+        />
         <Typography variant="h3" gutterBottom sx={{ textAlign: 'center' }}>
           {title}
         </Typography>

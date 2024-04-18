@@ -324,9 +324,8 @@ export const query = graphql`
                 subtitle
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 1 })
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
                   }
                 }
               }
@@ -708,9 +707,8 @@ export const query = graphql`
                 subtitle
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 1 })
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
                   }
                 }
               }
@@ -1088,9 +1086,8 @@ export const query = graphql`
                 subtitle
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 1 })
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
                   }
                 }
               }
@@ -1465,9 +1462,8 @@ export const query = graphql`
                 subtitle
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 1 })
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
                   }
                 }
               }

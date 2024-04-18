@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 
 function TileImageBackgroundTitle({ image, link, title }) {
-  const bgImage = image.url;
+  const bgImage = image.images.fallback.src;
 
   return (
     <Card square elevation={0}>
