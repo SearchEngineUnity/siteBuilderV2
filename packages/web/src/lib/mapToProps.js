@@ -62,17 +62,10 @@ export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate 
   };
 }
 
-export function mapFluidImgBlockToProps({
-  idTag,
-  _rawAsset,
-  alt,
-  _rawCaption,
-  maxHeight,
-  maxWidth,
-}) {
+export function mapFluidImgBlockToProps({ idTag, asset, alt, _rawCaption, maxHeight, maxWidth }) {
   return {
     id: idTag,
-    image: _rawAsset,
+    image: asset.gatsbyImageData,
     alt,
     caption: _rawCaption,
     maxHeight,
