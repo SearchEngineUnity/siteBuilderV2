@@ -1,12 +1,13 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Illustration from '../portableText/insertable/Illustration';
+import ImgBlock from '../blocks/FluidImgBlock';
 import Video from '../portableText/insertable/Video';
 import Disclaimer from '../portableText/serializer/DisclaimerSerializer';
+import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 import { useDisclaimerText } from '../../hooks/useDisclaimerText';
 
 const featureComponentMapping = {
-  image: Illustration,
+  image: ImgBlock,
   video: Video,
   featureless: null,
 };
@@ -14,12 +15,13 @@ const featureComponentMapping = {
 const propsMapping = (type, props) => {
   switch (type) {
     case 'image':
-      return {
-        illustration: {
-          asset: props.image._rawAsset,
-        },
-        loading: 'eager',
-      };
+      return props.image
+        ? {
+            ...mapFluidImgBlockToProps(props.image),
+            loading: 'eager',
+            align: 'start',
+          }
+        : null;
     case 'video':
       return { ...props.video };
     default:
