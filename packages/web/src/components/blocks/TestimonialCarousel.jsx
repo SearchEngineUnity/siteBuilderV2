@@ -33,7 +33,7 @@ function TestimonialCarousel({ testimonialList }) {
     >
       {testimonialList.map((testimonial) => (
         <Box
-          key={testimonial._key}
+          key={testimonial._id}
           sx={{
             width: { xs: '100%', md: 'calc(100% - 152px)' },
             marginLeft: 'auto',

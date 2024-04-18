@@ -456,7 +456,7 @@ export function mapTestimonialBlockToProps({
   _rawFooter,
   headerAlignment,
   footerAlignment,
-  _rawTestimonialList,
+  testimonialList,
   tileOption,
   layout,
 }) {
@@ -467,7 +467,7 @@ export function mapTestimonialBlockToProps({
     footer: _rawFooter,
     headerAlignment,
     footerAlignment,
-    testimonialList: _rawTestimonialList,
+    testimonialList,
     tileOption,
     layout,
   };
@@ -475,7 +475,7 @@ export function mapTestimonialBlockToProps({
 
 export function mapTestimonialListToProps({ image, text, name, role, company }) {
   return {
-    image: image?.asset,
+    image: image?.asset?.gatsbyImageData,
     alt: image?.alt,
     text,
     name,

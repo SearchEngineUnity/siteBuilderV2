@@ -77,7 +77,7 @@ function TestimonialSlider({ testimonialList }) {
                     .slice(index * cardsPerPage, index * cardsPerPage + cardsPerPage)
                     .map((testimonial) => (
                       <CompanyTile
-                        key={testimonial._key}
+                        key={testimonial._id}
                         {...mapTestimonialListToProps(testimonial)}
                       />
                     ))}
