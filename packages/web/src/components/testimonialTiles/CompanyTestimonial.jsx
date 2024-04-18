@@ -2,22 +2,12 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-// import { getGatsbyImageData } from 'gatsby-source-sanity';
-// import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import sanityConfig from '../../lib/sanityConfig';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 
 function CompanyTestimonial({ image, alt, name, text, role, company }) {
-  // const imageData = getGatsbyImageData(
-  //   image,
-  //   {
-  //     layout: 'constrained',
-  //   },
-  //   sanityConfig,
-  // );
-
   const customMaxHeight = 53;
-  const width = image?.metadata?.dimensions?.width;
-  const aspectRatio = image?.metadata?.dimensions?.aspectRatio;
+  const { width, height } = image;
+  const aspectRatio = width / height;
 
   const calculatedWidthBasedOnCustomMaxHeight = customMaxHeight * aspectRatio;
 
@@ -73,11 +63,9 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
               my: '16px',
               marginLeft: 'auto',
               maxWidth: `${minMaxWidth}px`,
-              maxHeight: '53px',
             }}
           >
-            company image
-            {/* <GatsbyImage objectFit="contain" image={imageData} alt={alt || ''} loading="lazy" /> */}
+            <GatsbyImage image={image} alt={alt || ''} loading="lazy" />
           </Box>
         )}
 
@@ -97,8 +85,7 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
         sx={{ height: '100%', borderLeft: (theme) => `3px solid ${theme.palette.primary.main}` }}
       />
       <Box sx={{ padding: 2, flex: '1 1 auto' }}>
-        company image
-        {/* <StaticImage src="../../images/quotes.png" alt="" height={27} width={44} loading="lazy" /> */}
+        <StaticImage src="../../images/quotes.png" alt="" height={27} width={44} loading="lazy" />
         <Typography
           variant="body1"
           component="p"
@@ -134,11 +121,9 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
               sx={{
                 my: '16px',
                 maxWidth: `${minMaxWidth}px`,
-                maxHeight: '53px',
               }}
             >
-              company image
-              {/* <GatsbyImage objectFit="contain" image={imageData} alt={alt || ''} loading="lazy" /> */}
+              <GatsbyImage image={image} alt={alt || ''} loading="lazy" />
             </Box>
           )}
 
