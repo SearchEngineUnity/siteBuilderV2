@@ -428,13 +428,10 @@ export function mapGridFlexToProps({
   };
 }
 
-export function mapFluidImgToProps({ _rawAsset, alt, maxHeight, maxWidth, _rawCaption }) {
+export function mapTileImageToProps({ asset, alt }) {
   return {
-    image: _rawAsset,
+    image: asset.gatsbyImageData,
     alt,
-    maxHeight,
-    maxWidth,
-    caption: _rawCaption,
   };
 }
 

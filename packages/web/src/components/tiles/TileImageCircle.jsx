@@ -1,25 +1,25 @@
 // Title #2
 import React from 'react';
 import Card from '@mui/material/Card';
-// import { getGatsbyImageData } from 'gatsby-source-sanity';
-// import { GatsbyImage } from 'gatsby-plugin-image';
-import sanityConfig from '../../lib/sanityConfig';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 
 function TileImageCircle({ image, alt, link }) {
-  // const imageData = getGatsbyImageData(
-  //   image,
-  //   {
-  //     layout: 'fullWidth',
-  //   },
-  //   sanityConfig,
-  // );
+  const { width, height } = image;
+  const minDimension = Math.min(width, height);
 
   return (
-    <Card square elevation={link ? 8 : 0} sx={{ borderRadius: '10000px' }}>
+    <Card
+      square
+      elevation={link ? 8 : 0}
+      sx={{ width: minDimension, height: minDimension, borderRadius: '50%' }}
+    >
       <ConditionalCardActionArea link={link}>
-        tile image
-        {/* <GatsbyImage image={imageData} alt={alt || ''} /> */}
+        <GatsbyImage
+          image={image}
+          alt={alt || ''}
+          style={{ width: minDimension, height: minDimension }}
+        />
       </ConditionalCardActionArea>
     </Card>
   );
