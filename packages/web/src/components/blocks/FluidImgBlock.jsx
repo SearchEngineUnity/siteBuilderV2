@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import CaptionContent from '../portableText/serializer/CaptionSerializer';
 
-function FluidImgBlock({ id, image, alt, loading, maxHeight, maxWidth, caption }) {
+function FluidImgBlock({ id, image, alt, loading, maxHeight, maxWidth, caption, align }) {
   const loadingSetting = loading || 'lazy';
   const customMaxHeight = maxHeight || 'auto';
   const customMaxWidth = maxWidth || 'auto';
@@ -25,7 +25,11 @@ function FluidImgBlock({ id, image, alt, loading, maxHeight, maxWidth, caption }
   const minMaxWidth = `${Math.min(...widthArray)}px`;
 
   return (
-    <Box component="figure" id={id} sx={{ justifyContent: 'center', m: 0, display: 'flex' }}>
+    <Box
+      component="figure"
+      id={id}
+      sx={{ justifyContent: align || 'center', m: 0, display: 'flex' }}
+    >
       <Box sx={{ maxWidth: minMaxWidth }}>
         <GatsbyImage
           image={image}
