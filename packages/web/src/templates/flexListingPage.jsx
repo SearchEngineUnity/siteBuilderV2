@@ -2176,14 +2176,15 @@ export const query = graphql`
           idTag
           heroImage {
             alt
-            _rawAsset(resolveReferences: { maxDepth: 1 })
             asset {
-              gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+              gatsbyImageData(fit: CROP, placeholder: BLURRED)
             }
           }
           video {
             asset {
-              _rawAsset(resolveReferences: { maxDepth: 1 })
+              asset {
+                url
+              }
             }
           }
         }
