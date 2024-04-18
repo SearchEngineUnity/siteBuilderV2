@@ -121,6 +121,9 @@ export const query = graphql`
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
+                  asset {
+                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                  }
                 }
               }
             }
@@ -261,7 +264,9 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 1 })
+              asset {
+                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+              }
               maxHeight
               maxWidth
               _rawCaption(resolveReferences: { maxDepth: 4 })
@@ -490,6 +495,9 @@ export const query = graphql`
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
+                  asset {
+                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                  }
                 }
               }
             }
@@ -498,7 +506,9 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 1 })
+              asset {
+                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+              }
               maxHeight
               maxWidth
               _rawCaption(resolveReferences: { maxDepth: 4 })
@@ -855,6 +865,9 @@ export const query = graphql`
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
+                  asset {
+                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                  }
                 }
               }
             }
@@ -994,7 +1007,9 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 1 })
+              asset {
+                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+              }
               maxHeight
               maxWidth
               _rawCaption(resolveReferences: { maxDepth: 4 })
@@ -1217,6 +1232,9 @@ export const query = graphql`
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 1 })
+                  asset {
+                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                  }
                 }
               }
             }
@@ -1356,7 +1374,9 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 1 })
+              asset {
+                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+              }
               maxHeight
               maxWidth
               _rawCaption(resolveReferences: { maxDepth: 4 })
@@ -2161,6 +2181,9 @@ export const query = graphql`
           heroImage {
             alt
             _rawAsset(resolveReferences: { maxDepth: 1 })
+            asset {
+              gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+            }
           }
           video {
             asset {
