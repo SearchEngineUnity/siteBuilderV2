@@ -267,7 +267,6 @@ export const query = graphql`
                 subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 1 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
               testimonialList {
                 _id
                 company
@@ -664,7 +663,6 @@ export const query = graphql`
                 subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 1 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
               testimonialList {
                 _id
                 company
@@ -1056,7 +1054,6 @@ export const query = graphql`
                 subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 1 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
               testimonialList {
                 _id
                 company
@@ -1445,7 +1442,6 @@ export const query = graphql`
                 subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 1 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
               testimonialList {
                 _id
                 company
