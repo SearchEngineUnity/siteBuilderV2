@@ -286,7 +286,7 @@ export const query = graphql`
               _key
               _type
               _rawFooter(resolveReferences: { maxDepth: 1 })
-              _rawText(resolveReferences: { maxDepth: 5 })
+              _rawText(resolveReferences: { maxDepth: 1 })
               header {
                 heading
                 subheading
@@ -538,7 +538,7 @@ export const query = graphql`
             ... on SanitySectionBlock {
               _key
               _type
-              _rawText(resolveReferences: { maxDepth: 12 })
+              _rawText(resolveReferences: { maxDepth: 1 })
               header {
                 _rawSubtitle(resolveReferences: { maxDepth: 1 })
                 heading
@@ -1050,7 +1050,7 @@ export const query = graphql`
             ... on SanityHeroBlock {
               _key
               _type
-              _rawText(resolveReferences: { maxDepth: 5 })
+              _rawText(resolveReferences: { maxDepth: 1 })
               header {
                 _rawSubtitle(resolveReferences: { maxDepth: 1 })
                 heading
@@ -1428,7 +1428,7 @@ export const query = graphql`
             ... on SanitySectionBlock {
               _key
               _type
-              _rawText(resolveReferences: { maxDepth: 12 })
+              _rawText(resolveReferences: { maxDepth: 1 })
               header {
                 _rawSubtitle(resolveReferences: { maxDepth: 1 })
                 heading

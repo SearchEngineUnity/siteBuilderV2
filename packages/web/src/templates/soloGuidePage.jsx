@@ -69,7 +69,7 @@ export const query = graphql`
           }
         }
       }
-      _rawGuideBody(resolveReferences: { maxDepth: 16 })
+      _rawGuideBody(resolveReferences: { maxDepth: 1 })
       toc {
         _key
         title
@@ -101,7 +101,55 @@ export const query = graphql`
           design
           pageJumpText
           idTag
-          _rawTiles(resolveReferences: { maxDepth: 5 })
+          tiles {
+            _key
+            btnText
+            content: _rawContent
+            specialTagText
+            tileImage {
+              alt
+              asset {
+                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+              }
+            }
+            jumpLink {
+              _key
+              hashId
+            }
+            content: _rawContent
+            btnLink {
+              ... on SanityAffiliateLink {
+                _key
+                _type
+                href
+              }
+              ... on SanityExternalLink {
+                _key
+                _type
+                href
+                newTab
+                noreferrer
+              }
+              ... on SanityInternalGlobal {
+                _key
+                _type
+                href
+                newTab
+              }
+              ... on SanityInternalLocal {
+                _key
+                _type
+                href
+                newTab
+              }
+              ... on SanityJumpLink {
+                _key
+                _type
+                hashId
+              }
+            }
+            name
+          }
         }
       }
     }
