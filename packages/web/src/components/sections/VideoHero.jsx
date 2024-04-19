@@ -17,7 +17,6 @@ function VideoHero({
   videoUrl,
   designSettings,
 }) {
-  // const imageData = getGatsbyImageData(image, {}, sanityConfig);
   const headingColor = determineColor(designSettings?.heading?.color) || 'text.primary';
   const backgroundColor = determineColor(designSettings?.background?.color) || 'primary.main';
   const backgroundImage = designSettings?.bgImage?.asset?.url;
