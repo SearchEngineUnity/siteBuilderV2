@@ -513,12 +513,12 @@ export function mapSmartGridBlockToProps({
   };
 }
 
-export function mapProductGridToProps({ idTag, btnText, pageJumpText, _rawTiles, design }) {
+export function mapProductGridToProps({ idTag, btnText, pageJumpText, tiles, design }) {
   return {
     id: idTag,
     btnText,
     pageJumpText,
-    tiles: _rawTiles,
+    tiles,
     design,
   };
 }

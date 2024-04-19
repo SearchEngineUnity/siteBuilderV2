@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import CardHeader from '@mui/material/CardHeader';
-import Illustration from '../Illustration';
+import FluidImgBlock from '../../../blocks/FluidImgBlock';
 import Content from '../../serializer/NoIndentSerializer';
 import ConditionalButton from '../../../buttons/ConditionalButton';
 
@@ -18,7 +18,10 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
     btnLink,
     jumpLink: { hashId },
   } = tile;
-  const { alt } = tileImage;
+  const {
+    alt,
+    asset: { gatsbyImageData },
+  } = tileImage;
 
   return (
     <Card
@@ -63,8 +66,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
           mx: 'auto',
         }}
       >
-        {/* <Illustration loading="eager" alt={alt} illustration={{ ...tileImage, maxHeight: 150 }} /> */}
-        <Illustration loading="eager" alt={alt} illustration={tileImage} />
+        <FluidImgBlock loading="eager" alt={alt} image={gatsbyImageData} />
       </Box>
       <Box
         sx={{
