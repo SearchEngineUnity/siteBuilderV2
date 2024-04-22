@@ -71,7 +71,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: FILLMAX)
                   }
                 }
               }
@@ -133,7 +133,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP)
                   }
                 }
               }
@@ -276,7 +276,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                gatsbyImageData(fit: FILLMAX)
               }
               maxHeight
               maxWidth
@@ -456,7 +456,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: FILLMAX)
                   }
                 }
               }
@@ -518,7 +518,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP)
                   }
                 }
               }
@@ -529,7 +529,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                gatsbyImageData(fit: FILLMAX)
               }
               maxHeight
               maxWidth
@@ -837,7 +837,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: FILLMAX)
                   }
                 }
               }
@@ -899,7 +899,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP)
                   }
                 }
               }
@@ -1041,7 +1041,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                gatsbyImageData(fit: FILLMAX)
               }
               maxHeight
               maxWidth
@@ -1215,7 +1215,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                    gatsbyImageData(fit: FILLMAX)
                   }
                 }
               }
@@ -1277,7 +1277,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP, placeholder: BLURRED)
+                    gatsbyImageData(fit: CROP)
                   }
                 }
               }
@@ -1419,7 +1419,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                gatsbyImageData(fit: FILLMAX)
               }
               maxHeight
               maxWidth
@@ -2225,7 +2225,7 @@ export const query = graphql`
           heroImage {
             alt
             asset {
-              gatsbyImageData(fit: CROP, placeholder: BLURRED)
+              gatsbyImageData(fit: CROP)
             }
           }
           video {
