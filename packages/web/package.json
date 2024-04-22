@@ -28,7 +28,7 @@
     "@styled-icons/fa-solid": "^10.47.0",
     "algoliasearch": "^4.22.1",
     "dotenv": "^16.4.5",
-    "gatsby": "^5.13.3",
+    "gatsby": "^5.13.4",
     "gatsby-adapter-netlify": "^1.1.4",
     "gatsby-plugin-algolia": "^1.0.3",
     "gatsby-plugin-emotion": "^8.13.1",
