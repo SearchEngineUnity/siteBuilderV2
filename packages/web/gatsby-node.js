@@ -136,7 +136,7 @@ async function createFlexListingPages(actions, graphql) {
             tileText
             tileImage {
               asset {
-                gatsbyImageData(fit: CROP)
+                gatsbyImageData(fit: CROP, placeholder: NONE)
               }
             }
             primarySubcategory {
@@ -337,7 +337,7 @@ async function createSoloGuidePages(actions, graphql) {
             tileText
             tileImage {
               asset {
-                gatsbyImageData(fit: CROP)
+                gatsbyImageData(fit: CROP, placeholder: NONE)
               }
             }
             primarySubcategory {
