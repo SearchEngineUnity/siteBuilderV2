@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
-function OneThreeQurterStars() {
+function OneThreeQuarterStars() {
   return (
     <StaticImage
       src="../../../../../images/rating-stars-grey-background-1.75-of-5.png"
@@ -13,4 +13,4 @@ function OneThreeQurterStars() {
   );
 }
 
-export default OneThreeQurterStars;
+export default OneThreeQuarterStars;
