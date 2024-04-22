@@ -7,8 +7,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Modal from '@mui/material/Modal';
-// import { getGatsbyImageData } from 'gatsby-source-sanity';
-// import { GatsbyImage } from 'gatsby-plugin-image';
+import { getGatsbyImageData } from 'gatsby-source-sanity';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../../lib/sanityConfig';
 import ProductInfoList from './ProductInfoList';
 import ProductCardRating from './ProductCardRating';
@@ -27,13 +27,15 @@ function ProductCardTopOriginal({ name, headingLevel, rating, image, infoList, b
     setOpen(false);
   };
 
-  // const imageData = getGatsbyImageData(
-  //   image,
-  //   {
-  //     layout: 'constrained',
-  //   },
-  //   sanityConfig,
-  // );
+  const imageId = image?.asset?._ref || image?.asset?._id;
+
+  const imageData = getGatsbyImageData(
+    imageId,
+    {
+      layout: 'constrained',
+    },
+    sanityConfig,
+  );
 
   return (
     <Box sx={{ m: 3, display: { xl: 'block', lg: 'block', md: 'none', sm: 'none', xs: 'none' } }}>
@@ -52,13 +54,12 @@ function ProductCardTopOriginal({ name, headingLevel, rating, image, infoList, b
                 cursor: 'pointer',
               }}
             >
-              this is PC image
-              {/* <GatsbyImage
+              <GatsbyImage
                 image={imageData}
                 alt={image?.alt}
                 style={{ display: 'block', maxWidth: '100%', maxHeight: '240px' }}
                 objectFit="contain"
-              /> */}
+              />
               <Box
                 sx={(theme) => ({
                   position: 'absolute',
@@ -118,13 +119,12 @@ function ProductCardTopOriginal({ name, headingLevel, rating, image, infoList, b
                   justifyContent: 'center',
                 }}
               >
-                this is PC image
-                {/* <GatsbyImage
+                <GatsbyImage
                   image={imageData}
                   alt={image?.alt}
                   objectFit="contain"
                   style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
-                /> */}
+                />
               </Box>
             </Modal>
           </Box>
