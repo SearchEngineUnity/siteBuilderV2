@@ -85,7 +85,7 @@ export const query = graphql`
           alt
           _rawAsset(resolveReferences: { maxDepth: 1 })
           asset {
-            gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+            gatsbyImageData(fit: FILLMAX)
             url
           }
           maxHeight
@@ -109,7 +109,7 @@ export const query = graphql`
             tileImage {
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
+                gatsbyImageData(fit: FILLMAX)
               }
             }
             jumpLink {
