@@ -16,7 +16,6 @@ import ClickableImage from '../insertable/ClickableImage';
 import SmartGrid from '../insertable/SmartGrid/SmartGrid';
 import IndentFullWrapper from '../insertable/IndentFullWrapper';
 import VerticalSpacingWrapper from '../insertable/VerticalSpacingWrapper';
-import PTHeadingTypography from './PTHeadingTypography';
 import { mapMuiBtnToProps, mapVideoToProps } from '../../../lib/mapToProps';
 
 const serializers = {
@@ -30,7 +29,27 @@ const serializers = {
         <br />
       );
     },
-    h2: ({ value, children }) => <PTHeadingTypography variant="h2">{children}</PTHeadingTypography>,
+    h2: ({ value, children }) => (
+      <Typography
+        gutterBottom
+        variant="h2"
+        id={
+          value.markDefs.length !== 0
+            ? value.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+            : undefined
+        }
+        sx={(theme) => ({
+          mt: '1.35em',
+          borderBottom: `solid ${theme.palette.primary.main} 1px`,
+          paddingBottom: '0.1em',
+          '& .pt-link': {
+            textDecoration: 'none',
+          },
+        })}
+      >
+        {children}
+      </Typography>
+    ),
     h3: ({ value, children }) => (
       <Typography
         variant="h3"
