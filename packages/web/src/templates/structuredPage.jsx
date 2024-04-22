@@ -220,7 +220,7 @@ export const query = graphql`
           heroImage {
             alt
             asset {
-              gatsbyImageData(fit: CROP)
+              gatsbyImageData(fit: CROP, placeholder: NONE)
             }
           }
           video {
@@ -276,7 +276,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX)
+                    gatsbyImageData(fit: FILLMAX, placeholder: NONE)
                   }
                 }
               }
@@ -338,7 +338,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP)
+                    gatsbyImageData(fit: CROP, placeholder: NONE)
                   }
                 }
               }
@@ -481,7 +481,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX)
+                gatsbyImageData(fit: FILLMAX, placeholder: NONE)
               }
               maxHeight
               maxWidth
@@ -672,7 +672,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX)
+                    gatsbyImageData(fit: FILLMAX, placeholder: NONE)
                   }
                 }
               }
@@ -734,7 +734,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP)
+                    gatsbyImageData(fit: CROP, placeholder: NONE)
                   }
                 }
               }
@@ -745,7 +745,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX)
+                gatsbyImageData(fit: FILLMAX, placeholder: NONE)
               }
               maxHeight
               maxWidth
@@ -1063,7 +1063,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX)
+                    gatsbyImageData(fit: FILLMAX, placeholder: NONE)
                   }
                 }
               }
@@ -1125,7 +1125,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP)
+                    gatsbyImageData(fit: CROP, placeholder: NONE)
                   }
                 }
               }
@@ -1267,7 +1267,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX)
+                gatsbyImageData(fit: FILLMAX, placeholder: NONE)
               }
               maxHeight
               maxWidth
@@ -1451,7 +1451,7 @@ export const query = graphql`
                 image {
                   alt
                   asset {
-                    gatsbyImageData(fit: FILLMAX)
+                    gatsbyImageData(fit: FILLMAX, placeholder: NONE)
                   }
                 }
               }
@@ -1513,7 +1513,7 @@ export const query = graphql`
                 tileImage {
                   alt
                   asset {
-                    gatsbyImageData(fit: CROP)
+                    gatsbyImageData(fit: CROP, placeholder: NONE)
                   }
                 }
               }
@@ -1655,7 +1655,7 @@ export const query = graphql`
               _type
               alt
               asset {
-                gatsbyImageData(fit: FILLMAX)
+                gatsbyImageData(fit: FILLMAX, placeholder: NONE)
               }
               maxHeight
               maxWidth
