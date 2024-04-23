@@ -121,13 +121,13 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
             fontWeight="fontWeightBold"
             component="div"
             sx={(theme) => ({
+              color: theme.palette.text.primary,
               lineHeight: 1.2,
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
               WebkitLineClamp: { xs: 3, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
-              color: 'inherit',
               height: {
                 sm: 'auto',
                 xs:
