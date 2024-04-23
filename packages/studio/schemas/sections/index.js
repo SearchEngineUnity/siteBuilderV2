@@ -1,4 +1,4 @@
-// export { default as customTilesSection } from './customTilesSection';
+export { default as customTilesSection } from './customTilesSection';
 export { default as featuredTilesSection } from './featuredTilesSection';
 export { default as latestWithPaginationSection } from './latestWithPaginationSection';
 export { default as latestXSection } from './latestXSection';
