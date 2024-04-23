@@ -1678,6 +1678,7 @@ export const query = graphql`
             hero {
               feature
               video {
+                videoId
               }
             }
           }

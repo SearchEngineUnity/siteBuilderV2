@@ -160,7 +160,7 @@ async function createFlexListingPages(actions, graphql) {
             hero {
               feature
               video {
-                url
+                videoId
               }
             }
           }
@@ -361,7 +361,7 @@ async function createSoloGuidePages(actions, graphql) {
             hero {
               feature
               video {
-                url
+                videoId
               }
             }
           }
