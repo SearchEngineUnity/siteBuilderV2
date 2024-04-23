@@ -17,15 +17,6 @@ export default {
   ],
   fields: [
     {
-      name: 'seuID',
-      title: 'seuID',
-      type: 'string',
-      validation: (Rule) => [
-        Rule.required().error('Field is required'),
-        // add a custom rule for isUnique
-      ],
-    },
-    {
       name: 'idTag',
       title: 'ID',
       type: 'string',
@@ -87,7 +78,7 @@ export default {
   preview: {
     select: {
       subtitle: '_type',
-      id: 'seuID',
+      id: 'idTag',
     },
     prepare({ id, subtitle }) {
       return {
