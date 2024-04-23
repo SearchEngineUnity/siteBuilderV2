@@ -86,6 +86,7 @@ export default {
         ...Object.values(sections)
           .filter(
             (section) =>
+              section.name !== 'customTilesSection' &&
               section.name !== 'featuredTilesSection' &&
               section.name !== 'latestWithPaginationSection' &&
               section.name !== 'latestXSection' &&
