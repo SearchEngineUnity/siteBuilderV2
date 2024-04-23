@@ -548,6 +548,18 @@ export const useCustomTheme = () => {
           },
         },
       },
+      MuiLink: {
+        styleOverrides: {
+          root: {
+            '@media (max-width: 599px)': {
+              color: determineColor(palette?.primary?.dark?.color),
+              '&:hover': {
+                color: determineColor(palette?.primary?.dark?.color),
+              },
+            },
+          },
+        },
+      },
       MuiTableCell: {
         styleOverrides: {
           root: {
