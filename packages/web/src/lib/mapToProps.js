@@ -294,6 +294,32 @@ export function mapFeaturedTilesSectionToProps({
   };
 }
 
+export function mapCustomTilesSectionToProps({
+  _rawFooter,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
+  designSettings,
+  header,
+  idTag,
+  blockWidth,
+  customTiles,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subheading: header?.subheading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    blockWidth,
+    blockAlignment,
+    headerAlignment,
+    footerAlignment,
+    designSettings,
+    customTiles,
+  };
+}
+
 export function mapLatestXSectionToProps({
   _rawFooter,
   blockAlignment,

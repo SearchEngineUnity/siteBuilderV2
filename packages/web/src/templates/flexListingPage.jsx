@@ -10,6 +10,7 @@ import StackFlex from '../components/sections/StackFlex';
 import StackHero from '../components/sections/StackHero';
 import VideoHero from '../components/sections/VideoHero';
 import FeaturedTilesSection from '../components/sections/FeaturedTilesSection';
+import CustomTilesSection from '../components/sections/CustomTilesSection';
 import LatestWithPaginationSection from '../components/sections/LatestWithPaginationSection';
 import LatestXSection from '../components/sections/LatestXSection';
 import TagSetSection from '../components/sections/TagSetSection';
@@ -22,6 +23,7 @@ import {
   mapVideoHeroToProps,
   mapTagSetSectionToProps,
   mapFeaturedTilesSectionToProps,
+  mapCustomTilesSectionToProps,
   mapLatestXSectionToProps,
   mapLatestWithPaginationSectionToProps,
   mapSeoToProps,
@@ -1676,7 +1678,134 @@ export const query = graphql`
             hero {
               feature
               video {
+              }
+            }
+          }
+        }
+        ... on SanityCustomTilesSection {
+          _key
+          _type
+          header {
+            heading
+            subheading
+            _rawSubtitle(resolveReferences: { maxDepth: 1 })
+          }
+          _rawFooter(resolveReferences: { maxDepth: 1 })
+          headerAlignment
+          footerAlignment
+          designSettings {
+            outerPadding: _rawOuterPadding
+            innerPadding: _rawInnerPadding
+            borderRadius
+            caption {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            background {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            bgImage {
+              asset {
                 url
+              }
+            }
+            bleed
+            repeat
+            footer {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            foreground {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            heading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subheading {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            link {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+            subtitle {
+              color {
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
+          }
+          idTag
+          customTiles {
+            _id
+            slug {
+              current
+            }
+            displayDate
+            tileImage {
+              asset {
+                gatsbyImageData(fit: CROP, placeholder: NONE)
+              }
+            }
+            tileText
+            tileTitle
+            primarySubcategory {
+              name
+            }
+            hero {
+              feature
+              video {
+                videoId
               }
             }
           }
@@ -2330,6 +2459,11 @@ function FlexListingPage({ data, location, pageContext }) {
                   key={section._key}
                   {...mapFeaturedTilesSectionToProps(section)}
                 />
+              ) : null;
+
+            case 'customTilesSection':
+              return currentpage === 1 ? (
+                <CustomTilesSection key={section._key} {...mapCustomTilesSectionToProps(section)} />
               ) : null;
 
             case 'latestWithPaginationSection':
