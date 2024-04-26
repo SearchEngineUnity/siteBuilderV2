@@ -29,6 +29,9 @@ function HeroTags({
             color: color || '#535353',
             marginBottom: '4px',
           }}
+          style={{
+            fontVariationSettings: '"FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24',
+          }}
         >
           shoppingmode
         </Box>
