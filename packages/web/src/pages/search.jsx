@@ -1,6 +1,6 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch } from 'react-instantsearch';
+import { InstantSearch, Index } from 'react-instantsearch';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CustomSearchBox from '../components/search/customSearchBox';
@@ -21,7 +21,12 @@ function Search() {
       <InstantSearch searchClient={searchClient} indexName="pro_SGP">
         <CustomSearchBox />
         <QueryDisplay />
-        <HitsSwitcher />
+        <Index indexName="pro_Listing">
+          <HitsSwitcher />
+        </Index>
+        <Index indexName="pro_SGP">
+          <HitsSwitcher />
+        </Index>
       </InstantSearch>
     </Container>
   );
