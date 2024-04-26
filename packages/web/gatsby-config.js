@@ -33,33 +33,22 @@ module.exports = {
         queries: require('./src/utils/algolia-queries'),
       },
     },
+    `gatsby-theme-material-ui`,
     {
-      resolve: `gatsby-theme-material-ui`,
+      resolve: `gatsby-omni-font-loader`,
       options: {
-        webFontsConfig: {
-          fonts: {
-            google2: [
-              {
-                family: 'Material+Symbols+Outlined',
-                axes: 'opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
-              },
-              {
-                family: 'Figtree',
-                axes: 'ital,wght@0,300..900;1,300..900',
-              },
-            ],
-            google: [
-              {
-                family: `Roboto`,
-                variants: [`100`, `300`, `400`, `500`, `700`, `900`],
-              },
-              {
-                family: `Open+Sans`,
-                variants: [`300`, `400`, `500`, `600`, `700`, `800`],
-              },
-            ],
+        enableListener: true,
+        preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
+        web: [
+          {
+            name: `Figtree`,
+            file: `https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap`,
           },
-        },
+          {
+            name: 'Material Symbols Outlined',
+            file: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
+          },
+        ],
       },
     },
     {
