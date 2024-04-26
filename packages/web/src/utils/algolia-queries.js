@@ -1,8 +1,6 @@
-// const escapeStringRegexp = require('escape-string-regexp');
-// const pagePath = `content`;
-const indexName = `pro_SGP`;
+const guideIndexName = `pro_SGP`;
 
-const pageQuery = `{
+const guideQuery = `{
   pages: allSanitySoloGuidePage {
     edges {
       node {
@@ -32,7 +30,7 @@ const pageQuery = `{
   }
 }`;
 
-function pageToAlgoliaRecord({
+function guideToAlgoliaRecord({
   node: { id, hero, pageTitle, metaDescription, toc, slug, internal, guideBody },
 }) {
   const h2 = guideBody.filter((x) => x.style === 'h2').map((x) => x.children[0].text);
@@ -54,12 +52,46 @@ function pageToAlgoliaRecord({
   };
 }
 
+const listingPageIndexName = `pro_Listing`;
+
+const listingPageQuery = `{
+  pages: allSanityFlexListingPage {
+    edges {
+      node {
+        slug {
+          current
+        }
+        id
+        internal {
+          contentDigest
+        }
+        pageTitle
+        metaDescription
+      }
+    }
+  }
+}`;
+
+function listingPageToAlgoliaRecord({ node: { id, pageTitle, metaDescription, slug, internal } }) {
+  return {
+    objectID: id,
+    slug: slug.current,
+    title: pageTitle,
+    metaDescription,
+    internal,
+  };
+}
+
 const queries = [
   {
-    query: pageQuery,
-    transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
-    indexName,
-    // settings: { attributesToSnippet: [`excerpt:20`] },
+    query: guideQuery,
+    transformer: ({ data }) => data.pages.edges.map(guideToAlgoliaRecord),
+    indexName: guideIndexName,
+  },
+  {
+    query: listingPageQuery,
+    transformer: ({ data }) => data.pages.edges.map(listingPageToAlgoliaRecord),
+    indexName: listingPageIndexName,
   },
 ];
 
