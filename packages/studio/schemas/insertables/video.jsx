@@ -16,11 +16,6 @@ export default {
         'Add ID to the selected string. Please only use alphanumeric characters and hypen and do not start the string with a number.',
     },
     {
-      type: 'url',
-      name: 'url',
-      title: 'URL',
-    },
-    {
       type: 'string',
       name: 'videoId',
       title: 'Video Id',
