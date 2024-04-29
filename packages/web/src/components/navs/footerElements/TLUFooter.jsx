@@ -23,6 +23,7 @@ const MenuLink = styled(Link)({
   fontSize: '18px',
   '@media (max-width: 599px)': {
     fontSize: '16px',
+    color: '#1B1B1B',
   },
   lineHeight: 1.3,
   color: 'inherit',
@@ -33,7 +34,7 @@ const MenuLink = styled(Link)({
 
 function TLUFooter() {
   return (
-    <Box component="footer">
+    <Box component="footer" sx={{ overflow: 'hidden' }}>
       <Box
         sx={{
           backgroundColor: '#EBEBEB',
@@ -42,12 +43,7 @@ function TLUFooter() {
           paddingY: '24px',
         }}
       >
-        <Container
-          maxWidth="lg"
-          component="nav"
-          role="menubar"
-          style={{ padding: '0 16px', margin: '20px 0' }}
-        >
+        <Container maxWidth="lg" component="nav" role="menubar">
           <Grid container spacing="40px">
             <Grid xs={12} md={6} lg={6}>
               <MenuHeading component="p">Get In Touch</MenuHeading>
