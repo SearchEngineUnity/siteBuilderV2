@@ -2420,7 +2420,7 @@ export const query = graphql`
   }
 `;
 
-function FlexListingPage({ data, location, pageContext }) {
+function FlexListingPage({ data, pageContext }) {
   const {
     sgpsForAllLatestXSections,
     sgpsForPagination,
@@ -2431,7 +2431,7 @@ function FlexListingPage({ data, location, pageContext }) {
   } = pageContext;
 
   return (
-    <Layout location={location} type={type}>
+    <Layout type={type}>
       <Box component="main">
         <Container maxWidth="lg" sx={{ color: 'primary.main' }}>
           <PageBreadcrumbs subject={data.page?.subject} subjectListingPages={subjectListingPages} />

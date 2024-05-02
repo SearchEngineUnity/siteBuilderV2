@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
+import { Link } from 'gatsby-theme-material-ui';
+import SearchIcon from '@mui/icons-material/Search';
 import NavItem from './NavItem';
 import NavGroup from './NavGroup';
-import NavBrand from './NavBrand';
+import SVGNavBrand from './SVGNavBrand';
 import NavPhone from './NavPhone';
 import NavClickableImage from './NavClickableImage';
 import MainNavHamburger from './MainNavHamburger';
 import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../../../lib/mapToProps';
 import { useMainNav } from '../../../hooks/useMainNav';
 
-export default function MainNav({ location }) {
-  const { menu, contactInfo } = useMainNav();
+export default function MainNav() {
+  const { menu } = useMainNav();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const callback = (entries) => {
+    const [entry] = entries;
+    setIsScrolled(!entry.isIntersecting);
+  };
+
+  const options = { rootMargin: '60px 0px 0px 0px' };
+
+  useEffect(() => {
+    const scrollTracker = document.querySelector('#scroll-tracker');
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(scrollTracker);
+
+    return () => observer.disconnect();
+  });
 
   if (menu) {
     return (
@@ -21,121 +38,115 @@ export default function MainNav({ location }) {
         <MainNavHamburger
           bottomMenu={menu.menuArray[1].menuGroup}
           topMenu={menu.menuArray[0].menuGroup}
-          brandUrl={contactInfo.homePage}
-          location={location}
         />
+        <div id="scroll-tracker" />
         <AppBar
-          position="relative"
+          id="main-header"
+          position="sticky"
           elevation={0}
           sx={{
-            bgcolor: 'common.white',
-            color: 'common.black',
-            display: { xs: 'none', md: 'flex' },
+            backgroundColor: 'common.white',
+            boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.25)',
           }}
         >
-          <Container
-            maxWidth="lg"
-            component="nav"
-            aria-label="main navigation header"
-            sx={{ px: '20px', py: '32px' }}
-          >
-            {menu.menuArray.map((menuRow, menuIndex) => {
-              // menu group is not a nav group. it is the top level menu item.
-              const { menuGroup, _key } = menuRow;
-              return (
-                <Box
-                  sx={{
-                    display: {
-                      xs: 'none',
-                      sm: 'none',
-                      md: 'block',
-                      lg: 'block',
-                      xl: 'block',
-                    },
-                  }}
-                  key={_key}
-                  role="none"
-                >
-                  <Toolbar
-                    sx={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '40px',
-                      pt: '16px',
-                      justifyContent: 'space-between',
-                    }}
-                    disableGutters
-                    role="menubar"
-                  >
-                    {menuGroup.map((group, index) => {
-                      const { _type, _key: groupKey } = group;
-                      const arrayLength = menuGroup.length;
-                      let position = 'bottom-start';
+          <Container maxWidth="lg" component="nav" aria-label="main navigation header">
+            {!isScrolled && (
+              <Toolbar
+                sx={{
+                  display: {
+                    xs: 'none',
+                    sm: 'none',
+                    md: 'flex',
+                    lg: 'flex',
+                    xl: 'flex',
+                  },
+                  pt: '20px',
+                  justifyContent: 'space-around',
+                  minHeight: '48px',
+                  '@media (min-width: 600px)': {
+                    minHeight: '48px',
+                  },
+                }}
+                disableGutters
+                role="menubar"
+              >
+                {menu.menuArray[0].menuGroup.map((group) => {
+                  const { _type, _key: groupKey } = group;
 
-                      if (index + 1 === arrayLength) {
-                        position = 'bottom-end';
-                      }
+                  switch (_type) {
+                    case 'navClickableImage':
+                      return (
+                        <NavClickableImage image={group.image} link={group.link} key={groupKey} />
+                      );
+                    case 'navBrand':
+                      return <SVGNavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
+                    case 'navPhone':
+                      return (
+                        <NavPhone text={group.text} number={group.phoneNumber} key={groupKey} />
+                      );
+                    case 'navItem':
+                      return <NavItem {...mapNavItemToProps(group)} key={groupKey} />;
+                    case 'navGroup':
+                      return <NavGroup key={groupKey} {...mapNavGroupToProps(group)} />;
 
-                      if (index > 0 && index + 1 < arrayLength) {
-                        position = 'bottom';
-                      }
+                    default:
+                      return <div>under construction</div>;
+                  }
+                })}
+              </Toolbar>
+            )}
+            <Toolbar
+              sx={{
+                display: {
+                  xs: 'none',
+                  sm: 'none',
+                  md: 'flex',
+                  lg: 'flex',
+                  xl: 'flex',
+                },
+                justifyContent: 'space-between',
+                minHeight: '48px',
+                '@media (min-width: 600px)': {
+                  minHeight: '48px',
+                },
+              }}
+              disableGutters
+              role="menubar"
+            >
+              {menu.menuArray[1].menuGroup.map((group) => {
+                const { _type, _key: groupKey } = group;
 
-                      switch (_type) {
-                        case 'navClickableImage':
-                          return (
-                            <Box key={groupKey} sx={{ py: 1 }}>
-                              <NavClickableImage image={group.image} link={group.link} />
-                            </Box>
-                          );
-                        case 'navBrand':
-                          return (
-                            <Box key={groupKey} sx={{ flexShrink: 1, flexGrow: 1, flexBasis: 1 }}>
-                              <NavBrand {...mapNavBrandToProps(group)} url={contactInfo.homePage} />
-                            </Box>
-                          );
-                        case 'navPhone':
-                          return (
-                            <Box key={groupKey}>
-                              <NavPhone text={group.text} number={group.phoneNumber} />
-                            </Box>
-                          );
-                        case 'navItem':
-                          return (
-                            <Box sx={{ display: 'block' }} key={groupKey} role="none">
-                              <NavItem {...mapNavItemToProps(group)} location={location} />
-                            </Box>
-                          );
-                        case 'navGroup':
-                          return (
-                            <Box
-                              sx={{
-                                display: {
-                                  xs: 'none',
-                                  sm: 'block',
-                                  md: 'block',
-                                  lg: 'block',
-                                  xl: 'block',
-                                },
-                              }}
-                              key={groupKey}
-                              role="none"
-                            >
-                              <NavGroup
-                                {...mapNavGroupToProps(group)}
-                                location={location}
-                                position={position}
-                              />
-                            </Box>
-                          );
+                switch (_type) {
+                  case 'navClickableImage':
+                    return (
+                      <NavClickableImage image={group.image} link={group.link} key={groupKey} />
+                    );
+                  case 'navBrand':
+                    return (
+                      isScrolled && <SVGNavBrand {...mapNavBrandToProps(group)} key={groupKey} />
+                    );
+                  case 'navPhone':
+                    return <NavPhone text={group.text} number={group.phoneNumber} key={groupKey} />;
+                  case 'navItem':
+                    return <NavItem {...mapNavItemToProps(group)} key={groupKey} />;
+                  case 'navGroup':
+                    return <NavGroup key={groupKey} {...mapNavGroupToProps(group)} />;
 
-                        default:
-                          return <div>under construction</div>;
-                      }
-                    })}
-                  </Toolbar>
-                </Box>
-              );
-            })}
+                  default:
+                    return <div>under construction</div>;
+                }
+              })}
+              <Link
+                to="/search"
+                color="common.black"
+                sx={{
+                  display: 'flex',
+                  '&:hover, &:focus': { color: (theme) => theme.palette.primary.main },
+                }}
+              >
+                <SearchIcon />
+              </Link>
+            </Toolbar>
           </Container>
         </AppBar>
       </>

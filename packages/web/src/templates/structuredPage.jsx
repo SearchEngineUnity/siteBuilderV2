@@ -1820,9 +1820,9 @@ export const query = graphql`
   }
 `;
 
-function StructuredPage({ data, location }) {
+function StructuredPage({ data }) {
   return (
-    <Layout location={location} data={data.page} type={type}>
+    <Layout data={data.page} type={type}>
       <main>
         {data.page.sections.map((section) => {
           const { _type } = section;

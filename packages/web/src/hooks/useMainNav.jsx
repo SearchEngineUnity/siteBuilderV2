@@ -58,7 +58,9 @@ export const useMainNav = () => {
                   brand {
                     _id
                     logo {
-                      _rawAsset(resolveReferences: { maxDepth: 1 })
+                      asset {
+                        url
+                      }
                     }
                   }
                 }
@@ -67,6 +69,23 @@ export const useMainNav = () => {
                 _key
                 _type
                 title
+                nav {
+                  ... on SanityPage {
+                    slug {
+                      current
+                    }
+                  }
+                  ... on SanitySoloGuidePage {
+                    slug {
+                      current
+                    }
+                  }
+                  ... on SanityFlexListingPage {
+                    slug {
+                      current
+                    }
+                  }
+                }
                 group {
                   title
                   isButton
@@ -122,9 +141,6 @@ export const useMainNav = () => {
               }
             }
           }
-        }
-        contactInfo: sanityContactInfo {
-          homePage
         }
       }
     `,

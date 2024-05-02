@@ -1,9 +1,8 @@
 import React from 'react';
-import HomeIcon from '@mui/icons-material/Home';
 import { Link, Button } from 'gatsby-theme-material-ui';
 import Typography from '@mui/material/Typography';
 
-function NavItem({ url, title, isButton, location }) {
+function NavItem({ url, title, isButton }) {
   if (isButton) {
     return (
       <Button
@@ -22,70 +21,20 @@ function NavItem({ url, title, isButton, location }) {
       </Button>
     );
   }
-  return url === '/' ? (
-    <>
-      <Link
-        to="/"
-        role="menuitem"
-        underline="none"
-        sx={[
-          { display: { xs: 'none', lg: 'block' } },
-          {
-            py: 1.5,
-            fontSize: { xl: '24px', lg: '20px' },
-            lineHeight: 'normal',
-          },
-          location.pathname === `/`
-            ? {
-                color: 'primary.main',
-                fontWeight: 900,
-                borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`,
-              }
-            : { color: 'common.black', fontWeight: 'fontWeightRegular', borderBottom: 'none' },
-        ]}
-      >
-        {title}
-      </Link>
-      <Link
-        to="/"
-        role="menuitem"
-        underline="none"
-        sx={[
-          { display: { xs: 'block', lg: 'none' } },
-          {
-            py: 1.5,
-            fontSize: { xl: '24px', lg: '20px' },
-            lineHeight: 'normal',
-          },
-          location.pathname === `/`
-            ? {
-                color: 'primary.main',
-              }
-            : { color: 'common.black' },
-        ]}
-      >
-        <HomeIcon />
-      </Link>
-    </>
-  ) : (
+  return (
     <Link
       to={`/${url}`}
       role="menuitem"
-      underline="none"
-      sx={[
-        {
-          py: 1.5,
-          fontSize: { xl: '24px', lg: '20px' },
-          lineHeight: 'normal',
+      underline="hover"
+      variant="body1"
+      sx={{
+        color: 'common.black',
+        fontWeight: 'fontWeightBold',
+        '&:hover': {
+          textDecorationThickness: '2px',
+          textUnderlineOffset: '8px',
         },
-        `/${url}` === location.pathname
-          ? {
-              color: 'primary.main',
-              fontWeight: 900,
-              borderBottom: (theme) => `3px solid ${theme.palette.primary.main}`,
-            }
-          : { color: 'common.black', fontWeight: 'fontWeightRegular', borderBottom: 'none' },
-      ]}
+      }}
     >
       {title}
     </Link>

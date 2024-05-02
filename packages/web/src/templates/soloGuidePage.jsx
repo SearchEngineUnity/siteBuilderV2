@@ -162,7 +162,7 @@ const heroComponentMapping = {
   mainColumnHero: MainColumnGuideHero,
 };
 
-function SoloGuidePage({ data, location, pageContext }) {
+function SoloGuidePage({ data, pageContext }) {
   // const heroRef = useRef(null);
   // const [isVisible, setIsVisible] = useState(false);
 
@@ -212,12 +212,7 @@ function SoloGuidePage({ data, location, pageContext }) {
   }
 
   return (
-    <Layout
-      location={location}
-      data={data.guide}
-      type={type}
-      heroImage={data?.guide?.hero?.image?.asset?.url}
-    >
+    <Layout data={data.guide} type={type} heroImage={data?.guide?.hero?.image?.asset?.url}>
       <Box component="main">
         <Hero
           {...mapGuideHeroToProps(data.guide)}

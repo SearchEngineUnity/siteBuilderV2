@@ -14,6 +14,13 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
+      name: 'nav',
+      title: 'Navigate to',
+      type: 'reference',
+      to: [{ type: 'page' }, { type: 'soloGuidePage' }, { type: 'flexListingPage' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
       title: 'Group',
       name: 'group',
       type: 'array',
