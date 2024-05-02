@@ -6,12 +6,12 @@ import { useLayout } from '../hooks/useLayout';
 
 // const searchIndices = [{ name: `pro_SGP`, title: `pro_SGP` }];
 
-export default function MyLayout({ children, location }) {
+export default function MyLayout({ children }) {
   const { mainNav } = useLayout();
   return (
     <>
       <header>{/* <Search indices={searchIndices} /> */}</header>
-      {mainNav && <MainNav location={location} />}
+      {mainNav && <MainNav />}
       {children}
       <TLUFooter />
     </>
