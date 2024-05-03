@@ -1,62 +1,75 @@
 import React from 'react';
-import { navigate } from 'gatsby';
-import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
-import Divider from '@mui/material/Divider';
-import Icon from '@mui/material/Icon';
 import List from '@mui/material/List';
+import { Link } from 'gatsby-theme-material-ui';
+import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-function NavGroupHamburger({ navGroup, index, location }) {
-  const pathname = location.pathname.substring(1);
-  const paths = navGroup.group.map((x) => x?.nav?.slug?.current);
-  const matchesSubPath = paths.includes(pathname);
+function NavGroupHamburger({ navGroup }) {
   const [collapse, setCollapse] = React.useState(true);
   const handleClickCollapse = () => {
     setCollapse(!collapse);
   };
-  const handleClickSubNavMenu = (menuLink) => {
-    navigate(`/${menuLink}`);
-  };
+
   return (
     <>
-      {index === 0 ? null : <Divider sx={{ borderColor: 'common.white' }} />}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <ListItemButton onClick={handleClickCollapse}>
+      <ListItem dense disableGutters>
+        <ListItemButton dense disableGutters type="button" onClick={handleClickCollapse}>
           <ListItemText
             primary={navGroup.title}
-            primaryTypographyProps={{
-              sx: {
-                fontWeight: matchesSubPath ? 900 : 400,
+            primaryTypographyProps={{ variant: 'body1', fontWeight: 'fontWeightBold' }}
+            sx={{
+              flex: '0 0 auto',
+              '@media (max-width: 600px)': {
+                color: (theme) => theme.palette.common.black,
               },
             }}
           />
-          {collapse ? <ExpandMore /> : <ExpandLess />}
+          {collapse ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
         </ListItemButton>
-      </Box>
+      </ListItem>
       <Collapse in={!collapse} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {navGroup.group.map(({ icon, title: itemTitle, nav: itemNav, _key: itemKey }) => (
-            <ListItemButton
-              sx={{
-                paddingLeft: 5,
-                bgcolor: pathname === itemNav.slug.current ? 'rgba(0, 0, 0, 0.2)' : 'transparent',
-              }}
-              onClick={() => handleClickSubNavMenu(itemNav.slug.current)}
-              key={itemKey}
-            >
-              {icon && (
-                <ListItemIcon sx={{ color: 'common.white' }}>
-                  <Icon>{icon}</Icon>
-                </ListItemIcon>
-              )}
-              <ListItemText primary={itemTitle} />
-            </ListItemButton>
+        <List role="menu" disablePadding>
+          {navGroup.group.map(({ title: itemTitle, nav: itemNav, _key: itemKey }) => (
+            <ListItem key={itemKey} dense>
+              <ListItemButton
+                dense
+                component={Link}
+                to={`/${itemNav.slug.current}`}
+                role="menuitem"
+              >
+                <ListItemText
+                  primary={itemTitle}
+                  sx={{
+                    '@media (max-width: 600px)': {
+                      color: (theme) => theme.palette.common.black,
+                    },
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
           ))}
+          <ListItem dense>
+            <ListItemButton
+              dense
+              component={Link}
+              to={`/${navGroup.nav.slug.current}`}
+              role="menuitem"
+            >
+              <ListItemText
+                primary="View All"
+                sx={{
+                  flex: '0 0 auto',
+                  mr: '4px',
+                }}
+              />
+              <ArrowForwardIcon fontSize="small" />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Collapse>
     </>

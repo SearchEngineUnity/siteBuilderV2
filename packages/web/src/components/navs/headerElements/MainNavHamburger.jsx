@@ -1,299 +1,134 @@
-import React from 'react';
-import { navigate } from 'gatsby';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Dialog from '@mui/material/Dialog';
-import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Slide from '@mui/material/Slide';
 import Toolbar from '@mui/material/Toolbar';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton } from 'gatsby-theme-material-ui';
-import NavBrand from './NavBrand';
-import NavItem from './NavItem';
-import NavPhone from './NavPhone';
+import { IconButton, Link } from 'gatsby-theme-material-ui';
+import SearchIcon from '@mui/icons-material/Search';
+import Drawer from '@mui/material/Drawer';
+import SVGNavBrand from './SVGNavBrand';
 import NavGroup from './NavGroupHamburger';
-import NavClickableImage from './NavClickableImage';
-import { mapNavBrandToProps, mapNavItemToProps } from '../../../lib/mapToProps';
+import { mapNavBrandToProps } from '../../../lib/mapToProps';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide ref={ref} {...props} unmountOnExit />;
-});
+function MainNavHamburger({ topMenu, bottomMenu }) {
+  const [open, setOpen] = useState(false);
 
-function MainNavHamburger({ topMenu, bottomMenu, brandUrl, location }) {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
+  const toggleDrawer = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = () => {
+  const toggleDrawerClose = () => {
     setOpen(false);
   };
 
-  const handleClickSubNavMenu = (menuLink) => {
-    navigate(`/${menuLink}`);
-  };
-
   return (
-    <Box sx={{ display: { xs: 'block', md: 'none' } }} component="header">
-      <AppBar
+    <AppBar
+      component="header"
+      position="sticky"
+      aria-label="main navigation header"
+      elevation={0}
+      sx={{
+        display: { xs: 'block', md: 'none' },
+        bgcolor: 'common.white',
+        color: 'common.black',
+        boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.25)',
+      }}
+    >
+      <Toolbar
         component="nav"
-        aria-label="main navigation header"
-        elevation={0}
         sx={{
-          position: 'relative',
-          bgcolor: 'common.white',
-          color: 'common.black',
+          display: 'flex',
+          justifyContent: 'space-between',
+          verticalAlign: 'middle',
+          flexWrap: 'wrap',
+          flexDirection: 'row',
         }}
+        role="menubar"
       >
-        <Toolbar
+        <IconButton
+          type="button"
+          color="inherit"
+          aria-label="menu"
+          edge="start"
+          onClick={toggleDrawer}
+        >
+          {open ? <CloseIcon sx={{ fontSize: '36px' }} /> : <MenuIcon sx={{ fontSize: '36px' }} />}
+        </IconButton>
+        {topMenu.map((group) => {
+          const { _type, _key: groupKey } = group;
+          switch (_type) {
+            case 'navBrand': {
+              return <SVGNavBrand key={groupKey} {...mapNavBrandToProps(group)} />;
+            }
+            default:
+              return null;
+          }
+        })}
+        <Link
           sx={{
             display: 'flex',
-            justifyContent: 'center',
-            verticalAlign: 'middle',
-            flexWrap: 'wrap',
-            flexDirection: 'row',
-            gap: '16px',
-            pt: '16px',
+            '@media (max-width: 600px)': { color: (theme) => theme.palette.common.black },
           }}
-          role="menubar"
+          color="inherit"
+          to="/search"
         >
-          <IconButton
-            edge="end"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleClickOpen}
-            size="large"
-            disableRipple
-            disableFocusRipple
-            disableTouchRipple
-            sx={{
-              flex: '0 1 40px',
-              padding: 0,
-              justifyContent: 'flex-start',
-              color: 'primary.main',
-            }}
-          >
-            <MenuIcon
-              sx={{ width: { xs: '36px', sm: '48px' }, height: { xs: '36px', sm: '48px' } }}
-            />
-          </IconButton>
-
-          {topMenu.map((group) => {
-            const { _type, _key: groupKey } = group;
-            switch (_type) {
-              case 'navBrand': {
-                return (
-                  <Box key={groupKey} sx={{ flex: '1 0', verticalAlign: 'middle' }}>
-                    <NavBrand {...mapNavBrandToProps(group)} url={brandUrl} />
-                  </Box>
-                );
-              }
-
-              default:
-                return null;
-            }
-          })}
-        </Toolbar>
-        <Toolbar
+          <SearchIcon sx={{ fontSize: '36px' }} />
+        </Link>
+      </Toolbar>
+      <Drawer anchor="top" open={open} sx={{ zIndex: 1000 }} onClose={toggleDrawerClose}>
+        <List
+          role="menu"
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            verticalAlign: 'middle',
-            flexWrap: 'wrap',
-            flexDirection: 'row',
-            gap: '16px',
-            py: '16px',
+            bgcolor: '#EBEBEB',
+            color: 'common.black',
+            px: '11.5vw',
+            height: '100vh',
+            marginTop: { xs: '56px', sm: '64px' },
           }}
-          role="menubar"
         >
-          {topMenu.map((group) => {
-            const { _type, _key: groupKey } = group;
-            switch (_type) {
-              case 'navClickableImage':
-                return (
-                  <Box
-                    sx={{
-                      display: {
-                        xs: 'block',
-                        sm: 'block',
-                        md: 'none',
-                        lg: 'none',
-                        xl: 'none',
-                      },
-                      my: 1,
-                    }}
-                    key={groupKey}
-                  >
-                    <NavClickableImage image={group.image} link={group.link} />
-                  </Box>
-                );
-              case 'navBrand': {
-                return null;
-              }
-              case 'navPhone':
-                return <NavPhone text={group.text} key={groupKey} number={group.phoneNumber} />;
-              case 'navItem':
-                return <NavItem key={groupKey} {...mapNavItemToProps(group)} location={location} />;
-              case 'navGroup':
-                return <div>Nav Group is not allowed in the top menu</div>;
-
-              default:
-                return <div>under construction</div>;
-            }
-          })}
-        </Toolbar>
-      </AppBar>
-      <Dialog
-        fullScreen
-        fullWidth
-        transitionDuration={0}
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-        PaperProps={{ sx: { bgcolor: 'primary.dark', color: 'common.white' } }}
-        scroll="paper"
-      >
-        <Box sx={{ bgcolor: 'common.white', color: 'common.black' }}>
-          <Toolbar
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              verticalAlign: 'middle',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              gap: '16px',
-              pt: '16px',
-            }}
-            role="menubar"
-          >
-            <IconButton
-              edge="end"
-              color="inherit"
-              onClick={handleClose}
-              aria-label="close"
-              size="large"
-              disableRipple
-              disableFocusRipple
-              disableTouchRipple
-              sx={{
-                flex: '0 1 40px',
-                padding: 0,
-                justifyContent: 'flex-start',
-                color: 'primary.main',
-              }}
-            >
-              <CloseIcon
-                sx={{ width: { xs: '36px', sm: '48px' }, height: { xs: '36px', sm: '48px' } }}
-              />
-            </IconButton>
-
-            {topMenu.map((group) => {
-              const { _type, _key: groupKey } = group;
-              switch (_type) {
-                case 'navBrand': {
-                  return (
-                    <Box key={groupKey} sx={{ flex: '1 0', verticalAlign: 'middle' }}>
-                      <NavBrand {...mapNavBrandToProps(group)} url={brandUrl} />
-                    </Box>
-                  );
-                }
-
-                default:
-                  return null;
-              }
-            })}
-          </Toolbar>
-          <Toolbar
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              verticalAlign: 'middle',
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              gap: '16px',
-              py: '16px',
-            }}
-            role="menubar"
-          >
-            {topMenu.map((group) => {
-              const { _type, _key: groupKey } = group;
-              switch (_type) {
-                case 'navClickableImage':
-                  return (
-                    <Box
-                      sx={{
-                        display: {
-                          xs: 'block',
-                          sm: 'block',
-                          md: 'none',
-                          lg: 'none',
-                          xl: 'none',
-                        },
-                        my: 1,
-                      }}
-                      key={groupKey}
-                    >
-                      <NavClickableImage image={group.image} link={group.link} />
-                    </Box>
-                  );
-                case 'navBrand': {
-                  return null;
-                }
-                case 'navPhone':
-                  return <NavPhone text={group.text} key={groupKey} number={group.phoneNumber} />;
-                case 'navItem':
-                  return (
-                    <NavItem key={groupKey} {...mapNavItemToProps(group)} location={location} />
-                  );
-                case 'navGroup':
-                  return <div>Nav Group is not allowed in the top menu</div>;
-
-                default:
-                  return <div>under construction</div>;
-              }
-            })}
-          </Toolbar>
-        </Box>
-        <List role="menu" sx={{ bgcolor: 'primary.dark', color: 'common.white', px: 1 }}>
           {bottomMenu.map((group, index) => {
             const { _type, title, nav: groupNav, _key } = group;
             switch (_type) {
+              case 'navBrand': {
+                return null;
+              }
               case 'navItem': {
-                const slug = groupNav.slug.current === '/' ? '' : groupNav.slug.current;
                 return (
-                  <React.Fragment key={_key}>
-                    {index === 0 ? null : <Divider sx={{ borderColor: 'common.white' }} />}
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <ListItemButton
-                        onClick={() => handleClickSubNavMenu(slug)}
-                        selected={location.pathname === `/${slug}`}
-                      >
-                        <ListItemText
-                          primary={title}
-                          primaryTypographyProps={
-                            location.pathname === `/${slug}` ? { sx: { fontWeight: 900 } } : {}
-                          }
-                        />
-                      </ListItemButton>
-                    </Box>
-                  </React.Fragment>
+                  <ListItem dense disableGutters key={_key}>
+                    <ListItemButton
+                      dense
+                      disableGutters
+                      component={Link}
+                      role="menuitem"
+                      to={`/${groupNav.slug.current}`}
+                    >
+                      <ListItemText
+                        primary={title}
+                        primaryTypographyProps={{ variant: 'body1', fontWeight: 'fontWeightBold' }}
+                        sx={{
+                          '@media (max-width: 600px)': {
+                            color: (theme) => theme.palette.common.black,
+                          },
+                        }}
+                      />
+                    </ListItemButton>
+                  </ListItem>
                 );
               }
               case 'navGroup':
-                return <NavGroup key={_key} navGroup={group} index={index} location={location} />;
+                return <NavGroup key={_key} navGroup={group} index={index} />;
 
               default:
                 return <div key={_key}>under construction</div>;
             }
           })}
         </List>
-      </Dialog>
-    </Box>
+      </Drawer>
+    </AppBar>
   );
 }
 

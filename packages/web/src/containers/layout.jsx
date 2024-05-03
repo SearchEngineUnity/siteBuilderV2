@@ -7,7 +7,7 @@ export default function MyLayout({ children }) {
   const { mainNav } = useLayout();
   return (
     <>
-      {/* {mainNav && <MainNav />} */}
+      {mainNav && <MainNav />}
       {children}
       <TLUFooter />
     </>
