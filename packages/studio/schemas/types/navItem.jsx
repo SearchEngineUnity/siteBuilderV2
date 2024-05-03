@@ -50,7 +50,12 @@ export default {
       name: 'nav',
       title: 'Navigate to',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'soloGuidePage' }, { type: 'flexListingPage' }],
+      to: [
+        { type: 'page' },
+        { type: 'soloGuidePage' },
+        { type: 'flexListingPage' },
+        { type: 'aToZPage' },
+      ],
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
