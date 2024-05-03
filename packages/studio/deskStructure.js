@@ -11,6 +11,7 @@ export default (S) =>
       S.documentTypeListItem('page').title('Structured Pages'),
       S.documentTypeListItem('soloGuidePage').title('Solo Guide Pages'),
       S.documentTypeListItem('flexListingPage').title('Flex Listing Pages'),
+      S.documentTypeListItem('aToZPage').title('A to Z Pages'),
       S.documentTypeListItem('navMenu').title('Navigation Menus'),
       S.divider(),
       S.listItem()

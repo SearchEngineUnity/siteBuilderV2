@@ -1,4 +1,5 @@
 export { default as accordionItem } from './accordionItem';
+export { default as aToZItem } from './aToZItem';
 export { default as brandItem } from './brandItem';
 export { default as btnSettingsMui } from './btnSettingsMui';
 export { default as clickableImageImage } from './clickableImageImage';

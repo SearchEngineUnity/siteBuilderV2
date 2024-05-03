@@ -88,7 +88,8 @@ export default defineConfig({
       if (
         schemaType === 'page' ||
         schemaType === 'soloGuidePage' ||
-        schemaType === 'flexListingPage'
+        schemaType === 'flexListingPage' ||
+        schemaType === 'aToZPage'
       ) {
         return [DigitalOceanPreviewAction, ...prev];
       }

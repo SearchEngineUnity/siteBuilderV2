@@ -1,3 +1,4 @@
+export { default as aToZPage } from './aToZPage';
 export { default as btnDesignMui } from './btnDesignMui';
 export { default as category } from './category';
 export { default as colorOption } from './colorOption';
