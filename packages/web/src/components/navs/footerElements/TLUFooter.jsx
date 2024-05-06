@@ -78,8 +78,8 @@ function TLUFooter() {
                     <StaticImage
                       src="./assets/youtube.png"
                       alt="youtube"
-                      width="48"
-                      height="48"
+                      width={48}
+                      height={48}
                       loading="lazy"
                     />
                   </a>
@@ -89,8 +89,8 @@ function TLUFooter() {
                     <StaticImage
                       src="./assets/facebook.png"
                       alt="facebook"
-                      width="48"
-                      height="48"
+                      width={48}
+                      height={48}
                       loading="lazy"
                     />
                   </a>
@@ -100,8 +100,8 @@ function TLUFooter() {
                     <StaticImage
                       src="./assets/linkedin.png"
                       alt="linkedin"
-                      width="48"
-                      height="48"
+                      width={48}
+                      height={48}
                       loading="lazy"
                     />
                   </a>
@@ -111,8 +111,8 @@ function TLUFooter() {
                     <StaticImage
                       src="./assets/mail.png"
                       alt="mail"
-                      width="48"
-                      height="48"
+                      width={48}
+                      height={48}
                       loading="lazy"
                     />
                   </a>
