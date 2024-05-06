@@ -44,10 +44,6 @@ module.exports = {
             name: `Figtree`,
             file: `https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap`,
           },
-          {
-            name: 'Material Symbols Outlined',
-            file: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
-          },
         ],
       },
     },
