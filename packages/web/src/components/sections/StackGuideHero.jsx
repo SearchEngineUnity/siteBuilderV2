@@ -72,10 +72,6 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
       component="header"
       sx={{
         color: 'background.default',
-        '& .pt-link': {
-          color: 'background.default',
-          textDecorationColor: 'currentcolor',
-        },
         '& .caption-text': {
           color: 'background.default',
         },

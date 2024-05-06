@@ -31,10 +31,6 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
         flexDirection: { xs: 'column', sm: 'row', lg: 'column' },
         flexWrap: 'wrap',
         height: '100%',
-        '& .pt-link': {
-          color: 'primary.main',
-          textDecorationColor: 'currentcolor',
-        },
         '& .caption-text': {
           color: 'text.primary',
         },
@@ -93,7 +89,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
               xs: '0px 16px 16px',
               sm: '16px',
               lg: '0px 16px 16px',
-              color: 'text.secondary',
+              // color: 'text.secondary',
             },
           }}
           className="product-grid-tile__content"

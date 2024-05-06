@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
+import SellIcon from '@mui/icons-material/Sell';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
 import SectionOuterWrapper from './SectionOuterWrapper';
@@ -41,7 +42,25 @@ function TagSetSection({
               />
             </Grid>
           )}
-          <Grid sx={{ alignSelf: 'flex-start' }}>
+          <Grid
+            sx={{
+              alignSelf: 'flex-start',
+              display: 'flex',
+              flexWrap: 'wrap',
+              flexDirection: 'row',
+              gap: '10px',
+              alignItems: 'center',
+            }}
+          >
+            <SellIcon
+              sx={{
+                transform: 'rotate(100deg)',
+                verticalAlign: 'middle',
+                display: 'flex',
+                color: '#535353',
+                fontSize: '24px',
+              }}
+            />
             {tagSet.map((tag) => {
               const { _id, name } = tag || {};
               const currentSlug =
@@ -55,7 +74,6 @@ function TagSetSection({
                   to={currentSlug && slug}
                   variant="outlined"
                   fontSize="h5"
-                  sx={{ margin: '0px 4px 4px 0px' }}
                 >
                   {name}
                 </SubjectTagButton>

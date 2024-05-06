@@ -551,6 +551,8 @@ export const useCustomTheme = () => {
       MuiLink: {
         styleOverrides: {
           root: {
+            textUnderlineOffset: '3px',
+            textDecorationColor: 'currentcolor',
             '@media (max-width: 599px)': {
               color: determineColor(palette?.primary?.dark?.color),
               '&:hover': {
