@@ -321,6 +321,38 @@ async function createFlexListingPages(actions, graphql) {
   });
 }
 
+// create all a to z pages
+async function createAToZPages(actions, graphql) {
+  const { data } = await graphql(`
+    {
+      allSanityAToZPage {
+        edges {
+          node {
+            slug {
+              current
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  const pages = data.allSanityAToZPage.edges;
+  pages.forEach((page) => {
+    if (page?.node?.slug?.current) {
+      actions.createPage({
+        path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
+        ownerNodeId: page.node.id,
+        component: require.resolve(`./src/templates/aToZPage.jsx`),
+        context: {
+          slug: page.node.slug.current,
+        },
+      });
+    }
+  });
+}
+
 // create individual guides
 async function createSoloGuidePages(actions, graphql) {
   const { data } = await graphql(`
@@ -457,5 +489,6 @@ exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
   await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
+  await createAToZPages(actions, graphql);
   await createAirtableRedirects(actions, graphql);
 };
