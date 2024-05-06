@@ -65,7 +65,9 @@ function AToZPage({ data }) {
     ...new Set(itemList.map((x) => x.title.charAt(0).toUpperCase())),
   ];
 
-  const sortedItemList = itemList.sort();
+  const sortedItemList = itemList.sort((a, b) =>
+    a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1,
+  );
 
   return (
     <Layout data={data.page} type={type}>
