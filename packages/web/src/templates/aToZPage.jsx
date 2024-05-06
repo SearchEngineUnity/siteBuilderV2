@@ -93,7 +93,7 @@ function AToZPage({ data }) {
           firstLetterArrayFromList={firstLetterArrayFromList}
         />
         {firstLetterArrayFromList.map((letter) => (
-          <AToZSection key={letter} list={sortedItemList} letter={letter} />
+          <AToZSection key={`a-to-z-section-${letter}`} list={sortedItemList} letter={letter} />
         ))}
       </Container>
     </Layout>

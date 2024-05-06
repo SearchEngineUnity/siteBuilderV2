@@ -21,11 +21,11 @@ function AToZNav({ alphabet, firstLetterArrayFromList, instruction }) {
           justifyContent: 'center',
         }}
       >
-        {alphabet.map((x) => {
+        {alphabet.map((x, i) => {
           if (firstLetterArrayFromList.find((y) => y === x)) {
-            return <AToZButton key={x._key} letter={x} />;
+            return <AToZButton key={`a-to-z-btn-${x}`} letter={x} />;
           }
-          return <AToZButton key={x._key} letter={x} disabled />;
+          return <AToZButton key={`a-to-z-btn-${x}`} letter={x} disabled />;
         })}
       </Box>
     </Box>
