@@ -81,6 +81,11 @@ export default {
       rows: 3,
     },
     {
+      name: 'instruction',
+      title: 'Instruction',
+      type: 'string',
+    },
+    {
       name: 'itemList',
       title: 'Item List',
       type: 'array',
