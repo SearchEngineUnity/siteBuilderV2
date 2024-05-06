@@ -17,6 +17,9 @@ function TileAToZ({ item }) {
           py: '10px',
           borderBottom: '0.5px solid #ABABAB',
           textTransform: 'capitalize',
+          '&:hover': {
+            color: 'primary.main',
+          },
           '@media (max-width: 600px)': {
             color: 'text.primary',
           },
