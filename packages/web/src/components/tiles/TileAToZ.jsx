@@ -8,7 +8,7 @@ function TileAToZ({ item }) {
   const isExternal = link.startsWith('http');
 
   return (
-    <Link to={link} underline="none" color="text.primary" target={isExternal && '_blank'}>
+    <Link to={link} underline="none" color="text.primary" target={isExternal ? '_blank' : '_self'}>
       <Typography
         variant="body1"
         sx={{
