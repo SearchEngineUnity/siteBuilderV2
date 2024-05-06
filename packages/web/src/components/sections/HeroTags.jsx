@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import SellIcon from '@mui/icons-material/Sell';
 import SubjectTagButton from '../buttons/SubjectTagButton';
 
 function HeroTags({
@@ -17,25 +18,27 @@ function HeroTags({
   const primarySubcategorySlug =
     primarySubcategorySlugString === '/' ? '/' : `/${primarySubcategorySlugString}`;
   return (
-    <>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: '5px',
+        alignItems: 'center',
+      }}
+    >
       {primarySubcategory && (
-        <Box
-          component="span"
-          className="material-symbols-outlined"
+        <SellIcon
           sx={{
-            transform: 'rotate(17.6deg)',
+            transform: 'rotate(100deg)',
             verticalAlign: 'middle',
-            display: 'inline-block',
+            display: 'flex',
             color: color || '#535353',
-            marginBottom: '4px',
+            fontSize: '24px',
           }}
-          style={{
-            fontVariationSettings: '"FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24',
-          }}
-        >
-          shoppingmode
-        </Box>
+        />
       )}
+
       {topicTags.map((topic) => {
         const { _id, name } = topic || {};
         const currentSlug =
@@ -52,7 +55,6 @@ function HeroTags({
             fontSize="body1"
             variant="outlined"
             sx={{
-              margin: '0px 0px 4px 4px',
               color,
               borderColor,
               '&:hover': {
@@ -82,7 +84,6 @@ function HeroTags({
             fontSize="body1"
             variant="outlined"
             sx={{
-              margin: '0px 0px 4px 4px',
               color,
               borderColor,
               '&:hover': {
@@ -105,7 +106,6 @@ function HeroTags({
           fontSize="body1"
           variant="outlined"
           sx={{
-            margin: '0px 0px 4px 4px',
             color,
             borderColor,
             '&:hover': {
@@ -119,7 +119,7 @@ function HeroTags({
           {primarySubcategory?.name}
         </SubjectTagButton>
       )}
-    </>
+    </Box>
   );
 }
 
