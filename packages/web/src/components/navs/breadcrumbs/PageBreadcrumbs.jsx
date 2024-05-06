@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby-theme-material-ui';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import HomeIcon from '@mui/icons-material/Home';
 
 function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
   const { _type: type } = subject || {};
@@ -41,20 +42,26 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
           component="li"
           variant="body1"
           sx={{
-            display: 'inline-flex',
-            verticalAlign: 'middle',
+            display: 'inline',
             color: 'inherit',
           }}
         >
           <Link
             to="/"
             underline="hover"
-            style={{
-              fontVariationSettings: '"FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24',
+            sx={{
+              color: 'inherit',
+              display: 'inline-flex',
+              verticalAlign: 'top',
+              '@media (max-width: 600px)': {
+                color: 'inherit',
+                '&:hover': {
+                  color: 'inherit',
+                },
+              },
             }}
-            sx={{ color: 'inherit' }}
           >
-            <span className="material-symbols-outlined">home</span>
+            <HomeIcon sx={{ fontSize: '24px' }} />
           </Link>
         </Typography>
         {firstLevel.name && (
@@ -75,7 +82,15 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
             <Link
               to={firstLevel.slug && `/${firstLevel.slug}`}
               underline="hover"
-              sx={{ color: 'inherit' }}
+              sx={{
+                color: 'inherit',
+                '@media (max-width: 600px)': {
+                  color: 'inherit',
+                  '&:hover': {
+                    color: 'inherit',
+                  },
+                },
+              }}
             >
               {firstLevel.name}
             </Link>
@@ -99,7 +114,15 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
             <Link
               to={secondLevel.slug && `/${secondLevel.slug}`}
               underline="hover"
-              sx={{ color: 'inherit' }}
+              sx={{
+                color: 'inherit',
+                '@media (max-width: 600px)': {
+                  color: 'inherit',
+                  '&:hover': {
+                    color: 'inherit',
+                  },
+                },
+              }}
             >
               {secondLevel.name}
             </Link>
