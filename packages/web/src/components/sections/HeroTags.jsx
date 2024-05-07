@@ -10,6 +10,7 @@ function HeroTags({
   subjectListingPages,
   color,
   borderColor,
+  justifyContent,
 }) {
   const primarySubcategorySlugString =
     subjectListingPages.filter((x) => x?.node?.subject?.name === primarySubcategory?.name)[0]?.node
@@ -25,6 +26,7 @@ function HeroTags({
         flexWrap: 'wrap',
         gap: '5px',
         alignItems: 'center',
+        justifyContent,
       }}
     >
       {primarySubcategory && (
