@@ -30,9 +30,18 @@ const propsMapping = (type, props) => {
 };
 
 function MainColumnFeature({ featureType, feature, includeDisclaimer }) {
-  const Feature = featureComponentMapping[featureType];
-  const values = propsMapping(featureType, feature);
+  let Feature = null;
+  let values;
   const disclaimerText = useDisclaimerText();
+
+  if (
+    (feature.image && featureType === 'image') ||
+    (feature.video && featureType === 'video') ||
+    featureType === 'featureless'
+  ) {
+    Feature = featureComponentMapping[featureType];
+    values = propsMapping(featureType, feature);
+  }
 
   return (
     <Box
