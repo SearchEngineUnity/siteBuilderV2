@@ -71,10 +71,11 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
                 zIndex: 1,
                 color: 'common.white',
                 bgcolor: 'common.white',
-                bottom: '4px',
-                right: '4px',
+                bottom: '8px',
+                right: '8px',
                 width: '48px',
                 height: '48px',
+                boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
                 borderRadius: '12px',
                 display: 'flex',
                 alignItems: 'center',
@@ -99,7 +100,13 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
             style={{ width: '100%', height: '100%' }}
           />
         </Box>
-        <CardContent sx={{ width: { sm: '100%', xs: '67%' }, height: '100%' }}>
+        <CardContent
+          sx={{
+            width: { sm: '100%', xs: '67%' },
+            height: '100%',
+            '@media (max-width: 599px)': { '&:last-child': { padding: '12px' } },
+          }}
+        >
           <Typography
             color="primary"
             variant="overline"

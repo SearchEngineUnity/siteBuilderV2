@@ -53,7 +53,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
               color: 'inherit',
               display: 'inline-flex',
               verticalAlign: 'top',
-              '@media (max-width: 600px)': {
+              '@media (max-width: 599px)': {
                 color: 'inherit',
                 '&:hover': {
                   color: 'inherit',
@@ -84,7 +84,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
               underline="hover"
               sx={{
                 color: 'inherit',
-                '@media (max-width: 600px)': {
+                '@media (max-width: 599px)': {
                   color: 'inherit',
                   '&:hover': {
                     color: 'inherit',
@@ -116,7 +116,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
               underline="hover"
               sx={{
                 color: 'inherit',
-                '@media (max-width: 600px)': {
+                '@media (max-width: 599px)': {
                   color: 'inherit',
                   '&:hover': {
                     color: 'inherit',

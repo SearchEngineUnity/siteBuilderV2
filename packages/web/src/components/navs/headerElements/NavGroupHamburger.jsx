@@ -24,7 +24,7 @@ function NavGroupHamburger({ navGroup }) {
             primaryTypographyProps={{ variant: 'body1', fontWeight: 'fontWeightBold' }}
             sx={{
               flex: '0 0 auto',
-              '@media (max-width: 600px)': {
+              '@media (max-width: 599px)': {
                 color: (theme) => theme.palette.common.black,
               },
             }}
@@ -45,7 +45,7 @@ function NavGroupHamburger({ navGroup }) {
                 <ListItemText
                   primary={itemTitle}
                   sx={{
-                    '@media (max-width: 600px)': {
+                    '@media (max-width: 599px)': {
                       color: (theme) => theme.palette.common.black,
                     },
                   }}

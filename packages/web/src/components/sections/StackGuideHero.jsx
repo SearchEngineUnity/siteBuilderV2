@@ -113,6 +113,7 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
                 subjectListingPages={subjectListingPages}
                 color="background.default"
                 borderColor="background.default"
+                justifyContent="center"
               />
             </Box>
             <Typography variant="h5" component="p" sx={{ mt: '18px' }}>

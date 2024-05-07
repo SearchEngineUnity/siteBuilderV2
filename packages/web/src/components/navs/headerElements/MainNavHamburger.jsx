@@ -71,7 +71,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
         <Link
           sx={{
             display: 'flex',
-            '@media (max-width: 600px)': { color: (theme) => theme.palette.common.black },
+            '@media (max-width: 599px)': { color: (theme) => theme.palette.common.black },
           }}
           color="inherit"
           to="/search"
@@ -110,7 +110,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
                         primary={title}
                         primaryTypographyProps={{ variant: 'body1', fontWeight: 'fontWeightBold' }}
                         sx={{
-                          '@media (max-width: 600px)': {
+                          '@media (max-width: 599px)': {
                             color: (theme) => theme.palette.common.black,
                           },
                         }}
