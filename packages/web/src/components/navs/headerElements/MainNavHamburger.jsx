@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton, Link } from 'gatsby-theme-material-ui';
+import { IconButton, Link, ListItemButton } from 'gatsby-theme-material-ui';
 import SearchIcon from '@mui/icons-material/Search';
 import Drawer from '@mui/material/Drawer';
 import SVGNavBrand from './SVGNavBrand';
@@ -85,7 +84,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
           sx={{
             bgcolor: '#EBEBEB',
             color: 'common.black',
-            px: '11.5vw',
+            px: 'calc(11.5vw - 16px)',
             height: '100vh',
             marginTop: { xs: '56px', sm: '64px' },
           }}
@@ -101,7 +100,6 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
                   <ListItem dense disableGutters key={_key}>
                     <ListItemButton
                       dense
-                      disableGutters
                       component={Link}
                       role="menuitem"
                       to={`/${groupNav.slug.current}`}

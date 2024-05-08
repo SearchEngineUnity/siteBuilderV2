@@ -1,9 +1,8 @@
 import React from 'react';
 import Collapse from '@mui/material/Collapse';
 import List from '@mui/material/List';
-import { Link } from 'gatsby-theme-material-ui';
+import { Link, ListItemButton } from 'gatsby-theme-material-ui';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -18,7 +17,7 @@ function NavGroupHamburger({ navGroup }) {
   return (
     <>
       <ListItem dense disableGutters>
-        <ListItemButton dense disableGutters type="button" onClick={handleClickCollapse}>
+        <ListItemButton dense type="button" onClick={handleClickCollapse}>
           <ListItemText
             primary={navGroup.title}
             primaryTypographyProps={{ variant: 'body1', fontWeight: 'fontWeightBold' }}
@@ -35,7 +34,7 @@ function NavGroupHamburger({ navGroup }) {
       <Collapse in={!collapse} timeout="auto" unmountOnExit>
         <List role="menu" disablePadding>
           {navGroup.group.map(({ title: itemTitle, nav: itemNav, _key: itemKey }) => (
-            <ListItem key={itemKey} dense>
+            <ListItem key={itemKey} dense sx={{ py: 0 }}>
               <ListItemButton
                 dense
                 component={Link}
@@ -45,6 +44,7 @@ function NavGroupHamburger({ navGroup }) {
                 <ListItemText
                   primary={itemTitle}
                   sx={{
+                    py: 0,
                     '@media (max-width: 599px)': {
                       color: (theme) => theme.palette.common.black,
                     },
@@ -53,7 +53,7 @@ function NavGroupHamburger({ navGroup }) {
               </ListItemButton>
             </ListItem>
           ))}
-          <ListItem dense>
+          <ListItem dense sx={{ py: 0 }}>
             <ListItemButton
               dense
               component={Link}
@@ -64,7 +64,8 @@ function NavGroupHamburger({ navGroup }) {
                 primary="View All"
                 sx={{
                   flex: '0 0 auto',
-                  mr: '4px',
+                  mr: '8px',
+                  py: 0,
                 }}
               />
               <ArrowForwardIcon fontSize="small" />

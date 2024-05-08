@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'gatsby-theme-material-ui';
@@ -42,24 +43,24 @@ export default function MainNav() {
         <div id="scroll-tracker" />
         <AppBar
           id="main-header"
-          position="sticky"
+          position="fixed"
           elevation={0}
           sx={{
             backgroundColor: 'common.white',
             boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.25)',
+            display: {
+              xs: 'none',
+              sm: 'none',
+              md: 'flex',
+              lg: 'flex',
+              xl: 'flex',
+            },
           }}
         >
           <Container maxWidth="lg" component="nav" aria-label="main navigation header">
             {!isScrolled && (
               <Toolbar
                 sx={{
-                  display: {
-                    xs: 'none',
-                    sm: 'none',
-                    md: 'flex',
-                    lg: 'flex',
-                    xl: 'flex',
-                  },
                   pt: '20px',
                   justifyContent: 'space-around',
                   minHeight: '48px',
@@ -74,23 +75,10 @@ export default function MainNav() {
                   const { _type, _key: groupKey } = group;
 
                   switch (_type) {
-                    case 'navClickableImage':
-                      return (
-                        <NavClickableImage image={group.image} link={group.link} key={groupKey} />
-                      );
                     case 'navBrand':
                       return <SVGNavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
-                    case 'navPhone':
-                      return (
-                        <NavPhone text={group.text} number={group.phoneNumber} key={groupKey} />
-                      );
-                    case 'navItem':
-                      return <NavItem {...mapNavItemToProps(group)} key={groupKey} />;
-                    case 'navGroup':
-                      return <NavGroup key={groupKey} {...mapNavGroupToProps(group)} />;
-
                     default:
-                      return <div>under construction</div>;
+                      return null;
                   }
                 })}
               </Toolbar>
@@ -105,6 +93,7 @@ export default function MainNav() {
                   xl: 'flex',
                 },
                 justifyContent: 'space-between',
+                gap: { lg: '50px', md: '1.45vw' },
                 minHeight: '48px',
                 '@media (min-width: 600px)': {
                   minHeight: '48px',
@@ -117,30 +106,84 @@ export default function MainNav() {
                 const { _type, _key: groupKey } = group;
 
                 switch (_type) {
-                  case 'navClickableImage':
-                    return (
-                      <NavClickableImage image={group.image} link={group.link} key={groupKey} />
-                    );
                   case 'navBrand':
                     return (
-                      isScrolled && <SVGNavBrand {...mapNavBrandToProps(group)} key={groupKey} />
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          '@media (max-width: 1166px)': {
+                            display: isScrolled ? 'flex' : 'none',
+                          },
+                          visibility: isScrolled ? 'visible' : 'hidden',
+                          flex: isScrolled ? 0 : 1,
+                        }}
+                      >
+                        <SVGNavBrand {...mapNavBrandToProps(group)} key={groupKey} />
+                      </Box>
                     );
-                  case 'navPhone':
-                    return <NavPhone text={group.text} number={group.phoneNumber} key={groupKey} />;
-                  case 'navItem':
-                    return <NavItem {...mapNavItemToProps(group)} key={groupKey} />;
-                  case 'navGroup':
-                    return <NavGroup key={groupKey} {...mapNavGroupToProps(group)} />;
-
                   default:
-                    return <div>under construction</div>;
+                    return null;
                 }
               })}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  flex: '1 1 714px',
+                  maxWidth: '894px',
+                  '@media (max-width: 1166px)': {
+                    flex: 'auto',
+                    maxWidth: 'none',
+                  },
+                  justifyContent: 'space-between',
+                }}
+              >
+                {menu.menuArray[1].menuGroup.map((group) => {
+                  const { _type, _key: groupKey } = group;
+
+                  switch (_type) {
+                    case 'navClickableImage':
+                      return (
+                        <NavClickableImage image={group.image} link={group.link} key={groupKey} />
+                      );
+                    case 'navPhone':
+                      return (
+                        <NavPhone text={group.text} number={group.phoneNumber} key={groupKey} />
+                      );
+                    case 'navItem':
+                      return <NavItem {...mapNavItemToProps(group)} key={groupKey} />;
+                    case 'navGroup':
+                      return <NavGroup key={groupKey} {...mapNavGroupToProps(group)} />;
+
+                    default:
+                      return null;
+                  }
+                })}
+                <Link
+                  to="/search"
+                  color="common.black"
+                  sx={{
+                    display: 'none',
+                    flexDirection: 'row-reverse',
+                    '@media (max-width: 1166px)': {
+                      display: 'flex',
+                    },
+                    '&:hover, &:focus': { color: (theme) => theme.palette.primary.main },
+                  }}
+                >
+                  <SearchIcon />
+                </Link>
+              </Box>
               <Link
                 to="/search"
                 color="common.black"
                 sx={{
                   display: 'flex',
+                  flex: isScrolled ? 0 : 1,
+                  flexDirection: 'row-reverse',
+                  '@media (max-width: 1166px)': {
+                    display: 'none',
+                  },
                   '&:hover, &:focus': { color: (theme) => theme.palette.primary.main },
                 }}
               >
