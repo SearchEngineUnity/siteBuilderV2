@@ -21,7 +21,8 @@ function Search() {
         sx={{
           padding: '0 16px',
           width: '100%',
-          margin: '0 auto',
+          marginLeft: 'auto',
+          marginRight: 'auto',
           '@media (min-width: 600px)': {
             padding: '0 24px',
           },
@@ -31,7 +32,7 @@ function Search() {
           minHeight: 'calc(100vh - 316px)',
         }}
       >
-        <Typography variant="h1" textAlign="center" sx={{ padding: '1em 0' }}>
+        <Typography variant="h1" textAlign="center" sx={{ paddingBottom: '1em' }}>
           Search
         </Typography>
         <InstantSearch searchClient={searchClient} indexName="pro_SGP">
