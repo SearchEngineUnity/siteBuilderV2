@@ -53,7 +53,7 @@ function NavGroupHamburger({ navGroup }) {
               </ListItemButton>
             </ListItem>
           ))}
-          <ListItem dense sx={{ py: 0 }}>
+          <ListItem dense sx={{ py: 0, color: 'primary.dark' }}>
             <ListItemButton
               dense
               component={Link}
