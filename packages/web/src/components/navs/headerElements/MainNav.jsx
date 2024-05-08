@@ -23,7 +23,7 @@ export default function MainNav() {
     setIsScrolled(!entry.isIntersecting);
   };
 
-  const options = { rootMargin: '60px 0px 0px 0px' };
+  const options = {};
 
   useEffect(() => {
     const scrollTracker = document.querySelector('#scroll-tracker');

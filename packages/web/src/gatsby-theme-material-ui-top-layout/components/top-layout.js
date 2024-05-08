@@ -12,7 +12,28 @@ export default function TopLayout({ children }) {
     <ThemeProvider theme={responsiveCustomTheme}>
       <CssBaseline />
       <GlobalStyles
-        styles={{ '[id]': { scrollMargin: '32px' }, a: { scrollBehavior: 'smooth' } }}
+        styles={{
+          '[id]': { scrollMargin: '32px' },
+          a: { scrollBehavior: 'smooth' },
+          main: {
+            marginTop: '16px',
+          },
+          '@media (min-width: 600px)': {
+            main: {
+              marginTop: '24px',
+            },
+          },
+          '@media (min-width: 960px)': {
+            main: {
+              marginTop: '136px',
+            },
+          },
+          '@media (min-width: 1280px)': {
+            main: {
+              marginTop: '156px',
+            },
+          },
+        }}
       />
       {children}
     </ThemeProvider>

@@ -28,23 +28,22 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
       ref={ref}
       sx={{
         bgcolor: 'transparent',
-        pt: { xs: '16px', md: '40px' },
         mb: '12px',
       }}
       id="hero"
       component="header"
     >
       <Container maxWidth="lg">
+        {primarySubcategory && (
+          <Box sx={{ mb: '12px' }}>
+            <Breadcrumbs
+              subject={primarySubcategory}
+              subjectListingPages={subjectListingPages}
+              isSGP
+            />
+          </Box>
+        )}
         <Grid container direction="column" spacing={{ xs: 2, sm: 3 }}>
-          <Grid sx={{ color: 'primary.main' }}>
-            {primarySubcategory && (
-              <Breadcrumbs
-                subject={primarySubcategory}
-                subjectListingPages={subjectListingPages}
-                isSGP
-              />
-            )}
-          </Grid>
           <Grid>
             <Typography variant="h1" color="text.primary">
               {h1}
