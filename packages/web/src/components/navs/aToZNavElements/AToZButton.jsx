@@ -23,6 +23,10 @@ function AToZButton({ letter, disabled }) {
           backgroundColor: (theme) => theme.palette.primary.main,
           borderColor: (theme) => theme.palette.primary.main,
         },
+        '&.Mui-disabled': {
+          color: '#ABABAB',
+          borderColor: '#ABABAB',
+        },
       }}
     >
       {letter}
