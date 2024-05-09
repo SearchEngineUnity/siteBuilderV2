@@ -71,12 +71,12 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
                 zIndex: 1,
                 color: 'common.white',
                 bgcolor: 'common.white',
-                bottom: '8px',
-                right: '8px',
-                width: '48px',
-                height: '48px',
+                bottom: { xs: isFirst ? '8px' : '4px', sm: '8px' },
+                right: { xs: isFirst ? '8px' : '4px', sm: '8px' },
+                width: { xs: isFirst ? '48px' : '28px', sm: '48px' },
+                height: { xs: isFirst ? '48px' : '28px', sm: '48px' },
                 boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                borderRadius: '12px',
+                borderRadius: { xs: isFirst ? '12px' : '6px', sm: '12px' },
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -86,9 +86,9 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
                 sx={{
                   color: 'common.white',
                   bgcolor: 'common.black',
-                  borderRadius: '18px',
-                  width: '36px',
-                  height: '36px',
+                  borderRadius: { xs: isFirst ? '18px' : '10px', sm: '18px' },
+                  width: { xs: isFirst ? '36px' : '20px', sm: '36px' },
+                  height: { xs: isFirst ? '36px' : '20px', sm: '36px' },
                 }}
               />
             </Box>
