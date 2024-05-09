@@ -31,6 +31,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
       aria-label="main navigation header"
       elevation={0}
       sx={{
+        top: -1,
         display: { xs: 'block', md: 'none' },
         bgcolor: 'common.white',
         color: 'common.black',
