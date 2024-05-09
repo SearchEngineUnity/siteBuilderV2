@@ -12,23 +12,25 @@ function NavGroup({ title, url, subGroup }) {
     <Box
       sx={{
         position: 'relative',
+        height: '30px',
         '&:hover .dropdown-content': {
           display: 'block',
+        },
+        '&:hover > a': {
+          textDecoration: 'underline',
+          textDecorationThickness: '2px',
+          textUnderlineOffset: '8px',
         },
       }}
     >
       <Link
         to={`/${url}`}
-        underline="hover"
+        underline="none"
         variant="body1"
         role="menuitem"
         sx={{
           color: 'common.black',
           fontWeight: 'fontWeightBold',
-          '&:hover': {
-            textDecorationThickness: '2px',
-            textUnderlineOffset: '8px',
-          },
         }}
       >
         {title}
@@ -53,7 +55,17 @@ function NavGroup({ title, url, subGroup }) {
       >
         {subGroup.map(({ icon, title: itemTitle, nav, _key }) => (
           <li role="menuitem" key={_key}>
-            <Link to={`/${nav.slug.current}`} underline="hover" color="common.black">
+            <Link
+              to={`/${nav.slug.current}`}
+              underline="hover"
+              color="common.black"
+              sx={{
+                ':hover': {
+                  color: '#5C5C5C',
+                  textDecorationColor: 'currentcolor',
+                },
+              }}
+            >
               {icon && (
                 <ListItemIcon>
                   <Icon>{icon}</Icon>
