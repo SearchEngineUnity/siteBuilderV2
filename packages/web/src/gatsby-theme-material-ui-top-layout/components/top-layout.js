@@ -13,7 +13,7 @@ export default function TopLayout({ children }) {
       <CssBaseline />
       <GlobalStyles
         styles={{
-          '[id]': { scrollMargin: '32px' },
+          '[id]': { scrollMargin: '72px' },
           a: { scrollBehavior: 'smooth' },
           main: {
             marginTop: '16px',
@@ -22,11 +22,13 @@ export default function TopLayout({ children }) {
             main: {
               marginTop: '24px',
             },
+            '[id]': { scrollMargin: '88px' },
           },
           '@media (min-width: 960px)': {
             main: {
               marginTop: '136px',
             },
+            '[id]': { scrollMargin: '72px' },
           },
           '@media (min-width: 1280px)': {
             main: {
