@@ -30,7 +30,6 @@ function ProductInfoList({ infoList }) {
             </Grid>
           </Grid>
           <Box
-            spacing={0}
             sx={{
               mb: 1.5,
               display: {
