@@ -6,6 +6,7 @@
 // not a true unique ID. Once we start to dynamically change the array. This will fail.
 
 import React from 'react';
+import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -135,10 +136,10 @@ function SmartTable({ smartTable }) {
         <colgroup>
           {colgroup
             ? colgroup.map((col, index) => (
-                <col span="1" width={col.width} key={`colWidth-${index}`} />
+                <Box component="col" span="1" sx={{ width: col.width }} key={`colWidth-${index}`} />
               ))
             : [...Array(tbody[0].cells.length)].map((x, index) => (
-                <col width="100px" key={`colWidth-${index}`} />
+                <Box component="col" sx={{ width: '100px' }} key={`colWidth-${index}`} />
               ))}
         </colgroup>
 
