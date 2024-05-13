@@ -104,7 +104,7 @@ function HeroTags({
         <SubjectTagButton
           disableFocusRipple
           disableRipple
-          to={primarySubcategorySlugString && primarySubcategorySlug}
+          to={primarySubcategorySlugString ? primarySubcategorySlug : null}
           fontSize="body1"
           variant="outlined"
           sx={{
