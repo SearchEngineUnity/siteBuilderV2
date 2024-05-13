@@ -129,7 +129,6 @@ function SmartTable({ smartTable }) {
       <Table
         size="small"
         aria-label={title}
-        role="table"
         sx={{ tableLayout: 'fixed', borderCollapse: 'separate' }}
         className="table"
       >
