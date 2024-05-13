@@ -58,6 +58,7 @@ export default {
         // add a custom rule for isUnique
       ],
     },
+
     {
       name: 'displayDate',
       title: 'Display Date',
@@ -66,8 +67,14 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
+      name: 'sortOrderDate',
+      title: 'Sort Order Date',
+      type: 'date',
+      fieldset: 'general',
+    },
+    {
       name: 'createdDate',
-      type: 'string',
+      type: 'date',
       title: 'Created Date',
       fieldset: 'general',
     },
