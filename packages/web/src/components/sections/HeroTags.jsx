@@ -53,7 +53,7 @@ function HeroTags({
             disableFocusRipple
             disableRipple
             key={_id}
-            to={currentSlug && slug}
+            to={currentSlug ? slug : null}
             fontSize="body1"
             variant="outlined"
             sx={{
@@ -82,7 +82,7 @@ function HeroTags({
             disableFocusRipple
             disableRipple
             key={_id}
-            to={currentSlug && slug}
+            to={currentSlug ? slug : null}
             fontSize="body1"
             variant="outlined"
             sx={{
