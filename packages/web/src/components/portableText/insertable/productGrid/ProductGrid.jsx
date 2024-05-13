@@ -20,7 +20,7 @@ function ProductGrid({ id, pageJumpText, tiles, design }) {
       spacing={2}
       justifyContent="center"
       alignItems="stretch"
-      component="section"
+      component="div"
       className="product-grid"
     >
       {tiles &&
