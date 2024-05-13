@@ -228,7 +228,7 @@ function SoloGuidePage({ data, pageContext }) {
                   <ToC toc={data.guide.toc} content={data.guide._rawGuideBody} />
                 )}
               </Grid>
-              <Grid md={9} xs={12} component="article" sx={{ order: 1 }}>
+              <Grid md={9} xs={12} sx={{ order: 1 }}>
                 {heroLayout === 'mainColumnHero' && (
                   <MainColumnFeature {...mapGuideHeroToProps(data.guide)} />
                 )}
