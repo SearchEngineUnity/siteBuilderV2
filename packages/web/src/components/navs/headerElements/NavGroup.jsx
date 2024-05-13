@@ -71,7 +71,7 @@ function NavGroup({ title, url, subGroup }) {
                   <Icon>{icon}</Icon>
                 </ListItemIcon>
               )}
-              <Typography vanriant="body1" sx={{ lineHeight: '33px' }}>
+              <Typography variant="body1" sx={{ lineHeight: '33px' }}>
                 {itemTitle}
               </Typography>
             </Link>
@@ -79,7 +79,7 @@ function NavGroup({ title, url, subGroup }) {
         ))}
         <li role="menuitem">
           <Link to="/" underline="hover">
-            <Typography vanriant="body1" sx={{ lineHeight: '33px' }}>
+            <Typography variant="body1" sx={{ lineHeight: '33px' }}>
               View All
             </Typography>
           </Link>
