@@ -49,7 +49,7 @@ function MainColumnFeature({ featureType, feature, includeDisclaimer }) {
         mb: '88px',
         bgcolor: 'transparent',
       }}
-      component="section"
+      component="div"
     >
       {Feature && (
         <Box sx={{ mb: '24px' }}>
