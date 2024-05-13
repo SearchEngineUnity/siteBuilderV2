@@ -192,12 +192,14 @@ function SoloGuidePage({ data, pageContext }) {
     if (index === 0 && block.style !== 'h2') {
       sectionStarts.push({
         position: index,
+        noH2: true,
       });
     }
     if (block.style === 'h2') {
       sectionStarts.push({
         position: index,
         id,
+        noH2: false,
       });
     }
   }
@@ -208,7 +210,7 @@ function SoloGuidePage({ data, pageContext }) {
     const { position: startPosition, id } = sectionStarts[index];
     const endPosition = sectionStarts[index + 1]?.position || guideBody.length;
     const section = guideBody.slice(startPosition, endPosition);
-    sections.push({ section, id });
+    sections.push({ section, id, noH2: sectionStarts[index].noH2 });
   }
 
   return (
@@ -232,12 +234,19 @@ function SoloGuidePage({ data, pageContext }) {
                 {heroLayout === 'mainColumnHero' && (
                   <MainColumnFeature {...mapGuideHeroToProps(data.guide)} />
                 )}
-                {sections.map((section) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <section key={`section-${section.id}`} id={`section-${section.id}`}>
-                    <GuideBody blocks={section.section} />
-                  </section>
-                ))}
+                {sections.map((section) => {
+                  const { noH2 } = section;
+                  return (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <Box
+                      component={noH2 ? 'div' : 'section'}
+                      key={`section-${section.id}`}
+                      id={`section-${section.id}`}
+                    >
+                      <GuideBody blocks={section.section} />
+                    </Box>
+                  );
+                })}
               </Grid>
             </Grid>
           </Container>
