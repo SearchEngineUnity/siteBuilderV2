@@ -69,7 +69,7 @@ function ProductCardRating({ rating }) {
   }
 
   return (
-    <Box component="span">
+    <Box component="div" sx={{ display: 'inline' }}>
       <ImageRating />
       <Box component="span" sx={{ px: 1, verticalAlign: 'middle', fontSize: '20px' }}>
         {`${rating.toFixed(1)}`}
