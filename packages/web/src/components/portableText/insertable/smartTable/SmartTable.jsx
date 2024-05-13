@@ -190,7 +190,6 @@ function SmartTable({ smartTable }) {
                     key={`${thead._key}-${index}`}
                     sx={style}
                     scope="col"
-                    role={cell._type === 'emptyCell' ? 'cell' : 'columnheader'}
                     className="table__cell"
                   >
                     {Component ? <Component {...values} /> : errorMessage}
@@ -237,7 +236,6 @@ function SmartTable({ smartTable }) {
                     sx={style}
                     component={rowHeading && index === 0 ? 'th' : 'td'}
                     scope={rowHeading && index === 0 && 'row'}
-                    role={rowHeading && index === 0 ? 'rowheader' : 'cell'}
                     className="table__cell"
                   >
                     {Component ? <Component {...values} /> : errorMessage}
