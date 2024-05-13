@@ -127,7 +127,7 @@ async function createFlexListingPages(actions, graphql) {
           }
         }
       }
-      allSanitySoloGuidePage(sort: { displayDate: DESC }) {
+      allSanitySoloGuidePage(sort: { sortOrderDate: DESC }) {
         edges {
           node {
             id
@@ -357,7 +357,7 @@ async function createAToZPages(actions, graphql) {
 async function createSoloGuidePages(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanitySoloGuidePage(sort: { displayDate: DESC }) {
+      allSanitySoloGuidePage(sort: { sortOrderDate: DESC }) {
         edges {
           node {
             slug {
