@@ -3,6 +3,7 @@ import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, Index } from 'react-instantsearch';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Seo from '../components/Seo';
 import CustomSearchBox from '../components/search/customSearchBox';
 import HitsSwitcher from '../components/search/hitsSwitcher';
 import QueryDisplay from '../components/search/queryDisplay';
@@ -12,6 +13,12 @@ const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 );
+
+const metaData = {
+  type: 'page',
+  pageTitle: 'Search',
+  slug: 'search',
+};
 
 function Search() {
   return (
@@ -51,3 +58,7 @@ function Search() {
 }
 
 export default Search;
+
+export function Head() {
+  return <Seo {...metaData} />;
+}
