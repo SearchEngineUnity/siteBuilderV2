@@ -78,7 +78,7 @@ function NavGroup({ title, url, subGroup }) {
           </li>
         ))}
         <li role="menuitem">
-          <Link to="/" underline="hover">
+          <Link to={`/${url}`} underline="hover">
             <Typography variant="body1" sx={{ lineHeight: '33px' }}>
               View All
             </Typography>
