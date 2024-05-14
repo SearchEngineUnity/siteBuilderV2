@@ -32,7 +32,7 @@ function NavGroupHamburger({ navGroup }) {
         </ListItemButton>
       </ListItem>
       <Collapse in={!collapse} timeout="auto" unmountOnExit>
-        <List role="menu" disablePadding>
+        <List role="group" disablePadding>
           {navGroup.group.map(({ title: itemTitle, nav: itemNav, _key: itemKey }) => (
             <ListItem key={itemKey} dense sx={{ py: 0 }}>
               <ListItemButton
