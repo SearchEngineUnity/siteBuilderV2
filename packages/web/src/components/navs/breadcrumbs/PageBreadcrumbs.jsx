@@ -47,6 +47,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
           }}
         >
           <Link
+            aria-label="homepage"
             to="/"
             underline="hover"
             sx={{
