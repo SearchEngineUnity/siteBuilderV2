@@ -6,7 +6,7 @@ function AToZButton({ letter, disabled }) {
     <Button
       variant="outlined"
       disabled={disabled}
-      href={`#${letter.toLowerCase()}`}
+      href={!disabled && `#${letter.toLowerCase()}`}
       disableFocusRipple
       sx={{
         fontSize: { xs: '20px', md: '24px' },
