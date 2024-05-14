@@ -75,6 +75,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
           }}
           color="inherit"
           to="/search"
+          aria-label="Search"
         >
           <SearchIcon sx={{ fontSize: '36px' }} />
         </Link>

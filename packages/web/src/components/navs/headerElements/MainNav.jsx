@@ -160,6 +160,7 @@ export default function MainNav() {
                   }
                 })}
                 <Link
+                  aria-label="Search"
                   to="/search"
                   color="common.black"
                   sx={{
@@ -175,6 +176,7 @@ export default function MainNav() {
                 </Link>
               </Box>
               <Link
+                aria-label="Search"
                 to="/search"
                 color="common.black"
                 sx={{
