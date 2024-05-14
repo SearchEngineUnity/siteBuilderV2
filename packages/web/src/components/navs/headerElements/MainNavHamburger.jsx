@@ -73,6 +73,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
             display: 'flex',
             '@media (max-width: 599px)': { color: (theme) => theme.palette.common.black },
           }}
+          role="menuitem"
           color="inherit"
           to="/search"
           aria-label="Search"

@@ -21,6 +21,7 @@ function SVGNavBrand({ brandGroup, alt }) {
           case 'desktop':
             return (
               <Link
+                role="menuitem"
                 key={_key}
                 to="/"
                 sx={{
@@ -34,6 +35,7 @@ function SVGNavBrand({ brandGroup, alt }) {
           case 'tablet':
             return (
               <Link
+                role="menuitem"
                 key={_key}
                 to="/"
                 sx={{
@@ -47,6 +49,7 @@ function SVGNavBrand({ brandGroup, alt }) {
           case 'mobile':
             return (
               <Link
+                role="menuitem"
                 key={_key}
                 to="/"
                 sx={{
