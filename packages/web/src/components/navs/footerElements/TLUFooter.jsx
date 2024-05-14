@@ -68,13 +68,19 @@ function TLUFooter() {
                     },
                   }}
                 />
-                <MenuLink href="mailto:contact@techlifeunity.com">
+                <MenuLink href="mailto:contact@techlifeunity.com" role="menuitem">
                   contact@techlifeunity.com
                 </MenuLink>
               </Box>
-              <Grid container spacing="40px">
+              <Grid container spacing="40px" role="group">
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    aria-label="Our Youtube"
+                  >
                     <StaticImage
                       src="./assets/youtube.png"
                       alt="youtube"
@@ -85,7 +91,13 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    aria-label="Our facebook"
+                  >
                     <StaticImage
                       src="./assets/facebook.png"
                       alt="facebook"
@@ -96,7 +108,13 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                    aria-label="Our LinkedIn"
+                  >
                     <StaticImage
                       src="./assets/linkedin.png"
                       alt="linkedin"
@@ -107,7 +125,7 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Email us">
                     <StaticImage
                       src="./assets/mail.png"
                       alt="mail"
@@ -122,43 +140,63 @@ function TLUFooter() {
             <Grid xs={12} sm={6} md={3} lg={3}>
               <MenuHeading component="p">Work With Us</MenuHeading>
               <Box
+                role="group"
                 component="ul"
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
                 <li>
-                  <MenuLink to="#">Who We Are</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    Who We Are
+                  </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to="#">Post Our Articles</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    Post Our Articles
+                  </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to="#">Link To Us</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    Link To Us
+                  </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to="mailto:contact@techlifeunity.com">Contact Us</MenuLink>
+                  <MenuLink to="mailto:contact@techlifeunity.com" role="menuitem">
+                    Contact Us
+                  </MenuLink>
                 </li>
               </Box>
             </Grid>
             <Grid xs={12} sm={6} md={3} lg={3}>
               <MenuHeading component="p">Our Guides</MenuHeading>
               <Box
+                role="group"
                 component="ul"
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
                 <li>
-                  <MenuLink to="#">Editorial Guidelines</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    Editorial Guidelines
+                  </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to="#">A to Z Topics</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    A to Z Topics
+                  </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to="#">Financial Support</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    Financial Support
+                  </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to="#">Creative Commons</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    Creative Commons
+                  </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to="#">Terms of Use</MenuLink>
+                  <MenuLink to="#" role="menuitem">
+                    Terms of Use
+                  </MenuLink>
                 </li>
               </Box>
             </Grid>
@@ -183,6 +221,7 @@ function TLUFooter() {
         >
           <p>
             <Link
+              role="menuitem"
               to="/privacy-policy"
               target="_blank"
               rel="noopener"
