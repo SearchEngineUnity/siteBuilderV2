@@ -15,7 +15,7 @@ function AToZNav({ alphabet, firstLetterArrayFromList, instruction }) {
           display: 'flex',
           maxWidth: '832px',
           gap: '12px',
-          direction: 'row',
+          flexDirection: 'row',
           flexWrap: 'wrap',
           mx: 'auto',
           justifyContent: 'center',
