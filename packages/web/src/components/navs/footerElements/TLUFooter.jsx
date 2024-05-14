@@ -74,13 +74,7 @@ function TLUFooter() {
               </Box>
               <Grid container spacing="40px" role="group">
                 <Grid>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    role="menuitem"
-                    aria-label="Our Youtube"
-                  >
+                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
                     <StaticImage
                       src="./assets/youtube.png"
                       alt="youtube"
@@ -91,13 +85,7 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    role="menuitem"
-                    aria-label="Our facebook"
-                  >
+                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
                     <StaticImage
                       src="./assets/facebook.png"
                       alt="facebook"
@@ -108,13 +96,7 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    role="menuitem"
-                    aria-label="Our LinkedIn"
-                  >
+                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
                     <StaticImage
                       src="./assets/linkedin.png"
                       alt="linkedin"
@@ -125,7 +107,7 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Email us">
+                  <a href="#" target="_blank" rel="noopener noreferrer">
                     <StaticImage
                       src="./assets/mail.png"
                       alt="mail"
