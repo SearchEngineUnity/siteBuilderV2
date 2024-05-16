@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useInstantSearch, useSearchBox } from 'react-instantsearch';
 import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
-import QueryDisplay from './queryDisplay';
 
 function CustomSearchBox(props) {
   const { query, refine } = useSearchBox(props);
@@ -74,6 +73,7 @@ function CustomSearchBox(props) {
       </Box>
       <Box
         component="input"
+        aria-label="Search"
         sx={{
           width: '100%',
           border: 'none',
