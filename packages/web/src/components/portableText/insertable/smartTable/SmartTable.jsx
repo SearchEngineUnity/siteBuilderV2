@@ -187,6 +187,7 @@ function SmartTable({ smartTable }) {
 
                 return (
                   <TableCell
+                    component={cell._type === 'emptyCell' && index === 0 ? 'td' : 'th'}
                     key={`${thead._key}-${index}`}
                     sx={style}
                     scope="col"
