@@ -15,7 +15,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
         borderRadius: '12px',
         height: '100%',
         color: 'text.primary',
-        '&:hover': {
+        '&:hover, &:focus-within': {
           boxShadow:
             'rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.25) 4px 6px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px',
           color: 'primary.main',
@@ -40,11 +40,6 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           flexWrap: 'wrap',
           height: '100%',
           color: 'inherit',
-          '&:focus': {
-            boxShadow:
-              'rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px',
-            color: 'primary.main',
-          },
           '&:focus img': {
             transform: 'scale(1.1)',
           },
