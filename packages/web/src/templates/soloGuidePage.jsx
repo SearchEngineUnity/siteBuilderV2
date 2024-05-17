@@ -234,14 +234,14 @@ function SoloGuidePage({ data, pageContext }) {
                 {heroLayout === 'mainColumnHero' && (
                   <MainColumnFeature {...mapGuideHeroToProps(data.guide)} />
                 )}
-                {sections.map((section) => {
+                {sections.map((section, index) => {
                   const { noH2 } = section;
                   return (
-                    // eslint-disable-next-line react/no-array-index-key
                     <Box
                       component={noH2 ? 'div' : 'section'}
-                      key={`section-${section.id}`}
-                      id={`section-${section.id}`}
+                      // eslint-disable-next-line react/no-array-index-key
+                      key={`section-${index}-${section.id}`}
+                      id={section.id && `section-${section.id}`}
                     >
                       <GuideBody blocks={section.section} />
                     </Box>
