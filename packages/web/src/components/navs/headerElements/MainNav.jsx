@@ -160,6 +160,7 @@ export default function MainNav() {
                   }
                 })}
                 <Link
+                  role="menuitem"
                   aria-label="Search"
                   to="/search"
                   color="common.black"
@@ -176,6 +177,7 @@ export default function MainNav() {
                 </Link>
               </Box>
               <Link
+                role="menuitem"
                 aria-label="Search"
                 to="/search"
                 color="common.black"
