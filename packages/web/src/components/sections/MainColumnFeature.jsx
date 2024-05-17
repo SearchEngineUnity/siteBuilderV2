@@ -46,7 +46,7 @@ function MainColumnFeature({ featureType, feature, includeDisclaimer }) {
   return (
     <Box
       sx={{
-        mb: '88px',
+        mb: { xs: '48px', sm: '56px', md: '64px' },
         bgcolor: 'transparent',
       }}
       component="div"
