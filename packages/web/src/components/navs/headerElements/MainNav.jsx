@@ -109,6 +109,7 @@ export default function MainNav() {
                   case 'navBrand':
                     return (
                       <Box
+                        key={groupKey}
                         sx={{
                           display: 'flex',
                           '@media (max-width: 1166px)': {
