@@ -12,7 +12,7 @@ function TableOfContent({ toc }) {
       sx={{
         display: 'block',
         position: 'sticky',
-        top: 0,
+        top: 48,
         padding: 3,
       }}
     >
