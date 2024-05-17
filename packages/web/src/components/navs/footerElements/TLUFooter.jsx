@@ -126,17 +126,25 @@ function TLUFooter() {
                 component="ul"
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
-                <li role="menuitem">
-                  <MenuLink to="#">Who We Are</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    Who We Are
+                  </MenuLink>
                 </li>
-                <li role="menuitem">
-                  <MenuLink to="#">Post Our Articles</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    Post Our Articles
+                  </MenuLink>
                 </li>
-                <li role="menuitem">
-                  <MenuLink to="#">Link To Us</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    Link To Us
+                  </MenuLink>
                 </li>
-                <li role="menuitem">
-                  <MenuLink to="mailto:contact@techlifeunity.com">Contact Us</MenuLink>
+                <li role="none">
+                  <MenuLink to="mailto:contact@techlifeunity.com" role="menuitem">
+                    Contact Us
+                  </MenuLink>
                 </li>
               </Box>
             </Grid>
@@ -147,20 +155,30 @@ function TLUFooter() {
                 component="ul"
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
-                <li role="menuitem">
-                  <MenuLink to="#">Editorial Guidelines</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    Editorial Guidelines
+                  </MenuLink>
                 </li>
-                <li role="menuitem">
-                  <MenuLink to="#">A to Z Topics</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    A to Z Topics
+                  </MenuLink>
                 </li>
-                <li role="menuitem">
-                  <MenuLink to="#">Financial Support</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    Financial Support
+                  </MenuLink>
                 </li>
-                <li role="menuitem">
-                  <MenuLink to="#">Creative Commons</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    Creative Commons
+                  </MenuLink>
                 </li>
-                <li role="menuitem">
-                  <MenuLink to="#">Terms of Use</MenuLink>
+                <li role="none">
+                  <MenuLink to="#" role="menuitem">
+                    Terms of Use
+                  </MenuLink>
                 </li>
               </Box>
             </Grid>
