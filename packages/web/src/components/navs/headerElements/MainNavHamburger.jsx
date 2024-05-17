@@ -52,8 +52,10 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
         <IconButton
           type="button"
           color="inherit"
-          aria-label="menu"
           edge="start"
+          role="menuitem"
+          aria-expanded={open}
+          aria-label={open ? 'close-menu' : 'open-menu'}
           onClick={toggleDrawer}
         >
           {open ? <CloseIcon sx={{ fontSize: '36px' }} /> : <MenuIcon sx={{ fontSize: '36px' }} />}
