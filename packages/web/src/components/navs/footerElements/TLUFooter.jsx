@@ -107,7 +107,7 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
                     <StaticImage
                       src="./assets/mail.png"
                       alt="mail"
@@ -122,63 +122,45 @@ function TLUFooter() {
             <Grid xs={12} sm={6} md={3} lg={3}>
               <MenuHeading component="p">Work With Us</MenuHeading>
               <Box
-                role="group"
+                role="menu"
                 component="ul"
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    Who We Are
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">Who We Are</MenuLink>
                 </li>
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    Post Our Articles
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">Post Our Articles</MenuLink>
                 </li>
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    Link To Us
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">Link To Us</MenuLink>
                 </li>
-                <li>
-                  <MenuLink to="mailto:contact@techlifeunity.com" role="menuitem">
-                    Contact Us
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="mailto:contact@techlifeunity.com">Contact Us</MenuLink>
                 </li>
               </Box>
             </Grid>
             <Grid xs={12} sm={6} md={3} lg={3}>
               <MenuHeading component="p">Our Guides</MenuHeading>
               <Box
-                role="group"
+                role="menu"
                 component="ul"
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    Editorial Guidelines
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">Editorial Guidelines</MenuLink>
                 </li>
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    A to Z Topics
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">A to Z Topics</MenuLink>
                 </li>
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    Financial Support
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">Financial Support</MenuLink>
                 </li>
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    Creative Commons
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">Creative Commons</MenuLink>
                 </li>
-                <li>
-                  <MenuLink to="#" role="menuitem">
-                    Terms of Use
-                  </MenuLink>
+                <li role="menuitem">
+                  <MenuLink to="#">Terms of Use</MenuLink>
                 </li>
               </Box>
             </Grid>
