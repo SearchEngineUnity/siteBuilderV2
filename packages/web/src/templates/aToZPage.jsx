@@ -71,7 +71,7 @@ function AToZPage({ data }) {
 
   return (
     <Layout data={data.page} type={type}>
-      <Container maxWidth="lg" component="main">
+      <Container maxWidth="lg" component="main" sx={{ marginBottom: '80px' }}>
         <Typography variant="h1" textAlign="center" gutterBottom>
           {h1}
         </Typography>
