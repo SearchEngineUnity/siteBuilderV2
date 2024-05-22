@@ -23,7 +23,9 @@ export default function Seo({
   switch (type) {
     case 'page':
       metaUrl =
-        slug === '/' ? metaUrl : `${metaUrl}/${slug}${currentpage > 1 ? `/${currentpage}` : ''}`;
+        slug === '/'
+          ? `${metaUrl}/`
+          : `${metaUrl}/${slug}${currentpage > 1 ? `/${currentpage}` : ''}`;
       ogType = 'website';
       break;
     case 'guide':
