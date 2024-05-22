@@ -64,7 +64,12 @@ function LatestXSection({
                 )}
               </Grid>
               <Grid sx={{ display: { xs: 'none', sm: 'flex' } }}>
-                <SubjectTagButton to={subjectLink} variant="outlined" fontSize="h5">
+                <SubjectTagButton
+                  to={subjectLink}
+                  variant="outlined"
+                  fontSize="h5"
+                  sx={{ width: { sm: 'auto', md: '200px' }, padding: '4px 24px' }}
+                >
                   View all
                 </SubjectTagButton>
               </Grid>
