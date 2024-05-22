@@ -63,7 +63,7 @@ export default function MainNav() {
                 sx={{
                   pt: '20px',
                   justifyContent: 'space-around',
-                  minHeight: '48px',
+                  paddingBottom: '8px',
                   '@media (min-width: 600px)': {
                     minHeight: '48px',
                   },
@@ -94,7 +94,6 @@ export default function MainNav() {
                 },
                 justifyContent: 'space-between',
                 gap: { lg: '50px', md: '1.45vw' },
-                minHeight: '48px',
                 '@media (min-width: 600px)': {
                   minHeight: '48px',
                 },
