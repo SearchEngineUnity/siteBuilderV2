@@ -74,7 +74,12 @@ function TLUFooter() {
               </Box>
               <Grid container spacing="40px" role="group">
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
+                  <a
+                    href="https://youtube.com/@techlifeunity"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                  >
                     <StaticImage
                       src="./assets/youtube.png"
                       alt="youtube"
@@ -85,7 +90,12 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
+                  <a
+                    href="https://www.facebook.com/Techboomers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                  >
                     <StaticImage
                       src="./assets/facebook.png"
                       alt="facebook"
@@ -96,7 +106,12 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
+                  <a
+                    href="https://www.linkedin.com/company/techboomers-com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                  >
                     <StaticImage
                       src="./assets/linkedin.png"
                       alt="linkedin"
@@ -107,7 +122,12 @@ function TLUFooter() {
                   </a>
                 </Grid>
                 <Grid>
-                  <a href="#" target="_blank" rel="noopener noreferrer" role="menuitem">
+                  <a
+                    href="mailto:contact@techlifeunity.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    role="menuitem"
+                  >
                     <StaticImage
                       src="./assets/mail.png"
                       alt="mail"
