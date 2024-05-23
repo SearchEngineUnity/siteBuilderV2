@@ -100,12 +100,13 @@ module.exports = {
     },
     'gatsby-plugin-emotion',
     'gatsby-plugin-sitemap',
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     icon: 'src/images/icon.png',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        lang: `en`,
+        icon: 'src/images/icon.png',
+      },
+    },
     `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-robots-txt',
