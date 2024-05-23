@@ -2433,9 +2433,14 @@ function FlexListingPage({ data, pageContext }) {
   return (
     <Layout type={type}>
       <Box component="main">
-        <Container maxWidth="lg" sx={{ color: 'primary.main' }}>
-          <PageBreadcrumbs subject={data.page?.subject} subjectListingPages={subjectListingPages} />
-        </Container>
+        {slug !== '/' && (
+          <Container maxWidth="lg" sx={{ color: 'primary.main' }}>
+            <PageBreadcrumbs
+              subject={data.page?.subject}
+              subjectListingPages={subjectListingPages}
+            />
+          </Container>
+        )}
         {data.page.sections.map((section) => {
           const { _type } = section;
           switch (_type) {
