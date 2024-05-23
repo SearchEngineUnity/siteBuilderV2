@@ -45,11 +45,10 @@ function NavGroup({ title, url, subGroup }) {
           display: 'none',
           position: 'absolute',
           zIndex: 1,
-          padding: '8px 16px',
+          padding: '8px 32px 8px 16px',
           listStyle: 'none',
           marginBlockStart: '2px',
           marginBlockEnd: 0,
-          minWidth: '218px',
         }}
         className="dropdown-content"
       >
@@ -71,7 +70,7 @@ function NavGroup({ title, url, subGroup }) {
                   <Icon>{icon}</Icon>
                 </ListItemIcon>
               )}
-              <Typography variant="body1" sx={{ lineHeight: '33px' }}>
+              <Typography variant="body1" sx={{ lineHeight: '33px', whiteSpace: 'nowrap' }}>
                 {itemTitle}
               </Typography>
             </Link>
