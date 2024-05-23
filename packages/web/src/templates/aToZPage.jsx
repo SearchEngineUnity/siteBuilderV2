@@ -63,7 +63,7 @@ function AToZPage({ data }) {
 
   const firstLetterArrayFromList = [
     ...new Set(itemList.map((x) => x.title.charAt(0).toUpperCase())),
-  ];
+  ].sort();
 
   const sortedItemList = itemList.sort((a, b) =>
     a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1,
