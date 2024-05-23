@@ -16,7 +16,7 @@ function QueryDisplay() {
             {query}
           </Box>
         </Typography>
-        <Link to="/a-to-z" variant="body1" color="inherit">
+        <Link to="/a-to-z-topics" variant="body1" color="inherit">
           <Typography variant="body1" sx={{ marginBottom: '3.5em' }}>
             Or, check out our A to Z list of topics here
           </Typography>
