@@ -85,6 +85,11 @@ export const useMainNav = () => {
                       current
                     }
                   }
+                  ... on SanityAToZPage {
+                    slug {
+                      current
+                    }
+                  }
                 }
                 group {
                   title
@@ -102,6 +107,11 @@ export const useMainNav = () => {
                       }
                     }
                     ... on SanityFlexListingPage {
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityAToZPage {
                       slug {
                         current
                       }
@@ -127,6 +137,11 @@ export const useMainNav = () => {
                     }
                   }
                   ... on SanityFlexListingPage {
+                    slug {
+                      current
+                    }
+                  }
+                  ... on SanityAToZPage {
                     slug {
                       current
                     }
