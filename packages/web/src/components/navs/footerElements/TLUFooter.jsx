@@ -127,22 +127,22 @@ function TLUFooter() {
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
                 <li role="none">
-                  <MenuLink to="#" role="menuitem">
-                    Who We Are
+                  <MenuLink to="/about-us" role="menuitem">
+                    About Us
                   </MenuLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="#" role="menuitem">
-                    Post Our Articles
+                  <MenuLink to="/digital-literacy-partners" role="menuitem">
+                    Digital Literacy Partners
                   </MenuLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="#" role="menuitem">
+                  <MenuLink to="/link-to-us" role="menuitem">
                     Link To Us
                   </MenuLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="mailto:contact@techlifeunity.com" role="menuitem">
+                  <MenuLink to="/contact-us" role="menuitem">
                     Contact Us
                   </MenuLink>
                 </li>
@@ -156,27 +156,22 @@ function TLUFooter() {
                 sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
               >
                 <li role="none">
-                  <MenuLink to="#" role="menuitem">
-                    Editorial Guidelines
-                  </MenuLink>
-                </li>
-                <li role="none">
-                  <MenuLink to="#" role="menuitem">
+                  <MenuLink to="/a-to-z-topics" role="menuitem">
                     A to Z Topics
                   </MenuLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="#" role="menuitem">
-                    Financial Support
+                  <MenuLink to="/how-to-support-tech-life-unity" role="menuitem">
+                    Support Tech Life Unity
                   </MenuLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="#" role="menuitem">
+                  <MenuLink to="/creative-commons" role="menuitem">
                     Creative Commons
                   </MenuLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="#" role="menuitem">
+                  <MenuLink to="/terms" role="menuitem">
                     Terms of Use
                   </MenuLink>
                 </li>
