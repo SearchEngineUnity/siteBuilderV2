@@ -33,6 +33,12 @@ module.exports = {
         queries: require('./src/utils/algolia-queries'),
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-5RQDBMKP',
+      },
+    },
     `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-omni-font-loader`,
