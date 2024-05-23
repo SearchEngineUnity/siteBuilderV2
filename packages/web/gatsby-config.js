@@ -114,21 +114,21 @@ module.exports = {
         resolveEnv: () => NETLIFY_ENV,
         env: {
           production: {
-            policy: [{ userAgent: '*', disallow: ['/404'] }],
+            policy: [{ userAgent: '*', disallow: ['/404', '/search'] }],
             sitemap: `${siteUrl}/sitemap-index.xml`,
           },
           'branch-deploy': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+            policy: [{ userAgent: '*', disallow: ['*'] }],
             sitemap: null,
             host: null,
           },
           'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+            policy: [{ userAgent: '*', disallow: ['*'] }],
             sitemap: null,
             host: null,
           },
           development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+            policy: [{ userAgent: '*', disallow: ['*'] }],
             sitemap: null,
             host: null,
           },
