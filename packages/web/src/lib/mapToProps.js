@@ -587,7 +587,7 @@ export function mapTileSgpListingToProps({
     tag: primarySubcategory?.name,
     title: tileTitle,
     slug: slug?.current,
-    hasVideo: !!(hero?.feature && hero?.video?.videoId),
+    hasVideo: !!(hero?.feature === 'video' && hero?.video?.videoId),
   };
 }
 
@@ -603,6 +603,6 @@ export function mapTileFeaturedSgpListingToProps({
     tag: primarySubcategory?.name,
     title: tileTitle,
     slug: slug?.current,
-    hasVideo: !!(hero?.feature && hero?.video?.videoId),
+    hasVideo: !!(hero?.feature === 'video' && hero?.video?.videoId),
   };
 }
