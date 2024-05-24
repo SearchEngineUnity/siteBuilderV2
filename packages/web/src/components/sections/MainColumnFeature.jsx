@@ -43,28 +43,26 @@ function MainColumnFeature({ featureType, feature, includeDisclaimer }) {
     values = propsMapping(featureType, feature);
   }
 
-  return (
-    (includeDisclaimer || Feature) && (
-      <Box
-        sx={{
-          mb: { xs: '48px', sm: '56px', md: '64px' },
-          bgcolor: 'transparent',
-        }}
-        component="div"
-      >
-        {Feature && (
-          <Box sx={{ mb: '24px' }}>
-            <Feature {...values} />
-          </Box>
-        )}
-        {includeDisclaimer && disclaimerText && (
-          <Box sx={{ mb: '24px', color: 'text.disabled' }}>
-            <Disclaimer blocks={disclaimerText} />
-          </Box>
-        )}
-      </Box>
-    )
-  );
+  return includeDisclaimer || Feature ? (
+    <Box
+      sx={{
+        mb: { xs: '48px', sm: '56px', md: '64px' },
+        bgcolor: 'transparent',
+      }}
+      component="div"
+    >
+      {Feature && (
+        <Box sx={{ mb: '24px' }}>
+          <Feature {...values} />
+        </Box>
+      )}
+      {includeDisclaimer && disclaimerText && (
+        <Box sx={{ mb: '24px', color: 'text.disabled' }}>
+          <Disclaimer blocks={disclaimerText} />
+        </Box>
+      )}
+    </Box>
+  ) : null;
 }
 
 export default MainColumnFeature;
