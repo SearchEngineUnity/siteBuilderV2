@@ -32,7 +32,7 @@ export default function TopLayout({ children }) {
           },
           '@media (min-width: 1280px)': {
             main: {
-              paddingTop: '156px',
+              paddingTop: '148px',
             },
           },
         }}
