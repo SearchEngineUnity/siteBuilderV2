@@ -16,23 +16,23 @@ export default function TopLayout({ children }) {
           '[id]': { scrollMargin: '72px' },
           a: { scrollBehavior: 'smooth' },
           main: {
-            marginTop: '16px',
+            paddingTop: '16px',
           },
           '@media (min-width: 600px)': {
             main: {
-              marginTop: '24px',
+              paddingTop: '24px',
             },
             '[id]': { scrollMargin: '88px' },
           },
           '@media (min-width: 960px)': {
             main: {
-              marginTop: '136px',
+              paddingTop: '136px',
             },
             '[id]': { scrollMargin: '72px' },
           },
           '@media (min-width: 1280px)': {
             main: {
-              marginTop: '156px',
+              paddingTop: '156px',
             },
           },
         }}
