@@ -109,15 +109,19 @@ function LatestWithPaginationSection({
                 count={numPages}
                 siblingCount={2}
                 boundaryCount={0}
-                renderItem={(item) => (
-                  <PaginationItem
-                    sx={{ color: 'text.primary' }}
-                    component={Link}
-                    to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
-                    slots={{ first: SkipPreviousIcon, last: SkipNextIcon }}
-                    {...item}
-                  />
-                )}
+                renderItem={(item) => {
+                  const link = `/${slug}${item.page === 1 ? '' : `/${item.page}`}`;
+                  const isDisabled = item.disabled;
+                  return (
+                    <PaginationItem
+                      sx={{ color: 'text.primary' }}
+                      component={Link}
+                      to={isDisabled ? '' : link}
+                      slots={{ first: SkipPreviousIcon, last: SkipNextIcon }}
+                      {...item}
+                    />
+                  );
+                }}
               />
             </Grid>
           )}
