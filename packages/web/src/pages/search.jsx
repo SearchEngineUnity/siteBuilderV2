@@ -26,12 +26,14 @@ function Search() {
       <Box
         component="main"
         sx={{
-          padding: '0 16px 16px',
+          paddingLeft: '16px',
+          paddingRight: '16px',
           width: '100%',
           marginLeft: 'auto',
           marginRight: 'auto',
           '@media (min-width: 600px)': {
-            padding: '0 24px 24px',
+            paddingLeft: '24px',
+            paddingRight: '24px',
           },
           '@media (min-width: 782px)': {
             maxWidth: '782px',
