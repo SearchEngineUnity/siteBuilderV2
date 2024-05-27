@@ -28,17 +28,18 @@ function Search() {
         sx={{
           paddingLeft: '16px',
           paddingRight: '16px',
+          paddingBottom: '32px',
           width: '100%',
           marginLeft: 'auto',
           marginRight: 'auto',
           '@media (min-width: 600px)': {
             paddingLeft: '24px',
             paddingRight: '24px',
+            paddingBottom: '48px',
           },
           '@media (min-width: 782px)': {
             maxWidth: '782px',
           },
-          minHeight: 'calc(100vh - 316px)',
         }}
       >
         <Typography variant="h1" textAlign="center" sx={{ paddingBottom: '1em' }}>
