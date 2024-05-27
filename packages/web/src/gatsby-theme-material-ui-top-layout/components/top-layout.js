@@ -17,6 +17,7 @@ export default function TopLayout({ children }) {
           a: { scrollBehavior: 'smooth' },
           main: {
             paddingTop: '16px',
+            minHeight: 'calc(40vh)',
           },
           '@media (min-width: 600px)': {
             main: {
@@ -24,9 +25,15 @@ export default function TopLayout({ children }) {
             },
             '[id]': { scrollMargin: '88px' },
           },
+          '@media (min-width: 600px) and (min-height: 900px)': {
+            main: {
+              minHeight: 'calc(100vh - 485px - 64px)',
+            },
+          },
           '@media (min-width: 960px)': {
             main: {
               paddingTop: '136px',
+              minHeight: 'calc(100vh - 288px)',
             },
             '[id]': { scrollMargin: '72px' },
           },
