@@ -7,6 +7,8 @@ import HomeIcon from '@mui/icons-material/Home';
 function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
   const { _type: type } = subject || {};
 
+  console.log(type);
+
   const firstLevel = {};
   const secondLevel = {};
 
@@ -35,7 +37,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
     )[0]?.node?.slug?.current;
   }
 
-  return (
+  return type !== 'category' ? (
     <nav aria-label="Breadcrumb">
       <Box component="ol" sx={{ margin: 0, paddingLeft: 0, listStyle: 'none' }}>
         <Typography
@@ -131,7 +133,7 @@ function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
         )}
       </Box>
     </nav>
-  );
+  ) : null;
 }
 
 export default PageBreadcrumbs;
