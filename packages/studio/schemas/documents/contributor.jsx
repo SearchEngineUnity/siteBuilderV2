@@ -27,12 +27,22 @@ export default {
     {
       name: 'bio',
       title: 'Bio',
-      type: 'text',
+      type: 'minPT',
+    },
+    {
+      name: 'linkedIn',
+      title: 'LinkedIn URL',
+      type: 'url',
+      validation: (Rule) =>
+        Rule.uri({
+          allowRelative: false,
+          scheme: ['https'],
+        }),
     },
     {
       name: 'slug',
       title: 'Slug',
-      type: 'string',
+      type: 'slug',
     },
   ],
   preview: {
