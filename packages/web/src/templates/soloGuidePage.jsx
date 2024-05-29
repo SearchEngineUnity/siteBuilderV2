@@ -69,7 +69,7 @@ export const query = graphql`
           }
         }
       }
-      _rawGuideBody(resolveReferences: { maxDepth: 1 })
+      _rawGuideBody(resolveReferences: { maxDepth: 11 })
       toc {
         _key
         title
