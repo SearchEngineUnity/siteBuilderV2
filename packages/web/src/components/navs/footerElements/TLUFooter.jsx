@@ -130,7 +130,7 @@ function TLUFooter() {
                   >
                     <StaticImage
                       src="./assets/xlogo.png"
-                      alt="mail"
+                      alt="x"
                       width={48}
                       height={48}
                       loading="lazy"
