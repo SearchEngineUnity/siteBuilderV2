@@ -36,11 +36,12 @@ export default function Seo({
       break;
   }
 
-  const ogTitle = fbShareMetaPack?.fbShareTitle || pageTitle;
+  const title = currentpage ? `${pageTitle} - Page ${currentpage}` : pageTitle;
+  const ogTitle = fbShareMetaPack?.fbShareTitle || title;
   const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
   const ogImage = fbShareMetaPack?.fbShareImage?.asset.url || heroImage || socialImage;
 
-  const twitterTitle = twitterShareMetaPack?.twitterShareTitle || ogTitle || pageTitle;
+  const twitterTitle = twitterShareMetaPack?.twitterShareTitle || ogTitle || title;
   const twitterImage =
     twitterShareMetaPack?.twitterShareImage?.asset?.url || heroImage || socialImage;
   const twitterDescription =
@@ -49,7 +50,7 @@ export default function Seo({
   return (
     <>
       <html lang="en" />
-      <title>{pageTitle}</title>
+      <title>{title}</title>
       {metaDescription && <meta name="description" content={metaDescription} />}
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content={ogType} />
