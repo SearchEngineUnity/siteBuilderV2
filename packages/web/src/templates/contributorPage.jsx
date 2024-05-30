@@ -53,6 +53,7 @@ function ContributorPage({ data, pageContext }) {
           <Grid xs={12} md={8} lg={9}>
             <Typography variant="h1">{name}</Typography>
             <Typography
+              component="p"
               variant="subtitle1"
               sx={{ paddingBottom: '1.5em', color: 'text.secondary', fontStyle: 'italic' }}
             >
