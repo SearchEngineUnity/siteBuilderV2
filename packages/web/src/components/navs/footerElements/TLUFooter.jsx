@@ -123,14 +123,14 @@ function TLUFooter() {
                 </Grid>
                 <Grid>
                   <a
-                    href="mailto:contact@techlifeunity.com"
+                    href="https://x.com/techlifeunity"
                     target="_blank"
                     rel="noopener noreferrer"
                     role="menuitem"
                   >
                     <StaticImage
-                      src="./assets/mail.png"
-                      alt="mail"
+                      src="./assets/xlogo.png"
+                      alt="x"
                       width={48}
                       height={48}
                       loading="lazy"
