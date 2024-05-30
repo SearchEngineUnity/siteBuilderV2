@@ -222,7 +222,7 @@ function SoloGuidePage({ data, pageContext }) {
           subjectListingPages={pageContext.subjectListingPages}
         />
         {/* {isVisible && <ProgressBar />} */}
-        <Box sx={{ mt: 3, paddingBottom: { md: '80px', xs: '40px' } }}>
+        <Box sx={{ paddingBottom: { md: '80px', xs: '40px' } }}>
           <Container maxWidth="lg">
             <Grid container spacing={{ xs: 2, sm: 3 }}>
               <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
