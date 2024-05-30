@@ -7,8 +7,6 @@ import HomeIcon from '@mui/icons-material/Home';
 function PageBreadcrumbs({ subject, subjectListingPages, isSGP }) {
   const { _type: type } = subject || {};
 
-  console.log(type);
-
   const firstLevel = {};
   const secondLevel = {};
 
