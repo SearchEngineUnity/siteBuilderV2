@@ -88,6 +88,7 @@ export function mapGuideHeroToProps({
     subtitle: hero?._rawSubtitle,
     date: displayDate,
     author: author?.name,
+    authorUrl: author?.slug?.current,
     topicTags,
     feature: {
       image: hero?.image,

@@ -353,6 +353,89 @@ async function createAToZPages(actions, graphql) {
   });
 }
 
+// create all contributor pages
+async function createContributorPages(actions, graphql) {
+  const { data } = await graphql(`
+    {
+      allSanityContributor {
+        edges {
+          node {
+            slug {
+              current
+            }
+            name
+          }
+        }
+      }
+      allSanitySoloGuidePage(sort: { sortOrderDate: DESC }) {
+        edges {
+          node {
+            slug {
+              current
+            }
+            author {
+              name
+            }
+            tileTitle
+            tileImage {
+              alt
+              asset {
+                gatsbyImageData(fit: CROP, placeholder: NONE)
+              }
+            }
+            primarySubcategory {
+              name
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const pages = data.allSanityContributor.edges;
+
+  const guides = data.allSanitySoloGuidePage.edges;
+
+  pages.forEach((page) => {
+    if (page?.node?.slug?.current) {
+      const guidesByContributor = guides.filter(
+        (guide) => guide?.node?.author?.name === page?.node?.name,
+      );
+
+      const totalSgpsCountForPagination = guidesByContributor.length;
+      const firstPageCount = 20;
+      const subsequentPageCount = 40;
+
+      const numOfSubsequentPage =
+        totalSgpsCountForPagination < firstPageCount
+          ? 0
+          : Math.ceil((totalSgpsCountForPagination - firstPageCount) / subsequentPageCount);
+
+      Array.from({ length: numOfSubsequentPage + 1 }).forEach((_, i) => {
+        actions.createPage({
+          path: `/${page.node.slug.current === '/' ? '' : page.node.slug.current}${
+            i === 0 ? '' : `/${i + 1}`
+          }`,
+          ownerNodeId: page.node.id,
+          component: require.resolve(`./src/templates/contributorPage.jsx`),
+          context: {
+            slug: page.node.slug.current,
+            sgpsForPagination:
+              i === 0
+                ? guidesByContributor.slice(0, firstPageCount)
+                : guidesByContributor.slice(
+                    (i - 1) * subsequentPageCount + firstPageCount,
+                    i * subsequentPageCount + firstPageCount,
+                  ),
+            numPages: numOfSubsequentPage + 1,
+            currentpage: i + 1,
+          },
+        });
+      });
+    }
+  });
+}
+
 // create individual guides
 async function createSoloGuidePages(actions, graphql) {
   const { data } = await graphql(`
@@ -490,5 +573,6 @@ exports.createPages = async ({ actions, graphql }) => {
   await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
   await createAToZPages(actions, graphql);
+  await createContributorPages(actions, graphql);
   await createAirtableRedirects(actions, graphql);
 };
