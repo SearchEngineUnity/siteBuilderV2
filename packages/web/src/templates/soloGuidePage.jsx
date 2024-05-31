@@ -30,6 +30,9 @@ export const query = graphql`
       displayDate
       author {
         name
+        slug {
+          current
+        }
       }
       primarySubcategory {
         _type

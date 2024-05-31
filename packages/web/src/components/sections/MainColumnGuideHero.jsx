@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { Link } from 'gatsby-theme-material-ui';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -13,6 +14,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
     subtitle,
     date,
     author,
+    authorUrl,
     topicTags,
     primarySubcategory,
     secondarySubcategory,
@@ -80,7 +82,10 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
                     },
                   }}
                 >
-                  By {author}
+                  By{' '}
+                  <Link to={`/${authorUrl}`} sx={{ color: 'inherit' }}>
+                    {author}
+                  </Link>
                 </Box>
               )}
               {lastUpdatedDate && (
