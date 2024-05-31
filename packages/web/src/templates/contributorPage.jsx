@@ -46,27 +46,31 @@ function ContributorPage({ data, pageContext }) {
   return (
     <Layout data={data.page}>
       <Container maxWidth="lg" component="main" sx={{ paddingBottom: { md: '80px', xs: '40px' } }}>
-        <Grid container spacing={2}>
-          <Grid xs={12} md={4} lg={3}>
-            <FluidImgBlock loading="eager" alt={name} image={gatsbyImageData} maxHeight={300} />
-            <Link href={linkedIn} underline="always" target="_blank">
-              <Typography variant="body1" sx={{ textAlign: 'center', mt: 1 }}>
-                Find {name} on LinkedIn
+        {currentpage === 1 && (
+          <Grid container spacing={2}>
+            <Grid xs={12} md={4} lg={3}>
+              <FluidImgBlock loading="eager" alt={name} image={gatsbyImageData} maxHeight={300} />
+              {linkedIn && (
+                <Link href={linkedIn} underline="always" target="_blank">
+                  <Typography variant="body1" sx={{ textAlign: 'center', mt: 1 }}>
+                    Find {name} on LinkedIn
+                  </Typography>
+                </Link>
+              )}
+            </Grid>
+            <Grid xs={12} md={8} lg={9}>
+              <Typography variant="h1">{name}</Typography>
+              <Typography
+                component="p"
+                variant="subtitle1"
+                sx={{ paddingBottom: '1.5em', color: 'text.secondary', fontStyle: 'italic' }}
+              >
+                {role}
               </Typography>
-            </Link>
+              {_rawBio && <BioContent blocks={_rawBio} />}
+            </Grid>
           </Grid>
-          <Grid xs={12} md={8} lg={9}>
-            <Typography variant="h1">{name}</Typography>
-            <Typography
-              component="p"
-              variant="subtitle1"
-              sx={{ paddingBottom: '1.5em', color: 'text.secondary', fontStyle: 'italic' }}
-            >
-              {role}
-            </Typography>
-            <BioContent blocks={_rawBio} />
-          </Grid>
-        </Grid>
+        )}
         {sgpsForPagination.length > 0 && (
           <ContributorGuidesSection
             name={name}
