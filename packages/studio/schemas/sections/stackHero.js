@@ -20,7 +20,7 @@ export default {
   fields: [
     {
       name: 'idTag',
-      title: 'ID',
+      title: 'Hash ID',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
       description:
