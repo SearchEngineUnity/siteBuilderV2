@@ -77,6 +77,7 @@ export default {
       type: 'date',
       title: 'Created Date',
       fieldset: 'general',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'pageTitle',
@@ -112,6 +113,7 @@ export default {
       type: 'reference',
       to: [{ type: 'subcategory' }],
       fieldset: 'general',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'secondarySubcategory',
@@ -151,14 +153,13 @@ export default {
       title: 'Tile Image',
       type: 'tileImage',
       fieldset: 'tile',
-      // validation: (Rule) => Rule.custom((value) => (value?.asset ? true : 'An image is required')),
+      validation: (Rule) => Rule.custom((value) => (value?.asset ? true : 'An image is required')),
     },
     {
       name: 'tileText',
       title: 'Tile Text',
       type: 'text',
       fieldset: 'tile',
-      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'hero',

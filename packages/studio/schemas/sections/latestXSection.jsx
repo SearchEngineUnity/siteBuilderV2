@@ -18,7 +18,7 @@ export default {
   fields: [
     {
       name: 'idTag',
-      title: 'ID',
+      title: 'Hash ID',
       type: 'string',
       description:
         'Add ID to the selected string. Please only use alphanumeric characters and hypen and do not start the string with a number.',
@@ -82,7 +82,7 @@ export default {
     },
     {
       name: 'designSettings',
-      title: 'Design Settings',
+      title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
       fieldset: 'presentation',

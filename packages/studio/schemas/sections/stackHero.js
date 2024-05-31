@@ -20,7 +20,7 @@ export default {
   fields: [
     {
       name: 'idTag',
-      title: 'ID',
+      title: 'Hash ID',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
       description:
@@ -100,7 +100,7 @@ export default {
     },
     {
       name: 'designSettings',
-      title: 'Design Settings',
+      title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
       fieldset: 'presentation',

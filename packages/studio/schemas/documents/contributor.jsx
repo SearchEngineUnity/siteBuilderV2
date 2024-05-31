@@ -23,6 +23,9 @@ export default {
       name: 'photo',
       title: 'Photo',
       type: 'image',
+      validation: (Rule) => [
+        Rule.custom((value) => (value?.asset ? true : 'An image is required')),
+      ],
     },
     {
       name: 'bio',
@@ -43,6 +46,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
