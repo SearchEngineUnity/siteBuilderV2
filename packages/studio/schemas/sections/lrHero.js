@@ -128,7 +128,7 @@ export default {
     },
     {
       name: 'designSettings',
-      title: 'Design Settings',
+      title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
       fieldset: 'presentation',
