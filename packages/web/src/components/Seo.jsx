@@ -13,6 +13,7 @@ export default function Seo({
   canonical,
   heroImage,
   currentpage,
+  role,
 }) {
   const defaults = useSeoDefaults();
   const { socialImage } = defaults;
@@ -36,7 +37,18 @@ export default function Seo({
       break;
   }
 
-  const title = currentpage ? `${pageTitle} - Page ${currentpage}` : pageTitle;
+  let title = pageTitle;
+  if (role) {
+    title = `${pageTitle} - ${role}`;
+  }
+
+  if (currentpage > 1) {
+    title = `${pageTitle} - Page ${currentpage}`;
+  }
+
+  if (role && currentpage > 1) {
+    title = `${pageTitle} - ${role} (Page ${currentpage})`;
+  }
   const ogTitle = fbShareMetaPack?.fbShareTitle || title;
   const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
   const ogImage = fbShareMetaPack?.fbShareImage?.asset.url || heroImage || socialImage;
