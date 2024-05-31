@@ -15,12 +15,12 @@ function ContributorGuidesSection({ spgTilesContent, name, numPages, currentpage
       container
       direction="column"
       spacing={{ xs: 2, sm: 3 }}
-      sx={{ paddingTop: { md: '60px', xs: '30px' } }}
+      sx={{ paddingTop: currentpage === 1 && { md: '60px', xs: '30px' } }}
     >
       <Grid xs={12}>
         <Typography variant="h2">
           Recent Guides Written by {name}
-          {currentpage !== 1 && ` - Page ${currentpage} of ${numPages}`}{' '}
+          {currentpage !== 1 && ` - Page ${currentpage} of ${numPages}`}
         </Typography>
       </Grid>
       <Grid container direction="row" spacing={{ xs: 2, sm: 3 }}>
