@@ -28,8 +28,8 @@ export function DigitalOceanPreviewAction({ published, draft }) {
 
   let slug = doc?.slug?.current;
 
-  if (slug && slug === '/') {
-    slug = '';
+  if (slug && slug !== '/') {
+    slug = `/${slug}`;
   }
 
   return {
@@ -37,7 +37,7 @@ export function DigitalOceanPreviewAction({ published, draft }) {
     icon: RiGatsbyLine,
     label: 'Open Preview',
     onHandle: () => {
-      window.open(`https://dolphin-app-qszku.ondigitalocean.app/${slug}`);
+      window.open(`https://dolphin-app-qszku.ondigitalocean.app${slug}`);
     },
   };
 }
