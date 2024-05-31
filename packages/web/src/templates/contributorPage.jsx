@@ -9,7 +9,7 @@ import FluidImgBlock from '../components/blocks/FluidImgBlock';
 import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import BioContent from '../components/portableText/serializer/FullIndentSerializer';
-import ContributorGuidesSection from '../components/sections/ContributorGuidsSection';
+import ContributorGuidesSection from '../components/sections/ContributorGuidesSection';
 
 export const query = graphql`
   query contributorPageTemplate($slug: String) {
@@ -46,9 +46,14 @@ function ContributorPage({ data, pageContext }) {
   return (
     <Layout data={data.page}>
       <Container maxWidth="lg" component="main" sx={{ paddingBottom: { md: '80px', xs: '40px' } }}>
-        <Grid container spacing={2} alignItems="center">
+        <Grid container spacing={2}>
           <Grid xs={12} md={4} lg={3}>
             <FluidImgBlock loading="eager" alt={name} image={gatsbyImageData} maxHeight={300} />
+            <Link href={linkedIn} underline="always" target="_blank">
+              <Typography variant="body1" sx={{ textAlign: 'center', mt: 1 }}>
+                Find {name} on LinkedIn
+              </Typography>
+            </Link>
           </Grid>
           <Grid xs={12} md={8} lg={9}>
             <Typography variant="h1">{name}</Typography>
@@ -60,9 +65,6 @@ function ContributorPage({ data, pageContext }) {
               {role}
             </Typography>
             <BioContent blocks={_rawBio} />
-            <Link href={linkedIn} underline="always" target="_blank">
-              <Typography variant="body1">Find {name} on LinkedIn</Typography>
-            </Link>
           </Grid>
         </Grid>
         {sgpsForPagination.length > 0 && (
@@ -88,10 +90,20 @@ export function Head({ data, pageContext }) {
       photo: {
         asset: { url },
       },
+      role,
     },
   } = data;
 
   const { currentpage, slug } = pageContext;
 
-  return <Seo type="page" pageTitle={name} currentpage={currentpage} slug={slug} heroImage={url} />;
+  return (
+    <Seo
+      type="page"
+      pageTitle={name}
+      currentpage={currentpage}
+      slug={slug}
+      heroImage={url}
+      role={role}
+    />
+  );
 }
