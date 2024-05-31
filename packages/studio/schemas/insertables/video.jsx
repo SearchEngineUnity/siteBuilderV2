@@ -10,7 +10,7 @@ export default {
   fields: [
     {
       name: 'idTag',
-      title: 'ID',
+      title: 'Hash ID',
       type: 'string',
       description:
         'Add ID to the selected string. Please only use alphanumeric characters and hypen and do not start the string with a number.',
@@ -18,7 +18,7 @@ export default {
     {
       type: 'string',
       name: 'videoId',
-      title: 'Video Id',
+      title: 'Youtube ID',
     },
   ],
   preview: {
