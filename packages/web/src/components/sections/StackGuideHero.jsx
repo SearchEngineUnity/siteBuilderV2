@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import Box from '@mui/material/Box';
+import { Link } from 'gatsby-theme-material-ui';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import ImgBlock from '../blocks/FluidImgBlock';
@@ -46,6 +47,7 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
     subtitle,
     date,
     author,
+    authorUrl,
     feature,
     includeDisclaimer,
     topicTags,
@@ -132,7 +134,10 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
                     },
                   }}
                 >
-                  By {author}
+                  By{' '}
+                  <Link to={`/${authorUrl}`} sx={{ color: 'inherit' }}>
+                    {author}
+                  </Link>
                 </Box>
               )}
               {lastUpdatedDate && (
