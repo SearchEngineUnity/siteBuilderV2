@@ -19,6 +19,7 @@ export default {
       type: 'string',
       name: 'videoId',
       title: 'Youtube ID',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
