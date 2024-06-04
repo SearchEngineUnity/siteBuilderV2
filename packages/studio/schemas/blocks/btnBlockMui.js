@@ -7,8 +7,8 @@ export default {
   icon: BsBootstrap,
   fieldsets: [
     {
-      name: 'presentation',
-      title: 'Presentation Settings',
+      name: 'design',
+      title: 'Design Settings',
       options: {
         collapsible: true,
         collapsed: false,
@@ -59,7 +59,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'flex-start',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -68,7 +68,7 @@ export default {
       title: 'Button Design Option',
       type: 'reference',
       to: [{ type: 'btnDesignMui' }],
-      fieldset: 'presentation',
+      fieldset: 'design',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],

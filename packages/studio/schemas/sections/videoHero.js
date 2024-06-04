@@ -7,8 +7,8 @@ export default {
   icon: RiVideoLine,
   fieldsets: [
     {
-      name: 'presentation',
-      title: 'Presentation Settings',
+      name: 'design',
+      title: 'Design Settings',
       options: {
         collapsible: true,
         collapsed: true,
@@ -56,7 +56,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
     },
     {
@@ -72,7 +72,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'flex-start',
     },
     {
@@ -80,7 +80,7 @@ export default {
       title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
-      fieldset: 'presentation',
+      fieldset: 'design',
     },
   ],
   preview: {

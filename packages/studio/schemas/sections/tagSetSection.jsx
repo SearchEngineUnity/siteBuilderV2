@@ -7,8 +7,8 @@ export default {
   icon: FaTags,
   fieldsets: [
     {
-      name: 'presentation',
-      title: 'Presentation Settings',
+      name: 'design',
+      title: 'Design Settings',
       options: {
         collapsible: true,
         collapsed: true,
@@ -49,7 +49,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -63,7 +63,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -72,7 +72,7 @@ export default {
       title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
-      fieldset: 'presentation',
+      fieldset: 'design',
     },
   ],
   preview: {
