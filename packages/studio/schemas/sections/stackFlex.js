@@ -9,8 +9,8 @@ export default {
   icon: BsViewStacked,
   fieldsets: [
     {
-      name: 'presentation',
-      title: 'Presentation Settings',
+      name: 'design',
+      title: 'Design Settings',
       options: {
         collapsible: true,
         collapsed: true,
@@ -56,7 +56,7 @@ export default {
       name: 'blockWidth',
       type: 'string',
       title: 'Block Width',
-      fieldset: 'presentation',
+      fieldset: 'design',
       description: 'This determines the width of the blocks in this section.',
       options: {
         list: [
@@ -81,7 +81,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -95,7 +95,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -104,7 +104,7 @@ export default {
       title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
-      fieldset: 'presentation',
+      fieldset: 'design',
     },
   ],
   preview: {
