@@ -14,6 +14,7 @@ import {
   mapVideoHeroToProps,
   mapSeoToProps,
 } from '../lib/mapToProps';
+import ThirdPartyScripts from '../components/ThirdPartyScripts';
 
 const type = 'page';
 
@@ -1853,5 +1854,10 @@ function StructuredPage({ data }) {
 export default StructuredPage;
 
 export function Head({ data }) {
-  return <Seo {...mapSeoToProps(data.page)} type={type} />;
+  return (
+    <>
+      <Seo {...mapSeoToProps(data.page)} type={type} />
+      <ThirdPartyScripts />
+    </>
+  );
 }
