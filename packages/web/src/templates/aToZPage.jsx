@@ -8,7 +8,6 @@ import AToZSection from '../components/sections/AToZSection';
 import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import { mapSeoToProps } from '../lib/mapToProps';
-import ThirdPartyScripts from '../components/ThirdPartyScripts';
 
 const type = 'page';
 
@@ -104,10 +103,5 @@ function AToZPage({ data }) {
 export default AToZPage;
 
 export function Head({ data }) {
-  return (
-    <>
-      <Seo {...mapSeoToProps(data.page)} type={type} />
-      <ThirdPartyScripts />
-    </>
-  );
+  return <Seo {...mapSeoToProps(data.page)} type={type} />;
 }

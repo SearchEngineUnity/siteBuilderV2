@@ -47,12 +47,12 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-google-tagmanager',
-    //   options: {
-    //     id: 'GTM-5RQDBMKP',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-5RQDBMKP',
+      },
+    },
     `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-source-airtable`,
