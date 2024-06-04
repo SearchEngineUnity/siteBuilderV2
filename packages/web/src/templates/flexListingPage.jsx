@@ -15,7 +15,6 @@ import LatestWithPaginationSection from '../components/sections/LatestWithPagina
 import LatestXSection from '../components/sections/LatestXSection';
 import TagSetSection from '../components/sections/TagSetSection';
 import PageBreadcrumbs from '../components/navs/breadcrumbs/PageBreadcrumbs';
-import ThirdPartyScripts from '../components/ThirdPartyScripts';
 
 import {
   mapLrHeroToProps,
@@ -2516,10 +2515,5 @@ function FlexListingPage({ data, pageContext }) {
 export default FlexListingPage;
 
 export function Head({ data, pageContext }) {
-  return (
-    <>
-      <Seo {...mapSeoToProps(data.page)} type={type} currentpage={pageContext.currentpage} />
-      <ThirdPartyScripts />
-    </>
-  );
+  return <Seo {...mapSeoToProps(data.page)} type={type} currentpage={pageContext.currentpage} />;
 }
