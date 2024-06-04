@@ -17,6 +17,7 @@ import ToC from '../components/TableOfContent';
 import MoreInSection from '../components/sections/MoreInSection';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
+import ThirdPartyScripts from '../components/ThirdPartyScripts';
 
 const type = 'guide';
 
@@ -269,5 +270,10 @@ function SoloGuidePage({ data, pageContext }) {
 export default SoloGuidePage;
 
 export function Head({ data }) {
-  return <Seo {...mapSeoToProps(data.guide)} type={type} />;
+  return (
+    <>
+      <Seo {...mapSeoToProps(data.guide)} type={type} />
+      <ThirdPartyScripts />
+    </>
+  );
 }
