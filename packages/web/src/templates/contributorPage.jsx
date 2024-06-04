@@ -10,7 +10,6 @@ import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import BioContent from '../components/portableText/serializer/FullIndentSerializer';
 import ContributorGuidesSection from '../components/sections/ContributorGuidesSection';
-import ThirdPartyScripts from '../components/ThirdPartyScripts';
 
 export const query = graphql`
   query contributorPageTemplate($slug: String) {
@@ -102,16 +101,13 @@ export function Head({ data, pageContext }) {
   const { currentpage, slug } = pageContext;
 
   return (
-    <>
-      <Seo
-        type="page"
-        pageTitle={name}
-        currentpage={currentpage}
-        slug={slug}
-        heroImage={url}
-        role={role}
-      />
-      <ThirdPartyScripts />
-    </>
+    <Seo
+      type="page"
+      pageTitle={name}
+      currentpage={currentpage}
+      slug={slug}
+      heroImage={url}
+      role={role}
+    />
   );
 }

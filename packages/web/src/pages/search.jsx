@@ -8,7 +8,6 @@ import CustomSearchBox from '../components/search/customSearchBox';
 import HitsSwitcher from '../components/search/hitsSwitcher';
 import QueryDisplay from '../components/search/queryDisplay';
 import MyLayout from '../containers/layout';
-import ThirdPartyScripts from '../components/ThirdPartyScripts';
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
@@ -64,10 +63,5 @@ function Search() {
 export default Search;
 
 export function Head() {
-  return (
-    <>
-      <Seo {...metaData} />
-      <ThirdPartyScripts />
-    </>
-  );
+  return <Seo {...metaData} />;
 }
