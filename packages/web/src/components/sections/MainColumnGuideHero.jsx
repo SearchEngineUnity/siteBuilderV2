@@ -83,7 +83,13 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
                   }}
                 >
                   By{' '}
-                  <Link to={`/${authorUrl}`} sx={{ color: 'inherit' }}>
+                  <Link
+                    to={`/${authorUrl}`}
+                    sx={{
+                      color: 'inherit',
+                      '@media (max-width: 599px)': { color: 'inherit' },
+                    }}
+                  >
                     {author}
                   </Link>
                 </Box>
