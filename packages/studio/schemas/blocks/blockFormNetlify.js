@@ -7,8 +7,8 @@ export default {
   icon: FaWpforms,
   fieldsets: [
     {
-      name: 'presentation',
-      title: 'Presentation Settings',
+      name: 'design',
+      title: 'Design Settings',
       options: {
         collapsible: true,
         collapsed: true,
@@ -62,7 +62,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -71,7 +71,7 @@ export default {
       title: 'Form Style',
       type: 'reference',
       to: [{ type: 'formStyle' }],
-      fieldset: 'presentation',
+      fieldset: 'design',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],

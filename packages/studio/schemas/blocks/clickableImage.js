@@ -7,8 +7,8 @@ export default {
   icon: BsCardImage,
   fieldsets: [
     {
-      name: 'presentation',
-      title: 'Presentation Settings',
+      name: 'design',
+      title: 'Design Settings',
       options: {
         collapsible: true,
         collapsed: true,
@@ -51,7 +51,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'flex-start',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -59,7 +59,7 @@ export default {
       name: 'borderRadius',
       title: 'Border Radius',
       type: 'string',
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: '0px',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },

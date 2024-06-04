@@ -7,8 +7,8 @@ export default {
   icon: FiGrid,
   fieldsets: [
     {
-      name: 'presentation',
-      title: 'Presentation Settings',
+      name: 'design',
+      title: 'Design Settings',
       options: {
         collapsible: true,
         collapsed: true,
@@ -37,7 +37,7 @@ export default {
       name: 'tileOption',
       title: 'Tile Design Option',
       type: 'string',
-      fieldset: 'presentation',
+      fieldset: 'design',
       options: {
         list: [
           { title: 'Rectangle Image', value: '1' },
@@ -60,7 +60,7 @@ export default {
         'Please enter in the format of value/value/value/value for desktop/tablet/tablet-mobile/mobile. Accepted values are 1, 2, 3, 4, 6, 12.',
       type: 'string',
       initialValue: '3/2/2/1',
-      fieldset: 'presentation',
+      fieldset: 'design',
       validation: (Rule) => [
         Rule.required().error('Field is required'),
         Rule.regex(/^(1|2|3|4|6|12)(\/(1|2|3|4|6|12))(\/(1|2|3|4|6|12))(\/(1|2|3|4|6|12))$/).error(
@@ -78,7 +78,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -92,7 +92,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      fieldset: 'presentation',
+      fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },

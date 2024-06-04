@@ -7,7 +7,7 @@
 //   icon: ImBooks,
 //   fieldsets: [
 //     {
-//       name: 'presentation',
+//       name: 'design',
 //       title: 'Presentation Settings',
 //       options: {
 //         collapsible: true,
@@ -56,7 +56,7 @@
 //       name: 'count',
 //       type: 'number',
 //       title: 'Count',
-//       fieldset: 'presentation',
+//       fieldset: 'design',
 //       description: 'Number of tiles per page',
 //       initialValue: 12,
 //       validation: (Rule) => [
@@ -74,7 +74,7 @@
 //         layout: 'radio',
 //         direction: 'horizontal',
 //       },
-//       fieldset: 'presentation',
+//       fieldset: 'design',
 //       initialValue: 'left',
 //       validation: (Rule) => [Rule.required().error('Field is required')],
 //     },
@@ -88,7 +88,7 @@
 //         layout: 'radio',
 //         direction: 'horizontal',
 //       },
-//       fieldset: 'presentation',
+//       fieldset: 'design',
 //       initialValue: 'left',
 //       validation: (Rule) => [Rule.required().error('Field is required')],
 //     },
@@ -97,7 +97,7 @@
 //       title: 'Design Settings',
 //       type: 'reference',
 //       to: [{ type: 'sectionDesignSet' }],
-//       fieldset: 'presentation',
+//       fieldset: 'design',
 //     },
 //   ],
 //   preview: {
