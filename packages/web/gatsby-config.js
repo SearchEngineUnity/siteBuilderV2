@@ -34,26 +34,20 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-omni-font-loader`,
+      resolve: `gatsby-theme-material-ui`,
       options: {
-        mode: 'async',
-        enableListener: true,
-        preconnect: [`https://fonts.gstatic.com`],
-        web: [
-          {
-            name: `Figtree`,
-            file: `https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap`,
+        webFontsConfig: {
+          fonts: {
+            google2: [
+              {
+                family: `Figtree`,
+                axes: 'ital,wght@0,300..900;1,300..900',
+              },
+            ],
           },
-        ],
+        },
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'GTM-5RQDBMKP',
-      },
-    },
-    `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-source-airtable`,
       options: {
@@ -140,6 +134,12 @@ module.exports = {
             host: null,
           },
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-5RQDBMKP',
       },
     },
   ],
