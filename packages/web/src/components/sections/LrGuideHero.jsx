@@ -27,7 +27,7 @@ const propsMapping = (type, props) => {
           }
         : null;
     case 'video':
-      return { ...props.video, loading: 'eager' };
+      return { ...props.video };
     default:
       return props;
   }
