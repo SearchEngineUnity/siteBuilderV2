@@ -1,34 +1,19 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
-function Video({ id, videoId, stackHero, loading }) {
-  const ptStackHeroDesktop = `${70 * 0.5625}%`;
-  const ptStackHeroTablet = `${80 * 0.5625}%`;
-
+function Video({ id, videoId, stackHero }) {
   return (
     <Box
       id={id}
       sx={{
-        pt: stackHero ? { xs: '56.25%', md: ptStackHeroTablet, lg: ptStackHeroDesktop } : '56.25%',
-        position: 'relative',
-        width: stackHero ? { xs: '100%', md: '80%', lg: '70%' } : '100%',
-        margin: 'auto',
+        width: stackHero ? { xs: '100%', md: '70%', lg: '60%' } : '100%',
+        maxWidth: '640px',
+        margin: stackHero && 'auto',
       }}
     >
-      <Box
-        component="iframe"
-        sx={{
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          border: 'none',
-        }}
-        title="Youtube Embed"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        loading={loading || 'lazy'}
-        width="100%"
-        height="100%"
-      />
+      <LiteYouTubeEmbed id={videoId} title="Youtube Embed" poster="sddefault" webp />
     </Box>
   );
 }

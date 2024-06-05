@@ -32,7 +32,7 @@ const propsMapping = (type, props) => {
         loading: 'eager',
       };
     case 'video':
-      return { ...mapVideoToProps(props.video), stackHero: 'true', loading: 'eager' };
+      return { ...mapVideoToProps(props.video), stackHero: 'true' };
     case 'productGrid':
       return { ...mapProductGridToProps(props.productGrid) };
     default:
