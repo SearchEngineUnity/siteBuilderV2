@@ -5,7 +5,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || `development`}`,
 });
 
-const adapter = require('gatsby-adapter-netlify');
+const adapter = require('gatsby-adapter-netlify').default;
 
 const isProd = process.env.NODE_ENV === 'production';
 const previewEnabled = (process.env.GATSBY_IS_PREVIEW || 'false').toLowerCase() === 'true';
