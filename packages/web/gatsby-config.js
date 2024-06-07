@@ -5,6 +5,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || `development`}`,
 });
 
+const adapter = require('gatsby-adapter-netlify');
+
 const isProd = process.env.NODE_ENV === 'production';
 const previewEnabled = (process.env.GATSBY_IS_PREVIEW || 'false').toLowerCase() === 'true';
 
@@ -18,6 +20,10 @@ const isNetlifyProduction = NETLIFY_ENV === 'production';
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+    imageCDN: true,
+  }),
   trailingSlash: `never`,
   siteMetadata: {
     title: `web`,
@@ -108,7 +114,6 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
-    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
