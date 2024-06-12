@@ -29,6 +29,7 @@ module.exports = {
     title: `web`,
     siteUrl,
   },
+  partytownProxiedURLs: [`https://s.skimresources.com/js/89665X1543008.skimlinks.js`],
   plugins: [
     {
       resolve: `gatsby-plugin-algolia`,
