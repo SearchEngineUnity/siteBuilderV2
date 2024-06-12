@@ -1,4 +1,5 @@
 import React from 'react';
+import { Script } from 'gatsby';
 import { useSeoDefaults } from '../hooks/useSeoDefaults';
 
 export default function Seo({
@@ -80,6 +81,11 @@ export default function Seo({
       ) : (
         <link rel="canonical" href={metaUrl} />
       )}
+      <Script
+        type="text/javascript"
+        src="https://s.skimresources.com/js/89665X1543008.skimlinks.js"
+        strategy="off-main-thread"
+      />
     </>
   );
 }
