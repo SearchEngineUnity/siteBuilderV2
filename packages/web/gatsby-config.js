@@ -147,11 +147,5 @@ module.exports = {
         id: 'GTM-5RQDBMKP',
       },
     },
-    {
-      resolve: `gatsby-plugin-google-adsense`,
-      options: {
-        publisherId: `ca-pub-6122705063625930`,
-      },
-    },
   ],
 };
