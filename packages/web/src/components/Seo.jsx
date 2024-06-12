@@ -84,7 +84,7 @@ export default function Seo({
       <Script
         type="text/javascript"
         src="https://s.skimresources.com/js/89665X1543008.skimlinks.js"
-        strategy="off-main-thread"
+        strategy="post-hydrate"
       />
     </>
   );
