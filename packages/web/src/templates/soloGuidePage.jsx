@@ -28,6 +28,7 @@ export const query = graphql`
       }
       includeDisclaimer
       displayDate
+      createdDate
       author {
         name
         slug {
@@ -79,6 +80,11 @@ export const query = graphql`
         hashID
       }
       metaDescription
+      tileImage {
+        asset {
+          url
+        }
+      }
       hero {
         h1
         feature
@@ -269,5 +275,16 @@ function SoloGuidePage({ data, pageContext }) {
 export default SoloGuidePage;
 
 export function Head({ data }) {
-  return <Seo {...mapSeoToProps(data.guide)} type={type} />;
+  return (
+    <Seo
+      {...mapSeoToProps(data.guide)}
+      type={type}
+      datePublished={data.guide.createdDate}
+      dateModified={data.guide.displayDate}
+      author={data.guide.author}
+      tileImageUrl={data.guide.tileImage.asset.url}
+      hasVideo={data?.guide?.hero?.video?.videoId && data?.guide?.hero?.feature === 'video'}
+      videoId={data?.guide?.hero?.video?.videoId}
+    />
+  );
 }
