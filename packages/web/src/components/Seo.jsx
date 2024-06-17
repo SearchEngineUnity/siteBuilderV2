@@ -15,28 +15,19 @@ export default function Seo({
   heroImage,
   currentpage,
   role,
+  author,
+  dateModified,
+  datePublished,
+  tileImageUrl,
+  hasVideo,
+  videoId,
 }) {
   const defaults = useSeoDefaults();
   const { socialImage } = defaults;
+  let jsonLD;
   let { metaUrl } = defaults;
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`.trim();
-
-  switch (type) {
-    case 'page':
-      metaUrl =
-        slug === '/'
-          ? `${metaUrl}/`
-          : `${metaUrl}/${slug}${currentpage > 1 ? `/${currentpage}` : ''}`;
-      ogType = 'website';
-      break;
-    case 'guide':
-      metaUrl = `${metaUrl}/${slug}`;
-      ogType = 'article';
-      break;
-    default:
-      break;
-  }
 
   let title = pageTitle;
   if (role) {
@@ -50,6 +41,67 @@ export default function Seo({
   if (role && currentpage > 1) {
     title = `${pageTitle} - ${role} (Page ${currentpage})`;
   }
+
+  switch (type) {
+    case 'page':
+      metaUrl =
+        slug === '/'
+          ? `${metaUrl}/`
+          : `${metaUrl}/${slug}${currentpage > 1 ? `/${currentpage}` : ''}`;
+      ogType = 'website';
+      break;
+    case 'guide':
+      metaUrl = `${metaUrl}/${slug}`;
+      ogType = 'article';
+      jsonLD = {
+        '@context': 'https://schema.org',
+        '@type': 'guide',
+        inLanguage: 'en-US',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${metaUrl}/${slug}`,
+        },
+        headline: title,
+        description: metaDescription,
+        datePublished,
+        dateModified,
+        author: [
+          {
+            '@type': 'Person',
+            name: author.name,
+            url: author.slug.current,
+          },
+        ],
+        image: {
+          '@type': 'ImageObject',
+          url: tileImageUrl,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Tech Life Unity',
+          url: 'https://techlifeunity.com/',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://cdn.sanity.io/images/ki8bqxrw/production/6ae56819897c5e4323a7185ee8fbb3dddeaf3bd5-177x33.svg',
+          },
+          brand: 'Tech Life Unity',
+        },
+      };
+      break;
+    default:
+      break;
+  }
+
+  if (hasVideo) {
+    jsonLD = {
+      ...jsonLD,
+      video: {
+        '@type': 'VideoObject',
+        contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
+      },
+    };
+  }
+
   const ogTitle = fbShareMetaPack?.fbShareTitle || title;
   const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
   const ogImage = fbShareMetaPack?.fbShareImage?.asset.url || heroImage || socialImage;
@@ -86,6 +138,7 @@ export default function Seo({
         src="https://s.skimresources.com/js/89665X1543008.skimlinks.js"
         strategy="off-main-thread"
       />
+      {type === 'guide' && <script type="application/ld+json">{JSON.stringify(jsonLD)}</script>}
     </>
   );
 }

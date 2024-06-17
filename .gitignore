@@ -43,3 +43,5 @@ build/Release
 
 # Mac files
 .DS_Store
+# Local Netlify folder
+.netlify
