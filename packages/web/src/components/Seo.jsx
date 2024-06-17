@@ -55,7 +55,7 @@ export default function Seo({
       ogType = 'article';
       jsonLD = {
         '@context': 'https://schema.org',
-        '@type': 'guide',
+        '@type': 'Article',
         inLanguage: 'en-US',
         mainEntityOfPage: {
           '@type': 'WebPage',
