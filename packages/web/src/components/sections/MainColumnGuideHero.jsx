@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
+import moment from 'moment-timezone';
 import Subtitle from '../portableText/serializer/H1SubtitleSerializer';
 import HeroTags from './HeroTags';
 import Breadcrumbs from '../navs/breadcrumbs/PageBreadcrumbs';
@@ -22,7 +23,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
   },
   ref,
 ) {
-  const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
+  const lastUpdatedDate = date ? new Date(moment(date).tz('America/New_York')) : null;
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   return (
