@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import { Link } from 'gatsby-theme-material-ui';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import moment from 'moment-timezone';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Video from '../portableText/insertable/Video';
 import ProductGrid from '../portableText/insertable/productGrid/ProductGrid';
@@ -57,7 +58,7 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
   },
   ref,
 ) {
-  const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
+  const lastUpdatedDate = date ? new Date(moment(date).tz('America/New_York')) : null;
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const disclaimerText = useDisclaimerText();
 
