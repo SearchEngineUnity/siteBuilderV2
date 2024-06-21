@@ -8,7 +8,7 @@ export default {
       title: 'Social',
       type: 'string',
       options: {
-        list: ['linkedin', 'twitter', 'instagram', 'facebook', 'pinterest', 'tumblr', 'youtube'],
+        list: ['linkedin', 'x', 'instagram', 'pinterest', 'tumblr', 'facebook', 'youtube'],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
