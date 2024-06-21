@@ -27,6 +27,7 @@ export { default as navSet } from './navSet';
 export { default as paddingSet } from './paddingSet';
 export { default as smartOrderedListItem } from './smartOrderedListItem';
 export { default as smartUnorderedListItem } from './smartUnorderedListItem';
+export { default as socialAccount } from './socialAccount';
 export { default as stepItem } from './stepItem';
 export { default as tileImage } from './tileImage';
 export { default as tileInfo } from './tileInfo';

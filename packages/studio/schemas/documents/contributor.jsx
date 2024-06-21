@@ -33,6 +33,11 @@ export default {
       type: 'minPT',
     },
     {
+      name: 'shortBio',
+      title: 'Short Bio',
+      type: 'text',
+    },
+    {
       name: 'linkedIn',
       title: 'LinkedIn URL',
       type: 'url',
@@ -41,6 +46,12 @@ export default {
           allowRelative: false,
           scheme: ['https'],
         }),
+    },
+    {
+      name: 'socials',
+      title: 'Socials',
+      type: 'array',
+      of: [{ type: 'socialAccount' }],
     },
     {
       name: 'slug',
