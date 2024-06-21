@@ -129,7 +129,7 @@ function TLUFooter() {
                     role="menuitem"
                   >
                     <StaticImage
-                      src="./assets/xlogo.png"
+                      src="./assets/x.png"
                       alt="x"
                       width={48}
                       height={48}
