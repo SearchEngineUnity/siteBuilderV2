@@ -4,12 +4,41 @@ import { graphql } from 'gatsby';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import { Link } from '@mui/material';
 import FluidImgBlock from '../components/blocks/FluidImgBlock';
 import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import BioContent from '../components/portableText/serializer/FullIndentSerializer';
 import ContributorGuidesSection from '../components/sections/ContributorGuidesSection';
+import youtube from '../components/navs/footerElements/assets/youtube.png';
+import linkedin from '../components/navs/footerElements/assets/linkedin.png';
+import x from '../components/navs/footerElements/assets/x.png';
+import instagram from '../components/navs/footerElements/assets/instagram.png';
+import facebook from '../components/navs/footerElements/assets/facebook.png';
+import pinterest from '../components/navs/footerElements/assets/pinterest.png';
+
+// Order: LinkedIn, X, IG, Pinterest, Tumblr, FB, YouTube
+
+const imageSelector = {
+  youtube,
+  linkedin,
+  x,
+  instagram,
+  facebook,
+  pinterest,
+};
+
+const printAccounts = (accounts) => {
+  const orderArr = ['linkedin', 'x', 'instagram', 'pinterest', 'facebook', 'youtube'];
+  return orderArr.map((item) => {
+    return (
+      accounts[item] && (
+        <Grid component="a" href={accounts[item]} target="_blank" rel="noreferrer">
+          <img src={imageSelector[item]} alt={item} width={32} height={32} loading="eager" />
+        </Grid>
+      )
+    );
+  });
+};
 
 export const query = graphql`
   query contributorPageTemplate($slug: String) {
@@ -23,7 +52,10 @@ export const query = graphql`
       }
       role
       _rawBio
-      linkedIn
+      socials {
+        social
+        link
+      }
     }
   }
 `;
@@ -37,11 +69,17 @@ function ContributorPage({ data, pageContext }) {
       },
       role,
       _rawBio,
-      linkedIn,
+      socials,
     },
   } = data;
 
   const { slug, sgpsForPagination, numPages, currentpage } = pageContext;
+
+  const accounts = {};
+
+  for (let i = 0; i < socials.length; i++) {
+    accounts[socials[i].social] = socials[i].link;
+  }
 
   return (
     <Layout data={data.page}>
@@ -49,14 +87,16 @@ function ContributorPage({ data, pageContext }) {
         {currentpage === 1 && (
           <Grid container spacing={2}>
             <Grid xs={12} md={4} lg={3}>
-              <FluidImgBlock loading="eager" alt={name} image={gatsbyImageData} maxHeight={300} />
-              {linkedIn && (
-                <Link href={linkedIn} underline="always" target="_blank">
-                  <Typography variant="body1" sx={{ textAlign: 'center', mt: 1 }}>
-                    Find {name} on LinkedIn
-                  </Typography>
-                </Link>
-              )}
+              <FluidImgBlock
+                loading="eager"
+                alt={name}
+                image={gatsbyImageData}
+                maxWidth={300}
+                maxHeight={300}
+              />
+              <Grid container spacing={2} sx={{ margin: '4px auto 0px', maxWidth: '300px' }}>
+                {printAccounts(accounts)}
+              </Grid>
             </Grid>
             <Grid xs={12} md={8} lg={9}>
               <Typography variant="h1">{name}</Typography>
