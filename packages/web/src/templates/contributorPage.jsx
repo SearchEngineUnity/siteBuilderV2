@@ -56,6 +56,9 @@ export const query = graphql`
         social
         link
       }
+      shortBio
+      _createdAt
+      _updatedAt
     }
   }
 `;
@@ -148,6 +151,8 @@ export function Head({ data, pageContext }) {
       slug={slug}
       heroImage={url}
       role={role}
+      isProfilePage
+      profilePage={data.page}
     />
   );
 }

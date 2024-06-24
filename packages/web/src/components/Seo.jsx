@@ -28,10 +28,13 @@ export default function Seo({
   topics,
   primarySubcategory,
   subjectListingPages,
+  isProfilePage,
+  profilePage,
 }) {
   const defaults = useSeoDefaults();
   const { socialImage } = defaults;
   let articleJSON;
+  let profilePageJSON;
   let { metaUrl } = defaults;
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`.trim();
@@ -166,6 +169,24 @@ export default function Seo({
     articleJSON.mainEntityOfPage.primaryImageOfPage = heroImage;
   }
 
+  if (isProfilePage) {
+    profilePageJSON = {
+      '@context': 'https://schema.org',
+      '@type': 'ProfilePage',
+      dateCreated: moment(profilePage._createdAt).tz('America/New_York').format(),
+      dateModified: moment(profilePage._updatedAt).tz('America/New_York').format(),
+      mainEntity: {
+        '@type': 'Person',
+        name: profilePage.name,
+        description: profilePage.shortBio,
+        image: profilePage.photo.asset.url,
+        sameAs: profilePage.socials.map((x) => x.link),
+        worksFor: {
+          '@id': 'https://techlifeunity.com/#organization',
+        },
+      },
+    };
+  }
   const ogTitle = fbShareMetaPack?.fbShareTitle || title;
   const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
   const ogImage = fbShareMetaPack?.fbShareImage?.asset.url || heroImage || socialImage;
@@ -227,6 +248,9 @@ export default function Seo({
       <script type="application/ld+json">{JSON.stringify(organizationJSON)}</script>
       {type === 'guide' && (
         <script type="application/ld+json">{JSON.stringify(articleJSON)}</script>
+      )}
+      {isProfilePage && (
+        <script type="application/ld+json">{JSON.stringify(profilePageJSON)}</script>
       )}
     </>
   );
