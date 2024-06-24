@@ -31,9 +31,35 @@ export const query = graphql`
       createdDate
       author {
         name
+        role
+        photo {
+          asset {
+            url
+          }
+        }
         slug {
           current
         }
+        socials {
+          link
+        }
+        shortBio
+      }
+      editor {
+        name
+        role
+        photo {
+          asset {
+            url
+          }
+        }
+        socials {
+          link
+        }
+        slug {
+          current
+        }
+        shortBio
       }
       primarySubcategory {
         _type
@@ -223,7 +249,7 @@ function SoloGuidePage({ data, pageContext }) {
   }
 
   return (
-    <Layout data={data.guide} type={type} heroImage={data?.guide?.hero?.image?.asset?.url}>
+    <Layout data={data.guide} type={type}>
       <Box component="main">
         <Hero
           {...mapGuideHeroToProps(data.guide)}
@@ -274,17 +300,24 @@ function SoloGuidePage({ data, pageContext }) {
 
 export default SoloGuidePage;
 
-export function Head({ data }) {
+export function Head({ data, pageContext }) {
   return (
     <Seo
       {...mapSeoToProps(data.guide)}
       type={type}
+      heroImage={data?.guide?.hero?.image?.asset?.url}
       datePublished={data.guide.createdDate}
       dateModified={data.guide.displayDate}
       author={data.guide.author}
+      editor={data.guide.editor}
+      h1={data.guide.hero.h1}
       tileImageUrl={data.guide.tileImage.asset.url}
       hasVideo={data?.guide?.hero?.video?.videoId && data?.guide?.hero?.feature === 'video'}
       videoId={data?.guide?.hero?.video?.videoId}
+      hasHeroImage={data?.guide?.hero?.image?.asset?.url && data?.guide?.hero?.feature === 'image'}
+      topics={data.guide?.topicTags}
+      primarySubcategory={data.guide?.primarySubcategory}
+      subjectListingPages={pageContext.subjectListingPages}
     />
   );
 }
