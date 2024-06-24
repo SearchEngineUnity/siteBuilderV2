@@ -1,5 +1,6 @@
 import React from 'react';
 import { Script } from 'gatsby';
+import moment from 'moment-timezone';
 import { useSeoDefaults } from '../hooks/useSeoDefaults';
 
 export default function Seo({
@@ -14,17 +15,23 @@ export default function Seo({
   canonical,
   heroImage,
   currentpage,
+  h1,
   role,
   author,
+  editor,
   dateModified,
   datePublished,
   tileImageUrl,
   hasVideo,
   videoId,
+  hasHeroImage,
+  topics,
+  primarySubcategory,
+  subjectListingPages,
 }) {
   const defaults = useSeoDefaults();
   const { socialImage } = defaults;
-  let jsonLD;
+  let articleJSON;
   let { metaUrl } = defaults;
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`.trim();
@@ -53,38 +60,90 @@ export default function Seo({
     case 'guide':
       metaUrl = `${metaUrl}/${slug}`;
       ogType = 'article';
-      jsonLD = {
+      articleJSON = {
         '@context': 'https://schema.org',
         '@type': 'Article',
         inLanguage: 'en-US',
-        mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': `${metaUrl}/${slug}`,
-        },
         headline: title,
         description: metaDescription,
-        datePublished,
-        dateModified,
-        author: [
-          {
-            '@type': 'Person',
-            name: author.name,
-            url: author.slug.current,
-          },
-        ],
+        about: topics.map((x) => x.name),
+        articleSection: primarySubcategory.name,
         image: {
           '@type': 'ImageObject',
           url: tileImageUrl,
         },
+        author: {
+          '@type': 'Person',
+          name: author.name,
+          // description, // need more work
+          image: author.photo.asset.url,
+          jobTitle: author.role,
+          url: `https://techlifeunity.com/${author.slug.current}`,
+          sameAs: author.socials.map((x) => x.links),
+          description: author.shortBio,
+        },
+        editor: {
+          '@type': 'Person',
+          name: editor.name,
+          // description, // need more work
+          image: editor.photo.asset.url,
+          jobTitle: editor.role,
+          url: `https://techlifeunity.com/${editor.slug.current}`,
+          sameAs: editor.socials.map((x) => x.links),
+          description: editor.shortBio,
+        },
+
         publisher: {
-          '@type': 'Organization',
-          name: 'Tech Life Unity',
-          url: 'https://techlifeunity.com/',
-          logo: {
-            '@type': 'ImageObject',
-            url: 'https://cdn.sanity.io/images/ki8bqxrw/production/6ae56819897c5e4323a7185ee8fbb3dddeaf3bd5-177x33.svg',
+          '@id': 'https://techlifeunity.com/#organization',
+        },
+        dateModified: moment(dateModified).tz('America/New_York').format(),
+        datePublished: moment(datePublished).tz('America/New_York').format(),
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          breadcrumb: {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                // category
+                '@type': 'ListItem',
+                position: 1,
+                name: primarySubcategory.category.name,
+                item: `https://techlifeunity.com/${
+                  subjectListingPages.filter(
+                    (x) => x?.node?.subject?.name === primarySubcategory?.category?.name,
+                  )[0]?.node?.slug?.current
+                }`,
+              },
+              {
+                // primary subcategory
+                '@type': 'ListItem',
+                position: 2,
+                name: primarySubcategory.name,
+                item: `https://techlifeunity.com/${
+                  subjectListingPages.filter(
+                    (x) => x?.node?.subject?.name === primarySubcategory?.name,
+                  )[0]?.node?.slug?.current
+                }`,
+              },
+              {
+                // page
+                '@type': 'ListItem',
+                position: 3,
+                name: h1,
+              },
+            ],
           },
-          brand: 'Tech Life Unity',
+          reviewedBy: {
+            '@type': 'Person',
+            name: editor.name,
+            // description, // need more work
+            image: editor.photo.asset.url,
+            jobTitle: editor.role,
+            url: `https://techlifeunity.com/${editor.slug.current}`,
+            sameAs: editor.socials.map((x) => x.links),
+            description: editor.shortBio,
+          },
+          lastReviewed: moment(dateModified).tz('America/New_York').format(),
         },
       };
       break;
@@ -92,14 +151,19 @@ export default function Seo({
       break;
   }
 
-  if (hasVideo) {
-    jsonLD = {
-      ...jsonLD,
-      video: {
-        '@type': 'VideoObject',
-        contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
-      },
-    };
+  // if (hasVideo) {
+  //   articleJSON.video = {
+  //     '@type': 'VideoObject',
+  //     contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
+  //     // uploadDate,
+  //     // name,
+  //     // thumbnailUrl,
+  //     // description,
+  //   };
+  // }
+
+  if (hasHeroImage) {
+    articleJSON.mainEntityOfPage.primaryImageOfPage = heroImage;
   }
 
   const ogTitle = fbShareMetaPack?.fbShareTitle || title;
@@ -111,6 +175,28 @@ export default function Seo({
     twitterShareMetaPack?.twitterShareImage?.asset?.url || heroImage || socialImage;
   const twitterDescription =
     twitterShareMetaPack?.twitterShareDescription || ogDescription || metaDescription;
+
+  const organizationJSON = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://techlifeunity.com/#organization',
+    name: 'Tech Life Unity',
+    alternateName: ['TLU', 'Techboomers', 'Techlifeunity'],
+    legalName: 'Techboomers Media Inc.',
+    url: 'https://techlifeunity.com/',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://cdn.sanity.io/images/ki8bqxrw/production/6ae56819897c5e4323a7185ee8fbb3dddeaf3bd5-177x33.svg',
+    },
+    sameAs: [
+      'https://youtube.com/@techlifeunity',
+      'https://x.com/techlifeunity',
+      'https://www.facebook.com/Techboomers',
+      'https://www.linkedin.com/company/tech-life-unity/',
+      'https://www.linkedin.com/company/techboomers-com/',
+      'https://en.wikipedia.org/wiki/Techboomers',
+    ],
+  };
 
   return (
     <>
@@ -138,7 +224,10 @@ export default function Seo({
         src="https://s.skimresources.com/js/89665X1543008.skimlinks.js"
         strategy="off-main-thread"
       />
-      {type === 'guide' && <script type="application/ld+json">{JSON.stringify(jsonLD)}</script>}
+      <script type="application/ld+json">{JSON.stringify(organizationJSON)}</script>
+      {type === 'guide' && (
+        <script type="application/ld+json">{JSON.stringify(articleJSON)}</script>
+      )}
     </>
   );
 }
