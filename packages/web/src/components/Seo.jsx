@@ -1,4 +1,5 @@
 import React from 'react';
+// import React, { useState, useEffect } from 'react';
 import { Script } from 'gatsby';
 import moment from 'moment-timezone';
 import { useSeoDefaults } from '../hooks/useSeoDefaults';
@@ -31,10 +32,40 @@ export default function Seo({
   isProfilePage,
   profilePage,
 }) {
+  // const [videoData, setVideoData] = useState();
   const defaults = useSeoDefaults();
-  const { socialImage } = defaults;
   let articleJSON;
   let profilePageJSON;
+
+  // useEffect(() => {
+  //   if (hasVideo) {
+  //     const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.YOUTUBE_API_KEY}`;
+  //     const fetchVideoData = async () => {
+  //       const response = await fetch(apiUrl);
+  //       const jsonData = await response.json();
+  //       setVideoData(jsonData);
+  //     };
+  //     fetchVideoData();
+  //     fetch(apiUrl)
+  //       .then((response) => response.json())
+  //       .then((data) => setVideoData(data));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   if (hasVideo && videoData) {
+  //     articleJSON.video = {
+  //       '@type': 'VideoObject',
+  //       contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
+  //       uploadDate: videoData.items[0].snippet.publishedAt,
+  //       name: videoData.items[0].snippet.title,
+  //       thumbnailUrl: videoData.items[0].snippet.thumbnails.default.url,
+  //       description: videoData.items[0].snippet.description,
+  //     };
+  //   }
+  // }, [videoData]);
+
+  const { socialImage } = defaults;
   let { metaUrl } = defaults;
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`.trim();
@@ -81,7 +112,7 @@ export default function Seo({
           // description, // need more work
           image: author.photo.asset.url,
           jobTitle: author.role,
-          url: `https://techlifeunity.com/${author.slug.current}`,
+          url: `https://www.techlifeunity.com/${author.slug.current}`,
           sameAs: author.socials.map((x) => x.links),
           description: author.shortBio,
         },
@@ -91,13 +122,13 @@ export default function Seo({
           // description, // need more work
           image: editor.photo.asset.url,
           jobTitle: editor.role,
-          url: `https://techlifeunity.com/${editor.slug.current}`,
+          url: `https://wwww.techlifeunity.com/${editor.slug.current}`,
           sameAs: editor.socials.map((x) => x.links),
           description: editor.shortBio,
         },
 
         publisher: {
-          '@id': 'https://techlifeunity.com/#organization',
+          '@id': 'https://www.techlifeunity.com/#organization',
         },
         dateModified: moment(dateModified).tz('America/New_York').format(),
         datePublished: moment(datePublished).tz('America/New_York').format(),
@@ -111,7 +142,7 @@ export default function Seo({
                 '@type': 'ListItem',
                 position: 1,
                 name: primarySubcategory.category.name,
-                item: `https://techlifeunity.com/${
+                item: `https://www.techlifeunity.com/${
                   subjectListingPages.filter(
                     (x) => x?.node?.subject?.name === primarySubcategory?.category?.name,
                   )[0]?.node?.slug?.current
@@ -122,7 +153,7 @@ export default function Seo({
                 '@type': 'ListItem',
                 position: 2,
                 name: primarySubcategory.name,
-                item: `https://techlifeunity.com/${
+                item: `https://www.techlifeunity.com/${
                   subjectListingPages.filter(
                     (x) => x?.node?.subject?.name === primarySubcategory?.name,
                   )[0]?.node?.slug?.current
@@ -142,7 +173,7 @@ export default function Seo({
             // description, // need more work
             image: editor.photo.asset.url,
             jobTitle: editor.role,
-            url: `https://techlifeunity.com/${editor.slug.current}`,
+            url: `https://www.techlifeunity.com/${editor.slug.current}`,
             sameAs: editor.socials.map((x) => x.links),
             description: editor.shortBio,
           },
@@ -153,17 +184,6 @@ export default function Seo({
     default:
       break;
   }
-
-  // if (hasVideo) {
-  //   articleJSON.video = {
-  //     '@type': 'VideoObject',
-  //     contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
-  //     // uploadDate,
-  //     // name,
-  //     // thumbnailUrl,
-  //     // description,
-  //   };
-  // }
 
   if (hasHeroImage) {
     articleJSON.mainEntityOfPage.primaryImageOfPage = heroImage;
@@ -182,11 +202,12 @@ export default function Seo({
         image: profilePage.photo.asset.url,
         sameAs: profilePage.socials.map((x) => x.link),
         worksFor: {
-          '@id': 'https://techlifeunity.com/#organization',
+          '@id': 'https://www.techlifeunity.com/#organization',
         },
       },
     };
   }
+
   const ogTitle = fbShareMetaPack?.fbShareTitle || title;
   const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
   const ogImage = fbShareMetaPack?.fbShareImage?.asset.url || heroImage || socialImage;
@@ -200,11 +221,11 @@ export default function Seo({
   const organizationJSON = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://techlifeunity.com/#organization',
+    '@id': 'https://www.techlifeunity.com/#organization',
     name: 'Tech Life Unity',
     alternateName: ['TLU', 'Techboomers', 'Techlifeunity'],
     legalName: 'Techboomers Media Inc.',
-    url: 'https://techlifeunity.com/',
+    url: 'https://www.techlifeunity.com/',
     logo: {
       '@type': 'ImageObject',
       url: 'https://cdn.sanity.io/images/ki8bqxrw/production/6ae56819897c5e4323a7185ee8fbb3dddeaf3bd5-177x33.svg',
