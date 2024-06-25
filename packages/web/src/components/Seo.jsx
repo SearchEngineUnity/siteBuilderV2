@@ -235,7 +235,6 @@ export default function Seo({
       'https://x.com/techlifeunity',
       'https://www.facebook.com/Techboomers',
       'https://www.linkedin.com/company/tech-life-unity/',
-      'https://www.linkedin.com/company/techboomers-com/',
       'https://en.wikipedia.org/wiki/Techboomers',
     ],
   };
