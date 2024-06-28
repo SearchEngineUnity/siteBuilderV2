@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { Link } from 'gatsby-theme-material-ui';
+import MuiLink from '@mui/material/Link';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { styled } from '@mui/material/styles';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -18,6 +19,21 @@ const MenuHeading = styled(Box)({
 });
 
 const MenuLink = styled(Link)({
+  textDecoration: 'none',
+  fontWeight: 400,
+  fontSize: '18px',
+  '@media (max-width: 599px)': {
+    fontSize: '16px',
+    color: '#1B1B1B',
+  },
+  lineHeight: 1.3,
+  color: 'inherit',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+});
+
+const MenuMuiLink = styled(MuiLink)({
   textDecoration: 'none',
   fontWeight: 400,
   fontSize: '18px',
@@ -191,14 +207,22 @@ function TLUFooter() {
                   </MenuLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="/terms" role="menuitem">
+                  <MenuMuiLink
+                    target="_blank"
+                    href="https://app.enzuzo.com/policies/tos/df1f23ca-193b-11ef-a4e0-ffd2dd7ab335"
+                    role="menuitem"
+                  >
                     Terms of Service
-                  </MenuLink>
+                  </MenuMuiLink>
                 </li>
                 <li role="none">
-                  <MenuLink to="/cookie-policy" role="menuitem">
+                  <MenuMuiLink
+                    target="_blank"
+                    href="https://app.enzuzo.com/policies/cookies/df1f23ca-193b-11ef-a4e0-ffd2dd7ab335"
+                    role="menuitem"
+                  >
                     Cookie Policy
-                  </MenuLink>
+                  </MenuMuiLink>
                 </li>
               </Box>
             </Grid>
@@ -222,9 +246,9 @@ function TLUFooter() {
           style={{ paddingLeft: '16px', paddingRight: '16px' }}
         >
           <p>
-            <Link
+            <MuiLink
               role="menuitem"
-              to="/privacy-policy"
+              href="https://app.enzuzo.com/policies/privacy/df1f23ca-193b-11ef-a4e0-ffd2dd7ab335"
               target="_blank"
               rel="noopener"
               sx={{
@@ -238,7 +262,7 @@ function TLUFooter() {
               }}
             >
               Privacy Policy
-            </Link>
+            </MuiLink>
             &nbsp; - Copyright {new Date().getFullYear()} Tech Life Unity
           </p>
         </Container>
