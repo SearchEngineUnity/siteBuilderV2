@@ -192,7 +192,12 @@ function TLUFooter() {
                 </li>
                 <li role="none">
                   <MenuLink to="/terms" role="menuitem">
-                    Terms of Use
+                    Terms of Service
+                  </MenuLink>
+                </li>
+                <li role="none">
+                  <MenuLink to="/cookie-policy" role="menuitem">
+                    Cookie Policy
                   </MenuLink>
                 </li>
               </Box>
