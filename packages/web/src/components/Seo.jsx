@@ -113,7 +113,7 @@ export default function Seo({
           image: author.photo.asset.url,
           jobTitle: author.role,
           url: `https://www.techlifeunity.com/${author.slug.current}`,
-          sameAs: author.socials.map((x) => x.links),
+          sameAs: author.socials.map((x) => x.link),
           description: author.shortBio,
         },
         editor: {
@@ -123,7 +123,7 @@ export default function Seo({
           image: editor.photo.asset.url,
           jobTitle: editor.role,
           url: `https://wwww.techlifeunity.com/${editor.slug.current}`,
-          sameAs: editor.socials.map((x) => x.links),
+          sameAs: editor.socials.map((x) => x.link),
           description: editor.shortBio,
         },
 
@@ -174,7 +174,7 @@ export default function Seo({
             image: editor.photo.asset.url,
             jobTitle: editor.role,
             url: `https://www.techlifeunity.com/${editor.slug.current}`,
-            sameAs: editor.socials.map((x) => x.links),
+            sameAs: editor.socials.map((x) => x.link),
             description: editor.shortBio,
           },
           lastReviewed: moment(dateModified).tz('America/New_York').format(),
