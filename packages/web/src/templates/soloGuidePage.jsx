@@ -14,6 +14,7 @@ import MainColumnGuideHero from '../components/sections/MainColumnGuideHero';
 import MainColumnFeature from '../components/sections/MainColumnFeature';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
+import MobileToC from '../components/TableOfContentMobile';
 import MoreInSection from '../components/sections/MoreInSection';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
@@ -250,6 +251,11 @@ function SoloGuidePage({ data, pageContext }) {
 
   return (
     <Layout data={data.guide} type={type}>
+      {data?.guide?.toc?.length > 0 && (
+        <Box sx={{ display: { xs: 'block', md: 'none' }, paddingTop: '33px' }}>
+          <MobileToC toc={data?.guide?.toc} />
+        </Box>
+      )}
       <Box component="main">
         <Hero
           {...mapGuideHeroToProps(data.guide)}
