@@ -27,7 +27,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
   return (
     <AppBar
       component="header"
-      position="sticky"
+      position="fixed"
       aria-label="main navigation header"
       elevation={0}
       sx={{
