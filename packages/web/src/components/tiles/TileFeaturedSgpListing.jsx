@@ -33,6 +33,7 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
       <Link
         to={link}
         underline="none"
+        aria-label={title}
         sx={{
           display: 'flex',
           flexDirection: 'row',
