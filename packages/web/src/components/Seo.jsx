@@ -234,6 +234,7 @@ export default function Seo({
       'https://youtube.com/@techlifeunity',
       'https://x.com/techlifeunity',
       'https://www.facebook.com/Techboomers',
+      'https://www.facebook.com/TechLifeUnityFB',
       'https://www.linkedin.com/company/tech-life-unity/',
       'https://en.wikipedia.org/wiki/Techboomers',
     ],
