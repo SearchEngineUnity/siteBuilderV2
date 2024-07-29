@@ -261,14 +261,22 @@ export default function Seo({
       ) : (
         <link rel="canonical" href={metaUrl} />
       )}
-      <Script
+      {/* <Script
         type="text/javascript"
         src="https://s.skimresources.com/js/89665X1543008.skimlinks.js"
         strategy="off-main-thread"
-      />
+      /> */}
       <script type="application/ld+json">{JSON.stringify(organizationJSON)}</script>
       {type === 'guide' && (
-        <script type="application/ld+json">{JSON.stringify(articleJSON)}</script>
+        <>
+          <script type="application/ld+json">{JSON.stringify(articleJSON)}</script>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6122705063625930"
+            data-overlays="bottom"
+            crossOrigin="anonymous"
+          />
+        </>
       )}
       {isProfilePage && (
         <script type="application/ld+json">{JSON.stringify(profilePageJSON)}</script>
