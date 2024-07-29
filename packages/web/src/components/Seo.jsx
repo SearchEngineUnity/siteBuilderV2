@@ -270,12 +270,12 @@ export default function Seo({
       {type === 'guide' && (
         <>
           <script type="application/ld+json">{JSON.stringify(articleJSON)}</script>
-          <script
+          {/* <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6122705063625930"
             data-overlays="bottom"
             crossOrigin="anonymous"
-          />
+          /> */}
         </>
       )}
       {isProfilePage && (
