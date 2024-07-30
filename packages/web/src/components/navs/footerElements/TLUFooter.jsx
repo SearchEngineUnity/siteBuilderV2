@@ -123,7 +123,7 @@ function TLUFooter() {
                 </Grid>
                 <Grid>
                   <a
-                    href="https://www.linkedin.com/company/techboomers-com"
+                    href="https://www.linkedin.com/company/tech-life-unity/"
                     target="_blank"
                     rel="noopener noreferrer"
                     role="menuitem"

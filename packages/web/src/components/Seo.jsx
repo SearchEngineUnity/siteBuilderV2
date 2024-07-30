@@ -233,9 +233,9 @@ export default function Seo({
     sameAs: [
       'https://youtube.com/@techlifeunity',
       'https://x.com/techlifeunity',
-      'https://www.facebook.com/Techboomers',
       'https://www.facebook.com/TechLifeUnityFB',
       'https://www.linkedin.com/company/tech-life-unity/',
+      'https://www.linkedin.com/company/techboomers-com',
       'https://en.wikipedia.org/wiki/Techboomers',
     ],
   };
@@ -268,15 +268,7 @@ export default function Seo({
       /> */}
       <script type="application/ld+json">{JSON.stringify(organizationJSON)}</script>
       {type === 'guide' && (
-        <>
-          <script type="application/ld+json">{JSON.stringify(articleJSON)}</script>
-          {/* <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6122705063625930"
-            data-overlays="bottom"
-            crossOrigin="anonymous"
-          /> */}
-        </>
+        <script type="application/ld+json">{JSON.stringify(articleJSON)}</script>
       )}
       {isProfilePage && (
         <script type="application/ld+json">{JSON.stringify(profilePageJSON)}</script>
