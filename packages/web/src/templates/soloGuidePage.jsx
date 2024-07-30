@@ -306,22 +306,32 @@ export default SoloGuidePage;
 
 export function Head({ data, pageContext }) {
   return (
-    <Seo
-      {...mapSeoToProps(data.guide)}
-      type={type}
-      heroImage={data?.guide?.hero?.image?.asset?.url}
-      datePublished={data.guide.createdDate}
-      dateModified={data.guide.displayDate}
-      author={data.guide.author}
-      editor={data.guide.editor}
-      h1={data.guide.hero.h1}
-      tileImageUrl={data.guide.tileImage.asset.url}
-      hasVideo={data?.guide?.hero?.video?.videoId && data?.guide?.hero?.feature === 'video'}
-      videoId={data?.guide?.hero?.video?.videoId}
-      hasHeroImage={data?.guide?.hero?.image?.asset?.url && data?.guide?.hero?.feature === 'image'}
-      topics={data.guide?.topicTags}
-      primarySubcategory={data.guide?.primarySubcategory}
-      subjectListingPages={pageContext.subjectListingPages}
-    />
+    <>
+      <Seo
+        {...mapSeoToProps(data.guide)}
+        type={type}
+        heroImage={data?.guide?.hero?.image?.asset?.url}
+        datePublished={data.guide.createdDate}
+        dateModified={data.guide.displayDate}
+        author={data.guide.author}
+        editor={data.guide.editor}
+        h1={data.guide.hero.h1}
+        tileImageUrl={data.guide.tileImage.asset.url}
+        hasVideo={data?.guide?.hero?.video?.videoId && data?.guide?.hero?.feature === 'video'}
+        videoId={data?.guide?.hero?.video?.videoId}
+        hasHeroImage={
+          data?.guide?.hero?.image?.asset?.url && data?.guide?.hero?.feature === 'image'
+        }
+        topics={data.guide?.topicTags}
+        primarySubcategory={data.guide?.primarySubcategory}
+        subjectListingPages={pageContext.subjectListingPages}
+      />
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6122705063625930"
+        data-overlays="bottom"
+        crossOrigin="anonymous"
+      />
+    </>
   );
 }
