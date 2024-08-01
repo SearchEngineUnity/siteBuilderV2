@@ -3,11 +3,13 @@ import React, { useEffect } from 'react';
 
 export default function TocAlternativeAds() {
   useEffect(() => {
-    if (window) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (error) {
-        console.log(error, 'adsenese error');
+    if (process.env.NODE_ENV !== 'development') {
+      if (window) {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (error) {
+          console.log(error, 'adsenese error');
+        }
       }
     }
   }, []);
