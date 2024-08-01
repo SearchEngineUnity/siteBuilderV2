@@ -3,13 +3,11 @@ import React, { useEffect } from 'react';
 
 export default function TocAlternativeAds() {
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'development') {
-      if (window) {
-        try {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (error) {
-          console.log(error, 'adsenese error');
-        }
+    if (window) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.log(error, 'adsenese error');
       }
     }
   }, []);
@@ -21,6 +19,10 @@ export default function TocAlternativeAds() {
       data-ad-slot="5529311585"
       style={{
         display: 'block',
+        minWidth: '210px',
+        maxWidth: '290px',
+        width: '100%',
+        height: '600px',
       }}
       data-ad-format="auto"
       data-full-width-responsive="true"
