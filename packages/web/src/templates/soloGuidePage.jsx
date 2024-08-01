@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 // import React, { useState, useEffect, useRef } from 'react';
 import React from 'react';
-import { Script, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -332,46 +332,6 @@ export function Head({ data, pageContext }) {
         data-overlays="bottom"
         crossOrigin="anonymous"
       /> */}
-      <Script
-        id="google-adsense"
-        dangerouslySetInnerHTML={{
-          __html: `
-      (function(window, document) {
-        function loadAds() {
-          // Load Google AdSense
-          var ad = document.createElement('script');
-          ad.type = 'text/javascript';
-          ad.async = true;
-          ad.dataset.adClient = 'ca-pub-6122705063625930';
-          ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-          var sc = document.getElementsByTagName('script')[0];
-          sc.parentNode.insertBefore(ad, sc);
-        }
-
-        var lazyLoad = false;
-        function onLazyLoad() {
-          if (lazyLoad === false) {
-            lazyLoad = true;
-            loadAds();
-            console.log("advertisements loaded");
-          }
-        }
-
-        if(!!window.IntersectionObserver){
-          let observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-            if(entry.isIntersecting){
-              onLazyLoad();
-              observer.unobserve(entry.target);
-            }
-            });
-          }, { rootMargin: "0px 0px 500px 0px" });
-          document.querySelectorAll('.adsbygoogle').forEach(ad => { observer.observe(ad) });
-        }
-      })(window, document);
-    `,
-        }}
-      />
     </>
   );
 }
