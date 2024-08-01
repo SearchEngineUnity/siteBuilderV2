@@ -16,6 +16,7 @@ import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
 import MobileToC from '../components/TableOfContentMobile';
 import MoreInSection from '../components/sections/MoreInSection';
+import TocAlternativeAds from '../components/adUnits/tocAlternativeAds';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
@@ -267,7 +268,11 @@ function SoloGuidePage({ data, pageContext }) {
           <Container maxWidth="lg">
             <Grid container spacing={{ xs: 2, sm: 3 }}>
               <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
-                {data?.guide?.toc?.length > 0 && <ToC toc={data.guide.toc} />}
+                {data?.guide?.toc?.length > 0 ? (
+                  <ToC toc={data.guide.toc} />
+                ) : (
+                  <TocAlternativeAds />
+                )}
               </Grid>
               <Grid md={9} xs={12} sx={{ order: 1 }}>
                 {heroLayout === 'mainColumnHero' && (
