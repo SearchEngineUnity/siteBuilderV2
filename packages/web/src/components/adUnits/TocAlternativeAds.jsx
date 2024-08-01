@@ -21,6 +21,10 @@ export default function TocAlternativeAds() {
       data-ad-slot="5529311585"
       style={{
         display: 'block',
+        minWidth: '210px',
+        maxWidth: '290px',
+        width: '100%',
+        height: '600px',
       }}
       data-ad-format="auto"
       data-full-width-responsive="true"
