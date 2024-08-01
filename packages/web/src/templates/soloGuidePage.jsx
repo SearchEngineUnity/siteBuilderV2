@@ -16,7 +16,7 @@ import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
 import MobileToC from '../components/TableOfContentMobile';
 import MoreInSection from '../components/sections/MoreInSection';
-import TocAlternativeAds from '../components/adUnits/tocAlternativeAds';
+import TocAlternativeAds from '../components/adUnits/TocAlternativeAds';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
