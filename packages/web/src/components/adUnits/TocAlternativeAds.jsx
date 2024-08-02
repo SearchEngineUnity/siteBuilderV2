@@ -27,7 +27,7 @@ export default function TocAlternativeAds() {
         display: 'block',
         maxWidth: '210px',
         width: '100%',
-        height: '300px',
+        height: '300px !important',
         '@media (min-width: 1280px)': {
           maxWidth: '290px',
         },
