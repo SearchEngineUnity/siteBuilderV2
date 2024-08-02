@@ -22,15 +22,15 @@ export default function TocAlternativeAds() {
       data-ad-client="ca-pub-6122705063625930"
       data-ad-slot="5529311585"
       sx={{
-        position: 'sticky',
-        top: 62,
+        // position: 'sticky',
+        // top: 62,
         display: 'block',
-        maxWidth: '210px',
+        maxWidth: '290px',
         width: '100%',
         height: '300px',
-        '@media (min-width: 1280px)': {
-          maxWidth: '290px',
-        },
+        // '@media (min-width: 1280px)': {
+        //   maxWidth: '290px',
+        // },
       }}
     />
   );
