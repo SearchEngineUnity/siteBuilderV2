@@ -1,5 +1,6 @@
 // In your adsense component
 import React, { useEffect } from 'react';
+import Box from '@mui/material/Box';
 
 export default function TocAlternativeAds() {
   useEffect(() => {
@@ -15,16 +16,21 @@ export default function TocAlternativeAds() {
   }, []);
 
   return (
-    <ins
+    <Box
+      component="ins"
       className="adsbygoogle"
       data-ad-client="ca-pub-6122705063625930"
       data-ad-slot="5529311585"
-      style={{
+      sx={{
+        position: 'sticky',
+        top: 62,
         display: 'block',
-        minWidth: '210px',
-        maxWidth: '290px',
+        maxWidth: '210px',
         width: '100%',
-        height: '600px',
+        height: '300px',
+        '@media (min-width: 1280px)': {
+          maxWidth: '290px',
+        },
       }}
       data-ad-format="auto"
       data-full-width-responsive="true"
