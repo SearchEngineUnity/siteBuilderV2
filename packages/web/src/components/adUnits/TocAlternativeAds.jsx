@@ -27,13 +27,11 @@ export default function TocAlternativeAds() {
         display: 'block',
         maxWidth: '210px',
         width: '100%',
-        height: '300px !important',
+        height: '300px',
         '@media (min-width: 1280px)': {
           maxWidth: '290px',
         },
       }}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
     />
   );
 }
