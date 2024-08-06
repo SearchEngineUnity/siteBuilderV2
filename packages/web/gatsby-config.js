@@ -5,7 +5,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || `development`}`,
 });
 
-const adapter = require('gatsby-adapter-netlify').default;
+// off-main-thread related
+// const adapter = require('gatsby-adapter-netlify').default;
 
 const isProd = process.env.NODE_ENV === 'production';
 const previewEnabled = (process.env.GATSBY_IS_PREVIEW || 'false').toLowerCase() === 'true';
@@ -20,16 +21,18 @@ const isNetlifyProduction = NETLIFY_ENV === 'production';
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
-  adapter: adapter({
-    excludeDatastoreFromEngineFunction: false,
-    imageCDN: true,
-  }),
+  // off-main-thread related
+  // adapter: adapter({
+  //   excludeDatastoreFromEngineFunction: false,
+  //   imageCDN: true,
+  // }),
   trailingSlash: `never`,
   siteMetadata: {
     title: `web`,
     siteUrl,
   },
-  partytownProxiedURLs: [`https://s.skimresources.com/js/89665X1543008.skimlinks.js`],
+  // off-main-thread related
+  // partytownProxiedURLs: [`https://s.skimresources.com/js/89665X1543008.skimlinks.js`],
   plugins: [
     {
       resolve: `gatsby-plugin-algolia`,
