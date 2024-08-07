@@ -101,29 +101,26 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
           sx={{
             width: { sm: '100%', xs: isFirst ? '100%' : '67%' },
             height: '100%',
-            '@media (max-width: 599px)': { '&:last-child': { padding: '12px' } },
-          }}
-        >
-          <Typography
-            color="primary"
-            variant="h5"
-            component="div"
-            fontWeight="fontWeightBold"
-            textTransform="uppercase"
-            sx={{
-              lineHeight: (theme) => theme.typography.overline.lineHeight,
+            '@media (max-width: 599px)': {
+              '&:last-child': { padding: '12px' },
+            },
+            '&:before': {
+              typography: 'h5',
+              content: `'${tag}'`,
+              color: 'primary.main',
+              fontWeight: 'fontWeightBold',
+              textTransform: 'uppercase',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
               WebkitLineClamp: { xs: isFirst ? 'unset' : 1, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
               '@media (max-width: 599px)': {
-                fontSize: (theme) => theme.typography.overline.fontSize,
+                fontSize: 'overline.fontSize',
               },
-            }}
-          >
-            {tag}
-          </Typography>
+            },
+          }}
+        >
           <Typography
             variant="h4"
             fontWeight="fontWeightBold"
