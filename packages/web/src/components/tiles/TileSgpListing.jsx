@@ -101,24 +101,20 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
             width: { sm: '100%', xs: '67%' },
             height: '100%',
             '@media (max-width: 599px)': { '&:last-child': { padding: '12px' } },
-          }}
-        >
-          <Typography
-            color="primary"
-            variant="overline"
-            component="div"
-            fontWeight="fontWeightBold"
-            textTransform="uppercase"
-            sx={{
+            '&:before': {
+              typography: 'overline',
+              content: `'${tag}'`,
+              color: 'primary.main',
+              fontWeight: 'fontWeightBold',
+              textTransform: 'uppercase',
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               display: '-webkit-box',
               WebkitLineClamp: { xs: 1, sm: 'unset' },
               WebkitBoxOrient: 'vertical',
-            }}
-          >
-            {tag}
-          </Typography>
+            },
+          }}
+        >
           <Typography
             variant="h5"
             fontWeight="fontWeightBold"
