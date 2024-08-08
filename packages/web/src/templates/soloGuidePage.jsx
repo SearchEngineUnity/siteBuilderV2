@@ -141,7 +141,7 @@ export const query = graphql`
           tiles {
             _key
             btnText
-            content: _rawContent
+            content: _rawContent(resolveReferences: { maxDepth: 3 })
             specialTagText
             tileImage {
               alt
@@ -153,7 +153,6 @@ export const query = graphql`
               _key
               hashId
             }
-            content: _rawContent
             btnLink {
               ... on SanityAffiliateLink {
                 _key
