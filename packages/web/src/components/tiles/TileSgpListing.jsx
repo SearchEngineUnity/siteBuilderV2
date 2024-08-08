@@ -65,6 +65,7 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
               outline: 'none',
             },
             '&:after': {
+              zIndex: 1,
               content: '""',
               display: 'block',
               position: 'absolute',
