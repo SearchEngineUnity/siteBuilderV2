@@ -12,6 +12,9 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
   return (
     <Card
       sx={{
+        display: 'flex',
+        flexDirection: { xs: 'row', sm: 'column' },
+        position: 'relative',
         borderRadius: '12px',
         height: '100%',
         color: 'text.primary',
@@ -27,91 +30,48 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           transform: 'scale(1.1)',
           transition: 'transform 0.5s ease',
         },
+        '&:focus-within img': {
+          transform: 'scale(1.1)',
+          transition: 'transform 0.5s ease',
+        },
       }}
       elevation={1}
     >
-      <Link
-        to={link}
-        underline="none"
-        aria-label={title}
+      <CardContent
         sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'flex-start',
-          flexWrap: 'wrap',
-          height: '100%',
-          color: 'inherit',
-          '&:focus img': {
-            transform: 'scale(1.1)',
+          width: { sm: '100%', xs: '67%' },
+          '@media (max-width: 599px)': { '&:last-child': { padding: '12px' } },
+          '&:before': {
+            typography: 'overline',
+            content: `'${tag}'`,
+            color: 'primary.main',
+            fontWeight: 'fontWeightBold',
+            textTransform: 'uppercase',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: { xs: 1, sm: 'unset' },
+            WebkitBoxOrient: 'vertical',
           },
         }}
       >
-        <Box
+        <Link
+          to={link}
+          underline="none"
+          aria-label={title}
           sx={{
-            position: 'relative',
-            height: {
-              sm: '200px',
-              // xs: '112px',
-              xs: '100%',
+            '&:focus, &:hover': {
+              textDecoration: 'none',
+              outline: 'none',
             },
-            width: {
-              sm: '100%',
-              xs: '33%',
-            },
-          }}
-        >
-          {hasVideo && (
-            <Box
-              sx={{
-                position: 'absolute',
-                zIndex: 1,
-                color: 'common.white',
-                bgcolor: 'common.white',
-                bottom: { xs: '4px', sm: '8px' },
-                right: { xs: '4px', sm: '8px' },
-                width: { xs: '28px', sm: '48px' },
-                height: { xs: '28px', sm: '48px' },
-                boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                borderRadius: { xs: '6px', sm: '12px' },
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <PlayCircleIcon
-                sx={{
-                  color: 'common.white',
-                  bgcolor: 'common.black',
-                  borderRadius: { xs: '10px', sm: '18px' },
-                  width: { xs: '20px', sm: '36px' },
-                  height: { xs: '20px', sm: '36px' },
-                }}
-              />
-            </Box>
-          )}
-          <GatsbyImage
-            image={image}
-            alt=""
-            objectFit="cover"
-            style={{ width: '100%', height: '100%' }}
-          />
-        </Box>
-        <CardContent
-          sx={{
-            width: { sm: '100%', xs: '67%' },
-            height: '100%',
-            '@media (max-width: 599px)': { '&:last-child': { padding: '12px' } },
-            '&:before': {
-              typography: 'overline',
-              content: `'${tag}'`,
-              color: 'primary.main',
-              fontWeight: 'fontWeightBold',
-              textTransform: 'uppercase',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: { xs: 1, sm: 'unset' },
-              WebkitBoxOrient: 'vertical',
+            '&:after': {
+              content: '""',
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
             },
           }}
         >
@@ -139,8 +99,59 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
           >
             {title}
           </Typography>
-        </CardContent>
-      </Link>
+        </Link>
+      </CardContent>
+      <Box
+        sx={{
+          position: 'relative',
+          order: -1,
+          height: {
+            sm: '200px',
+            // xs: '112px',
+            xs: '100%',
+          },
+          width: {
+            sm: '100%',
+            xs: '33%',
+          },
+        }}
+      >
+        {hasVideo && (
+          <Box
+            sx={{
+              position: 'absolute',
+              zIndex: 1,
+              color: 'common.white',
+              bgcolor: 'common.white',
+              bottom: { xs: '4px', sm: '8px' },
+              right: { xs: '4px', sm: '8px' },
+              width: { xs: '28px', sm: '48px' },
+              height: { xs: '28px', sm: '48px' },
+              boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+              borderRadius: { xs: '6px', sm: '12px' },
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <PlayCircleIcon
+              sx={{
+                color: 'common.white',
+                bgcolor: 'common.black',
+                borderRadius: { xs: '10px', sm: '18px' },
+                width: { xs: '20px', sm: '36px' },
+                height: { xs: '20px', sm: '36px' },
+              }}
+            />
+          </Box>
+        )}
+        <GatsbyImage
+          image={image}
+          alt=""
+          objectFit="cover"
+          style={{ width: '100%', height: '100%' }}
+        />
+      </Box>
     </Card>
   );
 }
