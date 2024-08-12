@@ -301,7 +301,7 @@ async function createFlexListingPages(actions, graphql) {
           component: require.resolve(`./src/templates/flexListingPage.jsx`),
           context: {
             slug: page.node.slug.current,
-            sgpsForAllLatestXSections,
+            sgpsForAllLatestXSections: [...new Set(sgpsForAllLatestXSections)],
             sgpsForPagination:
               i === 0
                 ? allSgpsForPagination.slice(0, firstPageCount)
