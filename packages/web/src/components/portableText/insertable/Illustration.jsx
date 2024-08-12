@@ -31,10 +31,7 @@ function Illustration({ illustration, loading }) {
 
   return (
     <Box sx={{ display: 'flex', justifyContent: illustration.align }}>
-      <Box
-        component="figure"
-        sx={{ maxWidth: hasFrame ? `${minMaxWidth + 2}px` : `${minMaxWidth}px`, m: 0 }}
-      >
+      <Box component={illustration.caption ? 'figure' : 'div'}>
         <Box
           sx={[
             hasFrame && {
@@ -42,9 +39,18 @@ function Illustration({ illustration, loading }) {
             },
           ]}
         >
-          <GatsbyImage image={fluidProps} alt={illustration.alt || ''} loading={loadingSetting} />
+          <GatsbyImage
+            image={fluidProps}
+            alt={illustration.alt || ''}
+            loading={loadingSetting}
+            style={{ maxWidth: minMaxWidth }}
+          />
         </Box>
-        {illustration.caption && <CaptionContent blocks={illustration.caption} />}
+        {illustration.caption && (
+          <figcaption>
+            <CaptionContent blocks={illustration.caption} />
+          </figcaption>
+        )}
       </Box>
     </Box>
   );
