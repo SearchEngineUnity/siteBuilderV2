@@ -517,7 +517,11 @@ async function createSoloGuidePages(actions, graphql) {
 
       if (subjectName) {
         moreInPrimarySubSgps = guides
-          .filter((sgp) => sgp.node.primarySubcategory?.name === subjectName)
+          .filter(
+            (sgp) =>
+              sgp.node.primarySubcategory?.name === subjectName &&
+              sgp.node.slug.current !== guide.node.slug.current,
+          )
           .slice(0, 8);
       }
 
