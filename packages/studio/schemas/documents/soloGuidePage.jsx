@@ -129,6 +129,13 @@ export default {
       fieldset: 'general',
     },
     {
+      name: 'includeDisclaimer',
+      title: 'Include Disclaimer',
+      type: 'boolean',
+      initialValue: true,
+      fieldset: 'general',
+    },
+    {
       name: 'fbShareMetaPack',
       title: 'Facebook Open Graph Meta Pack',
       type: 'fbShareMetaPack',
@@ -181,10 +188,12 @@ export default {
       // validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'includeDisclaimer',
-      title: 'Include Disclaimer',
-      type: 'boolean',
-      initialValue: true,
+      name: 'relatedArticles',
+      title: 'Best Related Guides',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'soloGuidePage' }] }],
+      validation: (Rule) => Rule.max(4).error('Maximum 4 items'),
+      fieldset: 'mainContent',
     },
     {
       name: 'slug',
