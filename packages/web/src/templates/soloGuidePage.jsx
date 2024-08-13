@@ -19,6 +19,7 @@ import MoreInSection from '../components/sections/MoreInSection';
 import TocAlternativeAds from '../components/adUnits/TocAlternativeAds';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
+import RelatedGuidesSection from '../components/sections/RelatedGuidesSection';
 
 const type = 'guide';
 
@@ -27,6 +28,23 @@ export const query = graphql`
     guide: sanitySoloGuidePage(slug: { current: { eq: $slug } }) {
       slug {
         current
+      }
+      relatedArticles {
+        _id
+        slug {
+          current
+        }
+        tileImage {
+          alt
+          asset {
+            gatsbyImageData(fit: CROP, placeholder: NONE)
+          }
+        }
+        tileText
+        tileTitle
+        primarySubcategory {
+          name
+        }
       }
       includeDisclaimer
       displayDate
@@ -295,6 +313,9 @@ function SoloGuidePage({ data, pageContext }) {
           </Container>
         </Box>
       </Box>
+      {data.guide?.relatedArticles?.length > 0 && (
+        <RelatedGuidesSection spgTilesContent={data.guide?.relatedArticles} />
+      )}
       {data.guide?.primarySubcategory?.name && (
         <MoreInSection
           subjectListingPages={pageContext.subjectListingPages}
