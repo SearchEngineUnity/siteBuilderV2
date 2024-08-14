@@ -32,20 +32,13 @@ function Illustration({ illustration, loading }) {
   return (
     <Box sx={{ display: 'flex', justifyContent: illustration.align }}>
       <Box component={illustration.caption ? 'figure' : 'div'}>
-        <Box
-          sx={[
-            hasFrame && {
-              border: '1px solid #ABB8C3',
-            },
-          ]}
-        >
-          <GatsbyImage
-            image={fluidProps}
-            alt={illustration.alt || ''}
-            loading={loadingSetting}
-            style={{ maxWidth: minMaxWidth }}
-          />
-        </Box>
+        <GatsbyImage
+          image={fluidProps}
+          alt={illustration.alt || ''}
+          loading={loadingSetting}
+          style={{ maxWidth: minMaxWidth, border: hasFrame ? '1px solid #ABB8C3' : 'none' }}
+        />
+
         {illustration.caption && (
           <figcaption>
             <CaptionContent blocks={illustration.caption} />
