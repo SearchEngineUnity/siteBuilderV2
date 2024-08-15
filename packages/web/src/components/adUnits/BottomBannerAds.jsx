@@ -26,7 +26,6 @@ export default function BottomBannerAds() {
         height: { lg: '90px', xs: '60px' },
         width: '100%',
         maxWidth: '1280px',
-        border: '1px solid #ABB8C3',
       }}
     />
   );
