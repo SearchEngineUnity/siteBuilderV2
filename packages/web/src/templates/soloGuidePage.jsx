@@ -20,6 +20,7 @@ import TocAlternativeAds from '../components/adUnits/TocAlternativeAds';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 import RelatedGuidesSection from '../components/sections/RelatedGuidesSection';
+import BottomBannerAds from '../components/adUnits/BottomBannerAds';
 
 const type = 'guide';
 
@@ -268,62 +269,75 @@ function SoloGuidePage({ data, pageContext }) {
   }
 
   return (
-    <Layout data={data.guide} type={type}>
-      {data?.guide?.toc?.length > 0 && (
-        <Box sx={{ display: { xs: 'block', md: 'none' }, paddingTop: '33px' }}>
-          <MobileToC toc={data?.guide?.toc} />
-        </Box>
-      )}
-      <Box component="main">
-        <Hero
-          {...mapGuideHeroToProps(data.guide)}
-          // ref={heroRef}
-          subjectListingPages={pageContext.subjectListingPages}
-        />
-        {/* {isVisible && <ProgressBar />} */}
-        <Box sx={{ paddingBottom: { md: '80px', xs: '40px' } }}>
-          <Container maxWidth="lg">
-            <Grid container spacing={{ xs: 2, sm: 3 }}>
-              <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
-                {data?.guide?.toc?.length > 0 ? (
-                  <ToC toc={data.guide.toc} />
-                ) : (
-                  <TocAlternativeAds />
-                )}
+    <>
+      <Layout data={data.guide} type={type}>
+        {data?.guide?.toc?.length > 0 && (
+          <Box sx={{ display: { xs: 'block', md: 'none' }, paddingTop: '33px' }}>
+            <MobileToC toc={data?.guide?.toc} />
+          </Box>
+        )}
+        <Box component="main">
+          <Hero
+            {...mapGuideHeroToProps(data.guide)}
+            // ref={heroRef}
+            subjectListingPages={pageContext.subjectListingPages}
+          />
+          {/* {isVisible && <ProgressBar />} */}
+          <Box sx={{ paddingBottom: { md: '80px', xs: '40px' } }}>
+            <Container maxWidth="lg">
+              <Grid container spacing={{ xs: 2, sm: 3 }}>
+                <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
+                  {data?.guide?.toc?.length > 0 ? (
+                    <ToC toc={data.guide.toc} />
+                  ) : (
+                    <TocAlternativeAds />
+                  )}
+                </Grid>
+                <Grid md={9} xs={12} sx={{ order: 1 }}>
+                  {heroLayout === 'mainColumnHero' && (
+                    <MainColumnFeature {...mapGuideHeroToProps(data.guide)} />
+                  )}
+                  {sections.map((section, index) => {
+                    const { noH2 } = section;
+                    return (
+                      <Box
+                        component={noH2 ? 'div' : 'section'}
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={`section-${index}-${section.id}`}
+                        id={section.id && `section-${section.id}`}
+                      >
+                        <GuideBody blocks={section.section} />
+                      </Box>
+                    );
+                  })}
+                </Grid>
               </Grid>
-              <Grid md={9} xs={12} sx={{ order: 1 }}>
-                {heroLayout === 'mainColumnHero' && (
-                  <MainColumnFeature {...mapGuideHeroToProps(data.guide)} />
-                )}
-                {sections.map((section, index) => {
-                  const { noH2 } = section;
-                  return (
-                    <Box
-                      component={noH2 ? 'div' : 'section'}
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={`section-${index}-${section.id}`}
-                      id={section.id && `section-${section.id}`}
-                    >
-                      <GuideBody blocks={section.section} />
-                    </Box>
-                  );
-                })}
-              </Grid>
-            </Grid>
-          </Container>
+            </Container>
+          </Box>
         </Box>
+        {data.guide?.relatedArticles?.length > 0 && (
+          <RelatedGuidesSection spgTilesContent={data.guide?.relatedArticles} />
+        )}
+        {data.guide?.primarySubcategory?.name && (
+          <MoreInSection
+            subjectListingPages={pageContext.subjectListingPages}
+            subjectName={data.guide.primarySubcategory.name}
+            spgTilesContent={pageContext.moreInPrimarySubSgps}
+          />
+        )}
+      </Layout>
+      <Box
+        sx={{
+          position: 'sticky',
+          bgcolor: 'background.default',
+          bottom: 0,
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <BottomBannerAds />
       </Box>
-      {data.guide?.relatedArticles?.length > 0 && (
-        <RelatedGuidesSection spgTilesContent={data.guide?.relatedArticles} />
-      )}
-      {data.guide?.primarySubcategory?.name && (
-        <MoreInSection
-          subjectListingPages={pageContext.subjectListingPages}
-          subjectName={data.guide.primarySubcategory.name}
-          spgTilesContent={pageContext.moreInPrimarySubSgps}
-        />
-      )}
-    </Layout>
+    </>
   );
 }
 
