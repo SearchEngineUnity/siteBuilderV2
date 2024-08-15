@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import TileSgpListing from '../tiles/TileSgpListing';
 import { mapTileFeaturedSgpListingToProps } from '../../lib/mapToProps';
 
-function RelatedGuidesSection({ spgTilesContent }) {
+function RelatedGuidesSection({ heading, relatedItems }) {
   return (
     <Container
       maxWidth="lg"
@@ -15,9 +15,9 @@ function RelatedGuidesSection({ spgTilesContent }) {
       sx={{ my: { md: '80px', xs: '40px' } }}
     >
       <Stack spacing={{ xs: 2, sm: 3 }} useFlexGap>
-        <Typography variant="h2">Best Related Guides</Typography>
+        <Typography variant="h2">{heading}</Typography>
         <Grid container direction="row" spacing={{ xs: 2, sm: 3 }}>
-          {spgTilesContent.map((tile) => (
+          {relatedItems.map((tile) => (
             <Grid xs={12} sm={6} md={3} key={tile._id}>
               <TileSgpListing {...mapTileFeaturedSgpListingToProps(tile)} />
             </Grid>

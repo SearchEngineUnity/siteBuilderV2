@@ -30,21 +30,24 @@ export const query = graphql`
       slug {
         current
       }
-      relatedArticles {
-        _id
-        slug {
-          current
-        }
-        tileImage {
-          alt
-          asset {
-            gatsbyImageData(fit: CROP, placeholder: NONE)
+      relatedContentSection {
+        heading
+        relatedItems {
+          _id
+          slug {
+            current
           }
-        }
-        tileText
-        tileTitle
-        primarySubcategory {
-          name
+          tileImage {
+            alt
+            asset {
+              gatsbyImageData(fit: CROP, placeholder: NONE)
+            }
+          }
+          tileText
+          tileTitle
+          primarySubcategory {
+            name
+          }
         }
       }
       includeDisclaimer
@@ -283,7 +286,7 @@ function SoloGuidePage({ data, pageContext }) {
             subjectListingPages={pageContext.subjectListingPages}
           />
           {/* {isVisible && <ProgressBar />} */}
-          <Box sx={{ paddingBottom: { md: '80px', xs: '40px' } }}>
+          <Box sx={{ mb: { lg: '104px', md: '80px', xs: '40px' } }}>
             <Container maxWidth="lg">
               <Grid container spacing={{ xs: 2, sm: 3 }}>
                 <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
@@ -315,8 +318,8 @@ function SoloGuidePage({ data, pageContext }) {
             </Container>
           </Box>
         </Box>
-        {data.guide?.relatedArticles?.length > 0 && (
-          <RelatedGuidesSection spgTilesContent={data.guide?.relatedArticles} />
+        {data.guide?.relatedContentSection?.relatedItems?.length > 0 && (
+          <RelatedGuidesSection {...data.guide?.relatedContentSection} />
         )}
         {data.guide?.primarySubcategory?.name && (
           <MoreInSection
