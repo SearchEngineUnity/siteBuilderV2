@@ -6,9 +6,20 @@ import TileSgpListing from '../tiles/TileSgpListing';
 import { mapTileSgpListingToProps } from '../../lib/mapToProps';
 import SubjectTagButton from '../buttons/SubjectTagButton';
 
-function MoreInSection({ subjectListingPages, spgTilesContent, subjectName }) {
+function MoreInSection({ subjectListingPages, spgTilesContent, subjectName, relatedItems }) {
   const slug = subjectListingPages.filter((x) => x?.node?.subject?.name === subjectName)[0]?.node
     ?.slug?.current;
+
+  let relatedItemsSlugArr;
+  let listingTiles = spgTilesContent;
+
+  if (relatedItems) {
+    relatedItemsSlugArr = relatedItems.map((x) => x.slug.current);
+
+    listingTiles = spgTilesContent.filter(
+      (x) => !relatedItemsSlugArr.includes(x.node.slug.current),
+    );
+  }
 
   const subjectLink = slug === '/' ? '/' : `/${slug}`;
   return (
@@ -23,7 +34,7 @@ function MoreInSection({ subjectListingPages, spgTilesContent, subjectName }) {
           <Typography variant="h2">More in {subjectName}</Typography>
         </Grid>
         <Grid container direction="row" spacing={{ xs: 2, sm: 3 }}>
-          {spgTilesContent.map((tile) => (
+          {listingTiles.slice(0, 8).map((tile) => (
             <Grid xs={12} sm={6} md={3} key={tile.node.id}>
               <TileSgpListing {...mapTileSgpListingToProps(tile)} />
             </Grid>

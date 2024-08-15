@@ -522,7 +522,7 @@ async function createSoloGuidePages(actions, graphql) {
               sgp.node.primarySubcategory?.name === subjectName &&
               sgp.node.slug.current !== guide.node.slug.current,
           )
-          .slice(0, 8);
+          .slice(0, 12);
       }
 
       actions.createPage({

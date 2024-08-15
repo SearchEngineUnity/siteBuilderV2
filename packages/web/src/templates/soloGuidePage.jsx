@@ -326,6 +326,7 @@ function SoloGuidePage({ data, pageContext }) {
             subjectListingPages={pageContext.subjectListingPages}
             subjectName={data.guide.primarySubcategory.name}
             spgTilesContent={pageContext.moreInPrimarySubSgps}
+            relatedItems={data.guide?.relatedContentSection?.relatedItems}
           />
         )}
       </Layout>
