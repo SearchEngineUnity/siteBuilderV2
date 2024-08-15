@@ -333,6 +333,7 @@ function SoloGuidePage({ data, pageContext }) {
           bottom: 0,
           display: 'flex',
           justifyContent: 'center',
+          borderTop: '1px solid #ABB8C3',
         }}
       >
         <BottomBannerAds />
