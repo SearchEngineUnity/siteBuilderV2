@@ -188,14 +188,6 @@ export default {
       // validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'relatedArticles',
-      title: 'Best Related Guides',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'soloGuidePage' }] }],
-      validation: (Rule) => Rule.max(4).error('Maximum 4 items'),
-      fieldset: 'mainContent',
-    },
-    {
       name: 'relatedContentSection',
       title: 'Best Related Guides',
       type: 'relatedContentSection',
