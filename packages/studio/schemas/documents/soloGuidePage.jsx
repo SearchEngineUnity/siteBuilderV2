@@ -196,6 +196,12 @@ export default {
       fieldset: 'mainContent',
     },
     {
+      name: 'relatedContentSection',
+      title: 'Best Related Guides',
+      type: 'relatedContentSection',
+      fieldset: 'mainContent',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
