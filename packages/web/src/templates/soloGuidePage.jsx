@@ -337,7 +337,8 @@ function SoloGuidePage({ data, pageContext }) {
           bottom: 0,
           display: 'flex',
           justifyContent: 'center',
-          borderTop: '1px solid #ABB8C3',
+          // borderTop: '1px solid #ABB8C3',
+          boxShadow: '0px -2px 4px -2px rgba(0, 0, 0, 0.25)',
         }}
       >
         <BottomBannerAds />
