@@ -6,12 +6,6 @@ import ConditionalLink from '../../link/ConditionalLink';
 import VerticalSpacingWrapper from '../insertable/VerticalSpacingWrapper';
 
 const serializers = {
-  // not sure if this container thing works anymore
-  container: (props) => (
-    <Box component="figcaption" sx={{ textAlign: 'center' }}>
-      {props.children}
-    </Box>
-  ),
   block: {
     normal: ({ children }) => {
       return children[0] ? (
@@ -85,7 +79,7 @@ const serializers = {
 };
 
 function BlockContent({ blocks }) {
-  return <PortableText value={blocks} components={serializers} renderContainerOnSingleChild />;
+  return <PortableText value={blocks} components={serializers} />;
 }
 
 export default BlockContent;
