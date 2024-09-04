@@ -1,15 +1,19 @@
+import loadable from '@loadable/component';
 import React, { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import ImgBlock from '../blocks/FluidImgBlock';
-import Video from '../portableText/insertable/Video';
-import Subtitle from '../portableText/serializer/H1SubtitleSerializer';
-import Disclaimer from '../portableText/serializer/DisclaimerSerializer';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
-// import { useSpGuideHero } from '../../hooks/useSpGuideHero';
 import { useDisclaimerText } from '../../hooks/useDisclaimerText';
+
+// feature options
+const ImgBlock = loadable(() => import('../blocks/FluidImgBlock'));
+const Video = loadable(() => import('../portableText/insertable/Video'));
+
+// optional texts
+const Subtitle = loadable(() => import('../portableText/serializer/H1SubtitleSerializer'));
+const Disclaimer = loadable(() => import('../portableText/serializer/DisclaimerSerializer'));
 
 const featureComponentMapping = {
   image: ImgBlock,
