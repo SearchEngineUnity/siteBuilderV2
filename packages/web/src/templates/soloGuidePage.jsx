@@ -1,5 +1,6 @@
 /* eslint-disable no-plusplus */
 // import React, { useState, useEffect, useRef } from 'react';
+import loadable from '@loadable/component';
 import React from 'react';
 import { graphql } from 'gatsby';
 import Box from '@mui/material/Box';
@@ -7,20 +8,24 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Seo from '../components/Seo';
 import Layout from '../containers/layout';
-import LrGuideHero from '../components/sections/LrGuideHero';
-import StackGuideHero from '../components/sections/StackGuideHero';
-import MainColumnGuideHero from '../components/sections/MainColumnGuideHero';
 // import ProgressBar from '../components/ScrollProgressBar';
-import MainColumnFeature from '../components/sections/MainColumnFeature';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
-import ToC from '../components/TableOfContent';
-import MobileToC from '../components/TableOfContentMobile';
-import MoreInSection from '../components/sections/MoreInSection';
-import TocAlternativeAds from '../components/adUnits/TocAlternativeAds';
 // import { useUpdateUrl } from '../hooks/useUpdateUrl';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 import RelatedGuidesSection from '../components/sections/RelatedGuidesSection';
 import BottomBannerAds from '../components/adUnits/BottomBannerAds';
+
+// hero options
+const LrGuideHero = loadable(() => import('../components/sections/LrGuideHero'));
+const StackGuideHero = loadable(() => import('../components/sections/StackGuideHero'));
+const MainColumnGuideHero = loadable(() => import('../components/sections/MainColumnGuideHero'));
+
+// other optional components
+const MainColumnFeature = loadable(() => import('../components/sections/MainColumnFeature'));
+const ToC = loadable(() => import('../components/TableOfContent'));
+const MobileToC = loadable(() => import('../components/TableOfContentMobile'));
+const MoreInSection = loadable(() => import('../components/sections/MoreInSection'));
+const TocAlternativeAds = loadable(() => import('../components/adUnits/TocAlternativeAds'));
 
 const type = 'guide';
 
