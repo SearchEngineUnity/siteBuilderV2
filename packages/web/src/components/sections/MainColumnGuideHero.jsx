@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import React, { forwardRef } from 'react';
 import { Link } from 'gatsby-theme-material-ui';
 import Box from '@mui/material/Box';
@@ -5,9 +6,11 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import moment from 'moment-timezone';
-import Subtitle from '../portableText/serializer/H1SubtitleSerializer';
 import HeroTags from './HeroTags';
 import Breadcrumbs from '../navs/breadcrumbs/PageBreadcrumbs';
+
+// optional texts
+const Subtitle = loadable(() => import('../portableText/serializer/H1SubtitleSerializer'));
 
 const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
   {
