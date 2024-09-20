@@ -149,12 +149,12 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        // id: 'GTM-5RQDBMKP',
-        id: process.env.GTM_ID,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-google-tagmanager',
+    //   options: {
+    //     // id: 'GTM-5RQDBMKP',
+    //     id: process.env.GTM_ID,
+    //   },
+    // },
   ],
 };
