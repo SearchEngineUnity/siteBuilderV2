@@ -1,7 +1,7 @@
 import React from 'react';
 // import React, { useState, useEffect } from 'react';
 import { Script } from 'gatsby';
-import moment from 'moment-timezone';
+import { formatInTimeZone } from 'date-fns-tz';
 import { useSeoDefaults } from '../hooks/useSeoDefaults';
 
 export default function Seo({
@@ -130,8 +130,16 @@ export default function Seo({
         publisher: {
           '@id': 'https://www.techlifeunity.com/#organization',
         },
-        dateModified: moment(dateModified).tz('America/New_York').format(),
-        datePublished: moment(datePublished).tz('America/New_York').format(),
+        dateModified: formatInTimeZone(
+          new Date(dateModified),
+          'America/New_York',
+          "yyyy-MM-dd'T'HH:mm:ssXXX",
+        ),
+        datePublished: formatInTimeZone(
+          new Date(datePublished),
+          'America/New_York',
+          "yyyy-MM-dd'T'HH:mm:ssXXX",
+        ),
         mainEntityOfPage: {
           '@type': 'WebPage',
           breadcrumb: {
@@ -177,7 +185,11 @@ export default function Seo({
             sameAs: editor.socials.map((x) => x.link),
             description: editor.shortBio,
           },
-          lastReviewed: moment(dateModified).tz('America/New_York').format(),
+          lastReviewed: formatInTimeZone(
+            new Date(dateModified),
+            'America/New_York',
+            "yyyy-MM-dd'T'HH:mm:ssXXX",
+          ),
         },
       };
       break;
@@ -193,8 +205,16 @@ export default function Seo({
     profilePageJSON = {
       '@context': 'https://schema.org',
       '@type': 'ProfilePage',
-      dateCreated: moment(profilePage._createdAt).tz('America/New_York').format(),
-      dateModified: moment(profilePage._updatedAt).tz('America/New_York').format(),
+      dateCreated: formatInTimeZone(
+        new Date(profilePage._createdAt),
+        'America/New_York',
+        "yyyy-MM-dd'T'HH:mm:ssXXX",
+      ),
+      dateModified: formatInTimeZone(
+        new Date(profilePage._updatedAt),
+        'America/New_York',
+        "yyyy-MM-dd'T'HH:mm:ssXXX",
+      ),
       mainEntity: {
         '@type': 'Person',
         name: profilePage.name,
