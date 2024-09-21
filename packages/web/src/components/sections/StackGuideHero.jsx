@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
+import { formatInTimeZone } from 'date-fns-tz';
 import Box from '@mui/material/Box';
 import { Link } from 'gatsby-theme-material-ui';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import moment from 'moment-timezone';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Video from '../portableText/insertable/Video';
 import ProductGrid from '../portableText/insertable/productGrid/ProductGrid';
@@ -58,8 +58,9 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
   },
   ref,
 ) {
-  const lastUpdatedDate = date ? new Date(moment(date).tz('America/New_York')) : null;
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const lastUpdatedDate = date
+    ? formatInTimeZone(new Date(date), 'America/New_York', 'MMMM d, yyyy')
+    : null;
   const disclaimerText = useDisclaimerText();
 
   const Feature = featureComponentMapping[featureType];
@@ -152,7 +153,7 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
                     fontWeight: 'fontWeightRegular',
                   }}
                 >
-                  Updated on {lastUpdatedDate.toLocaleDateString('en-US', options)}
+                  Updated on {lastUpdatedDate}
                 </Box>
               )}
             </Typography>

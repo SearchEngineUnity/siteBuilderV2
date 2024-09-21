@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import moment from 'moment-timezone';
+import { formatInTimeZone } from 'date-fns-tz';
 import HeroTags from './HeroTags';
 import Breadcrumbs from '../navs/breadcrumbs/PageBreadcrumbs';
 import Subtitle from '../portableText/serializer/H1SubtitleSerializer';
@@ -23,8 +23,9 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
   },
   ref,
 ) {
-  const lastUpdatedDate = date ? new Date(moment(date).tz('America/New_York')) : null;
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const lastUpdatedDate = date
+    ? formatInTimeZone(new Date(date), 'America/New_York', 'MMMM d, yyyy')
+    : null;
 
   return (
     <Box
@@ -104,7 +105,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
                     fontWeight: 'fontWeightRegular',
                   }}
                 >
-                  Updated on {lastUpdatedDate.toLocaleDateString('en-US', options)}
+                  Updated on {lastUpdatedDate}
                 </Box>
               )}
             </Typography>
