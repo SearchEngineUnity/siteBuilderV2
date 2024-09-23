@@ -1,7 +1,8 @@
+import { defineType, defineField } from 'sanity';
 import { SiAdobelightroom } from 'react-icons/si';
 import * as blocks from '../blocks';
 
-export default {
+export default defineType({
   name: 'lrFlex',
   title: 'LR - Flex',
   type: 'object',
@@ -17,20 +18,20 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'idTag',
       title: 'Hash ID',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
       description:
         'Add ID to the selected string. Please only use alphanumeric characters and hypen and do not start the string with a number.',
-    },
-    {
+    }),
+    defineField({
       name: 'header',
       type: 'header',
       title: 'Header',
-    },
-    {
+    }),
+    defineField({
       name: 'blocks',
       type: 'array',
       title: 'Blocks',
@@ -45,13 +46,13 @@ export default {
         { type: 'video' },
       ],
       validation: (Rule) => Rule.length(2).error('Must contain two items'),
-    },
-    {
+    }),
+    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'minPT',
-    },
-    {
+    }),
+    defineField({
       name: 'layout',
       type: 'string',
       title: 'Layout',
@@ -71,16 +72,16 @@ export default {
       },
       initialValue: '6:6',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'reverseOrder',
       type: 'boolean',
       title: 'Reverse order on stacking?',
       fieldset: 'design',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'blockAlignment',
       title: 'Block Alignment',
       type: 'string',
@@ -97,8 +98,8 @@ export default {
       fieldset: 'design',
       initialValue: 'center',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
@@ -111,8 +112,8 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
@@ -125,14 +126,14 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'designSettings',
       title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
       fieldset: 'design',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -146,4 +147,4 @@ export default {
       };
     },
   },
-};
+});

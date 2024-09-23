@@ -1,6 +1,7 @@
+import { defineType, defineField } from 'sanity';
 import { BsCardText } from 'react-icons/bs';
 
-export default {
+export default defineType({
   name: 'heroBlock',
   title: 'Hero Block',
   type: 'object',
@@ -16,22 +17,22 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'header',
       title: 'Header',
       type: 'heroHeader',
-    },
-    {
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
       type: 'maxPT',
-    },
-    {
+    }),
+    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'minPT',
-    },
-    {
+    }),
+    defineField({
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
@@ -44,8 +45,8 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'textAlignment',
       title: 'Text Alignment',
       type: 'string',
@@ -58,8 +59,8 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
@@ -72,7 +73,7 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -84,4 +85,4 @@ export default {
       };
     },
   },
-};
+});

@@ -10,8 +10,6 @@ export { default as flexListingPage } from './flexListingPage';
 export { default as formNetlify } from './formNetlify';
 export { default as formStyle } from './formStyle';
 export { default as generalSettings } from './generalSettings';
-// currently commented out as not in use
-// export { default as layoutSpg } from './layoutSpg';
 export { default as navMenu } from './navMenu';
 export { default as page } from './page';
 export { default as palette } from './palette';

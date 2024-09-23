@@ -1,19 +1,19 @@
-import React from 'react';
+import { defineType, defineField, defineArrayMember } from 'sanity';
 import { BsFillMenuButtonWideFill } from 'react-icons/bs';
 
-export default {
+export default defineType({
   name: 'navGroup',
   type: 'object',
   title: 'Navigation Group',
   icon: BsFillMenuButtonWideFill,
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'nav',
       title: 'Navigate to',
       type: 'reference',
@@ -24,14 +24,14 @@ export default {
         { type: 'aToZPage' },
       ],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       title: 'Group',
       name: 'group',
       type: 'array',
-      of: [{ type: 'navItem' }],
-      validation: (Rule) => [Rule.min(1).error('Must contain at least oen item')],
-    },
+      of: [defineArrayMember({ type: 'navItem' })],
+      validation: (Rule) => [Rule.min(1).error('Must contain at least one item')],
+    }),
   ],
   preview: {
     select: {
@@ -44,4 +44,4 @@ export default {
       };
     },
   },
-};
+});

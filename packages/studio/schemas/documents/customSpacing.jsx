@@ -1,11 +1,12 @@
 import React from 'react';
+import { defineType, defineField } from 'sanity';
 
-export default {
+export default defineType({
   name: 'customSpacing',
   type: 'document',
   title: 'Spacing',
   fields: [
-    {
+    defineField({
       name: 'sectionOuter',
       title: 'Sitewide Section Outer Padding Settings',
       type: 'paddingSet',
@@ -27,8 +28,8 @@ export default {
           </a>
         </>
       ),
-    },
-    {
+    }),
+    defineField({
       name: 'sectionInner',
       title: 'Sitewide Section Inner Padding Settings',
       type: 'paddingSet',
@@ -50,7 +51,7 @@ export default {
           </a>
         </>
       ),
-    },
+    }),
   ],
   preview: {
     select: {},
@@ -60,4 +61,4 @@ export default {
       };
     },
   },
-};
+});

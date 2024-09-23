@@ -1,6 +1,7 @@
+import { defineType, defineField, defineArrayMember } from 'sanity';
 import { CgQuoteO } from 'react-icons/cg';
 
-export default {
+export default defineType({
   name: 'testimonialBlock',
   title: 'Testimonial Block',
   type: 'object',
@@ -16,23 +17,23 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'header',
       type: 'header',
       title: 'Header',
-    },
-    {
+    }),
+    defineField({
       name: 'testimonialList',
       type: 'array',
       title: 'Testimonial List',
-      of: [{ type: 'reference', to: [{ type: 'testimonial' }] }],
-    },
-    {
+      of: [defineArrayMember({ type: 'reference', to: [{ type: 'testimonial' }] })],
+    }),
+    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'minPT',
-    },
-    {
+    }),
+    defineField({
       name: 'tileOption',
       title: 'Testimonial Design Option',
       type: 'string',
@@ -46,8 +47,8 @@ export default {
         ],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'layout',
       title: 'Number of tiles in a row (only applies if using Grid)',
       description:
@@ -61,8 +62,8 @@ export default {
           'Accepted pattern is value/value/vale/value. Accepted values are 1, 2, 3, 4, 6, 12.',
         ),
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
@@ -75,8 +76,8 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
@@ -89,7 +90,7 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -124,4 +125,4 @@ export default {
       }
     },
   },
-};
+});

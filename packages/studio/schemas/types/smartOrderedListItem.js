@@ -1,15 +1,16 @@
+import { defineField, defineType } from 'sanity';
 import { MdPlaylistAdd } from 'react-icons/md';
 
-export default {
+export default defineType({
   name: 'smartOrderedListItem',
   type: 'object',
   title: 'List Item',
   icon: MdPlaylistAdd,
   fields: [
-    {
+    defineField({
       name: 'content',
       type: 'maxPT',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -24,9 +25,9 @@ export default {
 
         default:
           return {
-            title: `This list item start with '${content[0]._type}''`,
+            title: `This list item starts with '${content[0]._type}'`,
           };
       }
     },
   },
-};
+});

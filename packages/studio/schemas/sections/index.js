@@ -4,7 +4,6 @@ export { default as latestWithPaginationSection } from './latestWithPaginationSe
 export { default as latestXSection } from './latestXSection';
 export { default as lrFlex } from './lrFlex';
 export { default as lrHero } from './lrHero';
-// export { default as paginatedListingSection } from './paginatedListingSection';
 export { default as relatedContentSetion } from './relatedContentSection';
 export { default as stackFlex } from './stackFlex';
 export { default as stackHero } from './stackHero';

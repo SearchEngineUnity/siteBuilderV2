@@ -1,11 +1,12 @@
 import React from 'react';
+import { defineField, defineType } from 'sanity';
 
-export default {
+export default defineType({
   name: 'btnSettingsMui',
   title: 'Button Settings MUI',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'variant',
       title: `Choose between 'Filled', 'Outlined', or 'Text only'.`,
       type: 'string',
@@ -20,8 +21,8 @@ export default {
       },
       initialValue: 'contained',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'padding',
       title: 'Button padding',
       type: 'string',
@@ -39,8 +40,8 @@ export default {
       ),
       initialValue: '0px',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'borderRadius',
       title: 'Button Border Radius',
       type: 'string',
@@ -58,8 +59,8 @@ export default {
       ),
       initialValue: '4px',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'border',
       title: 'Border Style',
       type: 'string',
@@ -76,34 +77,34 @@ export default {
           </a>
         </>
       ),
-    },
-    {
+    }),
+    defineField({
       name: 'disableElevation',
       title: 'Disable elevation',
       type: 'boolean',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'disableFocusRipple',
       title: 'Disable focus ripple',
       type: 'boolean',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'disableRipple',
       title: 'Disable ripple',
       type: 'boolean',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'fullWidth',
       title: 'Make button full width',
       type: 'boolean',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
-};
+});

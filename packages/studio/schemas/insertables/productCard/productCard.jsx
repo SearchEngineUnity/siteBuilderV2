@@ -1,6 +1,7 @@
+import { defineType, defineField, defineArrayMember } from 'sanity';
 import { BiNews } from 'react-icons/bi';
 
-export default {
+export default defineType({
   name: 'productCard',
   title: 'Product Card',
   type: 'object',
@@ -16,7 +17,7 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       title: 'Product Card Top Design',
       name: 'design',
       type: 'string',
@@ -30,8 +31,8 @@ export default {
       fieldset: 'productCardTop',
       validation: (Rule) => [Rule.required().error('Field is required')],
       initialValue: 'eCommerce',
-    },
-    {
+    }),
+    defineField({
       title: 'Product Name',
       name: 'name',
       type: 'string',
@@ -40,8 +41,8 @@ export default {
         const { design = '' } = parent || {};
         return !design || design === 'site';
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Product Heading Level',
       name: 'headingLevel',
       type: 'string',
@@ -59,8 +60,8 @@ export default {
         const { design = '' } = parent || {};
         return !design || design === 'site';
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Rating Score',
       name: 'rating',
       type: 'number',
@@ -69,8 +70,8 @@ export default {
         const { design = '' } = parent || {};
         return !design;
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Image',
       name: 'image',
       type: 'productCardImage',
@@ -79,8 +80,8 @@ export default {
         const { design = '' } = parent || {};
         return !design;
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Special Tag Text',
       name: 'tagText',
       type: 'string',
@@ -89,8 +90,8 @@ export default {
         const { design = '' } = parent || {};
         return !design;
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Special Tag Color',
       name: 'tagColor',
       type: 'reference',
@@ -100,12 +101,12 @@ export default {
         const { design = '' } = parent || {};
         return !design;
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Info Item List',
       name: 'infoList',
       type: 'array',
-      of: [{ type: 'infoItem' }],
+      of: [defineArrayMember({ type: 'infoItem' })],
       fieldset: 'productCardTop',
       validation: (Rule) =>
         Rule.custom((infoList) => {
@@ -115,19 +116,19 @@ export default {
         const { design = '' } = parent || {};
         return !design;
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Button Set',
       name: 'btnSet',
       type: 'array',
-      of: [{ type: 'btnBlockMui' }],
+      of: [defineArrayMember({ type: 'btnBlockMui' })],
       fieldset: 'productCardTop',
       hidden: ({ parent }) => {
         const { design = '' } = parent || {};
         return !design || design === 'app';
       },
-    },
-    {
+    }),
+    defineField({
       title: 'iOS Link',
       name: 'iosLink',
       type: 'url',
@@ -141,8 +142,8 @@ export default {
         const { design = '' } = parent || {};
         return !design || design !== 'app';
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Google Play Link',
       name: 'googlePlayLink',
       type: 'url',
@@ -156,17 +157,17 @@ export default {
         const { design = '' } = parent || {};
         return !design || design !== 'app';
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Product Card Flex Segment Stack',
       name: 'segments',
       type: 'array',
-      of: [{ type: 'productCardFlexSegment' }],
+      of: [defineArrayMember({ type: 'productCardFlexSegment' })],
       hidden: ({ parent }) => {
         const { design = '' } = parent || {};
         return !design;
       },
-    },
+    }),
   ],
   preview: {
     select: {
@@ -181,4 +182,4 @@ export default {
       };
     },
   },
-};
+});

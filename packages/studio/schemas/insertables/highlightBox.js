@@ -1,12 +1,13 @@
 import { MdSimCardAlert } from 'react-icons/md';
+import { defineType, defineField } from 'sanity';
 
-export default {
+export default defineType({
   name: 'highlightBox',
   title: 'Highlight Box',
   type: 'object',
   icon: MdSimCardAlert,
   fields: [
-    {
+    defineField({
       name: 'type',
       title: 'Type',
       type: 'string',
@@ -20,13 +21,13 @@ export default {
         ],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
       type: 'noHeadingsPT',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -47,4 +48,4 @@ export default {
       };
     },
   },
-};
+});

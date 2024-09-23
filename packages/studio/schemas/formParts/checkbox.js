@@ -1,40 +1,42 @@
-export default {
+import { defineType, defineField, defineArrayMember } from 'sanity';
+
+export default defineType({
   name: 'checkbox',
   type: 'object',
   title: 'Checkbox',
   fields: [
-    {
+    defineField({
       name: 'id',
       type: 'string',
       title: 'Id Tag',
       description: 'Give one string to identify this field',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'label',
       type: 'string',
       title: 'Label',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'helperText',
       title: 'Helper Text',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'options',
       title: 'Options',
       type: 'array',
-      of: [{ type: 'option' }],
+      of: [defineArrayMember({ type: 'option' })],
       validation: (Rule) => Rule.min(1).error('Must contain at least one item'),
-    },
-    {
+    }),
+    defineField({
       name: 'required',
       title: 'Is this information required?',
       type: 'boolean',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -48,9 +50,4 @@ export default {
       };
     },
   },
-};
-
-// id for select (add '-label' for use as input label)
-// input label - string
-// value = the same as name of input field
-// array for options with label and value for each option
+});

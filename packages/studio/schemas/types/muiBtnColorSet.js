@@ -1,9 +1,11 @@
-export default {
+import { defineType, defineField } from 'sanity';
+
+export default defineType({
   name: 'muiBtnColorSet',
   title: 'Mui Btn Color Set',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'main',
       title: 'Main',
       description:
@@ -11,8 +13,8 @@ export default {
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'dark',
       title: 'Dark',
       description:
@@ -20,14 +22,14 @@ export default {
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'contrastText',
       title: 'Contrast Text',
       description: 'This is the text color and the on focus overlay color for a filled button.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
-};
+});
