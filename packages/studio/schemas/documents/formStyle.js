@@ -1,18 +1,19 @@
+import { defineType, defineField } from 'sanity';
 import { HiOutlineColorSwatch } from 'react-icons/hi';
 
-export default {
+export default defineType({
   name: 'formStyle',
   type: 'document',
   icon: HiOutlineColorSwatch,
   title: 'formStyle',
   fields: [
-    {
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',
       description: 'This is for label purpose in studio only.',
-    },
-    {
+    }),
+    defineField({
       name: 'fieldVariant',
       title: 'Form Field Variant',
       type: 'string',
@@ -29,15 +30,15 @@ export default {
       },
       initialValue: 'outlined',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'borderRadius',
       title: 'Border Radius',
       type: 'string',
       initialValue: '4px',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'focusedColor',
       title: 'Focused Border Color',
       description:
@@ -45,24 +46,24 @@ export default {
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'backgroundColor',
       title: 'Background Color',
       description: 'Sets the background color for filled variant and outlined variant.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'fieldBgHoverColor',
       title: 'Background Hover Color',
       description: 'Sets the background color for filled variant on hover.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'labelColor',
       title: 'Label Color',
       description:
@@ -70,8 +71,8 @@ export default {
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'inputColor',
       title: 'Input Color',
       type: 'reference',
@@ -79,16 +80,16 @@ export default {
         'Sets the input text color, placeholder text color, and the border color on hover.',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'selectorColor',
       title: 'Selector Color',
       description: 'This would apply to the radio button and the checkbox.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'btnAlignment',
       title: 'Button Alignment',
       type: 'string',
@@ -99,14 +100,14 @@ export default {
       },
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'btnStyle', // fix to btnDesign for V2
       title: 'Button Design Option',
       type: 'reference',
       to: [{ type: 'btnDesignMui' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -124,4 +125,4 @@ export default {
       };
     },
   },
-};
+});

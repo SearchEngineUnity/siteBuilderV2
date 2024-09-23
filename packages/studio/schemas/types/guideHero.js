@@ -1,4 +1,6 @@
-export default {
+import { defineType, defineField } from 'sanity';
+
+export default defineType({
   name: 'guideHero',
   title: 'Guide Hero',
   type: 'object',
@@ -6,7 +8,7 @@ export default {
     collapsable: true,
   },
   fields: [
-    {
+    defineField({
       name: 'layout',
       title: 'Hero Layout',
       type: 'string',
@@ -21,8 +23,8 @@ export default {
       },
       initialValue: 'mainColumnHero',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'feature',
       title: 'Hero Feature',
       type: 'string',
@@ -38,19 +40,19 @@ export default {
       },
       initialValue: 'featureless',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'h1',
       title: 'H1 Text',
       type: 'string',
       validation: (Rule) => [Rule.required().error('H1 Text is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'subtitle',
       title: 'Hero Subtitle Text',
       type: 'minPT',
-    },
-    {
+    }),
+    defineField({
       name: 'image',
       title: 'Hero Image',
       type: 'imageBlock',
@@ -58,8 +60,8 @@ export default {
         const { feature = '' } = parent || {};
         return feature !== 'image';
       },
-    },
-    {
+    }),
+    defineField({
       name: 'video',
       title: 'Hero Video',
       type: 'video',
@@ -67,8 +69,8 @@ export default {
         const { feature = '' } = parent || {};
         return feature !== 'video';
       },
-    },
-    {
+    }),
+    defineField({
       name: 'productGrid',
       title: 'Hero Product Grid',
       type: 'productGrid',
@@ -76,6 +78,6 @@ export default {
         const { feature = '', layout = '' } = parent || {};
         return feature !== 'productGrid' || layout !== 'stackHero';
       },
-    },
+    }),
   ],
-};
+});

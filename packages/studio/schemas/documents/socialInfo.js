@@ -1,13 +1,14 @@
+import { defineType, defineField } from 'sanity';
 import { MdAlternateEmail } from 'react-icons/md';
 
-export default {
+export default defineType({
   name: 'socialInfo',
   title: 'Social Info',
   description: 'social media links',
   type: 'document',
   icon: MdAlternateEmail,
   fields: [
-    {
+    defineField({
       name: 'social',
       title: 'Social',
       type: 'string',
@@ -15,13 +16,13 @@ export default {
         list: ['facebook', 'x', 'instagram', 'pinterest', 'linkedin', 'youtube'],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'link',
       title: 'Link',
       type: 'url',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -48,4 +49,4 @@ export default {
       }
     },
   },
-};
+});

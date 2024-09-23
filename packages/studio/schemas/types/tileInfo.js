@@ -1,4 +1,6 @@
-export default {
+import { defineType, defineField, defineArrayMember } from 'sanity';
+
+export default defineType({
   name: 'tileInfo',
   title: 'Tile - Information Content',
   type: 'object',
@@ -13,38 +15,38 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'tileImage',
       title: 'Tile Image',
       type: 'tileImage',
-    },
-    {
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'subtitle',
       title: 'Subtitle',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       name: 'link',
       title: 'Tile link',
       type: 'array',
       of: [
-        { type: 'internalLocal' },
-        { type: 'internalGlobal' },
-        { type: 'externalLink' },
-        { type: 'affiliateLink' },
-        { type: 'jumpLink' },
+        defineArrayMember({ type: 'internalLocal' }),
+        defineArrayMember({ type: 'internalGlobal' }),
+        defineArrayMember({ type: 'externalLink' }),
+        defineArrayMember({ type: 'affiliateLink' }),
+        defineArrayMember({ type: 'jumpLink' }),
       ],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -58,4 +60,4 @@ export default {
       };
     },
   },
-};
+});

@@ -1,7 +1,8 @@
+import { defineType, defineField } from 'sanity';
 import { MdWeb } from 'react-icons/md';
 import * as sections from '../sections';
 
-export default {
+export default defineType({
   name: 'page',
   type: 'document',
   title: 'Structured Page',
@@ -41,7 +42,7 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'seuID',
       title: 'ID',
       type: 'string',
@@ -50,34 +51,34 @@ export default {
         Rule.required().error('Field is required'),
         // add a custom rule for isUnique
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'pageTitle',
       type: 'string',
       title: 'Page Title',
       fieldset: 'general',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'metaDescription',
       title: 'Meta Description',
       type: 'text',
       rows: 3,
       fieldset: 'general',
-    },
-    {
+    }),
+    defineField({
       name: 'fbShareMetaPack',
       title: 'Facebook Open Graph Meta Pack',
       type: 'fbShareMetaPack',
       fieldset: 'social',
-    },
-    {
+    }),
+    defineField({
       name: 'twitterShareMetaPack',
       title: 'Twitter Open Graph Meta Pack',
       type: 'twitterShareMetaPack',
       fieldset: 'social',
-    },
-    {
+    }),
+    defineField({
       name: 'sections',
       type: 'array',
       fieldset: 'sections',
@@ -97,38 +98,38 @@ export default {
             title,
           })),
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       description: 'This page URL will show as domain.com/slug',
       fieldset: 'indexing',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'noindex',
       title: 'Noindex',
       type: 'boolean',
       fieldset: 'indexing',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'nofollow',
       title: 'Nofollow',
       type: 'boolean',
       fieldset: 'indexing',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'canonical',
       title: 'Canonical URL',
       type: 'url',
       fieldset: 'indexing',
       description: 'Use this field to replace self canonical URL.',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -146,4 +147,4 @@ export default {
       };
     },
   },
-};
+});

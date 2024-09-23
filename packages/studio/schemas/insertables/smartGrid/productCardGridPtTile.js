@@ -1,17 +1,18 @@
+import { defineType, defineField } from 'sanity';
 import { TbNewSection } from 'react-icons/tb';
 
-export default {
+export default defineType({
   title: 'Product Card Grid PT Tile',
   name: 'productCardGridPtTile',
   type: 'object',
   icon: TbNewSection,
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Title Heading Level',
       name: 'headingLevel',
       type: 'string',
@@ -24,12 +25,12 @@ export default {
         ],
       },
       initialValue: 'p',
-    },
-    {
+    }),
+    defineField({
       name: 'content',
       title: 'Tile Content',
       type: 'noHeadingsPT',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -41,4 +42,4 @@ export default {
       };
     },
   },
-};
+});

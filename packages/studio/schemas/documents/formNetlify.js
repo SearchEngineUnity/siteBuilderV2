@@ -1,47 +1,48 @@
+import { defineType, defineField, defineArrayMember } from 'sanity';
 import { FaWpforms } from 'react-icons/fa';
 
-export default {
+export default defineType({
   title: 'Form Netlify',
   name: 'formNetlify',
   type: 'document',
   icon: FaWpforms,
   fields: [
-    {
+    defineField({
       name: 'name',
       title: 'Form name',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'subject',
       title: 'Form Subject Line',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'formFields',
       title: 'Form Fields',
       type: 'array',
       of: [
-        { type: 'textInput' },
-        { type: 'textarea' },
-        { type: 'select' },
-        { type: 'checkbox' },
-        { type: 'radio' },
+        defineArrayMember({ type: 'textInput' }),
+        defineArrayMember({ type: 'textarea' }),
+        defineArrayMember({ type: 'select' }),
+        defineArrayMember({ type: 'checkbox' }),
+        defineArrayMember({ type: 'radio' }),
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'submitBtn',
       title: 'Submit Button',
       type: 'submitBtn',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'thankYou',
       title: 'Thank You Message',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -53,4 +54,4 @@ export default {
       };
     },
   },
-};
+});

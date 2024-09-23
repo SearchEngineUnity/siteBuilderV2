@@ -1,30 +1,32 @@
 // This is not currently in use
 
-export default {
+import { defineField, defineType } from 'sanity';
+
+export default defineType({
   name: 'navJumpLink',
-  type: 'object',
   title: 'Nav Jump Link',
+  type: 'object',
   fields: [
-    {
+    defineField({
       title: 'Nav title',
       name: 'title',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'link',
       title: 'Link',
       type: 'string',
       description: 'Please enter the ID of the section you would like to jump to',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'isButton',
       type: 'boolean',
       title: 'Apply Button Style?',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -32,4 +34,4 @@ export default {
       subtitle: 'link',
     },
   },
-};
+});

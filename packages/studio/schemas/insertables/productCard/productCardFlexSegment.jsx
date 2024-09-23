@@ -1,17 +1,18 @@
+import { defineType, defineField } from 'sanity';
 import { TbNewSection } from 'react-icons/tb';
 
-export default {
+export default defineType({
   title: 'Product Card Flex Segment',
   name: 'productCardFlexSegment',
   type: 'object',
   icon: TbNewSection,
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Title Heading Level',
       name: 'headingLevel',
       type: 'string',
@@ -24,17 +25,17 @@ export default {
         ],
       },
       initialValue: 'p',
-    },
-    {
+    }),
+    defineField({
       name: 'content',
       title: 'Segment Content',
       type: 'noHeadingsPT',
-    },
-    {
+    }),
+    defineField({
       title: 'Hide Segment',
       name: 'hide',
       type: 'hideProductCardFlexSegment',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -46,4 +47,4 @@ export default {
       };
     },
   },
-};
+});
