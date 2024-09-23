@@ -1,23 +1,25 @@
-export default {
+import { defineType, defineField, defineArrayMember } from 'sanity';
+
+export default defineType({
   title: 'Row',
   name: 'rowPlus',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'cells',
       type: 'array',
       of: [
-        { type: 'tablePtCell' },
-        { type: 'emptyCell' },
-        { type: 'splitCell' },
-        { type: 'illustration' },
-        { type: 'clickableImage' },
-        { type: 'btnBlockMui' },
-        { type: 'video' },
-        { type: 'smartOrderedList' },
-        { type: 'smartUnorderedList' },
+        defineArrayMember({ type: 'tablePtCell' }),
+        defineArrayMember({ type: 'emptyCell' }),
+        defineArrayMember({ type: 'splitCell' }),
+        defineArrayMember({ type: 'illustration' }),
+        defineArrayMember({ type: 'clickableImage' }),
+        defineArrayMember({ type: 'btnBlockMui' }),
+        defineArrayMember({ type: 'video' }),
+        defineArrayMember({ type: 'smartOrderedList' }),
+        defineArrayMember({ type: 'smartUnorderedList' }),
       ],
-    },
+    }),
   ],
   preview: {
     select: {},
@@ -27,4 +29,4 @@ export default {
       };
     },
   },
-};
+});

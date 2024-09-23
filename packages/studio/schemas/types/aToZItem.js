@@ -1,15 +1,17 @@
-export default {
+import { defineType, defineField } from 'sanity';
+
+export default defineType({
   name: 'aToZItem',
   title: 'A to Z Item',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Item Title',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'link',
       title: 'Item Link',
       type: 'url',
@@ -19,11 +21,11 @@ export default {
           allowRelative: true,
         }),
       ],
-    },
+    }),
   ],
   preview: {
     select: {
       title: 'title',
     },
   },
-};
+});

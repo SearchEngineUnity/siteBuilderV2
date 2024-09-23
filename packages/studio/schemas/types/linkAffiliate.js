@@ -1,12 +1,13 @@
+import { defineType, defineField } from 'sanity';
 import { TbFileDollar } from 'react-icons/tb';
 
-export default {
+export default defineType({
   title: 'Affiliate Link',
   name: 'affiliateLink',
   type: 'object',
   icon: TbFileDollar,
   fields: [
-    {
+    defineField({
       title: 'URL',
       name: 'href',
       type: 'url',
@@ -15,7 +16,7 @@ export default {
           allowRelative: false,
           scheme: ['https'],
         }),
-    },
+    }),
   ],
   preview: {
     select: {
@@ -27,4 +28,4 @@ export default {
       };
     },
   },
-};
+});

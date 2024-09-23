@@ -1,8 +1,9 @@
+import { defineType, defineField } from 'sanity';
 import { BsViewStacked } from 'react-icons/bs';
 
 import * as blocks from '../blocks';
 
-export default {
+export default defineType({
   name: 'stackFlex',
   title: 'Stack - Flex',
   type: 'object',
@@ -18,20 +19,20 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'idTag',
       title: 'Hash ID',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
       description:
         'Add ID to the selected string. Please only use alphanumeric characters and hypen and do not start the string with a number.',
-    },
-    {
+    }),
+    defineField({
       name: 'header',
       type: 'header',
       title: 'Header',
-    },
-    {
+    }),
+    defineField({
       name: 'blocks',
       type: 'array',
       title: 'Blocks',
@@ -46,13 +47,13 @@ export default {
         { type: 'video' },
       ],
       validation: (Rule) => Rule.min(1).error('Minimum 1 block required'),
-    },
-    {
+    }),
+    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'minPT',
-    },
-    {
+    }),
+    defineField({
       name: 'blockWidth',
       type: 'string',
       title: 'Block Width',
@@ -70,8 +71,8 @@ export default {
       },
       initialValue: '12',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
@@ -84,8 +85,8 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
@@ -98,14 +99,14 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'designSettings',
       title: 'Section Design Option',
       type: 'reference',
       to: [{ type: 'sectionDesignSet' }],
       fieldset: 'design',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -119,4 +120,4 @@ export default {
       };
     },
   },
-};
+});

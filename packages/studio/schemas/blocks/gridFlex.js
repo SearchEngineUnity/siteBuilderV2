@@ -1,6 +1,7 @@
+import { defineType, defineField, defineArrayMember } from 'sanity';
 import { FiGrid } from 'react-icons/fi';
 
-export default {
+export default defineType({
   name: 'gridFlex',
   title: 'Flex Grid',
   type: 'object',
@@ -16,24 +17,24 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'header',
       type: 'header',
       title: 'Header',
-    },
-    {
+    }),
+    defineField({
       name: 'tiles',
       title: 'Tile Set',
       type: 'array',
-      of: [{ type: 'tileInfo' }],
+      of: [defineArrayMember({ type: 'tileInfo' })],
       validation: (Rule) => Rule.min(1).error('Must contain at least 1 item'),
-    },
-    {
+    }),
+    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'minPT',
-    },
-    {
+    }),
+    defineField({
       name: 'tileOption',
       title: 'Tile Design Option',
       type: 'string',
@@ -52,8 +53,8 @@ export default {
         ],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'layout',
       title: 'Number of tiles in a row',
       description:
@@ -67,8 +68,8 @@ export default {
           'Accepted pattern is value/value/vale/value. Accepted values are 1, 2, 3, 4, 6, 12.',
         ),
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
@@ -81,8 +82,8 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
@@ -95,7 +96,7 @@ export default {
       fieldset: 'design',
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -149,4 +150,4 @@ export default {
       }
     },
   },
-};
+});

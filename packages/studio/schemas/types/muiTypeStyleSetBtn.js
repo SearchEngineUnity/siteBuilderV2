@@ -1,4 +1,6 @@
-export default {
+import { defineType, defineField } from 'sanity';
+
+export default defineType({
   name: 'muiTypeStyleSetBtn',
   title: 'Mui Typography - Btn',
   type: 'object',
@@ -13,14 +15,14 @@ export default {
     },
   ],
   fields: [
-    {
+    defineField({
       name: 'fontFamily',
       title: 'Font Family',
       type: 'string',
       fieldset: 'set',
       initialValue: 'Roboto, Helvetica, Arial, sans-serif',
-    },
-    {
+    }),
+    defineField({
       name: 'fontWeight',
       title: 'Font Weight',
       type: 'number',
@@ -29,27 +31,27 @@ export default {
       },
       initialValue: 500,
       fieldset: 'set',
-    },
-    {
+    }),
+    defineField({
       name: 'fontSize',
       title: 'Font Size',
       type: 'string',
       initialValue: '0.875rem',
       fieldset: 'set',
-    },
-    {
+    }),
+    defineField({
       name: 'lineHeight',
       title: 'Line Height',
       type: 'number',
       initialValue: 1.75,
       fieldset: 'set',
-    },
-    {
+    }),
+    defineField({
       name: 'letterSpacing',
       title: 'Letter Spacing',
       type: 'string',
       initialValue: '0.02857em',
       fieldset: 'set',
-    },
+    }),
   ],
-};
+});

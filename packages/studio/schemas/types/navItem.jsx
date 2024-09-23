@@ -1,22 +1,23 @@
 /* eslint-disable no-plusplus */
 import React from 'react';
+import { defineType, defineField } from 'sanity';
 import { FiLink2 } from 'react-icons/fi';
 
-export default {
+export default defineType({
   name: 'navItem',
   type: 'object',
   title: 'Navigation Item',
   icon: FiLink2,
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'icon',
-      Title: 'Icon',
+      title: 'Icon',
       type: 'string',
       description: (
         <>
@@ -42,11 +43,10 @@ export default {
             }
           }
         }
-
         return false;
       },
-    },
-    {
+    }),
+    defineField({
       name: 'nav',
       title: 'Navigate to',
       type: 'reference',
@@ -57,14 +57,14 @@ export default {
         { type: 'aToZPage' },
       ],
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'isButton',
       type: 'boolean',
       title: 'Is it in the Button Style?',
       initialValue: false,
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -78,4 +78,4 @@ export default {
       };
     },
   },
-};
+});

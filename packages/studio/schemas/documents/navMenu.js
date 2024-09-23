@@ -1,12 +1,13 @@
+import { defineType, defineField, defineArrayMember } from 'sanity';
 import { FiNavigation2 } from 'react-icons/fi';
 
-export default {
+export default defineType({
   name: 'navMenu',
   title: 'Navigation Menu',
   type: 'document',
   icon: FiNavigation2,
   fields: [
-    {
+    defineField({
       name: 'type',
       Title: 'Type',
       type: 'string',
@@ -18,18 +19,14 @@ export default {
         ],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'menuArray',
       title: 'Menu',
       type: 'array',
-      of: [
-        {
-          type: 'navSet',
-        },
-      ],
+      of: [defineArrayMember({ type: 'navSet' })],
       validation: (Rule) => Rule.min(1).error('Must contain at least one item'),
-    },
+    }),
   ],
   preview: {
     select: {
@@ -46,4 +43,4 @@ export default {
       }
     },
   },
-};
+});

@@ -1,13 +1,15 @@
-export default {
+import { defineType, defineField } from 'sanity';
+
+export default defineType({
   title: 'PT Cell',
   name: 'tablePtCell',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'copy',
       title: 'Cell Content',
       type: 'noHeadingsPT',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -30,4 +32,4 @@ export default {
       }
     },
   },
-};
+});

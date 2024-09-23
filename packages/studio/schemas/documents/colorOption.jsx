@@ -1,31 +1,32 @@
-import { MdColorize } from 'react-icons/md';
 import React from 'react';
+import { defineType, defineField } from 'sanity';
+import { MdColorize } from 'react-icons/md';
 import { determineColor } from '../../lib/helperFunctions';
 
-export default {
+export default defineType({
   name: 'colorOption',
   type: 'document',
   title: 'Color Option',
   icon: MdColorize,
   fields: [
-    {
+    defineField({
       name: 'seuID',
       title: 'SEU ID',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'label',
       title: 'Label',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
+    }),
+    defineField({
       name: 'color',
       title: 'Select Color',
       type: 'color',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
+    }),
   ],
   preview: {
     select: {
@@ -51,4 +52,4 @@ export default {
       };
     },
   },
-};
+});
