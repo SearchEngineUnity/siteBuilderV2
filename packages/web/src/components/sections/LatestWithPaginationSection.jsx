@@ -46,6 +46,7 @@ function LatestWithPaginationSection({
                 subheadingColor={subheadingColor}
                 subtitleColor={subtitleColor}
                 align={headerAlignment}
+                currentPage={currentpage}
               />
             </Grid>
           )}
