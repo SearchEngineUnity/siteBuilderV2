@@ -14,6 +14,7 @@ function StructuredSectionHeader({
   hasSectionHeading,
   hasSectionSubheading,
   hasSectionSubtitle,
+  currentPage,
 }) {
   if (
     (!hasSectionHeading && heading) ||
@@ -25,6 +26,7 @@ function StructuredSectionHeader({
         {!hasSectionHeading && heading && (
           <Typography variant="h2" gutterBottom sx={{ color: headingColor }}>
             {heading}
+            {currentPage > 1 && ` - Page ${currentPage}`}
           </Typography>
         )}
         {!hasSectionSubheading && subheading && (
