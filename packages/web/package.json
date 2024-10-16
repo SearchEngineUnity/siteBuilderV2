@@ -12,6 +12,7 @@
     "gatsby"
   ],
   "scripts": {
+    "test": "jest --watch",
     "develop": "gatsby develop",
     "start": "gatsby clean && gatsby develop -H 0.0.0.0",
     "build": "gatsby clean && gatsby build",
@@ -54,5 +55,13 @@
     "react-lite-youtube-embed": "^2.4.0",
     "react-material-ui-carousel": "^3.4.2",
     "tss-react": "^4.9.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.7.3",
+    "babel-jest": "^29.7.0",
+    "babel-preset-gatsby": "^3.13.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0"
   }
 }
