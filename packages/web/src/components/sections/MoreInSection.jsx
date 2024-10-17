@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import TileSgpListing from '../tiles/TileSgpListing';
@@ -27,15 +27,22 @@ function MoreInSection({ subjectListingPages, spgTilesContent, subjectName, rela
       maxWidth="lg"
       id="more-in-subcategory"
       component="aside"
-      sx={{ my: { md: '80px', xs: '40px' } }}
+      sx={{ my: { md: '80px', xs: '40px' }, pt: { xs: '8px', sm: '12px' } }}
     >
       <Grid container direction="column" spacing={{ xs: 2, sm: 3 }}>
-        <Grid xs={12}>
+        <Grid size={12}>
           <Typography variant="h2">More in {subjectName}</Typography>
         </Grid>
         <Grid container direction="row" spacing={{ xs: 2, sm: 3 }}>
           {listingTiles.slice(0, 8).map((tile) => (
-            <Grid xs={12} sm={6} md={3} key={tile.node.id}>
+            <Grid
+              key={tile.node.id}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3,
+              }}
+            >
               <TileSgpListing {...mapTileSgpListingToProps(tile)} />
             </Grid>
           ))}

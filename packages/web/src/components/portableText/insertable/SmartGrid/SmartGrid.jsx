@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import ProductCardGridPtTile from './ProductCardGridPtTile';
 import PtTile from '../../serializer/HalfIndentSerializer';
 import Illustration from '../Illustration';
@@ -64,7 +64,7 @@ function SmartGrid({ layout, tiles }) {
           const values = propsMapping(_type, tile);
 
           return (
-            <Grid key={_key} {...col}>
+            <Grid key={_key} size={col}>
               {Component ? <Component {...values} /> : errorMsg}
             </Grid>
           );

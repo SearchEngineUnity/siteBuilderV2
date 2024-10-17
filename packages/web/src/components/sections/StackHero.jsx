@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Video from '../portableText/insertable/Video';
 import SectionBlock from '../blocks/HeroSectionBlock';
@@ -50,7 +50,7 @@ function StackHero({
       <SectionInnerWrapper designSettings={designSettings}>
         <Grid container alignItems="center" spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <HeroSectionHeader
                 heading={heading}
                 subheading={subheading}
@@ -142,13 +142,13 @@ function StackHero({
               }
             };
             return (
-              <Grid {...col} key={_key}>
+              <Grid size={col} key={_key}>
                 {blockSelector(_type)}
               </Grid>
             );
           })}
           {footer && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <HeroSectionFooter
                 footer={footer}
                 footerColor={footerColor}

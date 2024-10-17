@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Tile1 from '../tiles/TileImageRecSqr';
 import Tile2 from '../tiles/TileImageCircle';
 import Tile3 from '../tiles/TileImageTitleBorder';
@@ -51,7 +51,7 @@ function GridFlex({
   return (
     <Grid container spacing={{ xs: 2, sm: 3 }} justifyContent="center">
       {(heading || subheading || subtitle) && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <StructuredSectionHeader
             heading={heading}
             subheading={subheading}
@@ -140,13 +140,13 @@ function GridFlex({
         };
 
         return (
-          <Grid key={tile._key} {...col}>
+          <Grid key={tile._key} size={col}>
             {tileSelector(tileOption)}
           </Grid>
         );
       })}
       {footer && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <StructuredSectionFooter
             footer={footer}
             footerColor={footerColor}

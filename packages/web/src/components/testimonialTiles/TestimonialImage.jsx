@@ -2,7 +2,7 @@ import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
@@ -18,7 +18,12 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
     >
       <CardContent sx={{ p: '8px 16px', '&:last-child': { pb: '8px' } }}>
         <Grid container spacing={2}>
-          <Grid xs={12} sm>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 'grow',
+            }}
+          >
             <Typography variant="body1" sx={{ fontStyle: 'italic', marginBottom: '16px' }}>
               {text}
             </Typography>

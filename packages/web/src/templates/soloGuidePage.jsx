@@ -5,7 +5,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Seo from '../components/Seo';
 import Layout from '../containers/layout';
 import LrGuideHero from '../components/sections/LrGuideHero';
@@ -292,14 +292,14 @@ function SoloGuidePage({ data, pageContext }) {
           <Box sx={{ mb: { lg: '104px', md: '80px', xs: '40px' } }}>
             <Container maxWidth="lg">
               <Grid container spacing={{ xs: 2, sm: 3 }}>
-                <Grid md={3} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
+                <Grid size={{ md: 3 }} sx={{ display: { xs: 'none', md: 'block' }, order: 2 }}>
                   {data?.guide?.toc?.length > 0 ? (
                     <ToC toc={data.guide.toc} />
                   ) : (
                     <TocAlternativeAds />
                   )}
                 </Grid>
-                <Grid md={9} xs={12} sx={{ order: 1 }}>
+                <Grid size={{ xs: 12, md: 9 }} sx={{ order: 1 }}>
                   {heroLayout === 'mainColumnHero' && (
                     <MainColumnFeature {...mapGuideHeroToProps(data.guide)} />
                   )}

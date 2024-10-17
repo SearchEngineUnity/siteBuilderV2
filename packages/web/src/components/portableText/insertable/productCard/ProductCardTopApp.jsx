@@ -3,7 +3,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import CardActionArea from '@mui/material/CardActionArea';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -28,7 +28,12 @@ function ProductCardTopApp({ rating, image, infoList, iosLink, googlePlayLink })
   return (
     <Box sx={{ m: 3 }}>
       <Grid container spacing={2} sx={{ alignItems: 'center' }}>
-        <Grid xs={12} sm={6}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+          }}
+        >
           <Box
             component={Box}
             as="figure"
@@ -62,9 +67,6 @@ function ProductCardTopApp({ rating, image, infoList, iosLink, googlePlayLink })
           </Box>
         </Grid>
         <Grid
-          item
-          xs={12}
-          sm={6}
           sx={{
             display: {
               xs: 'none',
@@ -73,6 +75,10 @@ function ProductCardTopApp({ rating, image, infoList, iosLink, googlePlayLink })
               lg: 'inline-flex',
               xl: 'inline-flex',
             },
+          }}
+          size={{
+            xs: 12,
+            sm: 6,
           }}
         >
           <Box sx={{ display: 'flex', mr: 3 }}>

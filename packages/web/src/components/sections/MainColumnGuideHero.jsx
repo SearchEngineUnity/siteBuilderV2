@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { Link } from 'gatsby-theme-material-ui';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import { formatInTimeZone } from 'date-fns-tz';
 import HeroTags from './HeroTags';
@@ -32,7 +32,7 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
       ref={ref}
       sx={{
         bgcolor: 'transparent',
-        mb: '12px',
+        mb: { xs: '20px', sm: '24px' },
       }}
       id="hero"
       component="header"
@@ -49,11 +49,16 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
         )}
         <Grid container direction="column" spacing={{ xs: 2, sm: 3 }}>
           <Grid>
-            <Typography variant="h1" color="text.primary">
+            <Typography variant="h1" color="textPrimary">
               {h1}
             </Typography>
           </Grid>
-          <Grid md={9} xs={12}>
+          <Grid
+            size={{
+              md: 9,
+              xs: 12,
+            }}
+          >
             {subtitle && (
               <Box sx={{ mb: '24px' }}>
                 <Subtitle blocks={subtitle} />

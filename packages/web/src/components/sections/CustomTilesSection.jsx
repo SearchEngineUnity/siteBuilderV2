@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
 import SectionOuterWrapper from './SectionOuterWrapper';
@@ -29,7 +29,7 @@ function CustomTilesSection({
       <SectionInnerWrapper designSettings={designSettings}>
         <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionHeader
                 heading={heading}
                 subheading={subheading}
@@ -43,13 +43,20 @@ function CustomTilesSection({
           )}
           <Grid container direction="row">
             {customTiles.map((tile) => (
-              <Grid xs={12} sm={6} md={3} key={tile._id}>
+              <Grid
+                key={tile._id}
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3,
+                }}
+              >
                 <TileSgpListing {...mapTileFeaturedSgpListingToProps(tile)} />
               </Grid>
             ))}
           </Grid>
           {footer && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionFooter
                 footer={footer}
                 footerColor={footerColor}

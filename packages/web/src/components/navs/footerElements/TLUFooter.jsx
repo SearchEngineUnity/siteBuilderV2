@@ -2,7 +2,7 @@
 import React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import Grid from '@mui/material/Grid2';
 import { Link } from 'gatsby-theme-material-ui';
 import MuiLink from '@mui/material/Link';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -61,7 +61,13 @@ function TLUFooter() {
       >
         <Container maxWidth="lg" component="nav" role="menubar">
           <Grid container spacing="40px">
-            <Grid xs={12} md={6} lg={6}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 6,
+                lg: 6,
+              }}
+            >
               <MenuHeading component="p">Get In Touch</MenuHeading>
               <Box
                 component="p"
@@ -155,7 +161,14 @@ function TLUFooter() {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid xs={12} sm={6} md={3} lg={3}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3,
+                lg: 3,
+              }}
+            >
               <MenuHeading component="p">Work With Us</MenuHeading>
               <Box
                 role="menu"
@@ -184,7 +197,14 @@ function TLUFooter() {
                 </li>
               </Box>
             </Grid>
-            <Grid xs={12} sm={6} md={3} lg={3}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3,
+                lg: 3,
+              }}
+            >
               <MenuHeading component="p">Our Guides</MenuHeading>
               <Box
                 role="menu"

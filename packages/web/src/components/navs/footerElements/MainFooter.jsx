@@ -3,7 +3,7 @@
 // import Box from '@mui/material/Box';
 // import Container from '@mui/material/Container';
 // import Divider from '@mui/material/Divider';
-// import Grid from '@mui/material/Unstable_Grid2';
+// import Grid from '@mui/material/Grid2';
 // import Toolbar from '@mui/material/Toolbar';
 // import { Link } from 'gatsby-theme-material-ui';
 // import NavBrand from '../headerElements/NavBrand';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import TestimonialGrid from './TestimonialGrid';
 import TestimonialSlider from './TestimonialSlider';
 import TestimonialCarousel from './TestimonialCarousel';
@@ -37,7 +37,7 @@ function TestimonialBlock(props) {
   return (
     <Grid container spacing={{ xs: 2, sm: 3 }}>
       {(heading || subheading || subtitle) && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <StructuredSectionHeader
             heading={heading}
             subheading={subheading}
@@ -52,11 +52,11 @@ function TestimonialBlock(props) {
           />
         </Grid>
       )}
-      <Grid xs={12}>
+      <Grid size={12}>
         <TestimonialDisplay {...props} />
       </Grid>
       {footer && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <StructuredSectionFooter
             footer={footer}
             footerColor={footerColor}
