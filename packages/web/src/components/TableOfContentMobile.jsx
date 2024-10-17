@@ -108,9 +108,12 @@ function TableOfContentMobile({ toc }) {
                   key={item._key}
                   component="li"
                   variant="body1"
-                  lineHeight={1}
-                  color="text.primary"
-                  sx={{ py: '10px', ml: '24px' }}
+                  sx={{
+                    py: '10px',
+                    ml: '24px',
+                    color: (theme) => theme.palette.text.primary,
+                    lineHeight: 1,
+                  }}
                 >
                   <Link
                     sx={{

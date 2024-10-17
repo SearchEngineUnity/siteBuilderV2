@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import SectionOuterWrapper from './SectionOuterWrapper';
@@ -77,25 +77,32 @@ function LatestXSection({
           )}
           <Grid container direction="row">
             {sectionTiles.map((tile) => (
-              <Grid xs={12} sm={6} md={3} key={tile.node.id}>
+              <Grid
+                key={tile.node.id}
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3,
+                }}
+              >
                 <TileSgpListing {...mapTileSgpListingToProps(tile)} />
               </Grid>
             ))}
           </Grid>
           <Grid
-            xs={12}
             sx={{
               display: { xs: 'flex', sm: 'none' },
               '& a': { flex: '0 1 200px' },
               justifyContent: 'center',
             }}
+            size={12}
           >
             <SubjectTagButton to={subjectLink} variant="outlined" fontSize="h5">
               View all
             </SubjectTagButton>
           </Grid>
           {footer && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionFooter
                 footer={footer}
                 footerColor={footerColor}

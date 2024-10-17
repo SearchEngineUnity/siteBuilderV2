@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import { Link } from 'gatsby';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
@@ -17,7 +17,7 @@ function ContributorGuidesSection({ spgTilesContent, name, numPages, currentpage
       spacing={{ xs: 2, sm: 3 }}
       sx={{ paddingTop: currentpage === 1 && { md: '60px', xs: '30px' } }}
     >
-      <Grid xs={12}>
+      <Grid size={12}>
         <Typography variant="h2">
           Recent Guides Written by {name}
           {currentpage !== 1 && ` - Page ${currentpage} of ${numPages}`}
@@ -25,13 +25,20 @@ function ContributorGuidesSection({ spgTilesContent, name, numPages, currentpage
       </Grid>
       <Grid container direction="row" spacing={{ xs: 2, sm: 3 }}>
         {spgTilesContent.map((tile) => (
-          <Grid xs={12} sm={6} md={3} key={tile.node.id}>
+          <Grid
+            key={tile.node.id}
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3,
+            }}
+          >
             <TileSgpListing {...mapTileSgpListingToProps(tile)} />
           </Grid>
         ))}
       </Grid>
       {numPages > 1 && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <Pagination
             sx={{
               display: 'flex',
