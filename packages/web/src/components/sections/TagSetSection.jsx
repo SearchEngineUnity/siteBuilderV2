@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import SellIcon from '@mui/icons-material/Sell';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
@@ -30,7 +30,7 @@ function TagSetSection({
       <SectionInnerWrapper designSettings={designSettings}>
         <Grid container alignItems="center" spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionHeader
                 heading={heading}
                 subheading={subheading}
@@ -81,7 +81,7 @@ function TagSetSection({
             })}
           </Grid>
           {footer && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionFooter
                 footer={footer}
                 footerColor={footerColor}

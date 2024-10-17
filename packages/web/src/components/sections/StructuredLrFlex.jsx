@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Video from '../portableText/insertable/Video';
 import SectionBlock from '../blocks/SectionBlock';
@@ -58,7 +58,7 @@ function StructuredLrFlex({
           spacing={{ xs: 2, sm: 3 }}
         >
           {(heading || subheading || subtitle) && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionHeader
                 heading={heading}
                 subheading={subheading}
@@ -156,7 +156,7 @@ function StructuredLrFlex({
             };
             return (
               <Grid
-                {...col}
+                size={col}
                 key={block._key}
                 sx={[
                   index === 0 && reverseOrder && { order: { xs: 2, sm: 1 } },
@@ -168,7 +168,7 @@ function StructuredLrFlex({
             );
           })}
           {footer && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionFooter
                 footer={footer}
                 footerColor={footerColor}

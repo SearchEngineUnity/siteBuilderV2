@@ -2,7 +2,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import FluidImgBlock from '../components/blocks/FluidImgBlock';
 import Seo from '../components/Seo';
@@ -89,7 +89,7 @@ function ContributorPage({ data, pageContext }) {
       <Container maxWidth="lg" component="main" sx={{ paddingBottom: { md: '80px', xs: '40px' } }}>
         {currentpage === 1 && (
           <Grid container spacing={2}>
-            <Grid xs={12} md={4} lg={3}>
+            <Grid size={{ xs: 12, md: 4, lg: 3 }}>
               <FluidImgBlock
                 loading="eager"
                 alt={name}
@@ -101,7 +101,7 @@ function ContributorPage({ data, pageContext }) {
                 {printAccounts(accounts)}
               </Grid>
             </Grid>
-            <Grid xs={12} md={8} lg={9}>
+            <Grid size={{ xs: 12, md: 8, lg: 9 }}>
               <Typography variant="h1">{name}</Typography>
               <Typography
                 component="p"
