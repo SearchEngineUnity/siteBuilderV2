@@ -158,7 +158,7 @@ function LrFlexHero({
             };
             return (
               <Grid
-                {...col}
+                size={col}
                 key={block._key}
                 sx={[
                   index === 0 && reverseOrder && { order: { xs: 2, sm: 1 } },
