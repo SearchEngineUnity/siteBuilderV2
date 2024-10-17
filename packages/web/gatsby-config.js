@@ -31,9 +31,9 @@ module.exports = {
     title: `web`,
     siteUrl,
   },
-  flags: {
-    DEV_SSR: true,
-  },
+  // flags: {
+  //   DEV_SSR: true,
+  // },
   // off-main-thread related
   // partytownProxiedURLs: [`https://s.skimresources.com/js/89665X1543008.skimlinks.js`],
   plugins: [

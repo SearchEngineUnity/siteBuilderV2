@@ -177,7 +177,7 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
       <Box
         sx={(theme) => ({
           pt: { xs: '16px', md: '0px' },
-          mb: { xs: '24px', sm: '32px', md: '48px' },
+          mb: { xs: '32px', sm: '40px', md: '56px' },
           background: {
             xs: `linear-gradient(${theme.palette.primary.main} 0%, ${theme.palette.primary.main} ${
               featureType === 'productGrid' ? '10%' : '30%'

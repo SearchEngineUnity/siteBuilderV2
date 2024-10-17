@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Tile1 from '../testimonialTiles/TestimonialImage';
 import Tile2 from '../testimonialTiles/TestimonialPlain';
 import { mapTestimonialListToProps } from '../../lib/mapToProps';
@@ -34,7 +34,7 @@ function TestimonialGrid({ testimonialList, layout, tileOption }) {
           }
         };
         return (
-          <Grid key={testimonial._id} {...col}>
+          <Grid key={testimonial._id} size={col}>
             {tileSelector(tileOption)}
           </Grid>
         );

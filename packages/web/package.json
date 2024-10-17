@@ -12,6 +12,7 @@
     "gatsby"
   ],
   "scripts": {
+    "pw:screenshot": "npx playwright test --update-snapshots",
     "test": "jest --watch",
     "develop": "gatsby develop",
     "start": "gatsby clean && gatsby develop -H 0.0.0.0",
@@ -20,13 +21,11 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@loadable/component": "^5.16.4",
-    "@mui/icons-material": "^5.15.11",
-    "@mui/material": "^5.15.11",
-    "@mui/styles": "^5.15.11",
-    "@mui/utils": "^5.11.7",
+    "@mui/icons-material": "^6.1.4",
+    "@mui/material": "^6.1.4",
     "@portabletext/react": "^3.0.11",
     "algoliasearch": "^4.22.1",
     "date-fns": "^4.1.0",

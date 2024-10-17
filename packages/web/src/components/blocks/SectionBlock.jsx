@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import SectionTextBlock from '../portableText/serializer/FullIndentSerializer';
 import StructuredSectionHeader from '../sections/StructuredSectionHeader';
 import StructuredSectionFooter from '../sections/StructuredSectionFooter';
@@ -26,7 +26,7 @@ function SectionBlock({
   return (
     <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
       {(heading || subheading || subtitle) && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <StructuredSectionHeader
             heading={heading}
             subheading={subheading}
@@ -42,14 +42,14 @@ function SectionBlock({
         </Grid>
       )}
       {sectionText && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <Box sx={{ textAlign: textAlignment }}>
             <SectionTextBlock blocks={sectionText} />
           </Box>
         </Grid>
       )}
       {footer && (
-        <Grid xs={12}>
+        <Grid size={12}>
           <StructuredSectionFooter
             footer={footer}
             footerColor={footerColor}

@@ -73,7 +73,7 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
         {name && (
           <Typography
             variant="h5"
-            color="text.secondary"
+            color="textSecondary"
             component="p"
             sx={{
               padding: { xs: '0px 16px 16px', sm: '16px 16px 0px', lg: '0px 16px 16px' },

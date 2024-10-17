@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import SiteProductGridTile from './SiteProductGridTile';
 
 function ProductGrid({ id, pageJumpText, tiles, design }) {
@@ -27,7 +27,13 @@ function ProductGrid({ id, pageJumpText, tiles, design }) {
         tiles.map((tile, index) => {
           const { _key } = tile;
           return (
-            <Grid key={_key} xs={12} lg={3}>
+            <Grid
+              key={_key}
+              size={{
+                xs: 12,
+                lg: 3,
+              }}
+            >
               <Tile key={_key} pageJumpText={pageJumpText} tile={tile} tilePosition={index} />
             </Grid>
           );

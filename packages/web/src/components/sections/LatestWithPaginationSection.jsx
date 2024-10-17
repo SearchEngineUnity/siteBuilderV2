@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import { Link } from 'gatsby';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
@@ -37,7 +37,7 @@ function LatestWithPaginationSection({
       <SectionInnerWrapper designSettings={designSettings}>
         <Grid container spacing={{ xs: 2, sm: 3 }} direction="column">
           {(heading || subheading || subtitle) && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionHeader
                 heading={heading}
                 subheading={subheading}
@@ -52,13 +52,20 @@ function LatestWithPaginationSection({
           )}
           <Grid container direction="row">
             {spgTilesContent.map((tile) => (
-              <Grid xs={12} sm={6} md={3} key={tile.node.id}>
+              <Grid
+                key={tile.node.id}
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3,
+                }}
+              >
                 <TileSgpListing {...mapTileSgpListingToProps(tile)} />
               </Grid>
             ))}
           </Grid>
           {numPages > 1 && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <Pagination
                 sx={{
                   display: 'flex',
@@ -127,7 +134,7 @@ function LatestWithPaginationSection({
             </Grid>
           )}
           {footer && (
-            <Grid xs={12}>
+            <Grid size={12}>
               <StructuredSectionFooter
                 footer={footer}
                 footerColor={footerColor}

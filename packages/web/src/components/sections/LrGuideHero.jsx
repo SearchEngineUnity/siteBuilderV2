@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Video from '../portableText/insertable/Video';
@@ -86,7 +86,12 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
           alignItems="center"
           spacing={{ xs: 2, sm: 3 }}
         >
-          <Grid md={6} xs={12}>
+          <Grid
+            size={{
+              md: 6,
+              xs: 12,
+            }}
+          >
             <Typography variant="h1">{h1}</Typography>
             {subtitle && <Subtitle blocks={subtitle} />}
             {lastUpdatedDate && (
@@ -100,7 +105,12 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
               </Box>
             )}
           </Grid>
-          <Grid md={6} xs={12}>
+          <Grid
+            size={{
+              md: 6,
+              xs: 12,
+            }}
+          >
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               {Feature && values ? <Feature {...values} /> : <ErrorImage />}
             </Box>

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import { Typography, Box } from '@mui/material';
 import ItemText from '../../serializer/NoIndentSerializer';
 
@@ -22,10 +22,27 @@ function ProductInfoList({ infoList }) {
               },
             }}
           >
-            <Grid xs={4} sm={5} md={4} lg={4} sx={{ mb: 1.5 }}>
+            <Grid
+              sx={{ mb: 1.5 }}
+              size={{
+                xs: 4,
+                sm: 5,
+                md: 4,
+                lg: 4,
+              }}
+            >
               <Typography variant="body1">{item.label}:</Typography>
             </Grid>
-            <Grid xs={8} sm={7} md={8} lg={8} sx={{ mb: 1.5 }} className="product-card__info-item">
+            <Grid
+              sx={{ mb: 1.5 }}
+              className="product-card__info-item"
+              size={{
+                xs: 8,
+                sm: 7,
+                md: 8,
+                lg: 8,
+              }}
+            >
               <ItemText blocks={item.text} />
             </Grid>
           </Grid>
