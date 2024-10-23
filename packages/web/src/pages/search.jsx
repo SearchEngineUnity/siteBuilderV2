@@ -42,7 +42,13 @@ function Search() {
           },
         }}
       >
-        <Typography variant="h1" textAlign="center" sx={{ paddingBottom: '1em' }}>
+        <Typography
+          variant="h1"
+          sx={{
+            textAlign: 'center',
+            paddingBottom: '1em',
+          }}
+        >
           Search
         </Typography>
         <InstantSearch searchClient={searchClient} indexName="pro_SGP">

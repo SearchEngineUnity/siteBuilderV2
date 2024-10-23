@@ -100,7 +100,12 @@ const StackGuideHeroWithRef = forwardRef(function StackGuideHero(
               isSGP
             />
           )}
-          <Typography variant="h1" textAlign="center">
+          <Typography
+            variant="h1"
+            sx={{
+              textAlign: 'center',
+            }}
+          >
             {h1}
           </Typography>
 

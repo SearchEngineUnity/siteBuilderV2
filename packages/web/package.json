@@ -12,6 +12,7 @@
     "gatsby"
   ],
   "scripts": {
+    "pw:test": "npx playwright test",
     "pw:screenshot": "npx playwright test --update-snapshots",
     "test": "jest --watch",
     "develop": "gatsby develop",

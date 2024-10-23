@@ -45,7 +45,13 @@ function ProductCardTopeCommerce(props) {
       <Box
         sx={{ m: 3, display: { xl: 'none', lg: 'none', md: 'block', sm: 'block', xs: 'block' } }}
       >
-        <Grid container spacing={2} alignItems="center">
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            alignItems: 'center',
+          }}
+        >
           <Grid
             size={{
               xs: 12,
