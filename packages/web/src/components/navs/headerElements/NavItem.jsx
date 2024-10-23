@@ -15,7 +15,14 @@ function NavItem({ url, title, isButton }) {
         disableRipple
         sx={{ padding: '12px 24px', borderRadius: '4px', display: { xs: 'none', sm: 'block' } }}
       >
-        <Typography component="span" fontWeight={900} lineHeight="normal" sx={{ fontSize: '16px' }}>
+        <Typography
+          component="span"
+          sx={{
+            fontWeight: 900,
+            lineHeight: 'normal',
+            fontSize: '16px',
+          }}
+        >
           {title}
         </Typography>
       </Button>

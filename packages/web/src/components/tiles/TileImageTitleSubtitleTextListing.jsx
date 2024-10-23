@@ -18,7 +18,14 @@ function TileImageTitleSubtitleTextListing({ image, alt, title, text, subtitle }
           <GatsbyImage image={image} alt={alt || ''} style={{ width: '100%', height: '100%' }} />
         </Box>
         <Box sx={{ paddingLeft: { md: 3, sm: 0 } }}>
-          <Typography gutterBottom variant="h3" component="p" fontWeight={900}>
+          <Typography
+            gutterBottom
+            variant="h3"
+            component="p"
+            sx={{
+              fontWeight: 900,
+            }}
+          >
             {title}
           </Typography>
           <Typography

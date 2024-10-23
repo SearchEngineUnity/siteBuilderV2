@@ -39,9 +39,11 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
             gutterBottom
             variant="body1"
             component="p"
-            fontWeight={900}
-            lineHeight="normal"
-            textAlign="right"
+            sx={{
+              fontWeight: 900,
+              lineHeight: 'normal',
+              textAlign: 'right',
+            }}
           >
             {name}
           </Typography>
@@ -50,9 +52,11 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
           <Typography
             variant="body1"
             component="p"
-            fontWeight={400}
-            lineHeight="normal"
-            textAlign="right"
+            sx={{
+              fontWeight: 400,
+              lineHeight: 'normal',
+              textAlign: 'right',
+            }}
           >
             {role}
           </Typography>
@@ -73,9 +77,11 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
           <Typography
             variant="body1"
             component="p"
-            fontWeight={400}
-            lineHeight="normal"
-            textAlign="right"
+            sx={{
+              fontWeight: 400,
+              lineHeight: 'normal',
+              textAlign: 'right',
+            }}
           >
             {company}
           </Typography>
@@ -89,8 +95,11 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
         <Typography
           variant="body1"
           component="p"
-          fontWeight={200}
-          sx={{ pt: 2, fontStyle: 'italic' }}
+          sx={{
+            fontWeight: 200,
+            pt: 2,
+            fontStyle: 'italic',
+          }}
         >
           {text}
         </Typography>
@@ -105,14 +114,23 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
               gutterBottom
               variant="body1"
               component="p"
-              fontWeight={900}
-              lineHeight="normal"
+              sx={{
+                fontWeight: 900,
+                lineHeight: 'normal',
+              }}
             >
               {name}
             </Typography>
           )}
           {role && (
-            <Typography variant="body1" component="p" fontWeight={400} lineHeight="normal">
+            <Typography
+              variant="body1"
+              component="p"
+              sx={{
+                fontWeight: 400,
+                lineHeight: 'normal',
+              }}
+            >
               {role}
             </Typography>
           )}
@@ -128,7 +146,14 @@ function CompanyTestimonial({ image, alt, name, text, role, company }) {
           )}
 
           {company && (
-            <Typography variant="body1" component="p" fontWeight={400} lineHeight="normal">
+            <Typography
+              variant="body1"
+              component="p"
+              sx={{
+                fontWeight: 400,
+                lineHeight: 'normal',
+              }}
+            >
               {company}
             </Typography>
           )}

@@ -107,8 +107,8 @@ function VideoHero({
           {heading && (
             <Box
               component="h1"
-              textAlign={headingAlignment}
               sx={{
+                textAlign: headingAlignment,
                 color: headingColor,
                 fontSize: { xl: '48px', md: '36px', xs: '24px' },
                 lineHeight: 'normal',

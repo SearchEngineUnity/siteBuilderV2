@@ -18,10 +18,12 @@ function ProductGrid({ id, pageJumpText, tiles, design }) {
       id={id}
       container
       spacing={2}
-      justifyContent="center"
-      alignItems="stretch"
       component="div"
       className="product-grid"
+      sx={{
+        justifyContent: 'center',
+        alignItems: 'stretch',
+      }}
     >
       {tiles &&
         tiles.map((tile, index) => {

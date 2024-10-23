@@ -83,24 +83,28 @@ function TileFeaturedSgpListing({ image, tag, title, slug, hasVideo, isFirst }) 
         >
           <Typography
             variant="h4"
-            fontWeight="fontWeightBold"
             component="div"
-            sx={(theme) => ({
-              lineHeight: 1.2,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: { xs: isFirst ? 'unset' : 3, sm: 'unset' },
-              WebkitBoxOrient: 'vertical',
-              color: theme.palette.text.primary,
-              '@media (min-width: 600px) and (max-width: 959px)': {
-                fontSize: isFirst && '32px',
+            sx={[
+              {
+                fontWeight: 'fontWeightBold',
               },
-              '@media (max-width: 599px)': {
-                fontSize: isFirst ? '24px' : '1.125rem',
-                height: isFirst ? 'auto' : 1.125 * 16 * 1.2 * 3,
-              },
-            })}
+              (theme) => ({
+                lineHeight: 1.2,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                display: '-webkit-box',
+                WebkitLineClamp: { xs: isFirst ? 'unset' : 3, sm: 'unset' },
+                WebkitBoxOrient: 'vertical',
+                color: theme.palette.text.primary,
+                '@media (min-width: 600px) and (max-width: 959px)': {
+                  fontSize: isFirst && '32px',
+                },
+                '@media (max-width: 599px)': {
+                  fontSize: isFirst ? '24px' : '1.125rem',
+                  height: isFirst ? 'auto' : 1.125 * 16 * 1.2 * 3,
+                },
+              }),
+            ]}
           >
             {title}
           </Typography>

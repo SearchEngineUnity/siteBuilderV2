@@ -26,7 +26,7 @@ test('listing page first page test at different widths', async ({ page }) => {
   }
 });
 
-test('listing page first page test at different widths', async ({ page }) => {
+test('listing page second page test at different widths', async ({ page }) => {
   await page.goto('http://localhost:8000/buying-online/2');
 
   for (const size of screenWidths) {
@@ -42,7 +42,7 @@ test('listing page first page test at different widths', async ({ page }) => {
   }
 });
 
-test('listing page first page test at different widths', async ({ page }) => {
+test('listing page last page test at different widths', async ({ page }) => {
   await page.goto('http://localhost:8000/buying-online/4');
 
   for (const size of screenWidths) {

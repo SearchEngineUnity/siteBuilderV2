@@ -7,8 +7,10 @@ function StructuredSectionFooter({ footer, footerColor, align, hasSectionFooter 
     return (
       <Box
         component={hasSectionFooter ? 'div' : 'footer'}
-        color={footerColor}
-        sx={{ textAlign: align }}
+        sx={{
+          color: footerColor,
+          textAlign: align,
+        }}
       >
         <Footer blocks={footer} />
       </Box>
