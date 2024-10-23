@@ -82,9 +82,11 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
         <Grid
           container
           direction="row"
-          justifyContent="center"
-          alignItems="center"
           spacing={{ xs: 2, sm: 3 }}
+          sx={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
           <Grid
             size={{
@@ -95,12 +97,22 @@ const LrGuideHeroWithRef = forwardRef(function LrGuideHero(
             <Typography variant="h1">{h1}</Typography>
             {subtitle && <Subtitle blocks={subtitle} />}
             {lastUpdatedDate && (
-              <Typography variant="body1" component="p" mt={1}>
+              <Typography
+                variant="body1"
+                component="p"
+                sx={{
+                  mt: 1,
+                }}
+              >
                 Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
               </Typography>
             )}
             {includeDisclaimer && disclaimerText && (
-              <Box mt={6}>
+              <Box
+                sx={{
+                  mt: 6,
+                }}
+              >
                 <Disclaimer blocks={disclaimerText} />
               </Box>
             )}

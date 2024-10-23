@@ -53,9 +53,11 @@ function LrFlexHero({
       <SectionInnerWrapper designSettings={designSettings}>
         <Grid
           container
-          justifyContent="center"
-          alignItems={blockAlignment}
           spacing={{ xs: 2, sm: 3 }}
+          sx={{
+            justifyContent: 'center',
+            alignItems: blockAlignment,
+          }}
         >
           {(heading || subheading || subtitle) && (
             <Grid size={12}>

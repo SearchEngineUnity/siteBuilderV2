@@ -48,7 +48,14 @@ function StackHero({
   return (
     <SectionOuterWrapper idTag={idTag} designSettings={designSettings} isHero>
       <SectionInnerWrapper designSettings={designSettings}>
-        <Grid container alignItems="center" spacing={{ xs: 2, sm: 3 }} direction="column">
+        <Grid
+          container
+          spacing={{ xs: 2, sm: 3 }}
+          direction="column"
+          sx={{
+            alignItems: 'center',
+          }}
+        >
           {(heading || subheading || subtitle) && (
             <Grid size={12}>
               <HeroSectionHeader

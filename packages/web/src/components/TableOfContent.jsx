@@ -31,8 +31,10 @@ function TableOfContent({ toc }) {
               component="li"
               key={item._key}
               variant="body2"
-              lineHeight={1.4}
-              sx={{ mb: 1.5 }}
+              sx={{
+                lineHeight: 1.4,
+                mb: 1.5,
+              }}
             >
               <Link
                 sx={[

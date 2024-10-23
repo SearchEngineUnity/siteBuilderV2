@@ -72,16 +72,26 @@ function AToZPage({ data }) {
   return (
     <Layout data={data.page} type={type}>
       <Container maxWidth="lg" component="main" sx={{ marginBottom: '80px' }}>
-        <Typography variant="h1" textAlign="center" gutterBottom>
+        <Typography
+          variant="h1"
+          gutterBottom
+          sx={{
+            textAlign: 'center',
+          }}
+        >
           {h1}
         </Typography>
         {subtitle && (
           <Typography
             variant="h4"
             component="p"
-            textAlign="center"
             gutterBottom
-            sx={{ maxWidth: '917px', mx: 'auto', fontWeight: 'fontWeightRegular' }}
+            sx={{
+              textAlign: 'center',
+              maxWidth: '917px',
+              mx: 'auto',
+              fontWeight: 'fontWeightRegular',
+            }}
           >
             {subtitle}
           </Typography>

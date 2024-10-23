@@ -104,8 +104,8 @@ const MainColumnGuideHeroWithRef = forwardRef(function MainColumnGuideHero(
               {lastUpdatedDate && (
                 <Box
                   component="span"
-                  color="text.secondary"
                   sx={{
+                    color: 'text.secondary',
                     display: { xs: 'block', sm: 'inline-block' },
                     fontWeight: 'fontWeightRegular',
                   }}

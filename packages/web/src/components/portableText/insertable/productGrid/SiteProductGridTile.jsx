@@ -49,7 +49,13 @@ export default function SiteProductGridTile({ pageJumpText, tile, tilePosition }
           order: 1,
         }}
         title={
-          <Typography variant="h4" component="p" fontWeight="fontWeightBold">
+          <Typography
+            variant="h4"
+            component="p"
+            sx={{
+              fontWeight: 'fontWeightBold',
+            }}
+          >
             {specialTagText}
           </Typography>
         }

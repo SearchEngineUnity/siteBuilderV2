@@ -6,7 +6,13 @@ import AToZButton from './AToZButton';
 function AToZNav({ alphabet, firstLetterArrayFromList, instruction }) {
   return (
     <Box sx={{ my: '36px' }}>
-      <Typography variant="body1" textAlign="center" gutterBottom>
+      <Typography
+        variant="body1"
+        gutterBottom
+        sx={{
+          textAlign: 'center',
+        }}
+      >
         {instruction}
       </Typography>
       <Box

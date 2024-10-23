@@ -78,25 +78,29 @@ function TileSgpListing({ image, tag, title, slug, hasVideo }) {
         >
           <Typography
             variant="h5"
-            fontWeight="fontWeightBold"
             component="div"
-            sx={(theme) => ({
-              color: theme.palette.text.primary,
-              lineHeight: 1.2,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: { xs: 3, sm: 'unset' },
-              WebkitBoxOrient: 'vertical',
-              height: {
-                sm: 'auto',
-                xs:
-                  parseFloat(theme.typography.h5.fontSize) *
-                  parseFloat(theme.typography.htmlFontSize) *
-                  1.2 *
-                  3,
+            sx={[
+              {
+                fontWeight: 'fontWeightBold',
               },
-            })}
+              (theme) => ({
+                color: theme.palette.text.primary,
+                lineHeight: 1.2,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                display: '-webkit-box',
+                WebkitLineClamp: { xs: 3, sm: 'unset' },
+                WebkitBoxOrient: 'vertical',
+                height: {
+                  sm: 'auto',
+                  xs:
+                    parseFloat(theme.typography.h5.fontSize) *
+                    parseFloat(theme.typography.htmlFontSize) *
+                    1.2 *
+                    3,
+                },
+              }),
+            ]}
           >
             {title}
           </Typography>

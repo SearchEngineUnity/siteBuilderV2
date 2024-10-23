@@ -51,8 +51,8 @@ function TestimonialSlider({ testimonialList }) {
         </IconButton>
         <Box sx={{ width: '100%', height: '100%' }}>
           {/* this is the box that holds the cards and the slide animation,
-    in this implementation the card is already constructed but in later versions you will see how the
-    items you wish to use will be dynamically created with the map method */}
+  in this implementation the card is already constructed but in later versions you will see how the
+  items you wish to use will be dynamically created with the map method */}
           {testimonialList.map((card, index) => (
             <Box
               // need to update key info
@@ -68,9 +68,12 @@ function TestimonialSlider({ testimonialList }) {
                 <Stack
                   spacing={2}
                   direction="row"
-                  alignContent="center"
-                  justifyContent="center"
-                  sx={{ width: '100%', height: '100%' }}
+                  sx={{
+                    alignContent: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    height: '100%',
+                  }}
                 >
                   {/* this slices the cards array to only display the amount you have previously determined per page */}
                   {testimonialList

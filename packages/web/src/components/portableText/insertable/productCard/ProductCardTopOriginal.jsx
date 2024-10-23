@@ -39,7 +39,13 @@ function ProductCardTopOriginal({ name, headingLevel, rating, image, infoList, b
 
   return (
     <Box sx={{ m: 3, display: { xl: 'block', lg: 'block', md: 'none', sm: 'none', xs: 'none' } }}>
-      <Grid container spacing={2} alignItems="center">
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          alignItems: 'center',
+        }}
+      >
         <Grid
           size={{
             xs: 12,
