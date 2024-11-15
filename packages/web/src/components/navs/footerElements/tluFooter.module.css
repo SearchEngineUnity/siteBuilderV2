@@ -1,0 +1,44 @@
+.footer {
+  overflow: hidden;
+}
+
+.footer_top {
+  background-color: #EBEBEB;
+  font-family: Figtree, Roboto, Helvetica, Arial, sans-serif;
+  color: #1B1B1B;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.menu_heading {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  border-bottom: 1.5px solid #186E9C;
+  padding: 0 0 10px 0;
+  margin: 0;
+}
+
+.contact {
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 24px 0;
+}
+
+.footer_menu {
+  list-style-type: none;
+  padding-left: 0px;
+  margin: 24px 0 0 0;
+}
+
+.footer_bottom {
+  background-color: #C2C2C2;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 0;
+  padding: 20px 0;
+}
