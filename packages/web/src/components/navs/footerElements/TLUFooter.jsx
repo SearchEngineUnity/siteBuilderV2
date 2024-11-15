@@ -1,22 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
 import { Link } from 'gatsby-theme-material-ui';
 import MuiLink from '@mui/material/Link';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { styled } from '@mui/material/styles';
 import { StaticImage } from 'gatsby-plugin-image';
-
-const MenuHeading = styled(Box)({
-  fontWeight: 600,
-  fontSize: '18px',
-  lineHeight: '26px',
-  borderBottom: `1.5px solid #186E9C`,
-  padding: '0 0 10px 0',
-  margin: '0',
-});
+import * as styles from './tluFooter.module.css';
 
 const MenuLink = styled(Link)({
   textDecoration: 'none',
@@ -50,15 +41,8 @@ const MenuMuiLink = styled(MuiLink)({
 
 function TLUFooter() {
   return (
-    <Box component="footer" sx={{ overflow: 'hidden' }}>
-      <Box
-        sx={{
-          backgroundColor: '#EBEBEB',
-          fontFamily: 'Figtree, Roboto, Helvetica, Arial, sans-serif',
-          color: '#1B1B1B',
-          paddingY: '24px',
-        }}
-      >
+    <footer className={styles.footer}>
+      <div className={styles.footer_top}>
         <Container maxWidth="lg" component="nav" role="menubar">
           <Grid container spacing="40px">
             <Grid
@@ -68,18 +52,8 @@ function TLUFooter() {
                 lg: 6,
               }}
             >
-              <MenuHeading component="p">Get In Touch</MenuHeading>
-              <Box
-                component="p"
-                sx={{
-                  textDecoration: 'none',
-                  fontWeight: 500,
-                  display: 'flex',
-                  fontSize: '18px',
-                  lineHeight: '24px',
-                  margin: '24px 0',
-                }}
-              >
+              <p className={styles.menu_heading}>Get In Touch</p>
+              <p className={styles.contact}>
                 <MailOutlineIcon
                   sx={{
                     mr: '8px',
@@ -93,7 +67,7 @@ function TLUFooter() {
                 <MenuLink href="mailto:contact@techlifeunity.com" role="menuitem">
                   contact@techlifeunity.com
                 </MenuLink>
-              </Box>
+              </p>
               <Grid container spacing="40px" role="group">
                 <Grid>
                   <a
@@ -113,7 +87,7 @@ function TLUFooter() {
                 </Grid>
                 <Grid>
                   <a
-                    href="https://www.facebook.com/TechLifeUnityFB"
+                    href="https://www.facebook.com/TechLifeUnity"
                     target="_blank"
                     rel="noopener noreferrer"
                     role="menuitem"
@@ -169,12 +143,8 @@ function TLUFooter() {
                 lg: 3,
               }}
             >
-              <MenuHeading component="p">Work With Us</MenuHeading>
-              <Box
-                role="menu"
-                component="ul"
-                sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
-              >
+              <p className={styles.menu_heading}>Work With Us</p>
+              <ul role="menu" className={styles.footer_menu}>
                 <li role="none">
                   <MenuLink to="/about-us" role="menuitem">
                     About Us
@@ -195,7 +165,7 @@ function TLUFooter() {
                     Contact Us
                   </MenuLink>
                 </li>
-              </Box>
+              </ul>
             </Grid>
             <Grid
               size={{
@@ -205,12 +175,8 @@ function TLUFooter() {
                 lg: 3,
               }}
             >
-              <MenuHeading component="p">Our Guides</MenuHeading>
-              <Box
-                role="menu"
-                component="ul"
-                sx={{ listStyleType: 'none', paddingLeft: 0, margin: '24px 0 0 0' }}
-              >
+              <p className={styles.menu_heading}>Our Guides</p>
+              <ul role="menu" className={styles.footer_menu}>
                 <li role="none">
                   <MenuLink to="/a-to-z-topics" role="menuitem">
                     A to Z Topics
@@ -244,21 +210,12 @@ function TLUFooter() {
                     Cookie Policy
                   </MenuMuiLink>
                 </li>
-              </Box>
+              </ul>
             </Grid>
           </Grid>
         </Container>
-      </Box>
-      <Box
-        sx={{
-          backgroundColor: '#C2C2C2',
-          textAlign: 'left',
-          fontSize: '13px',
-          fontWeight: 300,
-          lineHeight: 0,
-          padding: '20px 0',
-        }}
-      >
+      </div>
+      <div className={styles.footer_bottom}>
         <Container
           maxWidth="lg"
           component="nav"
@@ -286,8 +243,8 @@ function TLUFooter() {
             &nbsp; - Copyright {new Date().getFullYear()} Tech Life Unity
           </p>
         </Container>
-      </Box>
-    </Box>
+      </div>
+    </footer>
   );
 }
 export default TLUFooter;
